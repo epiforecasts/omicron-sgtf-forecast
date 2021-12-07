@@ -388,16 +388,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomkathsherrattomicronsgtfforecasttree37e28c2031544d7efa3e9a237ca3130900385398targetblank37e28c2a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/kathsherratt/omicron-sgtf-forecast/tree/37e28c2031544d7efa3e9a237ca3130900385398" target="_blank">37e28c2</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomkathsherrattomicronsgtfforecasttree4840ec78a7a3c537f9cdb2ff24e46e216073f0bbtargetblank4840ec7a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/kathsherratt/omicron-sgtf-forecast/tree/4840ec78a7a3c537f9cdb2ff24e46e216073f0bb" target="_blank">4840ec7</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomkathsherrattomicronsgtfforecasttree37e28c2031544d7efa3e9a237ca3130900385398targetblank37e28c2a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomkathsherrattomicronsgtfforecasttree4840ec78a7a3c537f9cdb2ff24e46e216073f0bbtargetblank4840ec7a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/kathsherratt/omicron-sgtf-forecast/tree/37e28c2031544d7efa3e9a237ca3130900385398" target="_blank">37e28c2</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/kathsherratt/omicron-sgtf-forecast/tree/4840ec78a7a3c537f9cdb2ff24e46e216073f0bb" target="_blank">4840ec7</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -448,6 +448,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/kathsherratt/omicron-sgtf-forecast/blob/4840ec78a7a3c537f9cdb2ff24e46e216073f0bb/analysis/index.Rmd" target="_blank">4840ec7</a>
+</td>
+<td>
+kathsherratt
+</td>
+<td>
+2021-12-07
+</td>
+<td>
+update
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/kathsherratt/omicron-sgtf-forecast/4840ec78a7a3c537f9cdb2ff24e46e216073f0bb/docs/index.html" target="_blank">4840ec7</a>
+</td>
+<td>
+kathsherratt
+</td>
+<td>
+2021-12-07
+</td>
+<td>
+update
+</td>
+</tr>
 <tr>
 <td>
 html
@@ -545,7 +579,7 @@ obs &lt;- data.table::data.table(obs)</code></pre>
 </ol>
 <pre class="r"><code># Prior for the growth rate modification of the VOC compared to the original.
 #   On the log scale.
-voc_scale &lt;- c(0.4, 0.2)
+voc_scale &lt;- c(0.5, 0.25)
 
 # Relationship between primary variant and VOC; scaled = fixed relationship.
 variant_relationship &lt;- &quot;scaled&quot;
@@ -566,7 +600,7 @@ overdispersion &lt;- TRUE
 horizon &lt;- 4
 probs &lt;- c(0.05, 0.2, 0.8, 0.95)</code></pre>
 <ol start="3" style="list-style-type: decimal">
-<li>Forecast with 2 strain model over 4 weeks horizon. Uses a scaled relationship between variants with the prior for the VOC growth rate mean 0.4 (SD 0.2).</li>
+<li>Forecast with 2 strain model over 4 weeks horizon. Uses a scaled relationship between variants with the prior for the VOC growth rate mean 0.5 (SD 0.25).</li>
 </ol>
 <pre class="r"><code>forecasts &lt;- forecast(obs,
                       # any options above not specified here are package defaults
@@ -585,104 +619,101 @@ Chain 3 Iteration:    1 / 2000 [  0%]  (Warmup)
 Chain 4 Iteration:    1 / 2000 [  0%]  (Warmup) 
 Chain 1 Iteration:  100 / 2000 [  5%]  (Warmup) 
 Chain 1 Iteration:  200 / 2000 [ 10%]  (Warmup) 
-Chain 1 Iteration:  300 / 2000 [ 15%]  (Warmup) 
-Chain 1 Iteration:  400 / 2000 [ 20%]  (Warmup) 
-Chain 1 Iteration:  500 / 2000 [ 25%]  (Warmup) 
 Chain 2 Iteration:  100 / 2000 [  5%]  (Warmup) 
+Chain 1 Iteration:  300 / 2000 [ 15%]  (Warmup) 
+Chain 2 Iteration:  200 / 2000 [ 10%]  (Warmup) 
+Chain 1 Iteration:  400 / 2000 [ 20%]  (Warmup) 
+Chain 2 Iteration:  300 / 2000 [ 15%]  (Warmup) 
+Chain 1 Iteration:  500 / 2000 [ 25%]  (Warmup) 
+Chain 2 Iteration:  400 / 2000 [ 20%]  (Warmup) 
 Chain 1 Iteration:  600 / 2000 [ 30%]  (Warmup) 
 Chain 1 Iteration:  700 / 2000 [ 35%]  (Warmup) 
 Chain 1 Iteration:  800 / 2000 [ 40%]  (Warmup) 
-Chain 2 Iteration:  200 / 2000 [ 10%]  (Warmup) 
-Chain 1 Iteration:  900 / 2000 [ 45%]  (Warmup) 
-Chain 2 Iteration:  300 / 2000 [ 15%]  (Warmup) 
-Chain 1 Iteration: 1000 / 2000 [ 50%]  (Warmup) 
-Chain 1 Iteration: 1001 / 2000 [ 50%]  (Sampling) 
-Chain 1 Exception: neg_binomial_2_rng: Random number that came from gamma distribution is 4.34927e+09, but must be less than 1073741824.000000 (in &#39;C:/Users/kaths/AppData/Local/Temp/RtmpYJq6fm/model-4c2c76c523fa.stan&#39;, line 186, column 6 to column 73) 
-Chain 1 Exception: neg_binomial_2_rng: Random number that came from gamma distribution is 3.74964e+09, but must be less than 1073741824.000000 (in &#39;C:/Users/kaths/AppData/Local/Temp/RtmpYJq6fm/model-4c2c76c523fa.stan&#39;, line 186, column 6 to column 73) 
-Chain 2 Iteration:  400 / 2000 [ 20%]  (Warmup) 
-Chain 3 Iteration:  100 / 2000 [  5%]  (Warmup) 
-Chain 4 Iteration:  100 / 2000 [  5%]  (Warmup) 
-Chain 1 Iteration: 1100 / 2000 [ 55%]  (Sampling) 
-Chain 1 Iteration: 1200 / 2000 [ 60%]  (Sampling) 
 Chain 2 Iteration:  500 / 2000 [ 25%]  (Warmup) 
+Chain 1 Iteration:  900 / 2000 [ 45%]  (Warmup) 
 Chain 2 Iteration:  600 / 2000 [ 30%]  (Warmup) 
+Chain 1 Iteration: 1000 / 2000 [ 50%]  (Warmup) 
 Chain 2 Iteration:  700 / 2000 [ 35%]  (Warmup) 
-Chain 3 Iteration:  200 / 2000 [ 10%]  (Warmup) 
-Chain 3 Iteration:  300 / 2000 [ 15%]  (Warmup) 
-Chain 4 Iteration:  200 / 2000 [ 10%]  (Warmup) 
-Chain 4 Iteration:  300 / 2000 [ 15%]  (Warmup) 
-Chain 4 Iteration:  400 / 2000 [ 20%]  (Warmup) 
-Chain 1 Iteration: 1300 / 2000 [ 65%]  (Sampling) 
-Chain 1 Iteration: 1400 / 2000 [ 70%]  (Sampling) 
+Chain 1 Iteration: 1001 / 2000 [ 50%]  (Sampling) 
+Chain 1 Exception: neg_binomial_2_rng: Random number that came from gamma distribution is 2.23954e+09, but must be less than 1073741824.000000 (in &#39;C:/Users/kaths/AppData/Local/Temp/RtmpYJq6fm/model-4c2c76c523fa.stan&#39;, line 186, column 6 to column 73) 
 Chain 2 Iteration:  800 / 2000 [ 40%]  (Warmup) 
+Chain 3 Iteration:  100 / 2000 [  5%]  (Warmup) 
+Chain 1 Iteration: 1100 / 2000 [ 55%]  (Sampling) 
 Chain 2 Iteration:  900 / 2000 [ 45%]  (Warmup) 
-Chain 3 Iteration:  400 / 2000 [ 20%]  (Warmup) 
-Chain 4 Iteration:  500 / 2000 [ 25%]  (Warmup) 
-Chain 4 Iteration:  600 / 2000 [ 30%]  (Warmup) 
-Chain 1 Iteration: 1500 / 2000 [ 75%]  (Sampling) 
-Chain 1 Iteration: 1600 / 2000 [ 80%]  (Sampling) 
+Chain 3 Iteration:  200 / 2000 [ 10%]  (Warmup) 
+Chain 1 Iteration: 1200 / 2000 [ 60%]  (Sampling) 
 Chain 2 Iteration: 1000 / 2000 [ 50%]  (Warmup) 
 Chain 2 Iteration: 1001 / 2000 [ 50%]  (Sampling) 
-Chain 4 Iteration:  700 / 2000 [ 35%]  (Warmup) 
-Chain 4 Iteration:  800 / 2000 [ 40%]  (Warmup) 
-Chain 1 Iteration: 1700 / 2000 [ 85%]  (Sampling) 
-Chain 1 Exception: neg_binomial_2_rng: Random number that came from gamma distribution is 2.97703e+09, but must be less than 1073741824.000000 (in &#39;C:/Users/kaths/AppData/Local/Temp/RtmpYJq6fm/model-4c2c76c523fa.stan&#39;, line 186, column 6 to column 73) 
-Chain 1 Iteration: 1800 / 2000 [ 90%]  (Sampling) 
-Chain 1 Exception: neg_binomial_2_rng: Random number that came from gamma distribution is 5.55939e+09, but must be less than 1073741824.000000 (in &#39;C:/Users/kaths/AppData/Local/Temp/RtmpYJq6fm/model-4c2c76c523fa.stan&#39;, line 186, column 6 to column 73) 
 Chain 2 Iteration: 1100 / 2000 [ 55%]  (Sampling) 
-Chain 3 Iteration:  500 / 2000 [ 25%]  (Warmup) 
-Chain 4 Iteration:  900 / 2000 [ 45%]  (Warmup) 
-Chain 4 Iteration: 1000 / 2000 [ 50%]  (Warmup) 
-Chain 4 Iteration: 1001 / 2000 [ 50%]  (Sampling) 
-Chain 1 Iteration: 1900 / 2000 [ 95%]  (Sampling) 
-Chain 1 Iteration: 2000 / 2000 [100%]  (Sampling) 
+Chain 3 Iteration:  300 / 2000 [ 15%]  (Warmup) 
+Chain 4 Iteration:  100 / 2000 [  5%]  (Warmup) 
+Chain 1 Iteration: 1300 / 2000 [ 65%]  (Sampling) 
 Chain 2 Iteration: 1200 / 2000 [ 60%]  (Sampling) 
+Chain 3 Iteration:  400 / 2000 [ 20%]  (Warmup) 
+Chain 3 Iteration:  500 / 2000 [ 25%]  (Warmup) 
+Chain 1 Exception: neg_binomial_2_rng: Random number that came from gamma distribution is 1.59242e+09, but must be less than 1073741824.000000 (in &#39;C:/Users/kaths/AppData/Local/Temp/RtmpYJq6fm/model-4c2c76c523fa.stan&#39;, line 186, column 6 to column 73) 
 Chain 2 Iteration: 1300 / 2000 [ 65%]  (Sampling) 
 Chain 3 Iteration:  600 / 2000 [ 30%]  (Warmup) 
-Chain 3 Iteration:  700 / 2000 [ 35%]  (Warmup) 
-Chain 4 Iteration: 1100 / 2000 [ 55%]  (Sampling) 
-Chain 4 Iteration: 1200 / 2000 [ 60%]  (Sampling) 
-Chain 1 finished in 1.9 seconds.
+Chain 4 Iteration:  200 / 2000 [ 10%]  (Warmup) 
+Chain 1 Iteration: 1400 / 2000 [ 70%]  (Sampling) 
 Chain 2 Iteration: 1400 / 2000 [ 70%]  (Sampling) 
-Chain 3 Iteration:  800 / 2000 [ 40%]  (Warmup) 
-Chain 3 Iteration:  900 / 2000 [ 45%]  (Warmup) 
-Chain 4 Iteration: 1300 / 2000 [ 65%]  (Sampling) 
-Chain 4 Exception: neg_binomial_2_rng: Random number that came from gamma distribution is 2.9315e+09, but must be less than 1073741824.000000 (in &#39;C:/Users/kaths/AppData/Local/Temp/RtmpYJq6fm/model-4c2c76c523fa.stan&#39;, line 186, column 6 to column 73) 
-Chain 4 Iteration: 1400 / 2000 [ 70%]  (Sampling) 
-Chain 4 Iteration: 1500 / 2000 [ 75%]  (Sampling) 
+Chain 3 Iteration:  700 / 2000 [ 35%]  (Warmup) 
+Chain 4 Iteration:  300 / 2000 [ 15%]  (Warmup) 
+Chain 1 Iteration: 1500 / 2000 [ 75%]  (Sampling) 
 Chain 2 Iteration: 1500 / 2000 [ 75%]  (Sampling) 
-Chain 2 Exception: neg_binomial_2_rng: Random number that came from gamma distribution is 1.55385e+10, but must be less than 1073741824.000000 (in &#39;C:/Users/kaths/AppData/Local/Temp/RtmpYJq6fm/model-4c2c76c523fa.stan&#39;, line 186, column 6 to column 73) 
+Chain 3 Iteration:  800 / 2000 [ 40%]  (Warmup) 
 Chain 2 Iteration: 1600 / 2000 [ 80%]  (Sampling) 
+Chain 3 Iteration:  900 / 2000 [ 45%]  (Warmup) 
+Chain 4 Iteration:  400 / 2000 [ 20%]  (Warmup) 
+Chain 1 Iteration: 1600 / 2000 [ 80%]  (Sampling) 
 Chain 3 Iteration: 1000 / 2000 [ 50%]  (Warmup) 
 Chain 3 Iteration: 1001 / 2000 [ 50%]  (Sampling) 
-Chain 3 Iteration: 1100 / 2000 [ 55%]  (Sampling) 
-Chain 4 Iteration: 1600 / 2000 [ 80%]  (Sampling) 
-Chain 4 Iteration: 1700 / 2000 [ 85%]  (Sampling) 
-Chain 2 Exception: neg_binomial_2_rng: Random number that came from gamma distribution is 1.35911e+09, but must be less than 1073741824.000000 (in &#39;C:/Users/kaths/AppData/Local/Temp/RtmpYJq6fm/model-4c2c76c523fa.stan&#39;, line 186, column 6 to column 73) 
 Chain 2 Iteration: 1700 / 2000 [ 85%]  (Sampling) 
-Chain 3 Iteration: 1200 / 2000 [ 60%]  (Sampling) 
-Chain 4 Iteration: 1800 / 2000 [ 90%]  (Sampling) 
-Chain 4 Iteration: 1900 / 2000 [ 95%]  (Sampling) 
+Chain 4 Iteration:  500 / 2000 [ 25%]  (Warmup) 
 Chain 2 Iteration: 1800 / 2000 [ 90%]  (Sampling) 
+Chain 3 Iteration: 1100 / 2000 [ 55%]  (Sampling) 
+Chain 4 Iteration:  600 / 2000 [ 30%]  (Warmup) 
+Chain 1 Iteration: 1700 / 2000 [ 85%]  (Sampling) 
 Chain 2 Iteration: 1900 / 2000 [ 95%]  (Sampling) 
-Chain 3 Iteration: 1300 / 2000 [ 65%]  (Sampling) 
-Chain 3 Iteration: 1400 / 2000 [ 70%]  (Sampling) 
-Chain 4 Iteration: 2000 / 2000 [100%]  (Sampling) 
-Chain 4 finished in 2.2 seconds.
+Chain 4 Iteration:  700 / 2000 [ 35%]  (Warmup) 
+Chain 3 Iteration: 1200 / 2000 [ 60%]  (Sampling) 
+Chain 4 Iteration:  800 / 2000 [ 40%]  (Warmup) 
+Chain 1 Iteration: 1800 / 2000 [ 90%]  (Sampling) 
 Chain 2 Iteration: 2000 / 2000 [100%]  (Sampling) 
-Chain 3 Exception: neg_binomial_2_rng: Random number that came from gamma distribution is 1.07725e+10, but must be less than 1073741824.000000 (in &#39;C:/Users/kaths/AppData/Local/Temp/RtmpYJq6fm/model-4c2c76c523fa.stan&#39;, line 186, column 6 to column 73) 
+Chain 4 Iteration:  900 / 2000 [ 45%]  (Warmup) 
+Chain 2 finished in 4.6 seconds.
+Chain 1 Exception: neg_binomial_2_rng: Random number that came from gamma distribution is 9.27495e+09, but must be less than 1073741824.000000 (in &#39;C:/Users/kaths/AppData/Local/Temp/RtmpYJq6fm/model-4c2c76c523fa.stan&#39;, line 186, column 6 to column 73) 
+Chain 3 Iteration: 1300 / 2000 [ 65%]  (Sampling) 
+Chain 1 Iteration: 1900 / 2000 [ 95%]  (Sampling) 
+Chain 4 Iteration: 1000 / 2000 [ 50%]  (Warmup) 
+Chain 3 Iteration: 1400 / 2000 [ 70%]  (Sampling) 
+Chain 4 Iteration: 1001 / 2000 [ 50%]  (Sampling) 
+Chain 1 Iteration: 2000 / 2000 [100%]  (Sampling) 
 Chain 3 Iteration: 1500 / 2000 [ 75%]  (Sampling) 
-Chain 2 finished in 2.4 seconds.
+Chain 4 Iteration: 1100 / 2000 [ 55%]  (Sampling) 
+Chain 1 finished in 5.2 seconds.
+Chain 4 Iteration: 1200 / 2000 [ 60%]  (Sampling) 
 Chain 3 Iteration: 1600 / 2000 [ 80%]  (Sampling) 
 Chain 3 Iteration: 1700 / 2000 [ 85%]  (Sampling) 
+Chain 4 Iteration: 1300 / 2000 [ 65%]  (Sampling) 
 Chain 3 Iteration: 1800 / 2000 [ 90%]  (Sampling) 
+Chain 3 Exception: neg_binomial_2_rng: Random number that came from gamma distribution is 1.18536e+09, but must be less than 1073741824.000000 (in &#39;C:/Users/kaths/AppData/Local/Temp/RtmpYJq6fm/model-4c2c76c523fa.stan&#39;, line 186, column 6 to column 73) 
+Chain 4 Iteration: 1400 / 2000 [ 70%]  (Sampling) 
 Chain 3 Iteration: 1900 / 2000 [ 95%]  (Sampling) 
+Chain 3 Exception: neg_binomial_2_rng: Random number that came from gamma distribution is 8.65981e+09, but must be less than 1073741824.000000 (in &#39;C:/Users/kaths/AppData/Local/Temp/RtmpYJq6fm/model-4c2c76c523fa.stan&#39;, line 186, column 6 to column 73) 
+Chain 4 Iteration: 1500 / 2000 [ 75%]  (Sampling) 
 Chain 3 Iteration: 2000 / 2000 [100%]  (Sampling) 
-Chain 3 finished in 2.7 seconds.
+Chain 4 Iteration: 1600 / 2000 [ 80%]  (Sampling) 
+Chain 3 finished in 5.8 seconds.
+Chain 4 Iteration: 1700 / 2000 [ 85%]  (Sampling) 
+Chain 4 Iteration: 1800 / 2000 [ 90%]  (Sampling) 
+Chain 4 Iteration: 1900 / 2000 [ 95%]  (Sampling) 
+Chain 4 Iteration: 2000 / 2000 [100%]  (Sampling) 
+Chain 4 finished in 6.4 seconds.
 
 All 4 chains finished successfully.
-Mean chain execution time: 2.3 seconds.
-Total execution time: 2.9 seconds.</code></pre>
+Mean chain execution time: 5.5 seconds.
+Total execution time: 6.7 seconds.</code></pre>
 <p>Inspect forecasts</p>
 <pre class="r"><code>forecasts &lt;- unnest_posterior(forecasts)
 plot_posterior(forecasts, obs)</code></pre>
@@ -726,7 +757,7 @@ attached base packages:
 
 other attached packages:
 [1] forecast.vocs_0.0.7.6000 lubridate_1.8.0          dplyr_1.0.7             
-[4] readr_2.1.0              here_1.0.1               workflowr_1.6.2         
+[4] readr_2.1.0              here_1.0.1              
 
 loaded via a namespace (and not attached):
  [1] matrixStats_0.61.0   fs_1.5.0             bit64_4.0.5         
@@ -759,7 +790,8 @@ loaded via a namespace (and not attached):
 [82] httpuv_1.6.3         gtable_0.3.0         purrr_0.3.4         
 [85] future_1.23.0        assertthat_0.2.1     ggplot2_3.3.5       
 [88] xfun_0.28            later_1.3.0          tibble_3.1.6        
-[91] globals_0.14.0       ellipsis_0.3.2       cmdstanr_0.4.0.9000 </code></pre>
+[91] workflowr_1.6.2      globals_0.14.0       ellipsis_0.3.2      
+[94] cmdstanr_0.4.0.9000 </code></pre>
 </div>
 
 

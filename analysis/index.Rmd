@@ -50,7 +50,7 @@ obs <- data.table::data.table(obs)
 ```{r}
 # Prior for the growth rate modification of the VOC compared to the original.
 #   On the log scale.
-voc_scale <- c(0.4, 0.2)
+voc_scale <- c(0.5, 0.25)
 
 # Relationship between primary variant and VOC; scaled = fixed relationship.
 variant_relationship <- "scaled"
@@ -70,7 +70,6 @@ overdispersion <- TRUE
 # Forecast over 4 weeks and produce standard set of quantiles
 horizon <- 4
 probs <- c(0.05, 0.2, 0.8, 0.95)
-
 ```
 
 3. Forecast with `r strains` strain model over `r horizon` weeks horizon. Uses a `r variant_relationship` relationship between variants with the prior for the VOC growth rate mean `r voc_scale[1]` (SD `r voc_scale[2]`).
