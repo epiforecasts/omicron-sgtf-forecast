@@ -8,4 +8,72 @@ editor_options:
   chunk_output_type: console
 ---
 
-Welcome to my research website.
+Load packages and data:
+```{r}
+library(here)
+library(readr)
+library(dplyr)
+library(forecast.vocs)
+options(mc.cores = 4)
+
+# Load data (private, local)
+data <- read_tsv(here("data", "private", "lh-sgtf.tsv")) %>%
+  rowwise(date) %>%
+  summarise(total = sum(c_across()),
+            positive = sum(c_across(ends_with("pos"))),
+            sgtf = sum(c_across(ends_with("sgtf"))))
+# Format
+# - required variables: 
+#     - numeric: cases, seq_voc, seq_total 
+#     - dates: date, cases_available, seq_available
+obs <- data %>%
+  transmute(date = lubridate::ymd(date),
+            cases = total,
+            cases_available = date,
+            seq_total = total,
+            seq_voc = sgtf,
+            share_voc = sgtf / total, 
+            seq_available = date)
+obs <- data.table::data.table(obs)
+```
+
+Forecast:
+```{r}
+# forecast both one and two strain models for a target date
+#   fits (default) by MCMC sampling - fv_sample()
+#   
+# - forecast_date = defaults to max date
+# - seq_date, case_date = forecast_date
+# - horizon = 4
+# r_init = prior mean and standard deviation for growth rate
+# voc_scale = c(0, 0.2): prior mean & SD for growth rate modifier for VOC
+# voc_label 
+# strains = 2
+# variant_relationship = "pooled" (from data), "scaled" (fixed), "independent"
+# overdispersion = TRUE
+# models = NULL
+# scale_r = 1 timespan scaling for growth rate and reproduction number
+# probs = quantiles to output (default 5, 20, 80, 95%)
+
+forecasts <- forecast(obs,
+                      strains = c(1, 2),
+                      voc_scale = c(0.4, 0.2),
+                      voc_label = "Omicron",
+                      # ? # scale_r = 5.5 / 7,
+                      variant_relationship = "scaled",
+                      overdispersion = TRUE,
+                      #
+                      adapt_delta = 0.99,
+                      max_treedepth = 15)
+
+```
+Inspect forecasts
+
+```{r}
+forecasts <- unnest_posterior(forecasts)
+p_cases <- plot_cases(forecasts) # log = TRUE
+p_voc <- plot_voc(forecasts)
+p_post <- plot_posterior(forecasts, obs)
+
+p_cases
+```
