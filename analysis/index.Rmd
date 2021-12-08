@@ -11,7 +11,7 @@ editor_options:
 knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
 ```
 
-[Model and forecast](docs/forecast.html)
+[Model and forecast](forecast.html)
 
 [RMarkdown](analysis/forecast.Rmd)
 
