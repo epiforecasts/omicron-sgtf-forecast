@@ -1,12 +1,10 @@
 ---
-title: "Home"
-site: workflowr::wflow_site
-output:
-  workflowr::wflow_html:
-    toc: false
-editor_options:
-  chunk_output_type: console
+title: "Forecast"
+output: 
+  html_document:
+    code_folding: hide
 ---
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
 ```
@@ -20,21 +18,45 @@ library(lubridate)
 library(forecast.vocs)
 options(mc.cores = 4)
 
+# data from onedrive
+# https://lshtm-my.sharepoint.com/:x:/r/personal/eidesfun_lshtm_ac_uk/Documents/CovidData/omicron/sgtf_weekly_england.csv?d=w742fedf5d7ca4d1f8d4a6d2d2c39c25a&csf=1&web=1&e=HrYTGC
+
 # Load data (private, local)
-data <- read_tsv(here("data", "private", "lh-sgtf.tsv")) %>%
-  mutate(epidate = ymd(date),
-         epiyear = epiyear(date),
+
+# Daily data for England and Scotland
+england <- read_csv(here("data", "private", "sgtf_weekly_england.csv")) %>%
+  rename(date = date_specimen) %>%
+  mutate(location = "England")
+
+# scotland <- read_tsv(here("data", "private", "lh-sgtf.tsv")) %>%
+#   group_by(date) %>%
+#   summarise(sgtf = sum(c_across(ends_with("sgtf"))),
+#             non_sgtf = sum(c_across(ends_with("pos"))),
+#             location = "Scotland",
+#             .groups = "drop") %>%
+#   left_join(select(england, date, week_ending))
+
+# Join and aggregate to weekly
+if (exists("scotland")) {data <- bind_rows(england, scotland)
+} else {data <- england}
+data <- data %>%
+  mutate(epiyear = epiyear(date),
          epiweek = epiweek(date)) %>%
-  select(-date) %>%
   group_by(epiyear, epiweek) %>%
-  summarise(total = sum(c_across(!starts_with("epi"))),
-            positive = sum(c_across(ends_with("pos"))),
-            sgtf = sum(c_across(ends_with("sgtf"))),
-            date = max(epidate), .groups = "drop") %>%
-  select(-starts_with("epi"))
+  summarise(total = sum(non_sgtf, sgtf, na.rm = TRUE),
+            sgtf = sum(sgtf, na.rm = TRUE),
+            non_sgtf = sum(non_sgtf, na.rm = TRUE),
+            n_days = max(date) - min(date) + 1,
+            date = max(week_ending, na.rm = TRUE), # week may be incomplete
+            .groups = "drop") 
+
+# # truncation:
+# data <- data %>%
+#  filter(n_days == 7)
 
 # Format
-# - required variables: cases, seq_voc, seq_total, date, cases_available, seq_available
+# - required variables: 
+#   cases, seq_voc, seq_total, date, cases_available, seq_available
 obs <- data %>%
   transmute(date = date,
             cases = total,
@@ -45,12 +67,13 @@ obs <- data %>%
             seq_available = date)
 obs <- data.table::data.table(obs)
 ```
+Data up to week ending `r max(obs$date)` (may be incomplete).
+
 
 2. Set up the parameters for the VOC and the forecasting model.
 ```{r}
 # Prior for the growth rate modification of the VOC compared to the original.
-#   On the log scale.
-voc_scale <- c(0.5, 0.25)
+voc_scale <- c(0.21, 0.2)
 
 # Relationship between primary variant and VOC; scaled = fixed relationship.
 variant_relationship <- "scaled"
@@ -62,7 +85,7 @@ strains <- 2
 r_init <- c(0, 0.25)
 
 # Use a time scale based on generation time, rather than weekly.
-scale_r <- 5.5 / 7
+scale_r <- 5.1 / 7
 
 # Account for overdispersion
 overdispersion <- TRUE
@@ -83,12 +106,25 @@ forecasts <- forecast(obs,
                       scale_r = scale_r,
                       # processing options
                       adapt_delta = 0.99,
-                      max_treedepth = 15)
+                      max_treedepth = 15,
+                      refresh = 0,
+                      show_messages = FALSE)
 
 ```
-Inspect forecasts
+4. Inspect forecasts
 
 ```{r}
 forecasts <- unnest_posterior(forecasts)
 plot_posterior(forecasts, obs)
 ```
+
+5. Check model fit
+```{r}
+diagnose <- forecasts %>%
+  select(samples:time) %>%
+  tidyr::pivot_longer(samples:time, names_to = "diagnostic")
+knitr::kable(diagnose[1:8,])
+```
+
+
+
