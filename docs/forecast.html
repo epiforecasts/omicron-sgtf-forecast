@@ -397,7 +397,7 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 </div>
 <div id="strongRMarkdownfilestronguncommittedchanges" class="panel-collapse collapse">
 <div class="panel-body">
-<p>The R Markdown is untracked by Git. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
+<p>The R Markdown file has unstaged changes. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
 </div>
 </div>
 </div>
@@ -464,16 +464,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomepiforecastsomicronsgtfforecasttree479cd89ccb11b3c4b12fed3e52881c601b7a16f8targetblank479cd89a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/epiforecasts/omicron-sgtf-forecast/tree/479cd89ccb11b3c4b12fed3e52881c601b7a16f8" target="_blank">479cd89</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomepiforecastsomicronsgtfforecasttree2ba58eac9fff3395837a003cab5c8793cc2de9c6targetblank2ba58eaa"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/epiforecasts/omicron-sgtf-forecast/tree/2ba58eac9fff3395837a003cab5c8793cc2de9c6" target="_blank">2ba58ea</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomepiforecastsomicronsgtfforecasttree479cd89ccb11b3c4b12fed3e52881c601b7a16f8targetblank479cd89a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomepiforecastsomicronsgtfforecasttree2ba58eac9fff3395837a003cab5c8793cc2de9c6targetblank2ba58eaa" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/epiforecasts/omicron-sgtf-forecast/tree/479cd89ccb11b3c4b12fed3e52881c601b7a16f8" target="_blank">479cd89</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/epiforecasts/omicron-sgtf-forecast/tree/2ba58eac9fff3395837a003cab5c8793cc2de9c6" target="_blank">2ba58ea</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -485,11 +485,10 @@ Ignored files:
     Ignored:    data/private/
 
 Untracked files:
-    Untracked:  analysis/forecast.Rmd
+    Untracked:  code/
 
 Unstaged changes:
-    Modified:   analysis/index.Rmd
-    Deleted:    code/README.md
+    Modified:   analysis/forecast.Rmd
 
 </code></pre>
 <p>
@@ -502,80 +501,89 @@ Note that any generated files, e.g. HTML, png, CSS, etc., are not included in t
 <hr>
 </div>
 <div id="versions" class="tab-pane fade">
+
 <p>
-There are no past versions. Publish this analysis with <code>wflow_publish()</code> to start tracking its development.
+These are the previous versions of the repository in which changes were made to the R Markdown (<code>analysis/forecast.Rmd</code>) and HTML (<code>docs/forecast.html</code>) files. If you’ve configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view the files as they were in that past version.
 </p>
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+File
+</th>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+<th>
+Message
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/epiforecasts/omicron-sgtf-forecast/blob/2ba58eac9fff3395837a003cab5c8793cc2de9c6/analysis/forecast.Rmd" target="_blank">2ba58ea</a>
+</td>
+<td>
+kathsherratt
+</td>
+<td>
+2021-12-08
+</td>
+<td>
+update
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/epiforecasts/omicron-sgtf-forecast/2ba58eac9fff3395837a003cab5c8793cc2de9c6/docs/forecast.html" target="_blank">2ba58ea</a>
+</td>
+<td>
+kathsherratt
+</td>
+<td>
+2021-12-08
+</td>
+<td>
+update
+</td>
+</tr>
+</tbody>
+</table>
+</div>
 <hr>
 </div>
 </div>
 </div>
-<ol style="list-style-type: decimal">
-<li>Load packages and clean data.</li>
-</ol>
+<div id="load-packages-and-clean-data." class="section level3">
+<h3>1. Load packages and clean data.</h3>
 <pre class="r"><code>library(here)
-library(readr)
-library(dplyr)
-library(lubridate)
 library(forecast.vocs)
-options(mc.cores = 4)
-
-# data from onedrive
-# https://lshtm-my.sharepoint.com/:x:/r/personal/eidesfun_lshtm_ac_uk/Documents/CovidData/omicron/sgtf_weekly_england.csv?d=w742fedf5d7ca4d1f8d4a6d2d2c39c25a&amp;csf=1&amp;web=1&amp;e=HrYTGC
-
-# Load data (private, local)
-
-# Daily data for England and Scotland
-england &lt;- read_csv(here(&quot;data&quot;, &quot;private&quot;, &quot;sgtf_weekly_england.csv&quot;)) %&gt;%
-  rename(date = date_specimen) %&gt;%
-  mutate(location = &quot;England&quot;)
-
-# scotland &lt;- read_tsv(here(&quot;data&quot;, &quot;private&quot;, &quot;lh-sgtf.tsv&quot;)) %&gt;%
-#   group_by(date) %&gt;%
-#   summarise(sgtf = sum(c_across(ends_with(&quot;sgtf&quot;))),
-#             non_sgtf = sum(c_across(ends_with(&quot;pos&quot;))),
-#             location = &quot;Scotland&quot;,
-#             .groups = &quot;drop&quot;) %&gt;%
-#   left_join(select(england, date, week_ending))
-
-# Join and aggregate to weekly
-if (exists(&quot;scotland&quot;)) {data &lt;- bind_rows(england, scotland)
-} else {data &lt;- england}
-data &lt;- data %&gt;%
-  mutate(epiyear = epiyear(date),
-         epiweek = epiweek(date)) %&gt;%
-  group_by(epiyear, epiweek) %&gt;%
-  summarise(total = sum(non_sgtf, sgtf, na.rm = TRUE),
-            sgtf = sum(sgtf, na.rm = TRUE),
-            non_sgtf = sum(non_sgtf, na.rm = TRUE),
-            n_days = max(date) - min(date) + 1,
-            date = max(week_ending, na.rm = TRUE), # week may be incomplete
-            .groups = &quot;drop&quot;) 
-
-# # truncation:
-# data &lt;- data %&gt;%
-#  filter(n_days == 7)
-
-# Format
-# - required variables: 
-#   cases, seq_voc, seq_total, date, cases_available, seq_available
-obs &lt;- data %&gt;%
-  transmute(date = date,
-            cases = total,
-            cases_available = date,
-            seq_total = total,
-            seq_voc = sgtf,
-            share_voc = sgtf / total, 
-            seq_available = date)
-obs &lt;- data.table::data.table(obs)</code></pre>
-<p>Data up to week ending 2021-12-04 (may be incomplete).</p>
-<ol start="2" style="list-style-type: decimal">
-<li>Set up the parameters for the VOC and the forecasting model.</li>
-</ol>
+library(ggplot2)
+library(patchwork)
+library(purrr)
+source(here(&quot;code&quot;, &quot;load-data.R&quot;))</code></pre>
+<ul>
+<li>Data up to week ending 2021-12-04 (may be incomplete).</li>
+</ul>
+</div>
+<div id="set-up-the-parameters-for-the-voc." class="section level3">
+<h3>2. Set up the parameters for the VOC.</h3>
 <pre class="r"><code># Prior for the growth rate modification of the VOC compared to the original.
 voc_scale &lt;- c(0.21, 0.2)
-
-# Relationship between primary variant and VOC; scaled = fixed relationship.
-variant_relationship &lt;- &quot;scaled&quot;
 
 # Use a 2 strain model
 strains &lt;- 2
@@ -591,14 +599,24 @@ overdispersion &lt;- TRUE
 
 # Forecast over 4 weeks and produce standard set of quantiles
 horizon &lt;- 4
-probs &lt;- c(0.05, 0.2, 0.8, 0.95)</code></pre>
-<ol start="3" style="list-style-type: decimal">
-<li>Forecast with 2 strain model over 4 weeks horizon. Uses a scaled relationship between variants with the prior for a VOC growth rate relative to existing variant at mean 0.21 (SD 0.2).</li>
-</ol>
-<pre class="r"><code>forecasts &lt;- forecast(obs,
+probs &lt;- c(0.05, 0.2, 0.8, 0.95)
+options(mc.cores = 4)</code></pre>
+</div>
+<div id="build-models" class="section level3">
+<h3>3. Build models</h3>
+<p>Build models using:</p>
+<ul>
+<li><p>A prior for a VOC growth rate relative to existing variant at mean 0.21 (SD 0.2)</p></li>
+<li><p>A 2 strain model, with a forecast over 4 weeks horizon</p></li>
+</ul>
+<div id="with-a-scaled-relationship-between-variants" class="section level4">
+<h4>3.1 With a scaled relationship between variants</h4>
+<ul>
+<li>Run model:</li>
+</ul>
+<pre class="r"><code>forecast_scaled &lt;- forecast(obs, variant_relationship = &quot;scaled&quot;,
                       # any options above not specified here are package defaults
                       voc_scale = voc_scale,
-                      variant_relationship = variant_relationship,
                       voc_label = &quot;Omicron&quot;,
                       scale_r = scale_r,
                       # processing options
@@ -608,40 +626,22 @@ probs &lt;- c(0.05, 0.2, 0.8, 0.95)</code></pre>
                       show_messages = FALSE)</code></pre>
 <pre><code>Running MCMC with 4 parallel chains...
 
-Chain 3 finished in 3.2 seconds.
+Chain 3 finished in 2.4 seconds.
 Chain 1 Exception: neg_binomial_2_rng: Random number that came from gamma distribution is 1.11243e+11, but must be less than 1073741824.000000 (in &#39;C:/Users/kaths/AppData/Local/Temp/RtmpYJq6fm/model-4c2c76c523fa.stan&#39;, line 186, column 6 to column 73) 
 Chain 1 Exception: neg_binomial_2_rng: Random number that came from gamma distribution is 1.3006e+09, but must be less than 1073741824.000000 (in &#39;C:/Users/kaths/AppData/Local/Temp/RtmpYJq6fm/model-4c2c76c523fa.stan&#39;, line 186, column 6 to column 73) 
-Chain 4 finished in 3.8 seconds.
-Chain 1 finished in 3.9 seconds.
+Chain 4 finished in 3.0 seconds.
+Chain 1 finished in 3.1 seconds.
 Chain 2 Exception: neg_binomial_2_rng: Random number that came from gamma distribution is 1.37282e+09, but must be less than 1073741824.000000 (in &#39;C:/Users/kaths/AppData/Local/Temp/RtmpYJq6fm/model-4c2c76c523fa.stan&#39;, line 186, column 6 to column 73) 
-Chain 2 finished in 4.8 seconds.
+Chain 2 finished in 3.7 seconds.
 
 All 4 chains finished successfully.
-Mean chain execution time: 3.9 seconds.
-Total execution time: 5.0 seconds.</code></pre>
-<ol start="4" style="list-style-type: decimal">
-<li>Inspect forecasts</li>
-</ol>
-<pre class="r"><code>forecasts &lt;- unnest_posterior(forecasts)
-plot_posterior(forecasts, obs)</code></pre>
-<pre><code>$cases</code></pre>
-<p><img src="figure/forecast.Rmd/unnamed-chunk-4-1.png" width="672" style="display: block; margin: auto;" /></p>
-<pre><code>
-$log_cases</code></pre>
-<p><img src="figure/forecast.Rmd/unnamed-chunk-4-2.png" width="672" style="display: block; margin: auto;" /></p>
-<pre><code>
-$voc</code></pre>
-<p><img src="figure/forecast.Rmd/unnamed-chunk-4-3.png" width="672" style="display: block; margin: auto;" /></p>
-<pre><code>
-$growth</code></pre>
-<p><img src="figure/forecast.Rmd/unnamed-chunk-4-4.png" width="672" style="display: block; margin: auto;" /></p>
-<pre><code>
-$rt</code></pre>
-<p><img src="figure/forecast.Rmd/unnamed-chunk-4-5.png" width="672" style="display: block; margin: auto;" /></p>
-<ol start="5" style="list-style-type: decimal">
-<li>Check model fit</li>
-</ol>
-<pre class="r"><code>diagnose &lt;- forecasts %&gt;%
+Mean chain execution time: 3.0 seconds.
+Total execution time: 3.9 seconds.</code></pre>
+<pre class="r"><code>forecast_scaled &lt;- unnest_posterior(forecast_scaled)</code></pre>
+<ul>
+<li>Check model run</li>
+</ul>
+<pre class="r"><code>diagnose &lt;- forecast_scaled %&gt;%
   select(samples:time) %&gt;%
   tidyr::pivot_longer(samples:time, names_to = &quot;diagnostic&quot;)
 knitr::kable(diagnose[1:8,])</code></pre>
@@ -655,38 +655,147 @@ knitr::kable(diagnose[1:8,])</code></pre>
 <tbody>
 <tr class="odd">
 <td align="left">samples</td>
-<td align="right">4e+03</td>
+<td align="right">4.0e+03</td>
 </tr>
 <tr class="even">
 <td align="left">max_rhat</td>
-<td align="right">1e+00</td>
+<td align="right">1.0e+00</td>
 </tr>
 <tr class="odd">
 <td align="left">divergent_transitions</td>
-<td align="right">8e+00</td>
+<td align="right">8.0e+00</td>
 </tr>
 <tr class="even">
 <td align="left">per_divergent_transitions</td>
-<td align="right">2e-03</td>
+<td align="right">2.0e-03</td>
 </tr>
 <tr class="odd">
 <td align="left">max_treedepth</td>
-<td align="right">7e+00</td>
+<td align="right">7.0e+00</td>
 </tr>
 <tr class="even">
 <td align="left">no_at_max_treedepth</td>
-<td align="right">2e+00</td>
+<td align="right">2.0e+00</td>
 </tr>
 <tr class="odd">
 <td align="left">per_at_max_treedepth</td>
-<td align="right">5e-04</td>
+<td align="right">5.0e-04</td>
 </tr>
 <tr class="even">
 <td align="left">time</td>
-<td align="right">5e+00</td>
+<td align="right">3.9e+00</td>
 </tr>
 </tbody>
 </table>
+</div>
+<div id="with-a-time-dependent-relationship-between-variants" class="section level4">
+<h4>3.2 With a time-dependent relationship between variants</h4>
+<ul>
+<li>Run model:</li>
+</ul>
+<pre class="r"><code>forecast_pooled &lt;- forecast(obs, variant_relationship = &quot;pooled&quot;,
+                      # any options above not specified here are package defaults
+                      voc_scale = voc_scale,
+                      voc_label = &quot;Omicron&quot;,
+                      scale_r = scale_r,
+                      # processing options
+                      adapt_delta = 0.99,
+                      max_treedepth = 15,
+                      refresh = 0,
+                      show_messages = FALSE)</code></pre>
+<pre><code>Running MCMC with 4 parallel chains...
+
+Chain 2 Exception: neg_binomial_2_rng: Random number that came from gamma distribution is 1.10778e+09, but must be less than 1073741824.000000 (in &#39;C:/Users/kaths/AppData/Local/Temp/RtmpYJq6fm/model-4c2c76c523fa.stan&#39;, line 186, column 6 to column 73) 
+Chain 4 Exception: neg_binomial_2_rng: Random number that came from gamma distribution is 2.75004e+09, but must be less than 1073741824.000000 (in &#39;C:/Users/kaths/AppData/Local/Temp/RtmpYJq6fm/model-4c2c76c523fa.stan&#39;, line 186, column 6 to column 73) 
+Chain 1 Exception: neg_binomial_2_rng: Random number that came from gamma distribution is 2.0096e+10, but must be less than 1073741824.000000 (in &#39;C:/Users/kaths/AppData/Local/Temp/RtmpYJq6fm/model-4c2c76c523fa.stan&#39;, line 186, column 6 to column 73) 
+Chain 4 Exception: neg_binomial_2_rng: Random number that came from gamma distribution is 8.50426e+09, but must be less than 1073741824.000000 (in &#39;C:/Users/kaths/AppData/Local/Temp/RtmpYJq6fm/model-4c2c76c523fa.stan&#39;, line 186, column 6 to column 73) 
+Chain 1 finished in 3.2 seconds.
+Chain 3 finished in 3.4 seconds.
+Chain 2 finished in 3.5 seconds.
+Chain 4 finished in 4.2 seconds.
+
+All 4 chains finished successfully.
+Mean chain execution time: 3.6 seconds.
+Total execution time: 4.4 seconds.</code></pre>
+<pre class="r"><code>forecast_pooled &lt;- unnest_posterior(forecast_pooled)</code></pre>
+<ul>
+<li>Check model run</li>
+</ul>
+<pre class="r"><code>diagnose &lt;- forecast_pooled %&gt;%
+  select(samples:time) %&gt;%
+  tidyr::pivot_longer(samples:time, names_to = &quot;diagnostic&quot;)
+knitr::kable(diagnose[1:8,])</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">diagnostic</th>
+<th align="right">value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">samples</td>
+<td align="right">4.000e+03</td>
+</tr>
+<tr class="even">
+<td align="left">max_rhat</td>
+<td align="right">1.000e+00</td>
+</tr>
+<tr class="odd">
+<td align="left">divergent_transitions</td>
+<td align="right">1.600e+01</td>
+</tr>
+<tr class="even">
+<td align="left">per_divergent_transitions</td>
+<td align="right">4.000e-03</td>
+</tr>
+<tr class="odd">
+<td align="left">max_treedepth</td>
+<td align="right">7.000e+00</td>
+</tr>
+<tr class="even">
+<td align="left">no_at_max_treedepth</td>
+<td align="right">7.100e+01</td>
+</tr>
+<tr class="odd">
+<td align="left">per_at_max_treedepth</td>
+<td align="right">1.775e-02</td>
+</tr>
+<tr class="even">
+<td align="left">time</td>
+<td align="right">4.400e+00</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="inspect-outputs" class="section level3">
+<h3>4. Inspect outputs</h3>
+<pre class="r"><code>subtitle &lt;- &quot;Variant relationship: fixed (left) and varying (right)&quot;
+plots_scaled &lt;- plot_posterior(forecast_scaled, obs)
+plots_pooled &lt;- plot_posterior(forecast_pooled, obs)
+plots_join &lt;- map(.x = 1:5,
+                 ~ plots_scaled[[.x]] +
+                   plots_pooled[[.x]] +
+                   plot_layout(nrow = 1, guides = &quot;collect&quot;) +
+                   plot_annotation(subtitle = subtitle, 
+                                   theme = theme(legend.position = &quot;bottom&quot;)))
+  
+plots_join[1]</code></pre>
+<pre><code>[[1]]</code></pre>
+<p><img src="figure/forecast.Rmd/unnamed-chunk-7-1.png" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>plots_join[2]</code></pre>
+<pre><code>[[1]]</code></pre>
+<p><img src="figure/forecast.Rmd/unnamed-chunk-7-2.png" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>plots_join[3]</code></pre>
+<pre><code>[[1]]</code></pre>
+<p><img src="figure/forecast.Rmd/unnamed-chunk-7-3.png" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>plots_join[4]</code></pre>
+<pre><code>[[1]]</code></pre>
+<p><img src="figure/forecast.Rmd/unnamed-chunk-7-4.png" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>plots_join[5]</code></pre>
+<pre><code>[[1]]</code></pre>
+<p><img src="figure/forecast.Rmd/unnamed-chunk-7-5.png" width="672" style="display: block; margin: auto;" /></p>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -712,8 +821,9 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
-[1] forecast.vocs_0.0.7.6000 lubridate_1.8.0          dplyr_1.0.7             
-[4] readr_2.1.0              here_1.0.1              
+[1] lubridate_1.8.0          dplyr_1.0.7              readr_2.1.0             
+[4] purrr_0.3.4              patchwork_1.1.1          ggplot2_3.3.5           
+[7] forecast.vocs_0.0.7.6000 here_1.0.1               workflowr_1.6.2         
 
 loaded via a namespace (and not attached):
  [1] matrixStats_0.61.0   fs_1.5.0             bit64_4.0.5         
@@ -735,19 +845,19 @@ loaded via a namespace (and not attached):
 [49] inline_0.3.19        magrittr_2.0.1       loo_2.4.1           
 [52] bayesplot_1.8.1      Rcpp_1.0.7           munsell_0.5.0       
 [55] fansi_0.5.0          abind_1.4-5          lifecycle_1.0.1     
-[58] stringi_1.7.5        yaml_2.2.1           pkgbuild_1.2.0      
-[61] plyr_1.8.6           grid_4.0.4           parallel_4.0.4      
-[64] listenv_0.8.0        promises_1.2.0.1     crayon_1.4.2        
-[67] hms_1.1.1            knitr_1.36           ps_1.6.0            
-[70] pillar_1.6.4         future.apply_1.8.1   codetools_0.2-18    
-[73] stats4_4.0.4         glue_1.5.0           evaluate_0.14       
-[76] V8_3.6.0             data.table_1.14.2    RcppParallel_5.1.4  
-[79] vctrs_0.3.8          tzdb_0.2.0           httpuv_1.6.3        
-[82] tidyr_1.1.4          gtable_0.3.0         purrr_0.3.4         
-[85] future_1.23.0        assertthat_0.2.1     ggplot2_3.3.5       
-[88] xfun_0.28            later_1.3.0          tibble_3.1.6        
-[91] workflowr_1.6.2      globals_0.14.0       ellipsis_0.3.2      
-[94] cmdstanr_0.4.0.9000 </code></pre>
+[58] stringi_1.7.5        whisker_0.4          yaml_2.2.1          
+[61] pkgbuild_1.2.0       plyr_1.8.6           grid_4.0.4          
+[64] parallel_4.0.4       listenv_0.8.0        promises_1.2.0.1    
+[67] crayon_1.4.2         hms_1.1.1            knitr_1.36          
+[70] ps_1.6.0             pillar_1.6.4         future.apply_1.8.1  
+[73] codetools_0.2-18     stats4_4.0.4         glue_1.5.0          
+[76] evaluate_0.14        V8_3.6.0             data.table_1.14.2   
+[79] RcppParallel_5.1.4   vctrs_0.3.8          tzdb_0.2.0          
+[82] httpuv_1.6.3         tidyr_1.1.4          gtable_0.3.0        
+[85] future_1.23.0        assertthat_0.2.1     xfun_0.28           
+[88] later_1.3.0          tibble_3.1.6         globals_0.14.0      
+[91] ellipsis_0.3.2       cmdstanr_0.4.0.9000 </code></pre>
+</div>
 </div>
 
 

@@ -3,80 +3,28 @@ title: "Forecast"
 output: 
   html_document:
     code_folding: hide
+    toc: true
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
 ```
 
-1. Load packages and clean data.
+### 1. Load packages and clean data.
 ```{r}
 library(here)
-library(readr)
-library(dplyr)
-library(lubridate)
 library(forecast.vocs)
-options(mc.cores = 4)
-
-# data from onedrive
-# https://lshtm-my.sharepoint.com/:x:/r/personal/eidesfun_lshtm_ac_uk/Documents/CovidData/omicron/sgtf_weekly_england.csv?d=w742fedf5d7ca4d1f8d4a6d2d2c39c25a&csf=1&web=1&e=HrYTGC
-
-# Load data (private, local)
-
-# Daily data for England and Scotland
-england <- read_csv(here("data", "private", "sgtf_weekly_england.csv")) %>%
-  rename(date = date_specimen) %>%
-  mutate(location = "England")
-
-# scotland <- read_tsv(here("data", "private", "lh-sgtf.tsv")) %>%
-#   group_by(date) %>%
-#   summarise(sgtf = sum(c_across(ends_with("sgtf"))),
-#             non_sgtf = sum(c_across(ends_with("pos"))),
-#             location = "Scotland",
-#             .groups = "drop") %>%
-#   left_join(select(england, date, week_ending))
-
-# Join and aggregate to weekly
-if (exists("scotland")) {data <- bind_rows(england, scotland)
-} else {data <- england}
-data <- data %>%
-  mutate(epiyear = epiyear(date),
-         epiweek = epiweek(date)) %>%
-  group_by(epiyear, epiweek) %>%
-  summarise(total = sum(non_sgtf, sgtf, na.rm = TRUE),
-            sgtf = sum(sgtf, na.rm = TRUE),
-            non_sgtf = sum(non_sgtf, na.rm = TRUE),
-            n_days = max(date) - min(date) + 1,
-            date = max(week_ending, na.rm = TRUE), # week may be incomplete
-            .groups = "drop") 
-
-# # truncation:
-# data <- data %>%
-#  filter(n_days == 7)
-
-# Format
-# - required variables: 
-#   cases, seq_voc, seq_total, date, cases_available, seq_available
-obs <- data %>%
-  transmute(date = date,
-            cases = total,
-            cases_available = date,
-            seq_total = total,
-            seq_voc = sgtf,
-            share_voc = sgtf / total, 
-            seq_available = date)
-obs <- data.table::data.table(obs)
+library(ggplot2)
+library(patchwork)
+library(purrr)
+source(here("code", "load-data.R"))
 ```
-Data up to week ending `r max(obs$date)` (may be incomplete).
+- Data up to week ending `r max(obs$date)` (may be incomplete).
 
-
-2. Set up the parameters for the VOC and the forecasting model.
+### 2. Set up the parameters for the VOC.
 ```{r}
 # Prior for the growth rate modification of the VOC compared to the original.
 voc_scale <- c(0.21, 0.2)
-
-# Relationship between primary variant and VOC; scaled = fixed relationship.
-variant_relationship <- "scaled"
 
 # Use a 2 strain model
 strains <- 2
@@ -93,15 +41,24 @@ overdispersion <- TRUE
 # Forecast over 4 weeks and produce standard set of quantiles
 horizon <- 4
 probs <- c(0.05, 0.2, 0.8, 0.95)
+options(mc.cores = 4)
 ```
 
-3. Forecast with `r strains` strain model over `r horizon` weeks horizon. Uses a `r variant_relationship` relationship between variants with the prior for a VOC growth rate relative to existing variant at mean `r voc_scale[1]` (SD `r voc_scale[2]`).
+### 3. Build models
 
+Build models using:
+
+- A prior for a VOC growth rate relative to existing variant at mean `r voc_scale[1]` (SD `r voc_scale[2]`)
+
+- A `r strains` strain model, with a forecast over `r horizon` weeks horizon
+
+#### 3.1 With a scaled relationship between variants
+
+- Run model:
 ```{r, message=FALSE, warning=FALSE}
-forecasts <- forecast(obs,
+forecast_scaled <- forecast(obs, variant_relationship = "scaled",
                       # any options above not specified here are package defaults
                       voc_scale = voc_scale,
-                      variant_relationship = variant_relationship,
                       voc_label = "Omicron",
                       scale_r = scale_r,
                       # processing options
@@ -109,22 +66,61 @@ forecasts <- forecast(obs,
                       max_treedepth = 15,
                       refresh = 0,
                       show_messages = FALSE)
-
+forecast_scaled <- unnest_posterior(forecast_scaled)
 ```
-4. Inspect forecasts
-
+- Check model run
 ```{r}
-forecasts <- unnest_posterior(forecasts)
-plot_posterior(forecasts, obs)
-```
-
-5. Check model fit
-```{r}
-diagnose <- forecasts %>%
+diagnose <- forecast_scaled %>%
   select(samples:time) %>%
   tidyr::pivot_longer(samples:time, names_to = "diagnostic")
 knitr::kable(diagnose[1:8,])
 ```
+
+#### 3.2 With a time-dependent relationship between variants
+
+- Run model:
+```{r, message=FALSE, warning=FALSE}
+forecast_pooled <- forecast(obs, variant_relationship = "pooled",
+                      # any options above not specified here are package defaults
+                      voc_scale = voc_scale,
+                      voc_label = "Omicron",
+                      scale_r = scale_r,
+                      # processing options
+                      adapt_delta = 0.99,
+                      max_treedepth = 15,
+                      refresh = 0,
+                      show_messages = FALSE)
+forecast_pooled <- unnest_posterior(forecast_pooled)
+```
+
+- Check model run
+```{r}
+diagnose <- forecast_pooled %>%
+  select(samples:time) %>%
+  tidyr::pivot_longer(samples:time, names_to = "diagnostic")
+knitr::kable(diagnose[1:8,])
+```
+
+### 4. Inspect outputs
+
+```{r}
+subtitle <- "Variant relationship: fixed (left) and varying (right)"
+plots_scaled <- plot_posterior(forecast_scaled, obs)
+plots_pooled <- plot_posterior(forecast_pooled, obs)
+plots_join <- map(.x = 1:5,
+                 ~ plots_scaled[[.x]] +
+                   plots_pooled[[.x]] +
+                   plot_layout(nrow = 1, guides = "collect") +
+                   plot_annotation(subtitle = subtitle, 
+                                   theme = theme(legend.position = "bottom")))
+  
+plots_join[1]
+plots_join[2]
+plots_join[3]
+plots_join[4]
+plots_join[5]
+```
+
 
 
 

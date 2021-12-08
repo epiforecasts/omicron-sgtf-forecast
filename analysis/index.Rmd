@@ -11,84 +11,8 @@ editor_options:
 knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
 ```
 
-1. Load packages and clean data.
-```{r}
-library(here)
-library(readr)
-library(dplyr)
-library(lubridate)
-library(forecast.vocs)
-options(mc.cores = 4)
+[Model and forecast](docs/forecast.html)
 
-# Load data (private, local)
-data <- read_tsv(here("data", "private", "lh-sgtf.tsv")) %>%
-  mutate(epidate = ymd(date),
-         epiyear = epiyear(date),
-         epiweek = epiweek(date)) %>%
-  select(-date) %>%
-  group_by(epiyear, epiweek) %>%
-  summarise(total = sum(c_across(!starts_with("epi"))),
-            positive = sum(c_across(ends_with("pos"))),
-            sgtf = sum(c_across(ends_with("sgtf"))),
-            date = max(epidate), .groups = "drop") %>%
-  select(-starts_with("epi"))
+[RMarkdown](analysis/forecast.Rmd)
 
-# Format
-# - required variables: cases, seq_voc, seq_total, date, cases_available, seq_available
-obs <- data %>%
-  transmute(date = date,
-            cases = total,
-            cases_available = date,
-            seq_total = total,
-            seq_voc = sgtf,
-            share_voc = sgtf / total, 
-            seq_available = date)
-obs <- data.table::data.table(obs)
-```
-
-2. Set up the parameters for the VOC and the forecasting model.
-```{r}
-# Prior for the growth rate modification of the VOC compared to the original.
-#   On the log scale.
-voc_scale <- c(0.5, 0.25)
-
-# Relationship between primary variant and VOC; scaled = fixed relationship.
-variant_relationship <- "scaled"
-
-# Use a 2 strain model
-strains <- 2
-
-# Prior for initial growth rate.
-r_init <- c(0, 0.25)
-
-# Use a time scale based on generation time, rather than weekly.
-scale_r <- 5.5 / 7
-
-# Account for overdispersion
-overdispersion <- TRUE
-
-# Forecast over 4 weeks and produce standard set of quantiles
-horizon <- 4
-probs <- c(0.05, 0.2, 0.8, 0.95)
-```
-
-3. Forecast with `r strains` strain model over `r horizon` weeks horizon. Uses a `r variant_relationship` relationship between variants with the prior for a VOC growth rate relative to existing variant at mean `r voc_scale[1]` (SD `r voc_scale[2]`).
-
-```{r, message=FALSE, warning=FALSE}
-forecasts <- forecast(obs,
-                      # any options above not specified here are package defaults
-                      voc_scale = voc_scale,
-                      variant_relationship = variant_relationship,
-                      voc_label = "Omicron",
-                      scale_r = scale_r,
-                      # processing options
-                      adapt_delta = 0.99,
-                      max_treedepth = 15)
-
-```
-Inspect forecasts
-
-```{r}
-forecasts <- unnest_posterior(forecasts)
-plot_posterior(forecasts, obs)
-```
+[Data loading](code/load-data.R)
