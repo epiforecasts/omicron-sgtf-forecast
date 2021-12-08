@@ -12,6 +12,8 @@ england <- read_csv(here("data", "private", "sgtf_weekly_england.csv"),
   rename(date = date_specimen) %>%
   mutate(location = "England")
 
+max_date_eng <- max(england$date)
+
 # scotland <- read_tsv(here("data", "private", "lh-sgtf.tsv")) %>%
 #   group_by(date) %>%
 #   summarise(sgtf = sum(c_across(ends_with("sgtf"))),
