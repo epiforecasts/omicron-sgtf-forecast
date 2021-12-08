@@ -1,7 +1,7 @@
-name: "omicron-sgtf-forecast"
+name: omicron-sgtf-forecast
 output_dir: ../docs
 navbar:
-  title: "omicron-sgtf-forecast"
+  title: omicron-sgtf-forecast
   left:
   - text: Home
     href: index.html
@@ -9,6 +9,10 @@ navbar:
     href: about.html
   - text: License
     href: license.html
+  right:
+  - icon: fa-github
+    text: Source code
+    href: https://github.com/epiforecasts/omicron-sgtf-forecast
 output:
   workflowr::wflow_html:
     toc: yes
