@@ -28,6 +28,12 @@ source(here("code", "load-data.R"))
 ```{r}
 source(here("code", "load-parameters.R"))
 print(parameters)
+# model run options
+output_loglik = TRUE
+adapt_delta = 0.99
+max_treedepth = 15
+refresh = 0
+show_messages = FALSE
 ```
 
 ### 3. Build models
@@ -44,18 +50,18 @@ forecast_scaled_fit <- forecast(obs,
                                 r_init = parameters$r_init,
                                 overdispersion = parameters$overdispersion,
                       # processing options
-                      output_loglik = TRUE,
-                      adapt_delta = 0.99,
-                      max_treedepth = 15,
-                      refresh = 0,
-                      show_messages = FALSE)
+                      output_loglik = output_loglik,
+                      #adapt_delta = adapt_delta,
+                      #max_treedepth = max_treedepth,
+                      refresh = refresh,
+                      show_messages = show_messages)
                       
 forecast_scaled <- unnest_posterior(forecast_scaled_fit)
 ```
 - Check model run
 ```{r}
 # Fit diagnostics
-diagnose <- forecast_scaled %>%
+diagnose <- forecast_scaled_fit %>%
   select(samples:time) %>%
   tidyr::pivot_longer(samples:time, names_to = "diagnostic")
 knitr::kable(diagnose[1:8,])
@@ -76,17 +82,17 @@ forecast_pooled_fit <- forecast(obs,
                                 r_init = parameters$r_init,
                                 overdispersion = parameters$overdispersion,
                       # processing options
-                      output_loglik = TRUE,
-                      adapt_delta = 0.99,
-                      max_treedepth = 15,
-                      refresh = 0,
-                      show_messages = FALSE)
+                      output_loglik = output_loglik,
+                      #adapt_delta = adapt_delta,
+                      #max_treedepth = max_treedepth,
+                      refresh = refresh,
+                      show_messages = show_messages)
 forecast_pooled <- unnest_posterior(forecast_pooled_fit)
 ```
 
 - Check model run
 ```{r}
-diagnose <- forecast_pooled %>%
+diagnose <- forecast_pooled_fit %>%
   select(samples:time) %>%
   tidyr::pivot_longer(samples:time, names_to = "diagnostic")
 knitr::kable(diagnose[1:8,])
@@ -95,7 +101,7 @@ knitr::kable(diagnose[1:8,])
 loo_pooled <- forecast_pooled_fit$fit[[1]]$loo()
 ```
 
-### 4. Inspect outputs
+### 4. Compare models
 
 #### 4.1 Compare LOO
 
@@ -109,24 +115,27 @@ Varying relationship:
 loo_pooled
 ```
 
+Comparison:
+```{r}
+library(loo)
+loo_compare(loo_scaled, loo_pooled)
+```
+
 #### 4.2 Compare plots
 
 ```{r}
 subtitle <- "Variant relationship: fixed (left) and varying (right)"
 plots_scaled <- plot_posterior(forecast_scaled, obs)
 plots_pooled <- plot_posterior(forecast_pooled, obs)
-plots_join <- map(.x = 1:5,
+
+plots_join <- map(.x = 1:length(plots_scaled),
                  ~ plots_scaled[[.x]] +
                    plots_pooled[[.x]] +
                    plot_layout(nrow = 1, guides = "collect") +
                    plot_annotation(subtitle = subtitle, 
                                    theme = theme(legend.position = "bottom")))
-  
-plots_join[1]
-plots_join[2]
-plots_join[3]
-plots_join[4]
-plots_join[5]
+names(plots_join) <- names(plots_scaled)
+for (plot in 1:length(plots_join)) {print(plots_join[plot])}
 ```
 
 

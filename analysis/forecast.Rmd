@@ -1,5 +1,5 @@
 ---
-title: "Forecast"
+title: "Forecasting cases"
 output: workflowr::wflow_html
 editor_options:
   chunk_output_type: console
@@ -9,10 +9,19 @@ editor_options:
 knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
 ```
 
-### Aim
-- Forecast combined cases with a 2-strain fixed relationship model.
+### Background
 
-### 1. Load packages and data
+We aim to forecast cases arsing from the spread of 2 variants, with the variants in a fixed relationship. This case forecast could then be used an a predictor to forecast hospitalisations.
+
+Some issues include:
+
+- This analysis uses SGTF data for England only. SGTF data are incomplete (e.g. data only include cases tested after a symptomatic rapid test; data exclude SGTF results from contact of cases).
+
+- The forecasting model does not include any account of susceptibility.
+
+### Model build
+
+#### Load data
 ```{r}
 library(here)
 library(dplyr)
@@ -25,7 +34,7 @@ source(here("code", "load-data.R"))
 - Data up to week ending `r max(obs$date)` (may be incomplete).
 - Daily data up to `r max_date_eng`.
 
-### 2. Set up the parameters for the VOC
+#### Set up the parameters for the VOC
 ```{r}
 source(here("code", "load-parameters.R"))
 print(parameters)
@@ -38,7 +47,7 @@ parameters$horizon <- 4
 parameters$hub_probs <- c(0.01, 0.025, seq(0.05, 0.95, by = 0.05), 0.975, 0.99)
 ```
 
-### 3. Build model
+#### Build model
 
 Build models using:
 
@@ -66,21 +75,23 @@ forecast_scaled_fit <- forecast(obs,
                       show_messages = FALSE)
 forecast_scaled <- unnest_posterior(forecast_scaled_fit)
 ```
-### 4. Check model run
+#### Check model run
 ```{r}
 # Fit diagnostics
-diagnose <- forecast_scaled %>%
+diagnose <- forecast_scaled_fit %>%
   select(samples:time) %>%
   tidyr::pivot_longer(samples:time, names_to = "diagnostic")
 knitr::kable(diagnose[1:8,])
 ```
 
-### 5. View forecast
+### Output
+
+#### View forecast
 ```{r}
 plot_cases(forecast_scaled)
 ```
 
-### 6. Save case forecast output
+#### Save case forecast output
 ```{r}
 combined_forecast <- filter(forecast_scaled, 
                             value_type == "cases" & 

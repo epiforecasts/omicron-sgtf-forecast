@@ -11,7 +11,7 @@
 
 
 
-<title>Forecast</title>
+<title>Forecasting cases</title>
 
 <script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -356,14 +356,14 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Forecast</h1>
+<h1 class="title toc-ignore">Forecasting cases</h1>
 
 </div>
 
 
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
-<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span>
 </button>
 </p>
 <div id="workflowr-report" class="collapse">
@@ -372,7 +372,7 @@ div.tocify {
 <a data-toggle="tab" href="#summary">Summary</a>
 </li>
 <li>
-<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> </a>
+<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> </a>
 </li>
 <li>
 <a data-toggle="tab" href="#versions">Past versions</a>
@@ -384,7 +384,7 @@ div.tocify {
 <strong>Last updated:</strong> 2021-12-12
 </p>
 <p>
-<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
 </p>
 <p>
 <strong>Knit directory:</strong> <code>omicron-sgtf-forecast/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
@@ -400,12 +400,12 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges"> <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted changes </a>
 </p>
 </div>
-<div id="strongRMarkdownfilestronguptodate" class="panel-collapse collapse">
+<div id="strongRMarkdownfilestronguncommittedchanges" class="panel-collapse collapse">
 <div class="panel-body">
-<p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
+<p>The R Markdown file has unstaged changes. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
 </div>
 </div>
 </div>
@@ -472,16 +472,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomepiforecastsomicronsgtfforecasttreeb41f1b1e01ab01e21da334130aa24b9422c63a1dtargetblankb41f1b1a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/epiforecasts/omicron-sgtf-forecast/tree/b41f1b1e01ab01e21da334130aa24b9422c63a1d" target="_blank">b41f1b1</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomepiforecastsomicronsgtfforecasttreea006ad0e05285950b99a32ec4fc7f96faf23f364targetblanka006ad0a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/epiforecasts/omicron-sgtf-forecast/tree/a006ad0e05285950b99a32ec4fc7f96faf23f364" target="_blank">a006ad0</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomepiforecastsomicronsgtfforecasttreeb41f1b1e01ab01e21da334130aa24b9422c63a1dtargetblankb41f1b1a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomepiforecastsomicronsgtfforecasttreea006ad0e05285950b99a32ec4fc7f96faf23f364targetblanka006ad0a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/epiforecasts/omicron-sgtf-forecast/tree/b41f1b1e01ab01e21da334130aa24b9422c63a1d" target="_blank">b41f1b1</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/epiforecasts/omicron-sgtf-forecast/tree/a006ad0e05285950b99a32ec4fc7f96faf23f364" target="_blank">a006ad0</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -491,6 +491,11 @@ Ignored files:
     Ignored:    .Rhistory
     Ignored:    .Rproj.user/
     Ignored:    data/private/
+
+Unstaged changes:
+    Modified:   analysis/forecast.Rmd
+    Modified:   analysis/transmission.Rmd
+    Modified:   data/case-forecast.csv
 
 </code></pre>
 <p>
@@ -529,6 +534,23 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/epiforecasts/omicron-sgtf-forecast/a006ad0e05285950b99a32ec4fc7f96faf23f364/docs/forecast.html" target="_blank">a006ad0</a>
+</td>
+<td>
+kathsherratt
+</td>
+<td>
+2021-12-12
+</td>
+<td>
+refresh data + rebuild
+</td>
+</tr>
 <tr>
 <td>
 html
@@ -740,21 +762,26 @@ update
 </div>
 </div>
 </div>
-<div id="aim" class="section level3">
-<h3>Aim</h3>
+<div id="background" class="section level3">
+<h3>Background</h3>
+<p>We aim to forecast cases arsing from the spread of 2 variants, with the variants in a fixed relationship. This case forecast could then be used an a predictor to forecast hospitalisations.</p>
+<p>Some issues include:</p>
 <ul>
-<li>Forecast combined cases with a 2-strain fixed relationship model.</li>
+<li><p>This analysis uses SGTF data for England only. SGTF data are incomplete (e.g. data only include cases tested after a symptomatic rapid test; data exclude SGTF results from contact of cases).</p></li>
+<li><p>The forecasting model does not include any account of susceptibility.</p></li>
 </ul>
 </div>
-<div id="load-packages-and-data" class="section level3">
-<h3>1. Load packages and data</h3>
+<div id="model-build" class="section level3">
+<h3>Model build</h3>
+<div id="load-data" class="section level4">
+<h4>Load data</h4>
 <ul>
 <li>Data up to week ending 2021-12-06 (may be incomplete).</li>
 <li>Daily data up to 2021-12-06.</li>
 </ul>
 </div>
-<div id="set-up-the-parameters-for-the-voc" class="section level3">
-<h3>2. Set up the parameters for the VOC</h3>
+<div id="set-up-the-parameters-for-the-voc" class="section level4">
+<h4>Set up the parameters for the VOC</h4>
 <pre><code>$voc_scale
 [1] 0.21 0.20
 
@@ -770,8 +797,8 @@ $scale_r
 $overdispersion
 [1] TRUE</code></pre>
 </div>
-<div id="build-model" class="section level3">
-<h3>3. Build model</h3>
+<div id="build-model" class="section level4">
+<h4>Build model</h4>
 <p>Build models using:</p>
 <ul>
 <li><p>A scaled relationship between variants</p></li>
@@ -780,21 +807,21 @@ $overdispersion
 </ul>
 <pre><code>Running MCMC with 4 parallel chains...
 
-Chain 1 Exception: neg_binomial_2_rng: Random number that came from gamma distribution is 3.4599e+10, but must be less than 1073741824.000000 (in &#39;C:/Users/kaths/AppData/Local/Temp/RtmpYJq6fm/model-4c2c76c523fa.stan&#39;, line 186, column 6 to column 73) 
-Chain 1 Exception: neg_binomial_2_rng: Random number that came from gamma distribution is 3.12959e+09, but must be less than 1073741824.000000 (in &#39;C:/Users/kaths/AppData/Local/Temp/RtmpYJq6fm/model-4c2c76c523fa.stan&#39;, line 186, column 6 to column 73) 
-Chain 2 Exception: neg_binomial_2_rng: Random number that came from gamma distribution is 6.55934e+09, but must be less than 1073741824.000000 (in &#39;C:/Users/kaths/AppData/Local/Temp/RtmpYJq6fm/model-4c2c76c523fa.stan&#39;, line 186, column 6 to column 73) 
-Chain 2 Exception: neg_binomial_2_rng: Random number that came from gamma distribution is 3.04956e+09, but must be less than 1073741824.000000 (in &#39;C:/Users/kaths/AppData/Local/Temp/RtmpYJq6fm/model-4c2c76c523fa.stan&#39;, line 186, column 6 to column 73) 
-Chain 1 finished in 2.7 seconds.
-Chain 2 finished in 2.9 seconds.
-Chain 3 finished in 3.1 seconds.
+Chain 1 Exception: neg_binomial_2_rng: Random number that came from gamma distribution is 3.4599e+10, but must be less than 1073741824.000000 (in &#39;C:/Users/kaths/AppData/Local/Temp/RtmpC0RYTE/model-f2057125115.stan&#39;, line 188, column 6 to column 73) 
+Chain 1 Exception: neg_binomial_2_rng: Random number that came from gamma distribution is 3.12959e+09, but must be less than 1073741824.000000 (in &#39;C:/Users/kaths/AppData/Local/Temp/RtmpC0RYTE/model-f2057125115.stan&#39;, line 188, column 6 to column 73) 
+Chain 2 Exception: neg_binomial_2_rng: Random number that came from gamma distribution is 6.55934e+09, but must be less than 1073741824.000000 (in &#39;C:/Users/kaths/AppData/Local/Temp/RtmpC0RYTE/model-f2057125115.stan&#39;, line 188, column 6 to column 73) 
+Chain 2 Exception: neg_binomial_2_rng: Random number that came from gamma distribution is 3.04956e+09, but must be less than 1073741824.000000 (in &#39;C:/Users/kaths/AppData/Local/Temp/RtmpC0RYTE/model-f2057125115.stan&#39;, line 188, column 6 to column 73) 
+Chain 1 finished in 2.8 seconds.
+Chain 2 finished in 3.0 seconds.
+Chain 3 finished in 3.0 seconds.
 Chain 4 finished in 3.1 seconds.
 
 All 4 chains finished successfully.
-Mean chain execution time: 2.9 seconds.
-Total execution time: 3.2 seconds.</code></pre>
+Mean chain execution time: 3.0 seconds.
+Total execution time: 3.3 seconds.</code></pre>
 </div>
-<div id="check-model-run" class="section level3">
-<h3>4. Check model run</h3>
+<div id="check-model-run" class="section level4">
+<h4>Check model run</h4>
 <table>
 <thead>
 <tr class="header">
@@ -833,17 +860,20 @@ Total execution time: 3.2 seconds.</code></pre>
 </tr>
 <tr class="even">
 <td align="left">time</td>
-<td align="right">3.20e+00</td>
+<td align="right">3.30e+00</td>
 </tr>
 </tbody>
 </table>
 </div>
-<div id="view-forecast" class="section level3">
-<h3>5. View forecast</h3>
+</div>
+<div id="output" class="section level3">
+<h3>Output</h3>
+<div id="view-forecast" class="section level4">
+<h4>View forecast</h4>
 <p><img src="figure/forecast.Rmd/unnamed-chunk-5-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
-<div id="save-case-forecast-output" class="section level3">
-<h3>6. Save case forecast output</h3>
+<div id="save-case-forecast-output" class="section level4">
+<h4>Save case forecast output</h4>
 <pre><code>[1] &quot;Saved forecast for total non-VOC and VOC cases&quot;</code></pre>
 <br>
 <p>
@@ -869,7 +899,7 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
-[1] lubridate_1.8.0          readr_2.1.0              forecast.vocs_0.0.7.6000
+[1] lubridate_1.8.0          readr_2.1.0              forecast.vocs_0.0.8.2000
 [4] tidyr_1.1.4              dplyr_1.0.7              here_1.0.1              
 [7] workflowr_1.6.2         
 
@@ -905,6 +935,7 @@ loaded via a namespace (and not attached):
 [85] assertthat_0.2.1     ggplot2_3.3.5        xfun_0.28           
 [88] later_1.3.0          tibble_3.1.6         globals_0.14.0      
 [91] ellipsis_0.3.2       cmdstanr_0.4.0.9000 </code></pre>
+</div>
 </div>
 </div>
 
