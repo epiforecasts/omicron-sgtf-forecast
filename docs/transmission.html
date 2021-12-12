@@ -363,7 +363,7 @@ div.tocify {
 
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
-<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span>
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
 </button>
 </p>
 <div id="workflowr-report" class="collapse">
@@ -372,7 +372,7 @@ div.tocify {
 <a data-toggle="tab" href="#summary">Summary</a>
 </li>
 <li>
-<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> </a>
+<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> </a>
 </li>
 <li>
 <a data-toggle="tab" href="#versions">Past versions</a>
@@ -384,7 +384,7 @@ div.tocify {
 <strong>Last updated:</strong> 2021-12-12
 </p>
 <p>
-<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
 </p>
 <p>
 <strong>Knit directory:</strong> <code>omicron-sgtf-forecast/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
@@ -400,12 +400,12 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges"> <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted changes </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date </a>
 </p>
 </div>
-<div id="strongRMarkdownfilestronguncommittedchanges" class="panel-collapse collapse">
+<div id="strongRMarkdownfilestronguptodate" class="panel-collapse collapse">
 <div class="panel-body">
-<p>The R Markdown file has unstaged changes. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
+<p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
 </div>
 </div>
 </div>
@@ -472,16 +472,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomepiforecastsomicronsgtfforecasttreea006ad0e05285950b99a32ec4fc7f96faf23f364targetblanka006ad0a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/epiforecasts/omicron-sgtf-forecast/tree/a006ad0e05285950b99a32ec4fc7f96faf23f364" target="_blank">a006ad0</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomepiforecastsomicronsgtfforecasttreed34059e5b3f269414de174d7323c82f81fc37576targetblankd34059ea"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/epiforecasts/omicron-sgtf-forecast/tree/d34059e5b3f269414de174d7323c82f81fc37576" target="_blank">d34059e</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomepiforecastsomicronsgtfforecasttreea006ad0e05285950b99a32ec4fc7f96faf23f364targetblanka006ad0a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomepiforecastsomicronsgtfforecasttreed34059e5b3f269414de174d7323c82f81fc37576targetblankd34059ea" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/epiforecasts/omicron-sgtf-forecast/tree/a006ad0e05285950b99a32ec4fc7f96faf23f364" target="_blank">a006ad0</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/epiforecasts/omicron-sgtf-forecast/tree/d34059e5b3f269414de174d7323c82f81fc37576" target="_blank">d34059e</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -491,11 +491,6 @@ Ignored files:
     Ignored:    .Rhistory
     Ignored:    .Rproj.user/
     Ignored:    data/private/
-
-Unstaged changes:
-    Modified:   analysis/forecast.Rmd
-    Modified:   analysis/transmission.Rmd
-    Modified:   data/case-forecast.csv
 
 </code></pre>
 <p>
@@ -534,6 +529,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/epiforecasts/omicron-sgtf-forecast/blob/d34059e5b3f269414de174d7323c82f81fc37576/analysis/transmission.Rmd" target="_blank">d34059e</a>
+</td>
+<td>
+kathsherratt
+</td>
+<td>
+2021-12-12
+</td>
+<td>
+wflow_publish(all = T, update = T)
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/epiforecasts/omicron-sgtf-forecast/d34059e5b3f269414de174d7323c82f81fc37576/docs/transmission.html" target="_blank">d34059e</a>
+</td>
+<td>
+kathsherratt
+</td>
+<td>
+2021-12-12
+</td>
+<td>
+wflow_publish(all = T, update = T)
+</td>
+</tr>
 <tr>
 <td>
 html
@@ -645,14 +674,14 @@ $overdispersion
 Chain 4 Exception: neg_binomial_2_rng: Random number that came from gamma distribution is 8.70516e+09, but must be less than 1073741824.000000 (in &#39;C:/Users/kaths/AppData/Local/Temp/RtmpC0RYTE/model-f2057125115.stan&#39;, line 188, column 6 to column 73) 
 Chain 2 Exception: neg_binomial_2_rng: Random number that came from gamma distribution is 5.0232e+09, but must be less than 1073741824.000000 (in &#39;C:/Users/kaths/AppData/Local/Temp/RtmpC0RYTE/model-f2057125115.stan&#39;, line 188, column 6 to column 73) 
 Chain 4 Exception: neg_binomial_2_rng: Random number that came from gamma distribution is 1.99195e+09, but must be less than 1073741824.000000 (in &#39;C:/Users/kaths/AppData/Local/Temp/RtmpC0RYTE/model-f2057125115.stan&#39;, line 188, column 6 to column 73) 
-Chain 1 finished in 1.2 seconds.
 Chain 2 finished in 1.1 seconds.
+Chain 4 finished in 1.0 seconds.
+Chain 1 finished in 1.2 seconds.
 Chain 3 finished in 1.1 seconds.
-Chain 4 finished in 1.1 seconds.
 
 All 4 chains finished successfully.
 Mean chain execution time: 1.1 seconds.
-Total execution time: 1.3 seconds.</code></pre>
+Total execution time: 1.4 seconds.</code></pre>
 <ul>
 <li>Check model run</li>
 </ul>
@@ -694,7 +723,7 @@ Total execution time: 1.3 seconds.</code></pre>
 </tr>
 <tr class="even">
 <td align="left">time</td>
-<td align="right">1.30e+00</td>
+<td align="right">1.40e+00</td>
 </tr>
 </tbody>
 </table>
@@ -714,13 +743,13 @@ Chain 3 Exception: neg_binomial_2_rng: Random number that came from gamma distri
 Chain 4 Exception: neg_binomial_2_rng: Random number that came from gamma distribution is 5.5831e+09, but must be less than 1073741824.000000 (in &#39;C:/Users/kaths/AppData/Local/Temp/RtmpC0RYTE/model-f2057125115.stan&#39;, line 188, column 6 to column 73) 
 Chain 1 finished in 1.4 seconds.
 Chain 2 finished in 1.4 seconds.
+Chain 4 finished in 1.5 seconds.
 Chain 3 Exception: neg_binomial_2_rng: Random number that came from gamma distribution is 4.42926e+09, but must be less than 1073741824.000000 (in &#39;C:/Users/kaths/AppData/Local/Temp/RtmpC0RYTE/model-f2057125115.stan&#39;, line 188, column 6 to column 73) 
-Chain 4 finished in 1.4 seconds.
-Chain 3 finished in 1.8 seconds.
+Chain 3 finished in 1.9 seconds.
 
 All 4 chains finished successfully.
-Mean chain execution time: 1.5 seconds.
-Total execution time: 1.9 seconds.</code></pre>
+Mean chain execution time: 1.6 seconds.
+Total execution time: 2.0 seconds.</code></pre>
 <ul>
 <li>Check model run</li>
 </ul>
@@ -762,7 +791,7 @@ Total execution time: 1.9 seconds.</code></pre>
 </tr>
 <tr class="even">
 <td align="left">time</td>
-<td align="right">1.900e+00</td>
+<td align="right">2.000e+00</td>
 </tr>
 </tbody>
 </table>
