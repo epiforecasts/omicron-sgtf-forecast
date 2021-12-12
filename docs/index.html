@@ -287,7 +287,7 @@ $(document).ready(function () {
 
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
-<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span>
 </button>
 </p>
 <div id="workflowr-report" class="collapse">
@@ -296,7 +296,7 @@ $(document).ready(function () {
 <a data-toggle="tab" href="#summary">Summary</a>
 </li>
 <li>
-<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> </a>
+<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> </a>
 </li>
 <li>
 <a data-toggle="tab" href="#versions">Past versions</a>
@@ -305,10 +305,10 @@ $(document).ready(function () {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2021-12-08
+<strong>Last updated:</strong> 2021-12-12
 </p>
 <p>
-<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
 </p>
 <p>
 <strong>Knit directory:</strong> <code>omicron-sgtf-forecast/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
@@ -324,12 +324,12 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges"> <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted changes </a>
 </p>
 </div>
-<div id="strongRMarkdownfilestronguptodate" class="panel-collapse collapse">
+<div id="strongRMarkdownfilestronguncommittedchanges" class="panel-collapse collapse">
 <div class="panel-body">
-<p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
+<p>The R Markdown file has unstaged changes. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
 </div>
 </div>
 </div>
@@ -396,16 +396,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomepiforecastsomicronsgtfforecasttree0ac62d9b4da863c9ddb6231203f206b9a4fa0199targetblank0ac62d9a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/epiforecasts/omicron-sgtf-forecast/tree/0ac62d9b4da863c9ddb6231203f206b9a4fa0199" target="_blank">0ac62d9</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomepiforecastsomicronsgtfforecasttree951883f906e438a8b694adf81076036fcbaad8f8targetblank951883fa"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/epiforecasts/omicron-sgtf-forecast/tree/951883f906e438a8b694adf81076036fcbaad8f8" target="_blank">951883f</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomepiforecastsomicronsgtfforecasttree0ac62d9b4da863c9ddb6231203f206b9a4fa0199targetblank0ac62d9a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomepiforecastsomicronsgtfforecasttree951883f906e438a8b694adf81076036fcbaad8f8targetblank951883fa" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/epiforecasts/omicron-sgtf-forecast/tree/0ac62d9b4da863c9ddb6231203f206b9a4fa0199" target="_blank">0ac62d9</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/epiforecasts/omicron-sgtf-forecast/tree/951883f906e438a8b694adf81076036fcbaad8f8" target="_blank">951883f</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -415,6 +415,15 @@ Ignored files:
     Ignored:    .Rhistory
     Ignored:    .Rproj.user/
     Ignored:    data/private/
+
+Untracked files:
+    Untracked:  analysis/transmission.Rmd
+    Untracked:  code/load-parameters.R
+    Untracked:  data/case-forecast.csv
+
+Unstaged changes:
+    Modified:   analysis/forecast.Rmd
+    Modified:   analysis/index.Rmd
 
 </code></pre>
 <p>
@@ -453,6 +462,23 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/epiforecasts/omicron-sgtf-forecast/951883f906e438a8b694adf81076036fcbaad8f8/docs/index.html" target="_blank">951883f</a>
+</td>
+<td>
+kathsherratt
+</td>
+<td>
+2021-12-08
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -664,9 +690,39 @@ Start workflowr project.
 </div>
 </div>
 </div>
-<p><a href="forecast.html">Model and forecast</a></p>
-<p><a href="analysis/forecast.Rmd">RMarkdown</a></p>
-<p><a href="code/load-data.R">Data loading</a></p>
+<div id="aim-1-forecast-hospitalisations" class="section level3">
+<h3>Aim 1: Forecast hospitalisations</h3>
+<p>Steps:</p>
+<ol style="list-style-type: decimal">
+<li>Build case forecasts using a 2-strain model</li>
+<li>Feed into hospitalisation forecast</li>
+</ol>
+<p>View:</p>
+<ul>
+<li><a href="forecast.html">Output</a></li>
+<li><a href="analysis/forecast.Rmd">RMarkdown</a></li>
+</ul>
+</div>
+<div id="aim-2-estimate-transmissibility" class="section level3">
+<h3>Aim 2: Estimate transmissibility</h3>
+<p>Steps:</p>
+<ol style="list-style-type: decimal">
+<li>Fit a model to a fixed (scaled) relationship between variants</li>
+<li>Fit a model to a time-varying relationship between variants</li>
+<li>Compare model fit by LOO to check the impact of allowing a flexible relationship between variants</li>
+</ol>
+<p>View:</p>
+<ul>
+<li><a href="transmission.html">Output</a></li>
+<li><a href="analysis/transmission.Rmd">RMarkdown</a></li>
+</ul>
+</div>
+<div id="utils" class="section level3">
+<h3>Utils</h3>
+<ul>
+<li><a href="code/load-data.R">Data loading</a></li>
+<li><a href="code/load-parameters.R">VOC parameters</a></li>
+</ul>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -674,7 +730,6 @@ Start workflowr project.
 </button>
 </p>
 <div id="workflowr-sessioninfo" class="collapse">
-<pre class="r"><code>sessionInfo()</code></pre>
 <pre><code>R version 4.0.4 (2021-02-15)
 Platform: x86_64-w64-mingw32/x64 (64-bit)
 Running under: Windows 10 x64 (build 19043)
@@ -705,6 +760,7 @@ loaded via a namespace (and not attached):
 [29] evaluate_0.14    rmarkdown_2.11   stringi_1.7.5    bslib_0.3.1     
 [33] compiler_4.0.4   pillar_1.6.4     jsonlite_1.7.2   httpuv_1.6.3    
 [37] pkgconfig_2.0.3 </code></pre>
+</div>
 </div>
 
 

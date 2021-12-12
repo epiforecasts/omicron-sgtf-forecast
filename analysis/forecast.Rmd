@@ -6,16 +6,20 @@ editor_options:
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
 ```
 
-### 1. Load packages and clean data
+### Aim
+- Forecast combined cases with a 2-strain fixed relationship model.
+
+### 1. Load packages and data
 ```{r}
 library(here)
+library(dplyr)
+library(tidyr)
 library(forecast.vocs)
-library(ggplot2)
-library(patchwork)
-library(purrr)
+options(mc.cores = 4)
+# Load data
 source(here("code", "load-data.R"))
 ```
 - Data up to week ending `r max(obs$date)` (may be incomplete).
@@ -23,104 +27,77 @@ source(here("code", "load-data.R"))
 
 ### 2. Set up the parameters for the VOC
 ```{r}
-# Prior for the growth rate modification of the VOC compared to the original.
-voc_scale <- c(0.21, 0.2)
+source(here("code", "load-parameters.R"))
+print(parameters)
 
-# Use a 2 strain model
-strains <- 2
-
-# Prior for initial growth rate.
-r_init <- c(0, 0.25)
-
-# Use a time scale based on generation time, rather than weekly.
-scale_r <- 5.1 / 7
-
-# Account for overdispersion
-overdispersion <- TRUE
+# Use a scaled relationship
+parameters$variant_relationship <- "scaled"
 
 # Forecast over 4 weeks and produce standard set of quantiles
-horizon <- 4
-probs <- c(0.05, 0.2, 0.8, 0.95)
-options(mc.cores = 4)
+parameters$horizon <- 4
+parameters$hub_probs <- c(0.01, 0.025, seq(0.05, 0.95, by = 0.05), 0.975, 0.99)
 ```
 
-### 3. Build models
+### 3. Build model
 
 Build models using:
 
-- A prior for a VOC growth rate relative to existing variant at mean `r voc_scale[1]` (SD `r voc_scale[2]`)
+- A `r parameters$variant_relationship` relationship between variants
 
-- A `r strains` strain model, with a forecast over `r horizon` weeks horizon
+- A prior for a VOC growth rate, relative to existing variant, at mean `r parameters$voc_scale[1]` (SD `r parameters$voc_scale[2]`)
 
-#### 3.1 With a scaled relationship between variants
+- A `r parameters$strains` strain model, with a forecast over `r parameters$horizon` weeks horizon
 
-- Run model:
 ```{r, message=FALSE, warning=FALSE}
-forecast_scaled <- forecast(obs, variant_relationship = "scaled",
-                      # any options above not specified here are package defaults
-                      voc_scale = voc_scale,
+forecast_scaled_fit <- forecast(obs, 
+                                variant_relationship = parameters$variant_relationship,
+                                voc_scale = parameters$voc_scale,
+                      scale_r = parameters$scale_r,
+                      strains = parameters$strains,
+                      r_init = parameters$r_init,
+                      overdispersion = parameters$overdispersion,
                       voc_label = "Omicron",
-                      scale_r = scale_r,
+                      horizon = parameters$horizon,
                       # processing options
+                      probs = parameters$hub_probs,
                       adapt_delta = 0.99,
                       max_treedepth = 15,
                       refresh = 0,
                       show_messages = FALSE)
-forecast_scaled <- unnest_posterior(forecast_scaled)
+forecast_scaled <- unnest_posterior(forecast_scaled_fit)
 ```
-- Check model run
+### 4. Check model run
 ```{r}
+# Fit diagnostics
 diagnose <- forecast_scaled %>%
   select(samples:time) %>%
   tidyr::pivot_longer(samples:time, names_to = "diagnostic")
 knitr::kable(diagnose[1:8,])
 ```
 
-#### 3.2 With a time-dependent relationship between variants
-
-- Run model:
-```{r, message=FALSE, warning=FALSE}
-forecast_pooled <- forecast(obs, variant_relationship = "pooled",
-                      # any options above not specified here are package defaults
-                      voc_scale = voc_scale,
-                      voc_label = "Omicron",
-                      scale_r = scale_r,
-                      # processing options
-                      adapt_delta = 0.99,
-                      max_treedepth = 15,
-                      refresh = 0,
-                      show_messages = FALSE)
-forecast_pooled <- unnest_posterior(forecast_pooled)
-```
-
-- Check model run
+### 5. View forecast
 ```{r}
-diagnose <- forecast_pooled %>%
-  select(samples:time) %>%
-  tidyr::pivot_longer(samples:time, names_to = "diagnostic")
-knitr::kable(diagnose[1:8,])
+plot_cases(forecast_scaled)
 ```
 
-### 4. Inspect outputs
-
+### 6. Save case forecast output
 ```{r}
-subtitle <- "Variant relationship: fixed (left) and varying (right)"
-plots_scaled <- plot_posterior(forecast_scaled, obs)
-plots_pooled <- plot_posterior(forecast_pooled, obs)
-plots_join <- map(.x = 1:5,
-                 ~ plots_scaled[[.x]] +
-                   plots_pooled[[.x]] +
-                   plot_layout(nrow = 1, guides = "collect") +
-                   plot_annotation(subtitle = subtitle, 
-                                   theme = theme(legend.position = "bottom")))
-  
-plots_join[1]
-plots_join[2]
-plots_join[3]
-plots_join[4]
-plots_join[5]
+combined_forecast <- filter(forecast_scaled, 
+                            value_type == "cases" & 
+                              !observed &
+                              type == "Combined") %>%
+    select(forecast_date, 
+           target_end_date = date,
+           starts_with("q")) %>%
+    pivot_longer(cols = starts_with("q"),
+                 names_to = "quantile", values_to = "value") %>%
+    mutate(quantile = as.numeric(gsub("q", "", quantile)) / 100,
+           value = round(value)) %>%
+  group_by(quantile) %>%
+  arrange(target_end_date) %>%
+  mutate(target = paste0(row_number(), " wk ahead inc case"))
+
+write_csv(combined_forecast, here("data", "case-forecast.csv"))
+
+print("Saved forecast for total non-VOC and VOC cases")
 ```
-
-
-
-
