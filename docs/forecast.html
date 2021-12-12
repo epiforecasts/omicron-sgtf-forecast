@@ -472,16 +472,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomepiforecastsomicronsgtfforecasttreedb2362d7d61e69bfa09fe2a581a5054bebd211b7targetblankdb2362da"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/epiforecasts/omicron-sgtf-forecast/tree/db2362d7d61e69bfa09fe2a581a5054bebd211b7" target="_blank">db2362d</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomepiforecastsomicronsgtfforecasttreeb41f1b1e01ab01e21da334130aa24b9422c63a1dtargetblankb41f1b1a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/epiforecasts/omicron-sgtf-forecast/tree/b41f1b1e01ab01e21da334130aa24b9422c63a1d" target="_blank">b41f1b1</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomepiforecastsomicronsgtfforecasttreedb2362d7d61e69bfa09fe2a581a5054bebd211b7targetblankdb2362da" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomepiforecastsomicronsgtfforecasttreeb41f1b1e01ab01e21da334130aa24b9422c63a1dtargetblankb41f1b1a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/epiforecasts/omicron-sgtf-forecast/tree/db2362d7d61e69bfa09fe2a581a5054bebd211b7" target="_blank">db2362d</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/epiforecasts/omicron-sgtf-forecast/tree/b41f1b1e01ab01e21da334130aa24b9422c63a1d" target="_blank">b41f1b1</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -491,11 +491,6 @@ Ignored files:
     Ignored:    .Rhistory
     Ignored:    .Rproj.user/
     Ignored:    data/private/
-
-Untracked files:
-    Untracked:  analysis/transmission.Rmd
-    Untracked:  code/load-parameters.R
-    Untracked:  data/case-forecast.csv
 
 </code></pre>
 <p>
@@ -534,6 +529,23 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/epiforecasts/omicron-sgtf-forecast/735afdb7f6ca9dced667012a728483bc598af36d/docs/forecast.html" target="_blank">735afdb</a>
+</td>
+<td>
+kathsherratt
+</td>
+<td>
+2021-12-12
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -737,8 +749,8 @@ update
 <div id="load-packages-and-data" class="section level3">
 <h3>1. Load packages and data</h3>
 <ul>
-<li>Data up to week ending 2021-12-04 (may be incomplete).</li>
-<li>Daily data up to 2021-12-03.</li>
+<li>Data up to week ending 2021-12-06 (may be incomplete).</li>
+<li>Daily data up to 2021-12-06.</li>
 </ul>
 </div>
 <div id="set-up-the-parameters-for-the-voc" class="section level3">
@@ -768,17 +780,18 @@ $overdispersion
 </ul>
 <pre><code>Running MCMC with 4 parallel chains...
 
-Chain 3 finished in 3.3 seconds.
-Chain 1 Exception: neg_binomial_2_rng: Random number that came from gamma distribution is 1.11243e+11, but must be less than 1073741824.000000 (in &#39;C:/Users/kaths/AppData/Local/Temp/RtmpYJq6fm/model-4c2c76c523fa.stan&#39;, line 186, column 6 to column 73) 
-Chain 1 Exception: neg_binomial_2_rng: Random number that came from gamma distribution is 1.3006e+09, but must be less than 1073741824.000000 (in &#39;C:/Users/kaths/AppData/Local/Temp/RtmpYJq6fm/model-4c2c76c523fa.stan&#39;, line 186, column 6 to column 73) 
-Chain 4 finished in 4.0 seconds.
-Chain 1 finished in 4.3 seconds.
-Chain 2 Exception: neg_binomial_2_rng: Random number that came from gamma distribution is 1.37282e+09, but must be less than 1073741824.000000 (in &#39;C:/Users/kaths/AppData/Local/Temp/RtmpYJq6fm/model-4c2c76c523fa.stan&#39;, line 186, column 6 to column 73) 
-Chain 2 finished in 5.2 seconds.
+Chain 1 Exception: neg_binomial_2_rng: Random number that came from gamma distribution is 3.4599e+10, but must be less than 1073741824.000000 (in &#39;C:/Users/kaths/AppData/Local/Temp/RtmpYJq6fm/model-4c2c76c523fa.stan&#39;, line 186, column 6 to column 73) 
+Chain 1 Exception: neg_binomial_2_rng: Random number that came from gamma distribution is 3.12959e+09, but must be less than 1073741824.000000 (in &#39;C:/Users/kaths/AppData/Local/Temp/RtmpYJq6fm/model-4c2c76c523fa.stan&#39;, line 186, column 6 to column 73) 
+Chain 2 Exception: neg_binomial_2_rng: Random number that came from gamma distribution is 6.55934e+09, but must be less than 1073741824.000000 (in &#39;C:/Users/kaths/AppData/Local/Temp/RtmpYJq6fm/model-4c2c76c523fa.stan&#39;, line 186, column 6 to column 73) 
+Chain 2 Exception: neg_binomial_2_rng: Random number that came from gamma distribution is 3.04956e+09, but must be less than 1073741824.000000 (in &#39;C:/Users/kaths/AppData/Local/Temp/RtmpYJq6fm/model-4c2c76c523fa.stan&#39;, line 186, column 6 to column 73) 
+Chain 1 finished in 2.7 seconds.
+Chain 2 finished in 2.9 seconds.
+Chain 3 finished in 3.1 seconds.
+Chain 4 finished in 3.1 seconds.
 
 All 4 chains finished successfully.
-Mean chain execution time: 4.2 seconds.
-Total execution time: 5.5 seconds.</code></pre>
+Mean chain execution time: 2.9 seconds.
+Total execution time: 3.2 seconds.</code></pre>
 </div>
 <div id="check-model-run" class="section level3">
 <h3>4. Check model run</h3>
@@ -792,35 +805,35 @@ Total execution time: 5.5 seconds.</code></pre>
 <tbody>
 <tr class="odd">
 <td align="left">samples</td>
-<td align="right">4.0e+03</td>
+<td align="right">4.00e+03</td>
 </tr>
 <tr class="even">
 <td align="left">max_rhat</td>
-<td align="right">1.0e+00</td>
+<td align="right">1.00e+00</td>
 </tr>
 <tr class="odd">
 <td align="left">divergent_transitions</td>
-<td align="right">8.0e+00</td>
+<td align="right">5.00e+00</td>
 </tr>
 <tr class="even">
 <td align="left">per_divergent_transitions</td>
-<td align="right">2.0e-03</td>
+<td align="right">1.25e-03</td>
 </tr>
 <tr class="odd">
 <td align="left">max_treedepth</td>
-<td align="right">7.0e+00</td>
+<td align="right">7.00e+00</td>
 </tr>
 <tr class="even">
 <td align="left">no_at_max_treedepth</td>
-<td align="right">2.0e+00</td>
+<td align="right">1.00e+01</td>
 </tr>
 <tr class="odd">
 <td align="left">per_at_max_treedepth</td>
-<td align="right">5.0e-04</td>
+<td align="right">2.50e-03</td>
 </tr>
 <tr class="even">
 <td align="left">time</td>
-<td align="right">5.5e+00</td>
+<td align="right">3.20e+00</td>
 </tr>
 </tbody>
 </table>
