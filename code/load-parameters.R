@@ -1,0 +1,17 @@
+# Load parameters for VOC model
+parameters <- list(
+  # Prior for the growth rate modification of the VOC compared to the original.
+  voc_scale = c(0.21, 0.2),
+
+  # Use a 2 strain model
+  strains = 2,
+
+  # Prior for initial growth rate.
+  r_init = c(0, 0.25),
+
+  # Use a time scale based on generation time, rather than weekly.
+  scale_r = 5.1 / 7,
+
+  # Account for overdispersion
+  overdispersion = TRUE
+)

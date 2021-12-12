@@ -1,0 +1,135 @@
+---
+title: "Comparing transmission"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+```
+
+### 1. Load packages and clean data
+```{r}
+library(here)
+library(dplyr)
+library(tidyr)
+library(forecast.vocs)
+library(ggplot2)
+library(patchwork)
+library(purrr)
+options(mc.cores = 4)
+# Load data
+source(here("code", "load-data.R"))
+```
+- Data up to week ending `r max(obs$date)` (may be incomplete).
+- Daily data up to `r max_date_eng`.
+
+### 2. Set up the parameters for the VOC
+```{r}
+source(here("code", "load-parameters.R"))
+print(parameters)
+```
+
+### 3. Build models
+
+#### 3.1 Scaled relationship between variants
+
+- Run model
+```{r, message=FALSE, warning=FALSE}
+forecast_scaled_fit <- forecast(obs, 
+                                variant_relationship = "scaled",
+                                voc_scale = parameters$voc_scale,
+                                scale_r = parameters$scale_r,
+                                strains = parameters$strains,
+                                r_init = parameters$r_init,
+                                overdispersion = parameters$overdispersion,
+                      # processing options
+                      output_loglik = TRUE,
+                      adapt_delta = 0.99,
+                      max_treedepth = 15,
+                      refresh = 0,
+                      show_messages = FALSE)
+                      
+forecast_scaled <- unnest_posterior(forecast_scaled_fit)
+```
+- Check model run
+```{r}
+# Fit diagnostics
+diagnose <- forecast_scaled %>%
+  select(samples:time) %>%
+  tidyr::pivot_longer(samples:time, names_to = "diagnostic")
+knitr::kable(diagnose[1:8,])
+
+# Check LOO
+loo_scaled <- forecast_scaled_fit$fit[[1]]$loo()
+```
+
+#### 3.2 With a time-dependent relationship between variants
+
+- Run model
+```{r, message=FALSE, warning=FALSE}
+forecast_pooled_fit <- forecast(obs, 
+                                variant_relationship = "pooled",
+                                voc_scale = parameters$voc_scale,
+                                scale_r = parameters$scale_r,
+                                strains = parameters$strains,
+                                r_init = parameters$r_init,
+                                overdispersion = parameters$overdispersion,
+                      # processing options
+                      output_loglik = TRUE,
+                      adapt_delta = 0.99,
+                      max_treedepth = 15,
+                      refresh = 0,
+                      show_messages = FALSE)
+forecast_pooled <- unnest_posterior(forecast_pooled_fit)
+```
+
+- Check model run
+```{r}
+diagnose <- forecast_pooled %>%
+  select(samples:time) %>%
+  tidyr::pivot_longer(samples:time, names_to = "diagnostic")
+knitr::kable(diagnose[1:8,])
+
+# Check LOO
+loo_pooled <- forecast_pooled_fit$fit[[1]]$loo()
+```
+
+### 4. Inspect outputs
+
+#### 4.1 Compare LOO
+
+Scaled relationship:
+```{r}
+loo_scaled
+```
+
+Varying relationship:
+```{r}
+loo_pooled
+```
+
+#### 4.2 Compare plots
+
+```{r}
+subtitle <- "Variant relationship: fixed (left) and varying (right)"
+plots_scaled <- plot_posterior(forecast_scaled, obs)
+plots_pooled <- plot_posterior(forecast_pooled, obs)
+plots_join <- map(.x = 1:5,
+                 ~ plots_scaled[[.x]] +
+                   plots_pooled[[.x]] +
+                   plot_layout(nrow = 1, guides = "collect") +
+                   plot_annotation(subtitle = subtitle, 
+                                   theme = theme(legend.position = "bottom")))
+  
+plots_join[1]
+plots_join[2]
+plots_join[3]
+plots_join[4]
+plots_join[5]
+```
+
+
+
+
+
