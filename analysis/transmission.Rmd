@@ -51,8 +51,8 @@ forecast_scaled_fit <- forecast(obs,
                                 overdispersion = parameters$overdispersion,
                       # processing options
                       output_loglik = output_loglik,
-                      #adapt_delta = adapt_delta,
-                      #max_treedepth = max_treedepth,
+                      adapt_delta = adapt_delta,
+                      max_treedepth = max_treedepth,
                       refresh = refresh,
                       show_messages = show_messages)
                       
@@ -83,8 +83,8 @@ forecast_pooled_fit <- forecast(obs,
                                 overdispersion = parameters$overdispersion,
                       # processing options
                       output_loglik = output_loglik,
-                      #adapt_delta = adapt_delta,
-                      #max_treedepth = max_treedepth,
+                      adapt_delta = adapt_delta,
+                      max_treedepth = max_treedepth,
                       refresh = refresh,
                       show_messages = show_messages)
 forecast_pooled <- unnest_posterior(forecast_pooled_fit)
