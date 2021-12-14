@@ -22,6 +22,7 @@ run_model <- FALSE
 source(here("code", "model-sampling.R"))
 ```
 ### Background
+
 Among all cases that are test-positive, some are tested for the S-gene target (SGT). A successful test for the S-gene target can give either a failure or a positive result. The proportion of SGT cases that result in SGT-Failure is a useful proxy for the proportion of the Omicron variant in comparison to the Delta variant. 
 
 The ability to provide an SGT result is not uniform across all test-positive cases. If cases with an SGT result differ from cases which cannot be tested for SGT, this would create a bias in comparisons of Omicron compared to Delta. For example, test-positive cases with an SGT result may be a result of sampling contacts of a known case with Omicron variant, which are also sent in a batch to a lab which is able to process SGT results. 
@@ -30,19 +31,17 @@ We can compare these two groups in a two-strain branching process model. If the 
 
 ### Methods
 
-Data
+#### Data
 
-- We used data for all England test-positive cases (pillar 1 and 2 of the UK testing strategy). 
-- We used only the most recent three weeks of data, between `r min(obs$date)` and `r max(obs$date)`.
+We used data for all England test-positive cases (pillar 1 and 2 of the UK testing strategy). We used only the most recent three weeks of data, between `r min(obs$date)` and `r max(obs$date)`.
 
-Model
+#### Model
 
-- We built a two-strain model to compare sampling of all test-positive cases compared to test-positive cases with any confirmed S-gene target (SGT) result. 
-- We allowed a weekly piecewise constant variation in growth rate.
-- We used a uniform prior for the growth rate advantage of SGT-result cases compared to no-SGT-result cases.
+We used a two-strain model to compare sampling of all test-positive cases compared to test-positive cases with any confirmed S-gene target (SGT) result. We estimated a daily growth rate and allowed weekly piecewise constant variation. We used a uniform prior for the growth rate advantage of SGT-result cases compared to no-SGT-result cases.
 
+The transmission advantage is the difference in growth rate between the two sets of cases on a daily scale.
 
-### Results {-}
+### Results
 ```{r load-forecasts}
 # get model outputs
 forecast_fits <- readRDS(here("sampling", "fit", "forecast-fits.rds"))
@@ -91,14 +90,14 @@ cases_scaled
 ```
 
 
-### Discussion {-}
+### Discussion
 
-adapt 2-strain model to look for sampling bias:
-use tested or not instead of strain
+We adapted a two-strain branching process model to explore sampling bias in cases with and without any S-gene target result. 
 
-growth in non-tested should be same as in tested
-growth rate always biased up since testing contacts
-output Rt
+We expected that the growth rate in cases with an S-gene target result would be higher than cases without an SGT-result, because our testing strategy preferentially tests contacts of known Omicron cases. These may be more likely to be tested with an S-gene target result. 
 
+However, we find very similar trends in increasing growth rate over time between cases which have been tested for S-gene target and those that have not. 
 
-transmission adv = simple diff in growth rate * scaling (5.1d)
+We used data with strong weekly seasonality (day of the week effects). We repeated this analysis using a 7-day moving average of total cases.
+
+We have not shown the reproduction number in this report. We did not explore trends between S-gene target negativity or positivity, or the relationship between Omicron variant cases and the S-gene target. 
