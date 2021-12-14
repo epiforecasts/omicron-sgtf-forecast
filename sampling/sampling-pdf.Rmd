@@ -1,0 +1,29 @@
+---
+title: "Sampling bias in SGTF data"
+author: "Epiforecasts"
+date: "`r format(Sys.time(), '%d %B %Y')`"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, include = TRUE, 
+                      warning = FALSE, message = FALSE,
+                      root.dir = here::here())
+options(scipen = 1, digits = 2)
+library(here)
+library(forecast.vocs)
+library(dplyr)
+library(scoringutils)
+# get data and parameters without rebuilding model
+run_model <- FALSE
+source(here("code", "model-sampling.R"))
+```
+adapt 2-strain model to look for sampling bias:
+use tested or not instead of strain
+
+growth in non-tested should be same as in tested
+growth rate always biased up since testing contacts
+output Rt
+
+
+transmission adv = simple diff in growth rate * scaling (5.1d)

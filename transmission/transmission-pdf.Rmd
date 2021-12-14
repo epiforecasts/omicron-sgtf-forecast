@@ -15,7 +15,8 @@ library(forecast.vocs)
 library(dplyr)
 library(scoringutils)
 # get data and parameters without rebuilding model
-source(here("code", "build-models.R"))
+run_model <- FALSE
+source(here("code", "model-transmission.R"))
 ```
 
 ### Background {-}
@@ -37,8 +38,8 @@ We tested the difference between the two models by comparing out of sample predi
 ### Results {-}
 ```{r load-forecasts}
 # get model outputs
-forecast_fits <- readRDS(here("output", "forecast-fits.rds"))
-forecasts <- readRDS(here("output", "forecasts.rds"))
+forecast_fits <- readRDS(here("transmission", "fit", "forecast-fits.rds"))
+forecasts <- readRDS(here("transmission", "fit", "forecasts.rds"))
 ```
 
 #### Transmission advantage {-}
@@ -62,7 +63,7 @@ plot_advantage <- voc_scaled +
     voc_pooled +
   plot_layout(nrow = 1, guides = "collect") +
   plot_annotation(theme = theme(legend.position = "bottom"))
-ggsave(here("output", "voc_advantage.png"), plot_advantage)
+ggsave(here("transmission", "figures", "voc_advantage.png"), plot_advantage)
 
 plot_advantage
 
@@ -92,7 +93,7 @@ plot_growth_rt <- growth_scaled + growth_pooled +
   rt_scaled + rt_pooled +
   plot_layout(nrow = 2, guides = "collect") +
   plot_annotation(theme = theme(legend.position = "bottom"))
-ggsave(here("output", "growth_rt.png"), plot_growth_rt)
+ggsave(here("transmission", "figures", "growth_rt.png"), plot_growth_rt)
 plot_growth_rt
 
 ```
@@ -114,7 +115,7 @@ plot_frac <- voc_frac_scaled +
   voc_frac_pooled +
   plot_layout(nrow = 1, guides = "collect") +
   plot_annotation(theme = theme(legend.position = "bottom"))
-ggsave(here("output", "voc_frac.png"), plot_frac)
+ggsave(here("transmission", "figures", "voc_frac.png"), plot_frac)
 plot_frac
 
 ``` 
@@ -134,7 +135,7 @@ plot_cases <- cases_scaled +
   cases_pooled +
   plot_layout(nrow = 1, guides = "collect") +
   plot_annotation(theme = theme(legend.position = "bottom"))
-ggsave(here("output", "cases_log.png"), plot_cases)
+ggsave(here("transmission", "figures", "cases_log.png"), plot_cases)
 plot_cases
 
 ```

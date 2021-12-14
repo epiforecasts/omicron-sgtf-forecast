@@ -1,5 +1,6 @@
 # Load parameters for VOC model
 parameters <- list(
+
   # Prior for the growth rate modification of the VOC compared to the original.
   voc_scale = c(0.21, 0.2),
 
@@ -16,5 +17,11 @@ parameters <- list(
   r_step = 7,
 
   # Account for overdispersion
-  overdispersion = TRUE
+  overdispersion = TRUE,
+
+  # daily time scale
+  timespan = 1,
+
+  # forecast
+  horizon = 1
 )
