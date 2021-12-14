@@ -21,6 +21,11 @@ daily_sgt <- daily_raw %>%
             cases_available = date,
             seq_available = date)
 
+daily_sgt_detrend <- daily %>%
+  mutate(cases = zoo::rollmean(cases, k = 7, align = "center", fill = NA),
+         share_voc = seq_voc / seq_total) %>%
+  filter(!is.na(cases))
+
 # Cut off data before last 3 weeks and remove last day
 obs <- daily_sgt
 start_date <- max(obs$date) - weeks(3)
