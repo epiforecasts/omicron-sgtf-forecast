@@ -1,14 +1,29 @@
 ---
 title: "Comparing transmission"
-output: workflowr::wflow_html
-editor_options:
-  chunk_output_type: console
+output:
+  pdf_document:
+    toc: true
+    toc_depth: 2
 ---
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+# output: workflowr::wflow_html
+# editor_options:
+#   chunk_output_type: console
 ```
+### Aim
 
-### 1. Load packages and clean data
+We aim to compare evidence for two competing explanations of the transmissibility of the variant of concern, Omicron, compared to the existing dominant variant, Delta. 
+
+### Methods
+
+1. Fit a model to a fixed (scaled) relationship between variants
+2. Fit a model to a time-varying relationship between variants
+3. Compare model fit by LOO to check the impact of allowing a flexible relationship between variants
+4. Compare models scored out of sample
+5. Compare to single strain model
+
+#### Data
 ```{r}
 library(here)
 library(dplyr)
@@ -17,30 +32,39 @@ library(forecast.vocs)
 library(ggplot2)
 library(patchwork)
 library(purrr)
+library(data.table)
 options(mc.cores = 4)
 # Load data
 source(here("code", "load-data.R"))
-```
-- Data up to week ending `r max(obs$date)` (may be incomplete).
-- Daily data up to `r max_date_eng`.
 
-### 2. Set up the parameters for the VOC
+# Use weekly data
+obs <- data.table(weekly)
+timespan <- 7
+
+# Cutoff last 3 days
+# obs <- obs[date <= max_date_eng - 3]
+```
+Data are included from `r min(obs$date)` up to `r max(obs$date)` at a `r timespan` day resolution.
+
+#### Parameters for the VOC
 ```{r}
 source(here("code", "load-parameters.R"))
 print(parameters)
+voc_label <- "Omicron"
+horizon <- 4
 # model run options
-output_loglik = TRUE
-adapt_delta = 0.99
-max_treedepth = 15
-refresh = 0
-show_messages = FALSE
+output_loglik <- TRUE
+adapt_delta <- 0.99
+max_treedepth <- 15
+refresh <- 0
+show_messages <- FALSE
 ```
 
-### 3. Build models
+### Results
 
-#### 3.1 Scaled relationship between variants
+#### Model build
 
-- Run model
+##### Scaled relationship between variants
 ```{r, message=FALSE, warning=FALSE}
 forecast_scaled_fit <- forecast(obs, 
                                 variant_relationship = "scaled",
@@ -49,6 +73,9 @@ forecast_scaled_fit <- forecast(obs,
                                 strains = parameters$strains,
                                 r_init = parameters$r_init,
                                 overdispersion = parameters$overdispersion,
+                                timespan = timespan,
+                                horizon = horizon,
+                                voc_label = voc_label,
                       # processing options
                       output_loglik = output_loglik,
                       adapt_delta = adapt_delta,
@@ -58,7 +85,7 @@ forecast_scaled_fit <- forecast(obs,
                       
 forecast_scaled <- unnest_posterior(forecast_scaled_fit)
 ```
-- Check model run
+Model checks:
 ```{r}
 # Fit diagnostics
 diagnose <- forecast_scaled_fit %>%
@@ -70,9 +97,7 @@ knitr::kable(diagnose[1:8,])
 loo_scaled <- forecast_scaled_fit$fit[[1]]$loo()
 ```
 
-#### 3.2 With a time-dependent relationship between variants
-
-- Run model
+#### With a time-dependent relationship between variants
 ```{r, message=FALSE, warning=FALSE}
 forecast_pooled_fit <- forecast(obs, 
                                 variant_relationship = "pooled",
@@ -81,6 +106,9 @@ forecast_pooled_fit <- forecast(obs,
                                 strains = parameters$strains,
                                 r_init = parameters$r_init,
                                 overdispersion = parameters$overdispersion,
+                                timespan = timespan,
+                                horizon = horizon,
+                                voc_label = voc_label,
                       # processing options
                       output_loglik = output_loglik,
                       adapt_delta = adapt_delta,
@@ -89,8 +117,7 @@ forecast_pooled_fit <- forecast(obs,
                       show_messages = show_messages)
 forecast_pooled <- unnest_posterior(forecast_pooled_fit)
 ```
-
-- Check model run
+Model checks:
 ```{r}
 diagnose <- forecast_pooled_fit %>%
   select(samples:time) %>%
@@ -101,9 +128,9 @@ knitr::kable(diagnose[1:8,])
 loo_pooled <- forecast_pooled_fit$fit[[1]]$loo()
 ```
 
-### 4. Compare models
+#### Compare models
 
-#### 4.1 Compare LOO
+##### Compare LOO
 
 Scaled relationship:
 ```{r}
@@ -121,7 +148,7 @@ library(loo)
 loo_compare(loo_scaled, loo_pooled)
 ```
 
-#### 4.2 Compare plots
+##### Compare plots
 
 ```{r}
 subtitle <- "Variant relationship: fixed (left) and varying (right)"

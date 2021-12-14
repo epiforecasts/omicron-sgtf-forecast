@@ -1,0 +1,202 @@
+---
+title: "Exploring the transmission advantage of Omicron in England"
+author: "Epiforecasts"
+date: "`r format(Sys.time(), '%d %B %Y')`"
+output: bookdown::pdf_document2
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, include = FALSE, 
+                      warning = FALSE, message = FALSE,
+                      root.dir = here::here())
+# Load packages
+library(here)
+library(dplyr)
+library(tidyr)
+library(forecast.vocs)
+library(ggplot2)
+library(patchwork)
+library(purrr)
+library(data.table)
+library(loo)
+library(scoringutils)
+library(knitr)
+options(mc.cores = 4)
+
+```
+
+### Background {-}
+
+We aim to compare evidence for competing explanations of the transmission advantage of the variant of concern, Omicron, compared to the existing dominant variant, Delta.
+
+Specifically we aimed to explore the impact of increased transmissibility compared to immune escape from Omicron infections. 
+
+To explore this, we can compare between a model that uses a fixed relationship between variants, against model that allowed the relationship to vary over time. The fixed relationship means the VoC differs only by the transmissibility difference to the non-VOC strain and any variation over time is shared between strains. In contrast, a pooled relationship allowed the VoC to differ with dependence determined from the data. 
+
+If the two models show little difference in growth rate and have similar predictive performance, this suggests that increased transmissibility largely accounts for the growth of Omicron. However, if results from each model differ this might suggest transmissibility is not sufficient to explain the spread, and the advantage of Omicron is more likely to be due to immune escape. 
+
+In order to test this, we use a model framework where we vary only the relationship between variants while holding all other parameters constant. We compare leave-one-out validation among the models and explore the estimated transmission advantage.
+
+### Methods {-}
+
+```{r load-data}
+# Load data
+source(here("code", "load-data.R"))
+obs <- data.table(weekly)
+timespan <- 7
+
+# Cut off data before November and <3 days old
+start_date <- as.Date("2021-11-01")
+end_date <- Sys.Date() - 3
+obs <- filter(obs, between(date, start_date, end_date))
+
+# Load parameters
+source(here("code", "load-parameters.R"))
+voc_label <- "Omicron"
+horizon <- 4
+output_loglik <- TRUE
+adapt_delta <- 0.99
+max_treedepth <- 15
+refresh <- 0
+show_messages <- FALSE
+
+variant_relationships <- c("scaled", "pooled")
+
+```
+
+We used case data from England that included information on S-gene target negativity. These are the results of PCR tests following a positive lateral flow test result. We excluded data before `r start_date`, to reduce overfitting to stochastic imports. Data are included up to `r max(obs$date)` and modelled at a `r timespan` day resolution. 
+
+To model a single strain, we model the mean of reported cases as an order 1 autoregressive (AR(1)) process on the log scale by time unit. The model is initialised by assuming that the initial reported cases are representative with a small amount of error (2.5%). This uses an initial growth rate, where the exponential is the effective reproduction number (Rt). We scaled the reproduction number to the mean generation time, set at `r 7 * parameters$scale_r` days. The growth rate is then itself modelled as a differenced AR(1) process. We then assume a negative binomial observation model with overdispersion for reported cases.
+
+We expanded the single strain model to explore dynamics between two strains. This model used the single strain model as a starting point,  with the addition of strain specific auto-regressive AR(1) variation and a beta binomial observation process for sequence data. Mean reported cases are again defined using a AR(1) process on the log scale for each strain and then combined for overall mean reported cases.
+
+The mean reported cases due to the variant of concern is derived by calculating the mean proportion of cases that had the VoC for the first time point using the overall number of reported cases, the number of sequenced cases, and the number of sequences that were positive for the VoC. The growth rate for VoC and non-VoC cases is then modelled as a combination of an overall growth rate (as defined for the single strain model), a strain specific modifier, and an AR(1) error term post introduction. We used a weakly informative prior for a transmission advantage for the VoC vs non-VoC cases of mean `r parameters$voc_scale[1]` (standard deviation `r parameters$voc_scale[2]`), based on early work from South Africa[^1].
+
+We defined the relationship between variants as either fixed or pooled. The fixed relationship meant the VoC differs only by the transmissibility difference to the non-VOC strain and any variation over time is shared between strains. The pooled relationship allowed the VoC to differ with dependence determined from the data.
+
+Finally, the mean proportion of samples that have the VoC is then estimated using the mean reported cases with the VoC and the overall mean reported cases. We assume a beta binomial observation model for the number of sequences that are positive for the VoC with overdispersion. 
+
+We modelled using MCMC with four chains. We tested the difference between the two models by comparing out of sample predictive fit using leave-one-out cross-validation with Pareto smoothed importance sampling, and model scoring.
+
+### Results {-}
+
+#### Model estimation {-}
+
+```{r fit-models, cache=TRUE}
+# Model with 1) scaled and 2) time-dependent relationship between variants
+forecast_fits <- map(variant_relationships,
+                           ~ forecast(obs, 
+                                # scaled or pooled relationship
+                                variant_relationship = .x,
+                                # variant options
+                                voc_scale = parameters$voc_scale,
+                                scale_r = parameters$scale_r,
+                                strains = parameters$strains,
+                                r_init = parameters$r_init,
+                                overdispersion = parameters$overdispersion,
+                                timespan = timespan,
+                                horizon = horizon,
+                                voc_label = voc_label,
+                                # processing options
+                                output_loglik = output_loglik,
+                                adapt_delta = adapt_delta,
+                                max_treedepth = max_treedepth,
+                                refresh = refresh,
+                                show_messages = show_messages))
+names(forecast_fits) <- variant_relationships
+forecasts <- map(forecast_fits,
+                       ~ unnest_posterior(.x) %>%
+                         mutate(across(mean:q95, round, 2)))
+
+```
+
+```{r plot-advantage, include=TRUE, fig.cap="The transmission advantage of Omicron, modelled in a fixed relationship to Delta (left) and a time-varying relationship (right)."}
+# Plot VOC advantage
+advantage <- map(forecasts,
+                 ~ filter(.x, value_type == "model" &
+                            variable == "avg_voc_advantage") %>%
+                   select(variant_relationship, variable, clean_name, 
+                          exponentiated:ess_bulk))
+
+voc_scaled <- plot_voc_advantage(forecasts$scaled) +
+  labs(subtitle = "Fixed variant relationship")
+voc_pooled <- plot_voc_advantage(forecasts$pooled) +
+  labs(subtitle = "Pooled variant relationship")
+
+voc_scaled +
+  voc_pooled +
+  plot_layout(nrow = 1, guides = "collect") +
+  plot_annotation(theme = theme(legend.position = "bottom"))
+
+```
+Transmission advantage is shown where 100% is equivalent to the current dominant strain, Delta (figure \@ref(fig:plot-advantage)). Both models indicated a stronger transmission advantage for Omicron. 
+
+As a baseline, we assumed a fixed relationship between variants to model transmission advantage without variation over time. Here, estimated Omicron advantage is `r advantage[["scaled"]][["median"]]` (95% credible interval `r advantage[["scaled"]][["q5"]]` - `r advantage[["scaled"]][["q95"]]`). In comparison, we used a pooled relationship drawn from data to allow transmission advantage to vary over time. In this setting, the apparent transmission advantage of Omicron rose over time before stabilising at a higher transmission advantage compared to Delta. On average over time, we found an Omicron advantage of `r advantage[["pooled"]][["median"]]` (95% CrI `r advantage[["pooled"]][["q5"]]` - `r advantage[["pooled"]][["q95"]]`).
+
+```{r plot-cases, include=TRUE, fig.cap="Weekly cases shown on a log scale, modelled in a fixed relationship to Delta (left) and a time-varying relationship (right)."}
+# Plot cases
+cases_scaled <- plot_cases(forecasts$scaled, obs, log = TRUE) +
+  labs(subtitle = "Fixed variant relationship")
+cases_pooled <- plot_cases(forecasts$pooled, obs, log = TRUE) +
+  labs(subtitle = "Pooled variant relationship")
+cases_scaled +
+  cases_pooled +
+  plot_layout(nrow = 1, guides = "collect") +
+  plot_annotation(theme = theme(legend.position = "bottom"))
+
+```
+We modelled cases attributable to each of the two variants under each assumption, with the posterior prediction shown in figure \@ref(fig:plot-cases) from the two strain model ("Combined") and the unobserved estimates for each strain. 
+
+#### Model comparison {-}
+
+```{r compare-loo}
+# Compare LOO
+models <- c("scaled", "pooled")
+loo_scaled <- forecast_fits$scaled$fit[[1]]$loo()
+loo_pooled <- forecast_fits$pooled$fit[[1]]$loo()
+loo_comp <- as_tibble(loo_compare(loo_scaled, loo_pooled), rownames = "model") %>%
+  mutate(model = recode(model, "model1" = "scaled", "model2" = "pooled"),
+         across(c(elpd_diff,se_diff), round, 2)) %>%
+  filter(elpd_diff != 0)
+
+```
+
+We explored the difference in expected predictive performance between the two models. Comparing the models on PSIS-LOO indicated an estimated difference in expected log pointwise predictive density of `r loo_comp$elpd_diff` (with a standard error of `r loo_comp$se_diff`) for the `r loo_comp$model` model compared to the `r models[!grepl(loo_comp$model, models)]` model.
+
+```{r compare-score, include=TRUE}
+# Compare model scores
+scores <- map2_dfr(forecasts,
+                   variant_relationships,
+                   ~ summary(.x, target = "forecast", type = "cases") %>%
+                     fv_score_forecast(., obs, summarise_by = "strains",
+                                       metrics = NULL) %>%
+                     mutate("Variant relationship" = .y))
+
+scores <- scores %>%
+  select("Variant relationship", 
+         "Sharpness" = sharpness)
+kable(scores)
+
+```
+
+### Discussion {-}
+
+We found that transmission advantage varied depending on the choice of relationship between the two variants. This can be interpreted in terms of variant transmissibility.
+
+\newpage
+
+###  Appendix: Model parameters and code {-}
+
+- Model parameters
+
+``` {r show-parameters, include=TRUE}
+# Display model parameters
+print(parameters)
+```
+
+- All code
+
+```{r ref.label=knitr::all_labels(), echo=TRUE, eval=FALSE, include=TRUE}
+```
+
+[^1]: 2021-12-03, Carl Pearson and others, "Omicron spread in South Africa", Epidemics8

@@ -363,7 +363,7 @@ div.tocify {
 
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
-<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span>
 </button>
 </p>
 <div id="workflowr-report" class="collapse">
@@ -372,7 +372,7 @@ div.tocify {
 <a data-toggle="tab" href="#summary">Summary</a>
 </li>
 <li>
-<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> </a>
+<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> </a>
 </li>
 <li>
 <a data-toggle="tab" href="#versions">Past versions</a>
@@ -384,7 +384,7 @@ div.tocify {
 <strong>Last updated:</strong> 2021-12-13
 </p>
 <p>
-<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
 </p>
 <p>
 <strong>Knit directory:</strong> <code>omicron-sgtf-forecast/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
@@ -400,12 +400,12 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges"> <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted changes </a>
 </p>
 </div>
-<div id="strongRMarkdownfilestronguptodate" class="panel-collapse collapse">
+<div id="strongRMarkdownfilestronguncommittedchanges" class="panel-collapse collapse">
 <div class="panel-body">
-<p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
+<p>The R Markdown file has unstaged changes. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
 </div>
 </div>
 </div>
@@ -472,16 +472,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomepiforecastsomicronsgtfforecasttree39522e8098c797ea86aee6e87c997ff81ef62f3dtargetblank39522e8a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/epiforecasts/omicron-sgtf-forecast/tree/39522e8098c797ea86aee6e87c997ff81ef62f3d" target="_blank">39522e8</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomepiforecastsomicronsgtfforecasttreeeca454f2861e048b78a2b92ba44bd22b521c3cbatargetblankeca454fa"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/epiforecasts/omicron-sgtf-forecast/tree/eca454f2861e048b78a2b92ba44bd22b521c3cba" target="_blank">eca454f</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomepiforecastsomicronsgtfforecasttree39522e8098c797ea86aee6e87c997ff81ef62f3dtargetblank39522e8a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomepiforecastsomicronsgtfforecasttreeeca454f2861e048b78a2b92ba44bd22b521c3cbatargetblankeca454fa" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/epiforecasts/omicron-sgtf-forecast/tree/39522e8098c797ea86aee6e87c997ff81ef62f3d" target="_blank">39522e8</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/epiforecasts/omicron-sgtf-forecast/tree/eca454f2861e048b78a2b92ba44bd22b521c3cba" target="_blank">eca454f</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -491,6 +491,13 @@ Ignored files:
     Ignored:    .Rhistory
     Ignored:    .Rproj.user/
     Ignored:    data/private/
+
+Untracked files:
+    Untracked:  analysis/transmission.pdf
+
+Unstaged changes:
+    Modified:   analysis/transmission.Rmd
+    Modified:   code/load-data.R
 
 </code></pre>
 <p>
@@ -529,6 +536,23 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/epiforecasts/omicron-sgtf-forecast/eca454f2861e048b78a2b92ba44bd22b521c3cba/docs/transmission.html" target="_blank">eca454f</a>
+</td>
+<td>
+kathsherratt
+</td>
+<td>
+2021-12-13
+</td>
+<td>
+update
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -672,15 +696,25 @@ split out aims
 </div>
 </div>
 </div>
-<div id="load-packages-and-clean-data" class="section level3">
-<h3>1. Load packages and clean data</h3>
-<ul>
-<li>Data up to week ending 2021-12-06 (may be incomplete).</li>
-<li>Daily data up to 2021-12-06.</li>
-</ul>
+<div id="aim" class="section level3">
+<h3>Aim</h3>
+<p>We aim to compare evidence for two competing explanations of the transmissibility of the variant of concern, Omicron, compared to the existing dominant variant, Delta.</p>
 </div>
-<div id="set-up-the-parameters-for-the-voc" class="section level3">
-<h3>2. Set up the parameters for the VOC</h3>
+<div id="methods" class="section level3">
+<h3>Methods</h3>
+<ol style="list-style-type: decimal">
+<li>Fit a model to a fixed (scaled) relationship between variants</li>
+<li>Fit a model to a time-varying relationship between variants</li>
+<li>Compare model fit by LOO to check the impact of allowing a flexible relationship between variants</li>
+<li>Compare models scored out of sample</li>
+<li>Compare to single strain model</li>
+</ol>
+<div id="data" class="section level4">
+<h4>Data</h4>
+<p>Data are included from 2021-10-03 up to 2021-12-12 at a 7 day resolution.</p>
+</div>
+<div id="parameters-for-the-voc" class="section level4">
+<h4>Parameters for the VOC</h4>
 <pre><code>$voc_scale
 [1] 0.21 0.20
 
@@ -696,30 +730,25 @@ $scale_r
 $overdispersion
 [1] TRUE</code></pre>
 </div>
-<div id="build-models" class="section level3">
-<h3>3. Build models</h3>
-<div id="scaled-relationship-between-variants" class="section level4">
-<h4>3.1 Scaled relationship between variants</h4>
-<ul>
-<li>Run model</li>
-</ul>
+</div>
+<div id="results" class="section level3">
+<h3>Results</h3>
+<div id="model-build" class="section level4">
+<h4>Model build</h4>
+<div id="scaled-relationship-between-variants" class="section level5">
+<h5>Scaled relationship between variants</h5>
 <pre><code>Running MCMC with 4 parallel chains...
 
-Chain 1 Exception: neg_binomial_2_rng: Random number that came from gamma distribution is 3.4599e+10, but must be less than 1073741824.000000 (in &#39;C:/Users/kaths/AppData/Local/Temp/RtmpC0RYTE/model-f2057125115.stan&#39;, line 188, column 6 to column 73) 
-Chain 2 Exception: neg_binomial_2_rng: Random number that came from gamma distribution is 6.55934e+09, but must be less than 1073741824.000000 (in &#39;C:/Users/kaths/AppData/Local/Temp/RtmpC0RYTE/model-f2057125115.stan&#39;, line 188, column 6 to column 73) 
-Chain 1 Exception: neg_binomial_2_rng: Random number that came from gamma distribution is 3.12959e+09, but must be less than 1073741824.000000 (in &#39;C:/Users/kaths/AppData/Local/Temp/RtmpC0RYTE/model-f2057125115.stan&#39;, line 188, column 6 to column 73) 
-Chain 2 Exception: neg_binomial_2_rng: Random number that came from gamma distribution is 3.04956e+09, but must be less than 1073741824.000000 (in &#39;C:/Users/kaths/AppData/Local/Temp/RtmpC0RYTE/model-f2057125115.stan&#39;, line 188, column 6 to column 73) 
-Chain 1 finished in 7.1 seconds.
-Chain 2 finished in 7.6 seconds.
-Chain 4 finished in 7.9 seconds.
-Chain 3 finished in 8.2 seconds.
+Chain 2 Exception: neg_binomial_2_rng: Random number that came from gamma distribution is 4.53229e+09, but must be less than 1073741824.000000 (in &#39;C:/Users/kaths/AppData/Local/Temp/RtmpI1aROY/model-866034236958.stan&#39;, line 188, column 6 to column 73) 
+Chain 2 finished in 8.8 seconds.
+Chain 4 finished in 8.8 seconds.
+Chain 3 finished in 9.2 seconds.
+Chain 1 finished in 9.7 seconds.
 
 All 4 chains finished successfully.
-Mean chain execution time: 7.7 seconds.
-Total execution time: 8.7 seconds.</code></pre>
-<ul>
-<li>Check model run</li>
-</ul>
+Mean chain execution time: 9.1 seconds.
+Total execution time: 9.8 seconds.</code></pre>
+<p>Model checks:</p>
 <table>
 <thead>
 <tr class="header">
@@ -738,53 +767,56 @@ Total execution time: 8.7 seconds.</code></pre>
 </tr>
 <tr class="odd">
 <td align="left">divergent_transitions</td>
-<td align="right">5.00e+00</td>
+<td align="right">9.00e+00</td>
 </tr>
 <tr class="even">
 <td align="left">per_divergent_transitions</td>
-<td align="right">1.25e-03</td>
+<td align="right">2.25e-03</td>
 </tr>
 <tr class="odd">
 <td align="left">max_treedepth</td>
-<td align="right">7.00e+00</td>
+<td align="right">8.00e+00</td>
 </tr>
 <tr class="even">
 <td align="left">no_at_max_treedepth</td>
-<td align="right">1.00e+01</td>
+<td align="right">2.02e+02</td>
 </tr>
 <tr class="odd">
 <td align="left">per_at_max_treedepth</td>
-<td align="right">2.50e-03</td>
+<td align="right">5.05e-02</td>
 </tr>
 <tr class="even">
 <td align="left">time</td>
-<td align="right">8.70e+00</td>
+<td align="right">9.80e+00</td>
 </tr>
 </tbody>
 </table>
 </div>
+</div>
 <div id="with-a-time-dependent-relationship-between-variants" class="section level4">
-<h4>3.2 With a time-dependent relationship between variants</h4>
-<ul>
-<li>Run model</li>
-</ul>
+<h4>With a time-dependent relationship between variants</h4>
 <pre><code>Running MCMC with 4 parallel chains...
 
-Chain 4 Exception: neg_binomial_2_rng: Random number that came from gamma distribution is 6.96478e+09, but must be less than 1073741824.000000 (in &#39;C:/Users/kaths/AppData/Local/Temp/RtmpC0RYTE/model-f2057125115.stan&#39;, line 188, column 6 to column 73) 
-Chain 4 Exception: neg_binomial_2_rng: Random number that came from gamma distribution is 3.75117e+09, but must be less than 1073741824.000000 (in &#39;C:/Users/kaths/AppData/Local/Temp/RtmpC0RYTE/model-f2057125115.stan&#39;, line 188, column 6 to column 73) 
-Chain 3 finished in 4.7 seconds.
-Chain 4 finished in 5.1 seconds.
-Chain 2 Exception: neg_binomial_2_rng: Random number that came from gamma distribution is 1.19501e+10, but must be less than 1073741824.000000 (in &#39;C:/Users/kaths/AppData/Local/Temp/RtmpC0RYTE/model-f2057125115.stan&#39;, line 188, column 6 to column 73) 
-Chain 2 Exception: neg_binomial_2_rng: Random number that came from gamma distribution is 2.5195e+09, but must be less than 1073741824.000000 (in &#39;C:/Users/kaths/AppData/Local/Temp/RtmpC0RYTE/model-f2057125115.stan&#39;, line 188, column 6 to column 73) 
-Chain 1 finished in 6.3 seconds.
-Chain 2 finished in 6.2 seconds.
+Chain 2 Exception: neg_binomial_2_rng: Random number that came from gamma distribution is 3.22868e+09, but must be less than 1073741824.000000 (in &#39;C:/Users/kaths/AppData/Local/Temp/RtmpI1aROY/model-866034236958.stan&#39;, line 196, column 6 to column 71) 
+Chain 2 Exception: neg_binomial_2_rng: Random number that came from gamma distribution is 1.27022e+09, but must be less than 1073741824.000000 (in &#39;C:/Users/kaths/AppData/Local/Temp/RtmpI1aROY/model-866034236958.stan&#39;, line 196, column 6 to column 71) 
+Chain 2 Exception: neg_binomial_2_rng: Random number that came from gamma distribution is 1.75517e+09, but must be less than 1073741824.000000 (in &#39;C:/Users/kaths/AppData/Local/Temp/RtmpI1aROY/model-866034236958.stan&#39;, line 196, column 6 to column 71) 
+Chain 2 Exception: neg_binomial_2_rng: Random number that came from gamma distribution is 2.18027e+09, but must be less than 1073741824.000000 (in &#39;C:/Users/kaths/AppData/Local/Temp/RtmpI1aROY/model-866034236958.stan&#39;, line 196, column 6 to column 71) 
+Chain 3 Exception: neg_binomial_2_rng: Random number that came from gamma distribution is 1.3128e+09, but must be less than 1073741824.000000 (in &#39;C:/Users/kaths/AppData/Local/Temp/RtmpI1aROY/model-866034236958.stan&#39;, line 196, column 6 to column 71) 
+Chain 2 Exception: neg_binomial_2_rng: Random number that came from gamma distribution is 1.25257e+11, but must be less than 1073741824.000000 (in &#39;C:/Users/kaths/AppData/Local/Temp/RtmpI1aROY/model-866034236958.stan&#39;, line 188, column 6 to column 73) 
+Chain 1 Exception: neg_binomial_2_rng: Random number that came from gamma distribution is 3.47882e+09, but must be less than 1073741824.000000 (in &#39;C:/Users/kaths/AppData/Local/Temp/RtmpI1aROY/model-866034236958.stan&#39;, line 196, column 6 to column 71) 
+Chain 3 Exception: neg_binomial_2_rng: Random number that came from gamma distribution is 5.07344e+09, but must be less than 1073741824.000000 (in &#39;C:/Users/kaths/AppData/Local/Temp/RtmpI1aROY/model-866034236958.stan&#39;, line 196, column 6 to column 71) 
+Chain 1 Exception: neg_binomial_2_rng: Random number that came from gamma distribution is 3.35201e+09, but must be less than 1073741824.000000 (in &#39;C:/Users/kaths/AppData/Local/Temp/RtmpI1aROY/model-866034236958.stan&#39;, line 196, column 6 to column 71) 
+Chain 3 finished in 20.5 seconds.
+Chain 1 Exception: neg_binomial_2_rng: Random number that came from gamma distribution is 5.80365e+09, but must be less than 1073741824.000000 (in &#39;C:/Users/kaths/AppData/Local/Temp/RtmpI1aROY/model-866034236958.stan&#39;, line 196, column 6 to column 71) 
+Chain 1 Exception: neg_binomial_2_rng: Random number that came from gamma distribution is 1.32685e+09, but must be less than 1073741824.000000 (in &#39;C:/Users/kaths/AppData/Local/Temp/RtmpI1aROY/model-866034236958.stan&#39;, line 188, column 6 to column 73) 
+Chain 1 finished in 21.8 seconds.
+Chain 2 finished in 22.2 seconds.
+Chain 4 finished in 26.1 seconds.
 
 All 4 chains finished successfully.
-Mean chain execution time: 5.6 seconds.
-Total execution time: 6.5 seconds.</code></pre>
-<ul>
-<li>Check model run</li>
-</ul>
+Mean chain execution time: 22.6 seconds.
+Total execution time: 26.3 seconds.</code></pre>
+<p>Model checks:</p>
 <table>
 <thead>
 <tr class="header">
@@ -795,91 +827,90 @@ Total execution time: 6.5 seconds.</code></pre>
 <tbody>
 <tr class="odd">
 <td align="left">samples</td>
-<td align="right">4.000e+03</td>
+<td align="right">4000.0000</td>
 </tr>
 <tr class="even">
 <td align="left">max_rhat</td>
-<td align="right">1.000e+00</td>
+<td align="right">1.0000</td>
 </tr>
 <tr class="odd">
 <td align="left">divergent_transitions</td>
-<td align="right">1.800e+01</td>
+<td align="right">18.0000</td>
 </tr>
 <tr class="even">
 <td align="left">per_divergent_transitions</td>
-<td align="right">4.500e-03</td>
+<td align="right">0.0045</td>
 </tr>
 <tr class="odd">
 <td align="left">max_treedepth</td>
-<td align="right">7.000e+00</td>
+<td align="right">8.0000</td>
 </tr>
 <tr class="even">
 <td align="left">no_at_max_treedepth</td>
-<td align="right">1.890e+02</td>
+<td align="right">2444.0000</td>
 </tr>
 <tr class="odd">
 <td align="left">per_at_max_treedepth</td>
-<td align="right">4.725e-02</td>
+<td align="right">0.6110</td>
 </tr>
 <tr class="even">
 <td align="left">time</td>
-<td align="right">6.500e+00</td>
+<td align="right">26.3000</td>
 </tr>
 </tbody>
 </table>
 </div>
-</div>
-<div id="compare-models" class="section level3">
-<h3>4. Compare models</h3>
-<div id="compare-loo" class="section level4">
-<h4>4.1 Compare LOO</h4>
+<div id="compare-models" class="section level4">
+<h4>Compare models</h4>
+<div id="compare-loo" class="section level5">
+<h5>Compare LOO</h5>
 <p>Scaled relationship:</p>
 <pre><code>
-Computed from 4000 by 5 log-likelihood matrix
+Computed from 4000 by 11 log-likelihood matrix
 
-         Estimate  SE
-elpd_loo   -103.7 2.0
-p_loo        69.1 2.0
-looic       207.3 4.1
+         Estimate   SE
+elpd_loo   -232.6  5.9
+p_loo       141.4  5.9
+looic       465.3 11.7
 ------
-Monte Carlo SE of elpd_loo is 0.1.
+Monte Carlo SE of elpd_loo is 0.0.
 
 Pareto k diagnostic values:
                          Count Pct.    Min. n_eff
-(-Inf, 0.5]   (good)     4     80.0%   1045      
- (0.5, 0.7]   (ok)       1     20.0%   507       
-   (0.7, 1]   (bad)      0      0.0%   &lt;NA&gt;      
-   (1, Inf)   (very bad) 0      0.0%   &lt;NA&gt;      
+(-Inf, 0.5]   (good)     10    90.9%   1528      
+ (0.5, 0.7]   (ok)        1     9.1%   2462      
+   (0.7, 1]   (bad)       0     0.0%   &lt;NA&gt;      
+   (1, Inf)   (very bad)  0     0.0%   &lt;NA&gt;      
 
 All Pareto k estimates are ok (k &lt; 0.7).
 See help(&#39;pareto-k-diagnostic&#39;) for details.</code></pre>
 <p>Varying relationship:</p>
 <pre><code>
-Computed from 4000 by 5 log-likelihood matrix
+Computed from 4000 by 11 log-likelihood matrix
 
-         Estimate  SE
-elpd_loo   -103.6 2.0
-p_loo        69.1 2.0
-looic       207.3 4.0
+         Estimate   SE
+elpd_loo   -234.4  5.5
+p_loo       169.5  5.5
+looic       468.8 10.9
 ------
 Monte Carlo SE of elpd_loo is 0.1.
 
 Pareto k diagnostic values:
                          Count Pct.    Min. n_eff
-(-Inf, 0.5]   (good)     4     80.0%   1061      
- (0.5, 0.7]   (ok)       1     20.0%   674       
-   (0.7, 1]   (bad)      0      0.0%   &lt;NA&gt;      
-   (1, Inf)   (very bad) 0      0.0%   &lt;NA&gt;      
+(-Inf, 0.5]   (good)     10    90.9%   1146      
+ (0.5, 0.7]   (ok)        1     9.1%   1890      
+   (0.7, 1]   (bad)       0     0.0%   &lt;NA&gt;      
+   (1, Inf)   (very bad)  0     0.0%   &lt;NA&gt;      
 
 All Pareto k estimates are ok (k &lt; 0.7).
 See help(&#39;pareto-k-diagnostic&#39;) for details.</code></pre>
 <p>Comparison:</p>
 <pre><code>       elpd_diff se_diff
-model2 0.0       0.0    
-model1 0.0       0.1    </code></pre>
+model1  0.0       0.0   
+model2 -1.8       0.8   </code></pre>
 </div>
-<div id="compare-plots" class="section level4">
-<h4>4.2 Compare plots</h4>
+<div id="compare-plots" class="section level5">
+<h5>Compare plots</h5>
 <pre><code>$cases</code></pre>
 <p><img src="figure/transmission.Rmd/unnamed-chunk-10-1.png" width="672" style="display: block; margin: auto;" /></p>
 <pre><code>
@@ -921,10 +952,10 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
- [1] loo_2.4.1                lubridate_1.8.0          readr_2.1.0             
- [4] purrr_0.3.4              patchwork_1.1.1          ggplot2_3.3.5           
- [7] forecast.vocs_0.0.8.2000 tidyr_1.1.4              dplyr_1.0.7             
-[10] here_1.0.1               workflowr_1.6.2         
+ [1] loo_2.4.1           lubridate_1.8.0     readr_2.1.0        
+ [4] data.table_1.14.2   purrr_0.3.4         patchwork_1.1.1    
+ [7] ggplot2_3.3.5       forecast.vocs_0.0.8 tidyr_1.1.4        
+[10] dplyr_1.0.7         here_1.0.1         
 
 loaded via a namespace (and not attached):
  [1] matrixStats_0.61.0   fs_1.5.0             bit64_4.0.5         
@@ -952,11 +983,12 @@ loaded via a namespace (and not attached):
 [67] hms_1.1.1            knitr_1.36           ps_1.6.0            
 [70] pillar_1.6.4         future.apply_1.8.1   codetools_0.2-18    
 [73] stats4_4.0.4         glue_1.5.0           evaluate_0.14       
-[76] V8_3.6.0             data.table_1.14.2    RcppParallel_5.1.4  
-[79] vctrs_0.3.8          tzdb_0.2.0           httpuv_1.6.3        
-[82] gtable_0.3.0         future_1.23.0        assertthat_0.2.1    
-[85] xfun_0.28            later_1.3.0          tibble_3.1.6        
+[76] V8_3.6.0             RcppParallel_5.1.4   vctrs_0.3.8         
+[79] tzdb_0.2.0           httpuv_1.6.3         gtable_0.3.0        
+[82] future_1.23.0        assertthat_0.2.1     xfun_0.28           
+[85] later_1.3.0          tibble_3.1.6         workflowr_1.6.2     
 [88] globals_0.14.0       ellipsis_0.3.2       cmdstanr_0.4.0.9000 </code></pre>
+</div>
 </div>
 </div>
 </div>

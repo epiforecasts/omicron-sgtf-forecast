@@ -4,46 +4,21 @@ library(readr)
 library(dplyr)
 library(lubridate)
 
-# Load daily data (private, local)
-
 # England
-england <- read_csv(here("data", "private", "sgtf_weekly_england.csv"),
+daily <- read_csv(here("data", "private", "sgtf_daily_england.csv"),
                     show_col_types = FALSE) %>%
   rename(date = date_specimen) %>%
-  mutate(location = "England")
+  mutate(location = "England") %>%
+  rowwise() %>%
+  mutate(total = sum(non_sgtf, sgtf, na.rm = TRUE)) %>%
+  ungroup()
 
-max_date_eng <- max(england$date)
-
-# scotland <- read_tsv(here("data", "private", "lh-sgtf.tsv")) %>%
-#   group_by(date) %>%
-#   summarise(sgtf = sum(c_across(ends_with("sgtf"))),
-#             non_sgtf = sum(c_across(ends_with("pos"))),
-#             location = "Scotland",
-#             .groups = "drop") %>%
-#   left_join(select(england, date, week_ending))
-
-# Join and aggregate to weekly
-if (exists("scotland")) {data <- bind_rows(england, scotland)
-} else {data <- england}
-data <- data %>%
-  mutate(epiyear = epiyear(date),
-         epiweek = epiweek(date)) %>%
-  group_by(epiyear, epiweek) %>%
-  summarise(total = sum(non_sgtf, sgtf, na.rm = TRUE),
-            sgtf = sum(sgtf, na.rm = TRUE),
-            non_sgtf = sum(non_sgtf, na.rm = TRUE),
-            n_days = max(date) - min(date) + 1,
-            date = max(week_ending, na.rm = TRUE), # week may be incomplete
-            .groups = "drop")
-
-# # truncation:
-# data <- data %>%
-#  filter(n_days == 7)
+max_date_eng <- max(daily$date)
 
 # Format
 # - required variables:
 #   cases, seq_voc, seq_total, date, cases_available, seq_available
-obs <- data %>%
+daily <- daily %>%
   transmute(date = date,
             cases = total,
             cases_available = date,
@@ -51,4 +26,18 @@ obs <- data %>%
             seq_voc = sgtf,
             share_voc = sgtf / total,
             seq_available = date)
-obs <- data.table::data.table(obs)
+
+# Join and aggregate to weekly
+weekly <- daily %>%
+  mutate(week = ceiling_date(date, unit = "week",
+                             week_start = wday(max_date_eng))) %>%
+  group_by(week) %>%
+  summarise(cases = sum(cases, na.rm = TRUE),
+            seq_voc = sum(seq_voc, na.rm = TRUE),
+            share_voc = seq_voc / cases,
+            date = max(week, na.rm = TRUE),
+            .groups = "drop") %>%
+  mutate(seq_total = cases,
+         cases_available = date,
+         seq_available = date,
+         week = NULL)
