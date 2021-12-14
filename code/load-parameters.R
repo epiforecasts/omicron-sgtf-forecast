@@ -10,7 +10,7 @@ parameters <- list(
   r_init = c(0, 0.25),
 
   # Use a time scale based on generation time, rather than weekly.
-  scale_r = 5.1 / 7,
+  scale_r = 5.1,
 
   # Account for overdispersion
   overdispersion = TRUE

@@ -9,6 +9,7 @@ output: bookdown::pdf_document2
 knitr::opts_chunk$set(echo = FALSE, include = TRUE, 
                       warning = FALSE, message = FALSE,
                       root.dir = here::here())
+options(scipen = 1, digits = 2)
 library(here)
 library(forecast.vocs)
 library(dplyr)
@@ -25,9 +26,9 @@ We use a model framework where we vary only the relationship between variants wh
 
 ### Methods {-}
 
-We used case data from England that included information on S-gene target negativity. These case reports are the results of PCR tests following a positive lateral flow test result. We excluded data before `r start_date`, to reduce overfitting to stochastic imports. Data are included up to `r max(obs$date)` and modelled at a `r timespan` day resolution. 
+We used case data from England. This includes all cases tested by PCR test following symptom onset and a positive lateral flow test result. For a varying proportion of these cases, PCR test results included information on S-gene target. We used S-gene target negativity as a proxy for the Omicron variant. We excluded data before `r start_date`, to reduce overfitting to stochastic imports. Data are included up to `r max(obs$date)` and modelled at a `r timespan` day resolution. All dates are by specimen date.
 
-We used the `forecast.vocs` package to model a two-strain branching process for S-gene target negative and positive cases over time, including strain specific auto-regressive AR(1) variation, and a beta binomial observation process for the S-gene target status data. We used a weakly informative prior for a transmission advantage for the VoC vs non-VoC cases of mean `r parameters$voc_scale[1]` (standard deviation `r parameters$voc_scale[2]`), based on early work from South Africa[^1]. 
+We used the `forecast.vocs` package to model a two-strain branching process, including strain specific auto-regressive AR(1) variation, and a beta binomial observation process for the S-gene target status data. We used a weakly informative prior for a transmission advantage for the VoC vs non-VoC cases of mean `r parameters$voc_scale[1]` (standard deviation `r parameters$voc_scale[2]`), based on early work from South Africa[^1]. 
 
 We defined the relationship between variants as either fixed or pooled. The fixed relationship meant the VoC differed only by its transmissibility to the non-VOC strain, with any variation over time shared between strains. The pooled relationship allowed the VoC to differ with dependence determined from the data. See Appendix for full model details.
 
@@ -82,9 +83,9 @@ rt_scaled <- plot_rt(forecasts$scaled) +
 
 growth_pooled <- plot_growth(forecasts$pooled) +
   labs(subtitle = "Pooled variant relationship", 
-       y = "Growth rate", x = NULL)
+       y = NULL, x = NULL)
 rt_pooled <- plot_rt(forecasts$pooled) +
-  labs(y = "Rt", x = NULL)
+  labs(y = NULL, x = NULL)
 
 plot_growth_rt <- growth_scaled + growth_pooled +
   rt_scaled + rt_pooled +
@@ -105,7 +106,8 @@ voc_frac_scaled <- plot_voc_frac(forecasts$scaled) +
   labs(subtitle = "Fixed variant relationship", 
        y = "% overall cases with Omicron", x = NULL)
 voc_frac_pooled <- plot_voc_frac(forecasts$pooled) +
-  labs(subtitle = "Pooled variant relationship", x = NULL)
+  labs(subtitle = "Pooled variant relationship", 
+       y = NULL, x = NULL)
 
 plot_frac <- voc_frac_scaled +
   voc_frac_pooled +
@@ -125,7 +127,7 @@ See figure \@ref(fig:plot-voc-frac).
 cases_scaled <- plot_cases(forecasts$scaled, obs, log = TRUE) +
   labs(subtitle = "Fixed variant relationship", x = NULL)
 cases_pooled <- plot_cases(forecasts$pooled, obs, log = TRUE) +
-  labs(subtitle = "Pooled variant relationship", x = NULL)
+  labs(subtitle = "Pooled variant relationship", y = NULL, x = NULL)
 plot_cases <- cases_scaled +
   cases_pooled +
   plot_layout(nrow = 1, guides = "collect") +
