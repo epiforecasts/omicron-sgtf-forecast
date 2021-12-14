@@ -10,7 +10,8 @@ daily <- read_csv(here("data", "private", "sgtf_daily_england.csv"),
   rename(date = date_specimen) %>%
   mutate(location = "England") %>%
   rowwise() %>%
-  mutate(total = sum(non_sgtf, sgtf, na.rm = TRUE)) %>%
+  mutate(total_sgt = sum(non_sgtf, sgtf, na.rm = TRUE),
+         total_cases = sum(non_sgtf, sgtf, `NA`, na.rm = TRUE)) %>%
   ungroup()
 
 max_date_eng <- max(daily$date)
@@ -20,30 +21,30 @@ max_date_eng <- max(daily$date)
 #   cases, seq_voc, seq_total, date, cases_available, seq_available
 daily <- daily %>%
   transmute(date = date,
-            cases = total,
+            cases = total_cases,
             cases_available = date,
-            seq_total = total,
+            seq_total = total_sgt,
             seq_voc = sgtf,
-            share_voc = sgtf / total,
+            share_voc = sgtf / total_sgt,
             seq_available = date)
 
-# Join and aggregate to weekly
+# Aggregate to weekly
 weekly <- daily %>%
   mutate(week = ceiling_date(date, unit = "week",
                              week_start = wday(max_date_eng))) %>%
   group_by(week) %>%
   summarise(cases = sum(cases, na.rm = TRUE),
+            seq_total = sum(seq_total, na.rm = TRUE),
             seq_voc = sum(seq_voc, na.rm = TRUE),
             share_voc = seq_voc / cases,
             date = max(week, na.rm = TRUE),
             .groups = "drop") %>%
-  mutate(seq_total = cases,
-         cases_available = date,
+  mutate(cases_available = date,
          seq_available = date,
          week = NULL)
 
-# Remove day-of-week in daily data
-daily_detrend <- daily %>%
-  mutate(across(c(cases, seq_total, seq_voc, seq_available),
-                forecast::ma, order = 7),
-         share_voc = seq_voc / seq_total)
+# # Remove day-of-week in daily data
+# daily_detrend <- daily %>%
+#   mutate(across(c(cases, seq_total, seq_voc, seq_available),
+#                 forecast::ma, order = 7),
+#          share_voc = seq_voc / seq_total)
