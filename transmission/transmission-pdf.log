@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.12.13)  14 DEC 2021 10:32
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.12.13)  14 DEC 2021 13:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -599,62 +599,70 @@ LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 1
 (c:/Users/kaths/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 1
+51.
+(c:/Users/kaths/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/t1lmtt.fd
+File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 155.
+(Font)              <10> on input line 153.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 155.
+(Font)              <7> on input line 153.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 155.
+(Font)              <5> on input line 153.
 [1
 
 {c:/Users/kaths/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdfte
 x.map}]
-<transmission-pdf_files/figure-latex/plot-advantage-1.pdf, id=21, 469.755pt x 3
+<transmission-pdf_files/figure-latex/plot-advantage-1.pdf, id=26, 469.755pt x 3
 25.215pt>
 File: transmission-pdf_files/figure-latex/plot-advantage-1.pdf Graphic file (ty
 pe pdf)
 <use transmission-pdf_files/figure-latex/plot-advantage-1.pdf>
 Package pdftex.def Info: transmission-pdf_files/figure-latex/plot-advantage-1.p
-df  used on input line 169.
+df  used on input line 165.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 
 LaTeX Warning: Reference `fig:plot-advantage' on page 2 undefined on input line
- 170.
+ 166.
 
 
-Overfull \hbox (96.84727pt too wide) in paragraph at lines 169--171
+Overfull \hbox (96.84727pt too wide) in paragraph at lines 165--167
  []\T1/lmr/bx/n/10 Model es-ti-ma-tion []
  []
 
-<transmission-pdf_files/figure-latex/plot-cases-1.pdf, id=22, 469.755pt x 325.2
+<transmission-pdf_files/figure-latex/plot-cases-1.pdf, id=27, 469.755pt x 325.2
 15pt>
 File: transmission-pdf_files/figure-latex/plot-cases-1.pdf Graphic file (type p
 df)
 <use transmission-pdf_files/figure-latex/plot-cases-1.pdf>
 Package pdftex.def Info: transmission-pdf_files/figure-latex/plot-cases-1.pdf  
-used on input line 174.
+used on input line 170.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 
-LaTeX Warning: Reference `fig:plot-cases' on page 2 undefined on input line 175
+LaTeX Warning: Reference `fig:plot-cases' on page 2 undefined on input line 171
 .
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 174--176
+Underfull \hbox (badness 10000) in paragraph at lines 170--172
 [][]
  []
 
 [2 <./transmission-pdf_files/figure-latex/plot-advantage-1.pdf>] [3 <./transmis
 sion-pdf_files/figure-latex/plot-cases-1.pdf>] [4]
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 2
-26.
-(c:/Users/kaths/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/t1lmtt.fd
-File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-) [5]
-Underfull \vbox (badness 10000) detected at line 367
+Underfull \vbox (badness 10000) detected at line 368
  []
 
 
-Underfull \vbox (badness 10000) detected at line 367
+Underfull \vbox (badness 10000) detected at line 368
+ []
+
+[5]
+Underfull \vbox (badness 10000) detected at line 368
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 368
  []
 
 [6] [7] (./transmission-pdf.aux)
@@ -665,13 +673,13 @@ Package rerunfilecheck Info: File `transmission-pdf.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 11747 strings out of 480313
- 184659 string characters out of 5895779
- 486830 words of memory out of 5000000
- 29390 multiletter control sequences out of 15000+600000
+ 11757 strings out of 480313
+ 184790 string characters out of 5895779
+ 494366 words of memory out of 5000000
+ 29393 multiletter control sequences out of 15000+600000
  455692 words of font info for 70 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 60i,8n,63p,847b,450s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 60i,8n,63p,983b,365s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/Users/kaths/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.e
 nc}{c:/Users/kaths/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ts1
 .enc}<c:/Users/kaths/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/l
@@ -685,10 +693,10 @@ t/fonts/type1/public/lm/lmr7.pfb><c:/Users/kaths/AppData/Roaming/TinyTeX/texmf-
 dist/fonts/type1/public/lm/lmr8.pfb><c:/Users/kaths/AppData/Roaming/TinyTeX/tex
 mf-dist/fonts/type1/public/lm/lmtt10.pfb><c:/Users/kaths/AppData/Roaming/TinyTe
 X/texmf-dist/fonts/type1/public/lm/lmtti10.pfb>
-Output written on transmission-pdf.pdf (7 pages, 272277 bytes).
+Output written on transmission-pdf.pdf (7 pages, 277117 bytes).
 PDF statistics:
- 138 PDF objects out of 1000 (max. 8388607)
- 102 compressed objects within 2 object streams
- 24 named destinations out of 1000 (max. 500000)
+ 148 PDF objects out of 1000 (max. 8388607)
+ 112 compressed objects within 2 object streams
+ 31 named destinations out of 1000 (max. 500000)
  11 words of extra memory for PDF output out of 10000 (max. 10000000)
 
