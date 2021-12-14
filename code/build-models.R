@@ -20,7 +20,7 @@ build_models <- function(save_to,
                                   overdispersion = parameters$overdispersion,
                                   timespan = parameters$timespan,
                                   horizon = parameters$horizon,
-                                  voc_label = "Omicron",
+                                  voc_label = parameters$voc_label,
                                   # processing options
                                   output_loglik = TRUE,
                                   adapt_delta = 0.99,
