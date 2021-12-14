@@ -3,6 +3,7 @@ library(here)
 library(readr)
 library(dplyr)
 library(lubridate)
+library(zoo)
 
 # England
 daily <- read_csv(here("data", "private", "sgtf_daily_england.csv"),
@@ -43,8 +44,8 @@ weekly <- daily %>%
          seq_available = date,
          week = NULL)
 
-# # Remove day-of-week in daily data
-# daily_detrend <- daily %>%
-#   mutate(across(c(cases, seq_total, seq_voc, seq_available),
-#                 forecast::ma, order = 7),
-#          share_voc = seq_voc / seq_total)
+# Remove day-of-week in daily data for all cases (not applied to SGTF)
+daily_detrend <- daily %>%
+  mutate(cases = zoo::rollmean(cases, k = 7, align = "center", fill = NA),
+         share_voc = seq_voc / seq_total) %>%
+  filter(!is.na(cases))

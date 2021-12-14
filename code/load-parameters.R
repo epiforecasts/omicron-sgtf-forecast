@@ -10,7 +10,10 @@ parameters <- list(
   r_init = c(0, 0.25),
 
   # Use a time scale based on generation time, rather than weekly.
-  scale_r = 5.1,
+  scale_r = 1,
+
+  # Use weekly piecewise constant growth rate
+  r_step = 7,
 
   # Account for overdispersion
   overdispersion = TRUE

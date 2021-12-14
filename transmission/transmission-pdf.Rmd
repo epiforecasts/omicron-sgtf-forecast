@@ -28,7 +28,7 @@ We use a model framework where we vary only the relationship between variants wh
 
 We used case data from England. This includes all cases tested by PCR test following symptom onset and a positive lateral flow test result. For a varying proportion of these cases, PCR test results included information on S-gene target. We used S-gene target negativity as a proxy for the Omicron variant. We excluded data before `r start_date`, to reduce overfitting to stochastic imports. Data are included up to `r max(obs$date)` and modelled at a `r timespan` day resolution. All dates are by specimen date.
 
-We used the `forecast.vocs` package to model a two-strain branching process, including strain specific auto-regressive AR(1) variation, and a beta binomial observation process for the S-gene target status data. We used a weakly informative prior for a transmission advantage for the VoC vs non-VoC cases of mean `r parameters$voc_scale[1]` (standard deviation `r parameters$voc_scale[2]`), based on early work from South Africa[^1]. 
+We used the `forecast.vocs` package^[2021, Sam Abbott, forecast.vocs: Forecast case and sequence notifications using variant of concern strain dynamics, DOI:10.5281/zenodo.5559016] to model a two-strain branching process, including strain specific auto-regressive AR(1) variation, and a beta binomial observation process for the S-gene target status data. We used a weakly informative prior for a transmission advantage for the VoC vs non-VoC cases of mean `r parameters$voc_scale[1]` (standard deviation `r parameters$voc_scale[2]`), based on early work from South Africa^[2021-12-03, Carl Pearson and others, "Omicron spread in South Africa", Epidemics8]. 
 
 We defined the relationship between variants as either fixed or pooled. The fixed relationship meant the VoC differed only by its transmissibility to the non-VOC strain, with any variation over time shared between strains. The pooled relationship allowed the VoC to differ with dependence determined from the data. See Appendix for full model details.
 
@@ -62,6 +62,7 @@ plot_advantage <- voc_scaled +
     voc_pooled +
   plot_layout(nrow = 1, guides = "collect") +
   plot_annotation(theme = theme(legend.position = "bottom"))
+ggsave(here("output", "voc_advantage.png"), plot_advantage)
 
 plot_advantage
 
@@ -91,7 +92,7 @@ plot_growth_rt <- growth_scaled + growth_pooled +
   rt_scaled + rt_pooled +
   plot_layout(nrow = 2, guides = "collect") +
   plot_annotation(theme = theme(legend.position = "bottom"))
-
+ggsave(here("output", "growth_rt.png"), plot_growth_rt)
 plot_growth_rt
 
 ```
@@ -113,6 +114,7 @@ plot_frac <- voc_frac_scaled +
   voc_frac_pooled +
   plot_layout(nrow = 1, guides = "collect") +
   plot_annotation(theme = theme(legend.position = "bottom"))
+ggsave(here("output", "voc_frac.png"), plot_frac)
 plot_frac
 
 ``` 
@@ -132,7 +134,7 @@ plot_cases <- cases_scaled +
   cases_pooled +
   plot_layout(nrow = 1, guides = "collect") +
   plot_annotation(theme = theme(legend.position = "bottom"))
-
+ggsave(here("output", "cases_log.png"), plot_cases)
 plot_cases
 
 ```
@@ -208,5 +210,3 @@ Finally, the mean proportion of samples that have the VoC is then estimated usin
 # Display model parameters
 print(parameters)
 ```
-
-[^1]: 2021-12-03, Carl Pearson and others, "Omicron spread in South Africa", Epidemics8
