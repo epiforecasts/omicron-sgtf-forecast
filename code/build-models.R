@@ -59,8 +59,7 @@ if (interactive) {
 
   # Unnest posterior
   forecasts <- map(forecast_fits,
-                   ~ unnest_posterior(.x) %>%
-                     mutate(across(mean:q95, round, 2)))
+                   ~ unnest_posterior(.x))
   saveRDS(forecasts, here("output", "forecasts.rds"))
 }
 
