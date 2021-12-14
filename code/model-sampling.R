@@ -1,4 +1,6 @@
-# Fit two-strain model
+# Fit two-strain model with fixed variant relationship
+# As if all cases had been "sequenced" (considered for SGT),
+#   with "positive" those that have any SGT result at all (SGTF/not)
 
 # Sourcing from inside this script will build and save model
 if (!exists("run_model")) {run_model <- TRUE}
@@ -6,11 +8,9 @@ if (!exists("run_model")) {run_model <- TRUE}
 # Load packages
 library(here)
 library(dplyr)
+library(data.table)
 
 # Load daily data
-# As if all cases had been "sequenced" (considered for SGT),
-#   with "positive" those that have any SGT result at all (SGTF/not)
-
 source(here("code", "load-data.R"))
 daily_sgt <- daily_raw %>%
   transmute(date = date,
@@ -34,8 +34,13 @@ variant_relationships <- "scaled"
 
 # Build models and save
 if (run_model) {
-  source(here("code", "build-models.R"))
   save_to <- here("sampling", "fit")
+  source(here("code", "build-models.R"))
+
+  # Adjust some parameters
+  parameters$voc_scale <- c(0, 0.2)
+  parameters$voc_label <- "SGT-result"
+
   build_models(save_to, variant_relationships, parameters)
 }
 

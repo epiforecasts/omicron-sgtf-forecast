@@ -1,6 +1,8 @@
 # Load parameters for VOC model
 parameters <- list(
 
+  voc_label = "Omicron",
+
   # Prior for the growth rate modification of the VOC compared to the original.
   voc_scale = c(0.21, 0.2),
 
