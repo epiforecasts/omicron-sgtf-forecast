@@ -41,3 +41,9 @@ weekly <- daily %>%
          cases_available = date,
          seq_available = date,
          week = NULL)
+
+# Remove day-of-week in daily data
+daily_detrend <- daily %>%
+  mutate(across(c(cases, seq_total, seq_voc, seq_available),
+                forecast::ma, order = 7),
+         share_voc = seq_voc / seq_total)
