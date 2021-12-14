@@ -18,11 +18,11 @@ options(mc.cores = 4)
 source(here("code", "load-data.R"))
 timespan <- 1
 horizon <- 1
-obs <- daily
+obs <- daily_detrend
 
 # Cut off data before last 3 weeks and remove last day
 start_date <- max(obs$date) - weeks(3)
-end_date <- max(obs$date) - 1
+end_date <- max(obs$date) # - 1
 obs <- filter(obs, between(date, start_date, end_date))
 obs <- data.table(obs)
 
@@ -31,7 +31,8 @@ source(here("code", "load-parameters.R"))
 variant_relationships <- c("scaled", "pooled")
 
 # Build models and save
-interactive <- FALSE
+if (!exist("interactive")) {interactive <- FALSE}
+save_to <- here("sampling", "output") # here("transmission", "output")
 
 if (interactive) {
   # Model with 1) scaled and 2) time-dependent relationship between variants
@@ -44,6 +45,7 @@ if (interactive) {
                                   scale_r = parameters$scale_r,
                                   strains = parameters$strains,
                                   r_init = parameters$r_init,
+                                  r_step = parameters$r_step,
                                   overdispersion = parameters$overdispersion,
                                   timespan = timespan,
                                   horizon = horizon,
@@ -55,11 +57,11 @@ if (interactive) {
                                   refresh = 0,
                                   show_messages = FALSE))
   names(forecast_fits) <- variant_relationships
-  saveRDS(forecast_fits, here("output", "forecast-fits.rds"))
-
   # Unnest posterior
   forecasts <- map(forecast_fits,
                    ~ unnest_posterior(.x))
-  saveRDS(forecasts, here("output", "forecasts.rds"))
+  # Save output
+  saveRDS(forecast_fits, here(save_to, "forecast-fits.rds"))
+  saveRDS(forecasts, here(save_to, "forecasts.rds"))
 }
 
