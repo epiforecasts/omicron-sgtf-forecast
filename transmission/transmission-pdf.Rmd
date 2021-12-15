@@ -146,7 +146,7 @@ loo_comp <- as_tibble(loo_compare(loo_scaled, loo_independent), rownames = "mode
 
 ```
 
-We explored the difference in expected predictive performance between the two models. Comparing the models on PSIS-LOO indicated an estimated difference in expected log pointwise predictive density of `r loo_comp$elpd_diff` (with a standard error of `r loo_comp$se_diff`) for the `r loo_comp$model` model compared to the `r models[!grepl(loo_comp$model, models)]` model.
+We explored the difference in expected predictive performance between the two models. Comparing the models on PSIS-LOO indicated an estimated difference in expected log pointwise predictive density of `r loo_comp$elpd_diff` (with a standard error of `r loo_comp$se_diff`) for the `r loo_comp$model` model compared to the `r models[!grepl(loo_comp$model, models)]` model. We also compared each model using model scoring.
 
 ```{r compare-score, include=TRUE}
 # Compare model scores
@@ -159,7 +159,7 @@ scores <- map2_dfr(forecasts,
 
 scores <- scores %>%
   select("Variant relationship", 
-         everything())
+         interval_score:bias)
 kable(scores)
 
 ```
