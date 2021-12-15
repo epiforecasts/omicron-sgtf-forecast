@@ -14,7 +14,7 @@ library(zoo)
 library(data.table)
 
 # Load parameters
-source(here("code", "load-parameters.R"))
+source(here("utils", "load-parameters.R"))
 parameters$voc_scale <- c(0, 0.2)
 parameters$voc_label <- "SGT-result"
 variant_relationships <- "scaled"
@@ -42,7 +42,7 @@ datasets <- list("data-raw" = daily_sgt,
 
 # Build models and save
 if (run_model) {
-  source(here("code", "build-models.R"))
+  source(here("utils", "build-models.R"))
   for (data_type in names(datasets)) {
     save_to <- here("sampling", data_type, "fit")
 

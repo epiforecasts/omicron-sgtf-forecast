@@ -1,0 +1,22 @@
+---
+title: ""
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(here)
+```
+
+### Utils
+
+[load-data.R](./load-data.R): load case data (saved in "data/private"), and add row totals. Data are all test-positive cases in England by specimen date.
+
+[build-models.R](./build-models.R): wrapper around `forecast.vocs::forecast()` to fit to multiple variant relationships and save output.
+
+[load-parameters.R](./load-parameters.R): list model parameters to use in `build_models()`. Model parameters are:
+
+```{r show-params}
+source(here("utils", "load-parameters.R"))
+parameters
+```

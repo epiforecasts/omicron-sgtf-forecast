@@ -16,7 +16,7 @@ library(dplyr)
 library(scoringutils)
 # get data and parameters without rebuilding model
 run_model <- FALSE
-source(here("code", "model-transmission.R"))
+source(here("transmission", "model-transmission.R"))
 ```
 
 ### Background {-}
