@@ -46,8 +46,8 @@ We fit to data that contained a day-of-week reporting artefact. To test the imap
 
 ```{r load-forecasts}
 # get model outputs
-forecast_fits <- readRDS(here("sampling", data_type, "fit", "forecast-fits.rds"))$scaled
-forecasts <- readRDS(here("sampling", data_type, "fit", "forecasts.rds"))$scaled
+forecast_fits <- readRDS(here("sampling", data_type, "fit", "forecast-fits.rds"))[[variant_relationships]]
+forecasts <- readRDS(here("sampling", data_type, "fit", "forecasts.rds"))[[variant_relationships]]
 
 # Plot transmission advantage
 advantage <- forecasts %>%
@@ -129,8 +129,8 @@ bind_rows(smooth_long, raw_long) %>%
 ```{r compare-data-smooth}
 # get model outputs for alternative data type
 data_alt <- data_types[!grepl(data_type, data_types)]
-forecast_fits_alt <- readRDS(here("sampling", data_alt, "fit", "forecast-fits.rds"))$scaled
-forecasts_alt <- readRDS(here("sampling", data_alt, "fit", "forecasts.rds"))$scaled
+forecast_fits_alt <- readRDS(here("sampling", data_alt, "fit", "forecast-fits.rds"))[[variant_relationships]]
+forecasts_alt <- readRDS(here("sampling", data_alt, "fit", "forecasts.rds"))[[variant_relationships]]
 
 # Compare transmission advantage
 advantage_all <- bind_rows(forecasts %>% 

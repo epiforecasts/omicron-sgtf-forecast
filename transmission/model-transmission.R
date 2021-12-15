@@ -18,7 +18,7 @@ library(knitr)
 options(mc.cores = 4)
 
 # Load daily data
-source(here("code", "load-data.R"))
+source(here("utils", "load-data.R"))
 # Format
 daily_sgtf <- daily_raw %>%
   transmute(date = date,
@@ -34,8 +34,8 @@ daily_sgtf_detrend <- daily_sgtf %>%
          share_voc = seq_voc / seq_total) %>%
   filter(!is.na(cases))
 
-# Use smoothed data
-obs <- daily_sgtf_detrend
+# Use raw data
+obs <- daily_sgtf
 
 # Cut off data before last 3 weeks and remove last day
 start_date <- max(obs$date) - weeks(3)
@@ -44,13 +44,13 @@ obs <- filter(obs, between(date, start_date, end_date))
 obs <- data.table(obs)
 
 # Load parameters
-source(here("code", "load-parameters.R"))
-variant_relationships <- c("scaled", "pooled")
+source(here("utils", "load-parameters.R"))
+variant_relationships <- c("scaled", "independent")
 
 # Build models and save
 if (run_model) {
   # Model with 1) scaled and 2) time-dependent relationship between variants
-  source(here("code", "build-models.R"))
+  source(here("utils", "build-models.R"))
   save_to <- here("transmission", "fit")
   build_models(save_to, variant_relationships, parameters)
 }
