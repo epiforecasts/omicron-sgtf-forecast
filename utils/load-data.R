@@ -14,5 +14,3 @@ daily_raw <- read_csv(here("data", "private", "sgtf_daily_england.csv"),
   mutate(total_sgt = sum(non_sgtf, sgtf, na.rm = TRUE),
          total_cases = sum(non_sgtf, sgtf, `NA`, na.rm = TRUE)) %>%
   ungroup()
-
-available_date <- Sys.Date()
