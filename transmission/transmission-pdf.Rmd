@@ -27,11 +27,11 @@ We use a model framework where we vary only the relationship between variants wh
 
 ### Methods {-}
 
-We used case data from England. This includes all cases tested by PCR test following symptom onset and a positive lateral flow test result. For a varying proportion of these cases, PCR test results included information on S-gene target. We used S-gene target negativity as a proxy for the Omicron variant. We excluded data before `r start_date`, to reduce overfitting to stochastic imports. Data are included up to `r max(obs$date)` and modelled at a `r timespan` day resolution. All dates are by specimen date.
+We used case data from England. This includes all cases tested by PCR test following symptom onset and a positive lateral flow test result. For a varying proportion of these cases, PCR test results included information on S-gene target. We used S-gene target negativity as a proxy for the Omicron variant. We excluded data before `r start_date`, to reduce overfitting to stochastic imports. Data are included up to `r max(obs$date)` and modelled at a `r parameters$timespan` day resolution. All dates are by specimen date.
 
 We used the `forecast.vocs` package^[2021, Sam Abbott, forecast.vocs: Forecast case and sequence notifications using variant of concern strain dynamics, DOI:10.5281/zenodo.5559016] to model a two-strain branching process, including strain specific auto-regressive AR(1) variation, and a beta binomial observation process for the S-gene target status data. We used a weakly informative prior for a transmission advantage for the VoC vs non-VoC cases of mean `r parameters$voc_scale[1]` (standard deviation `r parameters$voc_scale[2]`), based on early work from South Africa^[2021-12-03, Carl Pearson and others, "Omicron spread in South Africa", Epidemics8]. 
 
-We defined the relationship between variants as either fixed or pooled. The fixed relationship meant the VoC differed only by its transmissibility to the non-VOC strain, with any variation over time shared between strains. The pooled relationship allowed the VoC to differ with dependence determined from the data. See Appendix for full model details.
+We defined the relationship between variants as either fixed or independent. The fixed relationship meant the VoC differed only by its transmissibility to the non-VOC strain, with any variation over time shared between strains. The independent relationship allowed the VoC to differ with dependence determined from the data. See Appendix for full model details.
 
 We tested the difference between the two models by comparing out of sample predictive fit using leave-one-out cross-validation with Pareto smoothed importance sampling, and model scoring.
 
@@ -55,12 +55,12 @@ advantage <- map(forecasts,
 voc_scaled <- plot_voc_advantage(forecasts$scaled) +
   labs(subtitle = "Fixed variant relationship", 
        y = "Transmission advantage for Omicron", x = NULL)
-voc_pooled <- plot_voc_advantage(forecasts$pooled) +
-  labs(subtitle = "Pooled variant relationship", 
+voc_independent <- plot_voc_advantage(forecasts$independent) +
+  labs(subtitle = "independent variant relationship", 
        y = NULL, x = NULL)
 
 plot_advantage <- voc_scaled +
-    voc_pooled +
+    voc_independent +
   plot_layout(nrow = 1, guides = "collect") +
   plot_annotation(theme = theme(legend.position = "bottom"))
 ggsave(here("transmission", "figures", "voc_advantage.png"), plot_advantage)
@@ -71,7 +71,7 @@ plot_advantage
 
 Transmission advantage is shown where 100% is equivalent to the current dominant strain, Delta (figure \@ref(fig:plot-voc-advantage)). Both models indicated a stronger transmission advantage for Omicron. 
 
-As a baseline, we assumed a fixed relationship between variants to model transmission advantage without variation over time. Here, estimated Omicron advantage is `r advantage[["scaled"]][["median"]]` (95% credible interval `r advantage[["scaled"]][["q5"]]` - `r advantage[["scaled"]][["q95"]]`). In comparison, we used a pooled relationship drawn from data to allow transmission advantage to vary over time. In this setting, the apparent transmission advantage of Omicron rose over time before stabilising at a higher transmission advantage compared to Delta. On average over time, we found an Omicron advantage of `r advantage[["pooled"]][["median"]]` (95% CrI `r advantage[["pooled"]][["q5"]]` - `r advantage[["pooled"]][["q95"]]`).
+As a baseline, we assumed a fixed relationship between variants to model transmission advantage without variation over time. Here, estimated Omicron advantage is `r exp(advantage[["scaled"]][["median"]])` (95% credible interval `r exp(advantage[["scaled"]][["q5"]])` - `r exp(advantage[["scaled"]][["q95"]])`). In comparison, we used a independent relationship drawn from data to allow transmission advantage to vary over time. In this setting, the apparent transmission advantage of Omicron rose over time before stabilising at a higher transmission advantage compared to Delta. On average over time, we found an Omicron advantage of `r exp(advantage[["independent"]][["median"]])` (95% CrI `r exp(advantage[["independent"]][["q5"]])` - `r exp(advantage[["independent"]][["q95"]])`).
 
 #### Growth rate and reproduction number {-}
 
@@ -83,14 +83,14 @@ growth_scaled <- plot_growth(forecasts$scaled) +
 rt_scaled <- plot_rt(forecasts$scaled) +
   labs(y = "Rt", x = NULL)
 
-growth_pooled <- plot_growth(forecasts$pooled) +
-  labs(subtitle = "Pooled variant relationship", 
+growth_independent <- plot_growth(forecasts$independent) +
+  labs(subtitle = "independent variant relationship", 
        y = NULL, x = NULL)
-rt_pooled <- plot_rt(forecasts$pooled) +
+rt_independent <- plot_rt(forecasts$independent) +
   labs(y = NULL, x = NULL)
 
-plot_growth_rt <- growth_scaled + growth_pooled +
-  rt_scaled + rt_pooled +
+plot_growth_rt <- growth_scaled + growth_independent +
+  rt_scaled + rt_independent +
   plot_layout(nrow = 2, guides = "collect") +
   plot_annotation(theme = theme(legend.position = "bottom"))
 ggsave(here("transmission", "figures", "growth_rt.png"), plot_growth_rt)
@@ -107,12 +107,12 @@ See figure \@ref(fig:plot-growth-rt).
 voc_frac_scaled <- plot_voc_frac(forecasts$scaled) +
   labs(subtitle = "Fixed variant relationship", 
        y = "% overall cases with Omicron", x = NULL)
-voc_frac_pooled <- plot_voc_frac(forecasts$pooled) +
-  labs(subtitle = "Pooled variant relationship", 
+voc_frac_independent <- plot_voc_frac(forecasts$independent) +
+  labs(subtitle = "independent variant relationship", 
        y = NULL, x = NULL)
 
 plot_frac <- voc_frac_scaled +
-  voc_frac_pooled +
+  voc_frac_independent +
   plot_layout(nrow = 1, guides = "collect") +
   plot_annotation(theme = theme(legend.position = "bottom"))
 ggsave(here("transmission", "figures", "voc_frac.png"), plot_frac)
@@ -129,10 +129,10 @@ See figure \@ref(fig:plot-voc-frac).
 # Plot cases
 cases_scaled <- plot_cases(forecasts$scaled, obs, log = TRUE) +
   labs(subtitle = "Fixed variant relationship", x = NULL)
-cases_pooled <- plot_cases(forecasts$pooled, obs, log = TRUE) +
-  labs(subtitle = "Pooled variant relationship", y = NULL, x = NULL)
+cases_independent <- plot_cases(forecasts$independent, obs, log = TRUE) +
+  labs(subtitle = "independent variant relationship", y = NULL, x = NULL)
 plot_cases <- cases_scaled +
-  cases_pooled +
+  cases_independent +
   plot_layout(nrow = 1, guides = "collect") +
   plot_annotation(theme = theme(legend.position = "bottom"))
 ggsave(here("transmission", "figures", "cases_log.png"), plot_cases)
@@ -146,11 +146,11 @@ We modelled cases attributable to each of the two variants under each assumption
 
 ```{r compare-loo}
 # Compare LOO
-models <- c("scaled", "pooled")
+models <- c("scaled", "independent")
 loo_scaled <- forecast_fits$scaled$fit[[1]]$loo()
-loo_pooled <- forecast_fits$pooled$fit[[1]]$loo()
-loo_comp <- as_tibble(loo_compare(loo_scaled, loo_pooled), rownames = "model") %>%
-  mutate(model = recode(model, "model1" = "scaled", "model2" = "pooled"),
+loo_independent <- forecast_fits$independent$fit[[1]]$loo()
+loo_comp <- as_tibble(loo_compare(loo_scaled, loo_independent), rownames = "model") %>%
+  mutate(model = recode(model, "model1" = "scaled", "model2" = "independent"),
          across(c(elpd_diff,se_diff), round, 2)) %>%
   filter(elpd_diff != 0)
 
@@ -169,7 +169,7 @@ scores <- map2_dfr(forecasts,
 
 scores <- scores %>%
   select("Variant relationship", 
-         "Sharpness" = sharpness)
+         everything())
 kable(scores)
 
 ```
@@ -201,7 +201,7 @@ To model a single strain, we model the mean of reported cases as an order 1 auto
 
 We expanded the single strain model to explore dynamics between two strains. This model used the single strain model as a starting point with the addition of strain specific auto-regressive AR(1) variation, and a beta binomial observation process for SGTF data. Mean reported cases are again defined using a AR(1) process on the log scale for each strain and then combined for overall mean reported cases. The mean reported cases due to the variant of concern (VoC) is derived by calculating the mean proportion of cases that had the VoC for the first time point using the overall number of reported cases and the number of cases that were positive for the VoC. 
 
-The growth rate for VoC and non-VoC cases is then modelled as a combination of an overall growth rate (as defined for the single strain model), a strain specific modifier, and an AR(1) error term post introduction. We used a weakly informative prior for a transmission advantage for the VoC vs non-VoC cases of mean `r parameters$voc_scale[1]` (standard deviation `r parameters$voc_scale[2]`), based on early work from South Africa. We defined the relationship between variants as either fixed or pooled. The fixed relationship meant the VoC differs only by the transmissibility difference to the non-VOC strain and any variation over time is shared between strains. The pooled relationship allowed the VoC to differ with dependence determined from the data. 
+The growth rate for VoC and non-VoC cases is then modelled as a combination of an overall growth rate (as defined for the single strain model), a strain specific modifier, and an AR(1) error term post introduction. We used a weakly informative prior for a transmission advantage for the VoC vs non-VoC cases of mean `r parameters$voc_scale[1]` (standard deviation `r parameters$voc_scale[2]`), based on early work from South Africa. We defined the relationship between variants as either fixed or independent. The fixed relationship meant the VoC differs only by the transmissibility difference to the non-VOC strain and any variation over time is shared between strains. The independent relationship allowed the VoC to differ with dependence determined from the data. 
 
 Finally, the mean proportion of samples that have the VoC is then estimated using the mean reported cases with the VoC and the overall mean reported cases. We assume a beta binomial observation model for the number of cases with known S gene status that are positive for the VoC with overdispersion.
 

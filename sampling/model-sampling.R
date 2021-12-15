@@ -17,10 +17,10 @@ library(data.table)
 source(here("utils", "load-parameters.R"))
 parameters$voc_scale <- c(0, 0.2)
 parameters$voc_label <- "SGT-result"
-variant_relationships <- "scaled"
+variant_relationships <- "independent"
 
 # Load daily data and reshape to compare any SGT against SGT + NA-SGT
-source(here("code", "load-data.R"))
+source(here("utils", "load-data.R"))
 daily_sgt <- daily_raw %>%
   transmute(date = date,
             cases = total_cases,
