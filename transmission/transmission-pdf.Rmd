@@ -73,7 +73,7 @@ Transmission advantage is shown where 100% is equivalent to the current dominant
 
 As a baseline, we assumed a fixed relationship between variants to model transmission advantage without variation over time. Here, estimated Omicron advantage is `r exp(advantage[["scaled"]][["median"]])` (95% credible interval `r exp(advantage[["scaled"]][["q5"]])` - `r exp(advantage[["scaled"]][["q95"]])`). In comparison, we used a independent relationship drawn from data to allow transmission advantage to vary over time. In this setting, the apparent transmission advantage of Omicron rose over time before stabilising at a higher transmission advantage compared to Delta. On average over time, we found an Omicron advantage of `r exp(advantage[["independent"]][["median"]])` (95% CrI `r exp(advantage[["independent"]][["q5"]])` - `r exp(advantage[["independent"]][["q95"]])`).
 
-#### Growth rate and reproduction number {-}
+We estimated the growth rate (figure \@ref(fig:plot-growth-rt)), the proportion of cases attributable to Omicron (figure \@ref(fig:plot-voc-frac)) and case counts (figure \@ref(fig:plot-cases)).
 
 
 ```{r plot-growth-rt, fig.cap="The growth rate and reproduction number of Omicron, modelled in a fixed relationship to Delta (left) and a time-varying relationship (right)."}
@@ -90,18 +90,13 @@ rt_independent <- plot_rt(forecasts$independent) +
   labs(y = NULL, x = NULL)
 
 plot_growth_rt <- growth_scaled + growth_independent +
-  rt_scaled + rt_independent +
-  plot_layout(nrow = 2, guides = "collect") +
+  #rt_scaled + rt_independent +
+  plot_layout(nrow = 1, guides = "collect") +
   plot_annotation(theme = theme(legend.position = "bottom"))
 ggsave(here("transmission", "figures", "growth_rt.png"), plot_growth_rt)
 plot_growth_rt
 
 ```
-
-See figure \@ref(fig:plot-growth-rt).
-
-#### Cases attributable to Omicron {-}
-
 
 ```{r plot-voc-frac, fig.cap="Fraction of cases attributable to Omicron, modelled in a fixed relationship to Delta (left) and a time-varying relationship (right)."}
 voc_frac_scaled <- plot_voc_frac(forecasts$scaled) +
@@ -120,11 +115,6 @@ plot_frac
 
 ``` 
 
-See figure \@ref(fig:plot-voc-frac).
-
-#### Cases {-}
-
-
 ```{r plot-cases, fig.cap="Weekly cases shown on a log scale, modelled in a fixed relationship to Delta (left) and a time-varying relationship (right)."}
 # Plot cases
 cases_scaled <- plot_cases(forecasts$scaled, obs, log = TRUE) +
@@ -140,7 +130,7 @@ plot_cases
 
 ```
 
-We modelled cases attributable to each of the two variants under each assumption, with the posterior prediction shown in figure \@ref(fig:plot-cases) from the two strain model ("Combined") and the unobserved estimates for each strain. 
+
 
 #### Model comparison {-}
 
@@ -182,13 +172,13 @@ This can be interpreted in terms of variant transmissibility compared to immune 
 
 Modelling choices and appropriate data both limit our work.
 
-We used an autoregressive process with daily data.
+- We used an autoregressive process with daily data.
 
-SGTF data may be a poor proxy for the Omicron variant, with Omicron reported with both positive and negative S-gene target. 
+- SGTF data may be a poor proxy for the Omicron variant, with Omicron reported with both positive and negative S-gene target. 
 
-Only some laboratories are able to detect the S-gene target from PCR tests.
+- Only some laboratories are able to detect the S-gene target from PCR tests.
 
-Biased sampling of testing for SGTF biases the growth rate upwards.
+- Biased sampling of testing for SGTF biases the growth rate upwards.
 
 
 \newpage
