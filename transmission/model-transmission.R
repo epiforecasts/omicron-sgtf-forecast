@@ -45,7 +45,7 @@ obs <- data.table(obs)
 
 # Load parameters
 source(here("utils", "load-parameters.R"))
-variant_relationships <- c("scaled", "independent")
+variant_relationships <- c("scaled", "correlated")
 
 datasets <- list("data-raw" = daily_sgtf,
                  "data-smooth" = daily_sgtf_detrend)
