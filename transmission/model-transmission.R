@@ -12,7 +12,6 @@ library(forecast.vocs)
 library(ggplot2)
 library(patchwork)
 library(purrr)
-library(data.table)
 library(loo)
 library(scoringutils)
 library(knitr)
@@ -36,8 +35,8 @@ daily_sgt_detrend <- daily_sgt %>%
   filter(!is.na(cases))
 
 # Use specified data, raw or deseasonalised
-datasets <- list("data-raw" = data.table(daily_sgt),
-                 "data-smooth" = data.table(daily_sgt_detrend))
+datasets <- list("data-raw" = daily_sgt,
+                 "data-smooth" = daily_sgt_detrend)
 obs <- datasets[[data_type]]
 
 # Load parameters
@@ -51,4 +50,3 @@ if (run_model) {
   save_to <- here("transmission", "fit")
   build_models(save_to, variant_relationships, parameters)
 }
-

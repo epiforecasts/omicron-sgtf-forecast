@@ -4,8 +4,11 @@
 #   with "VoC sequences" those that have any SGT result
 #   and "non-VoC" those with an NA result for SGT
 
-# Sourcing from an empty environment inside this script will build and save model
-if (!exists("run_model")) {run_model <- TRUE}
+# Sourcing from an empty environment inside this script will build and
+# save model
+if (!exists("run_model")) {
+  run_model <- TRUE
+}
 
 # Load packages
 library(here)
@@ -17,7 +20,7 @@ library(data.table)
 source(here("utils", "load-parameters.R"))
 parameters$voc_scale <- c(0, 0.2)
 parameters$voc_label <- "SGT-result"
-variant_relationships <- "independent"
+variant_relationships <- "correlated"
 
 # Load daily data, already filtered to specified dates
 # - reshape to compare any SGT against SGT + NA-SGT
@@ -33,13 +36,12 @@ daily_sgt <- daily_raw %>%
 
 # Fit to both raw data and 7-day MA smoothed data
 daily_sgt_detrend <- daily_sgt %>%
-  mutate(cases = zoo::rollmean(cases, k = 7, align = "center", fill = NA),
-         seq_total = cases,
-         seq_voc = zoo::rollmean(seq_voc, k = 7, align = "center", fill = NA),
-         share_voc = seq_voc / seq_total)
+  mutate(seq_total = cases,
+         share_voc = seq_voc / seq_total) %>%
+  mutate(cases = zoo::rollmean(cases, k = 7, align = "center", fill = NA))
 
-datasets <- list("raw" = data.table(daily_sgt),
-                 "smooth" = data.table(daily_sgt_detrend))
+datasets <- list("raw" = daily_sgt,
+                 "smooth" = daily_sgt_detrend)
 
 # Build models and save
 if (run_model) {
