@@ -33,7 +33,7 @@ obs <- as.data.table(datasets[[data_type]])
 
 - We compared all England test-positive cases to test-positive cases with any SGT result
 - We used data by `r date_type` date (figure \@ref(fig:plot-raw-data))
-- Models are based on data between `r min(obs$date)` and `r max(obs$date)`. We used only the most recent three weeks of data and excluded the latest `r truncate_days` reported data. 
+- Models are based on data between `r min(obs$date)` and `r max(obs$date)`. We used only the most recent three weeks of data and excluded the latest `r truncate_days` reported dates. 
 - We estimated a daily growth rate and allowed weekly piecewise constant variation. We used a uniform prior for the initial growth rate advantage of SGT-result cases compared to no-SGT-result cases. 
 - We estimated the transmission advantage as the difference in growth rate between the two sets of cases on a daily scale.
 
