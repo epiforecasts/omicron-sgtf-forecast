@@ -1,0 +1,3 @@
+\contentsline {subsubsection}{Methods}{1}{section*.2}%
+\contentsline {subsubsection}{Results}{1}{section*.3}%
+\contentsline {paragraph}{Model comparison}{1}{section*.4}%

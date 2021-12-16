@@ -15,7 +15,7 @@ library(forecast.vocs)
 library(dplyr)
 library(scoringutils)
 # get data and parameters without rebuilding model
-run_model <- FALSE
+run_model <- TRUE
 source(here("transmission", "model-transmission.R"))
 ```
 
