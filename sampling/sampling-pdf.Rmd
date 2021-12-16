@@ -57,7 +57,6 @@ advantage <- forecasts %>%
 voc_scaled <- plot_voc_advantage(forecasts) +
   labs(y = "Transmission advantage among SGT-tested", x = NULL)
 ggsave(here("sampling", data_type, "figures", "voc_advantage.png"), voc_scaled)
-
 ```
 
 On average, `r round(mean(obs$share_voc, na.rm=T)*100)`% cases had an SGT result. We found a median advantage for SGT-result cases of `r exp(advantage$median)` (95% credible interval `r exp(advantage$q5)` - `r exp(advantage$q95)`), scaled against cases without an SGT result. The growth rate increased over time at a similar rate between SGT-result and no-SGT-result cases (figure \ref{fig:plot-growth}).
@@ -69,7 +68,6 @@ growth_scaled <- plot_growth(forecasts) +
   labs(y = "Growth rate", x = NULL)
 ggsave(here("sampling", data_type, "figures", "growth_rate.png"), growth_scaled)
 growth_scaled
-
 ```
 
 ```{r plot-cases, fig.cap="Estimates of all cases (Combined), those with an S-gene target result (SGT-result) and those without"}
@@ -77,7 +75,6 @@ cases_scaled <- plot_cases(forecasts, obs) +
   labs(x = NULL)
 ggsave(here("sampling", data_type, "figures", "cases.png"), cases_scaled)
 cases_scaled
-
 ```
 
 \newpage
@@ -105,13 +102,13 @@ We compared models using both raw data with a day-of-week effect, and smoothed d
 smooth_long <- daily_sgt_detrend %>%
   select(date, all_cases = cases, sgt_result = seq_voc) %>%
   tidyr::pivot_longer(cols = -date, names_to = "case_type") %>%
-  mutate(smooth_type = "smoothed") 
+  mutate(smooth_type = "smoothed")
 
 raw_long <- daily_sgt %>%
   filter(date %in% obs$date) %>%
   select(date, all_cases = cases, sgt_result = seq_voc) %>%
   tidyr::pivot_longer(cols = -date, names_to = "case_type") %>%
-  mutate(smooth_type = "raw") 
+  mutate(smooth_type = "raw")
 
 bind_rows(smooth_long, raw_long) %>%
   ggplot(aes(x = date, colour = case_type, shape = smooth_type)) +
@@ -129,20 +126,28 @@ bind_rows(smooth_long, raw_long) %>%
 ```{r compare-data-smooth}
 # get model outputs for alternative data type
 data_alt <- data_types[!grepl(data_type, data_types)]
-forecast_fits_alt <- readRDS(here("sampling", data_alt, "fit", "forecast-fits.rds"))[[variant_relationships]]
-forecasts_alt <- readRDS(here("sampling", data_alt, "fit", "forecasts.rds"))[[variant_relationships]]
+forecast_fits_alt <- readRDS(
+  here("sampling", data_alt, "fit", "forecast-fits.rds")
+)[[variant_relationships]]
+forecasts_alt <- readRDS(
+  here("sampling", data_alt, "fit", "forecasts.rds")
+)[[variant_relationships]]
 
 # Compare transmission advantage
-advantage_all <- bind_rows(forecasts %>% 
+advantage_all <- bind_rows(forecasts %>%
                              mutate(data_type = gsub("data-", "", data_type)), 
-                           forecasts_alt %>% 
-                             mutate(data_type = gsub("data-", "", data_alt))) %>%
+                           forecasts_alt %>%
+                             mutate(
+                               data_type = gsub("data-", "", data_alt))
+                              ) %>%
   filter(value_type == "model" & variable == "avg_voc_advantage") %>%
   select(data_type, median, q5, q95) %>%
   mutate(across(median:q95, exp))
 
-kable(advantage_all, caption = "Modelled transmission advantage by data pre-processing")
-
+kable(
+  advantage_all,
+  caption = "Modelled transmission advantage by data pre-processing"
+)
 ```
 
 ```{r compare-fit}

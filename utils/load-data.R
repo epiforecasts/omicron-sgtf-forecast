@@ -14,7 +14,9 @@ weeks_data <- 3
 # - truncation
 if (date_type == "onset") {
   truncate_days <- 3
-} else {truncate_days <- 1}
+} else {
+  truncate_days <- 1
+}
 
 # Get data
 data_path <- here("data", "private",
@@ -70,8 +72,3 @@ plot_daily_cases <- daily_raw %>%
   theme_bw() +
   theme(legend.position = "bottom") +
   facet_wrap(~ nhs_region, scales = "free")
-
-
-
-
-
