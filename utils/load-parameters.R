@@ -25,5 +25,5 @@ parameters <- list(
   timespan = 1,
 
   # forecast
-  horizon = 1
+  horizon = 7
 )

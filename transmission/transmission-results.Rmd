@@ -1,0 +1,165 @@
+---
+title: "Exploring the transmission advantage of Omicron in England"
+author: "Epiforecasts"
+date: "`r format(Sys.time(), '%d %B %Y')`"
+output:
+  bookdown::pdf_document2:
+    toc: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, include = TRUE, 
+                      warning = FALSE, message = FALSE,
+                      root.dir = here::here())
+options(scipen = 1, digits = 2)
+library(here)
+library(forecast.vocs)
+library(dplyr)
+library(scoringutils)
+library(knitr)
+# get data and parameters without rebuilding model
+run_model <- FALSE
+source(here("transmission", "model-transmission.R"))
+```
+### Aims {-}
+- We aimed to assess competing explanations of the transmission advantage of Omicron, compared to the existing dominant strain, Delta, in England. 
+- We explored the likelihood of increased transmissibility compared to immune escape, using S-gene target failure as a proxy for infection with Omicron.
+- We use a model framework where we vary only the relationship between variants while holding all other parameters constant.
+
+### Methods {-}
+
+- Data are all test-positive cases for England. Omicron is modelled from those cases reporting an S-gene target result (failure or positive). All dates are by specimen date. 
+- We excluded data before `r start_date`, to reduce overfitting to stochastic imports. Data are included up to `r max(obs$date)`. 
+- We modelled at a `r parameters$timespan` day resolution with a `r parameters$horizon` day forecast. 
+- We used a weakly informative prior for a transmission advantage for the VoC vs non-VoC cases of mean `r parameters$voc_scale[1]` (standard deviation `r parameters$voc_scale[2]`), based on early work from South Africa^[2021-12-03, Carl Pearson and others, "Omicron spread in South Africa", Epidemics8]
+- We defined the relationship between variants as `r knitr::combine_words(variant_relationships)`.
+
+
+### Results {-}
+```{r load-forecasts}
+# get model outputs
+forecast_fits <- readRDS(here("transmission", "fit", "forecast-fits.rds"))
+forecasts <- readRDS(here("transmission", "fit", "forecasts.rds"))
+```
+
+
+```{r plot-voc-advantage, fig.cap="The transmission advantage of Omicron, modelled in a fixed relationship to Delta (left) and a time-varying relationship (right)."}
+# Plot VOC advantage
+advantage <- map(forecasts,
+                 ~ filter(.x, value_type == "model" &
+                            variable == "avg_voc_advantage") %>%
+                   select(variant_relationship, variable, clean_name, 
+                          exponentiated:ess_bulk))
+
+voc_scaled <- plot_voc_advantage(forecasts$scaled) +
+  labs(subtitle = "Fixed variant relationship", 
+       y = "Transmission advantage for Omicron", x = NULL)
+voc_independent <- plot_voc_advantage(forecasts$independent) +
+  labs(subtitle = "independent variant relationship", 
+       y = NULL, x = NULL)
+
+plot_advantage <- voc_scaled +
+    voc_independent +
+  plot_layout(nrow = 1, guides = "collect") +
+  plot_annotation(theme = theme(legend.position = "bottom"))
+ggsave(here("transmission", "figures", "voc_advantage.png"), plot_advantage)
+
+plot_advantage
+
+```
+
+Transmission advantage is shown where 100% is equivalent to the current dominant strain, Delta (figure \@ref(fig:plot-voc-advantage)). Both models indicated a stronger transmission advantage for Omicron. 
+
+- In a fixed relationship estimated Omicron advantage is `r exp(advantage[["scaled"]][["median"]])` (95% credible interval `r exp(advantage[["scaled"]][["q5"]])` - `r exp(advantage[["scaled"]][["q95"]])`). 
+- In an independent relationship Omicron advantage is `r exp(advantage[["independent"]][["median"]])` (95% CrI `r exp(advantage[["independent"]][["q5"]])` - `r exp(advantage[["independent"]][["q95"]])`).
+- We estimated the growth rate (figure \@ref(fig:plot-growth-rt)), the proportion of cases attributable to Omicron (figure \@ref(fig:plot-voc-frac)) and case counts (figure \@ref(fig:plot-cases)).
+
+
+```{r plot-growth-rt, fig.cap="The growth rate and reproduction number of Omicron, modelled in a fixed relationship to Delta (left) and a time-varying relationship (right)."}
+growth_scaled <- plot_growth(forecasts$scaled) +
+  labs(subtitle = "Fixed variant relationship", 
+       y = "Growth rate", x = NULL)
+rt_scaled <- plot_rt(forecasts$scaled) +
+  labs(y = "Rt", x = NULL)
+
+growth_independent <- plot_growth(forecasts$independent) +
+  labs(subtitle = "independent variant relationship", 
+       y = NULL, x = NULL)
+rt_independent <- plot_rt(forecasts$independent) +
+  labs(y = NULL, x = NULL)
+
+plot_growth_rt <- growth_scaled + growth_independent +
+  #rt_scaled + rt_independent +
+  plot_layout(nrow = 1, guides = "collect") +
+  plot_annotation(theme = theme(legend.position = "bottom"))
+ggsave(here("transmission", "figures", "growth_rt.png"), plot_growth_rt)
+plot_growth_rt
+
+```
+
+```{r plot-voc-frac, fig.cap="Fraction of cases attributable to Omicron, modelled in a fixed relationship to Delta (left) and a time-varying relationship (right)."}
+voc_frac_scaled <- plot_voc_frac(forecasts$scaled) +
+  labs(subtitle = "Fixed variant relationship", 
+       y = "% overall cases with Omicron", x = NULL)
+voc_frac_independent <- plot_voc_frac(forecasts$independent) +
+  labs(subtitle = "independent variant relationship", 
+       y = NULL, x = NULL)
+
+plot_frac <- voc_frac_scaled +
+  voc_frac_independent +
+  plot_layout(nrow = 1, guides = "collect") +
+  plot_annotation(theme = theme(legend.position = "bottom"))
+ggsave(here("transmission", "figures", "voc_frac.png"), plot_frac)
+plot_frac
+
+``` 
+
+```{r plot-cases, fig.cap="Weekly cases shown on a log scale, modelled in a fixed relationship to Delta (left) and a time-varying relationship (right)."}
+# Plot cases
+cases_scaled <- plot_cases(forecasts$scaled, obs, log = TRUE) +
+  labs(subtitle = "Fixed variant relationship", x = NULL)
+cases_independent <- plot_cases(forecasts$independent, obs, log = TRUE) +
+  labs(subtitle = "independent variant relationship", y = NULL, x = NULL)
+plot_cases <- cases_scaled +
+  cases_independent +
+  plot_layout(nrow = 1, guides = "collect") +
+  plot_annotation(theme = theme(legend.position = "bottom"))
+ggsave(here("transmission", "figures", "cases_log.png"), plot_cases)
+plot_cases
+
+```
+
+
+
+#### Model comparison {-}
+
+```{r compare-loo}
+# Compare LOO
+models <- c("scaled", "independent")
+loo_scaled <- forecast_fits$scaled$fit[[1]]$loo()
+loo_independent <- forecast_fits$independent$fit[[1]]$loo()
+loo_comp <- as_tibble(loo_compare(loo_scaled, loo_independent), rownames = "model") %>%
+  mutate(model = recode(model, "model1" = "scaled", "model2" = "independent"),
+         across(c(elpd_diff,se_diff), round, 2)) %>%
+  filter(elpd_diff != 0)
+
+```
+
+- Comparing the models on PSIS-LOO indicated an estimated difference in expected log pointwise predictive density of `r loo_comp$elpd_diff` (with a standard error of `r loo_comp$se_diff`) for the `r loo_comp$model` model compared to the `r models[!grepl(loo_comp$model, models)]` model. 
+- We also compared each model using model scoring.
+
+```{r compare-score, include=TRUE}
+# Compare model scores
+scores <- map2_dfr(forecasts,
+                   variant_relationships,
+                   ~ summary(.x, target = "forecast", type = "cases") %>%
+                     fv_score_forecast(., obs, summarise_by = "strains",
+                                       metrics = NULL) %>%
+                     mutate("Variant relationship" = .y))
+
+scores <- scores %>%
+  select("Variant relationship", 
+         interval_score:bias)
+kable(scores)
+
+```

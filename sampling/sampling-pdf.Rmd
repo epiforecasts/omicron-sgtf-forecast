@@ -19,7 +19,7 @@ library(loo)
 library(ggplot2)
 library(knitr)
 # get data and parameters without rebuilding model
-run_model <- FALSE
+run_model <- TRUE
 source(here("sampling", "model-sampling.R"))
 # both models are fit to raw or smooth (7-day MA) data. Select which to show for results
 data_types <- c("data-raw", "data-smooth")

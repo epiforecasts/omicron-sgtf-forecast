@@ -47,6 +47,9 @@ obs <- data.table(obs)
 source(here("utils", "load-parameters.R"))
 variant_relationships <- c("scaled", "independent")
 
+datasets <- list("data-raw" = daily_sgtf,
+                 "data-smooth" = daily_sgtf_detrend)
+
 # Build models and save
 if (run_model) {
   # Model with 1) scaled and 2) time-dependent relationship between variants
