@@ -153,7 +153,7 @@ loo_comp <- as_tibble(loo_compare(loo_scaled, loo_correlated), rownames = "model
 # Compare model scores
 scores <- map2_dfr(forecasts,
                    variant_relationships,
-                   ~ summary(.x, target = "forecast", type = "cases") %>%
+                   ~ summary(.x, type = "cases") %>%
                      fv_score_forecast(., obs, summarise_by = "strains",
                                        metrics = NULL) %>%
                      mutate("Variant relationship" = .y))
