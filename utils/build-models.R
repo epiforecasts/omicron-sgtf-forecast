@@ -1,13 +1,14 @@
 # Build and save a model run
 library(forecast.vocs)
 library(purrr)
-options(mc.cores = 4)
 
 build_models <- function(obs,
                          region,
                          save_to,
                          variant_relationships,
-                         parameters) {
+                         parameters,
+                         cores = 4
+                         ) {
 
   # Use only one region
   obs <- obs[nhs_region == region]
@@ -27,6 +28,7 @@ build_models <- function(obs,
                                   timespan = parameters$timespan,
                                   horizon = parameters$horizon,
                                   voc_label = parameters$voc_label,
+                                  parallel_chains = cores,
                                   # processing options
                                   output_loglik = TRUE,
                                   adapt_delta = 0.99,
