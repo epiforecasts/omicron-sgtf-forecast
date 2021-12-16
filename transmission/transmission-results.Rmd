@@ -18,7 +18,7 @@ library(dplyr)
 library(scoringutils)
 library(knitr)
 # get data and parameters without rebuilding model
-run_model <- FALSE
+run_model <- TRUE
 source(here("transmission", "model-transmission.R"))
 ```
 ### Aims {-}
@@ -28,8 +28,9 @@ source(here("transmission", "model-transmission.R"))
 
 ### Methods {-}
 
-- Data are all test-positive cases for England. Omicron is modelled from those cases reporting an S-gene target result (failure or positive). All dates are by specimen date. 
-- We excluded data before `r start_date`, to reduce overfitting to stochastic imports. Data are included up to `r max(obs$date)`. 
+- Data are all test-positive cases for England. Omicron is modelled from those cases reporting an S-gene target result (failure or positive).
+- We used data by `r date_type` date (figure \@ref(fig:plot-raw-data))
+- Models are based on data between `r min(obs$date)` and `r max(obs$date)`. We used only the most recent three weeks of data and excluded the latest `r truncate_days` reported data. 
 - We modelled at a `r parameters$timespan` day resolution with a `r parameters$horizon` day forecast. 
 - We used a weakly informative prior for a transmission advantage for the VoC vs non-VoC cases of mean `r parameters$voc_scale[1]` (standard deviation `r parameters$voc_scale[2]`), based on early work from South Africa^[2021-12-03, Carl Pearson and others, "Omicron spread in South Africa", Epidemics8]
 - We defined the relationship between variants as `r knitr::combine_words(variant_relationships)`.
@@ -162,4 +163,11 @@ scores <- scores %>%
          interval_score:bias)
 kable(scores)
 
+```
+\newpage
+
+### Raw data {-}
+
+```{r plot-raw-data, fig.cap="Raw data"}
+plot(plot_daily_cases)
 ```

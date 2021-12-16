@@ -39,7 +39,7 @@ obs <- daily_sgtf
 
 # Cut off data before last 3 weeks and remove last day
 start_date <- max(obs$date) - weeks(3)
-end_date <- max(obs$date) # - 1
+end_date <- max(obs$date) - truncate_days
 obs <- filter(obs, between(date, start_date, end_date))
 obs <- data.table(obs)
 
