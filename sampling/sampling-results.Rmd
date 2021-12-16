@@ -24,7 +24,7 @@ library(knitr)
 run_model <- FALSE
 source(here("sampling", "model-sampling.R"))
 # both models are fit to raw or smooth (7-day MA) data. Select which to show for results
-data_types <- c("data-raw", "data-smooth")
+data_types <- c("raw", "smooth")
 data_type <- data_types[1] # use fit to raw data
 obs <- as.data.table(datasets[[data_type]])
 ```
