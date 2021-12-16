@@ -51,6 +51,12 @@ england <- regional %>%
 
 daily_raw <- bind_rows(england, regional)
 
+# optionally filter to only one region
+if (exists("nhs_region_name")) {
+  if (!is.na(nhs_region_name)) {
+    daily_raw <- filter(daily_raw, nhs_region == nhs_region_name)}
+}
+
 # --------------------------------
 #  Plot
 
