@@ -11,8 +11,9 @@ library(dplyr)
 library(tidyr)
 library(zoo)
 library(purrr)
-library(data.table)
-options(mc.cores = 4)
+library(future)
+library(future.callr)
+library(future.apply)
 
 # Load parameters
 source(here("utils", "load-parameters.R"))
@@ -44,10 +45,17 @@ if (data_type == "smooth") {
 # define regions
 nhs_regions <- unique(obs$nhs_region)
 
-# Model run and save
+# make sure models are compiled
+model_1 <- fv_model(strains = 1)
+model_2 <- fv_model(strains = 2)
+
+# set up working in parallel assuming using 4 cores inside loop
+plan("callr", workers = floor(future::availableCores() / 4))
+
+# Build models and save
 if (run_model) {
   source(here("utils", "build-models.R"))
-  map(nhs_regions,
+  future.apply::future_lapply(nhs_regions,
       ~ build_models(obs,
                      region = .x,
                      save_to = here("transmission", "nhs_region"),

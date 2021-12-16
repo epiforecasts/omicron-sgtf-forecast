@@ -10,3 +10,6 @@ analysis/*html
 analysis/*_cache
 analysis/site_libs
 data/private
+*.aux
+*.log
+*.out
