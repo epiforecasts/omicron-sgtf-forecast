@@ -20,7 +20,7 @@ library(knitr)
 # get data and parameters without rebuilding model
 run_model <- FALSE
 data_type <- "raw"
-nhs_region_name <- "England"
+nhs_region_name <- NA # pass to load-data.R. Set to NA to return all regions
 source(here("transmission", "model-transmission.R"))
 ```
 ### Aims {-}
@@ -41,6 +41,10 @@ source(here("transmission", "model-transmission.R"))
 ### Results {-}
 ```{r load-forecasts}
 # get model outputs
+
+
+
+
 forecast_fits <- readRDS(here("transmission", "fit", "forecast-fits.rds"))
 forecasts <- readRDS(here("transmission", "fit", "forecasts.rds"))
 ```

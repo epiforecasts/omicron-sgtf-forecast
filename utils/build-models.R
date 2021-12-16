@@ -10,7 +10,7 @@ build_models <- function(obs,
                          parameters) {
 
   # Use only one region
-  obs <- obs[nhs_region == region]
+  obs <- obs[obs$nhs_region == region,]
 
   # build model for each variant relationship
   forecast_fits <- map(variant_relationships,

@@ -78,6 +78,3 @@ plot_daily_cases <- daily_raw %>%
   facet_wrap(~ nhs_region, scales = "free")
 
 
-
-
-
