@@ -24,7 +24,7 @@ source(here("sampling", "model-sampling.R"))
 # both models are fit to raw or smooth (7-day MA) data. Select which to show for results
 data_types <- c("data-raw", "data-smooth")
 data_type <- data_types[1] # use fit to raw data
-obs <- as.data.table(datasets[[data_type]])
+obs <- datasets[[data_type]]
 ```
 ### Background
 
@@ -158,7 +158,7 @@ kable(
 # Compare model scores
 both_forecasts <- list(forecasts, forecasts_alt)
 scores <- map2_dfr(.x = both_forecasts, .y = gsub("data-", "", data_types),
-                   ~ summary(.x, target = "forecast", type = "cases") %>%
+                   ~ summary(.x, type = "cases") %>%
                     fv_score_forecast(., obs, summarise_by = "strains") %>%
                     mutate(data_type = .y))
 kable(scores %>% select(data_type, interval_score:bias),
