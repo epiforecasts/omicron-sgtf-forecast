@@ -33,7 +33,7 @@ source(here("transmission", "model-transmission.R"))
 - We used `r data_type` data by `r date_type` date (figure \@ref(fig:plot-raw-data)).
 - Models are based on data between `r min(obs$date)` and `r max(obs$date)`. We used only the most recent three weeks of data and excluded the latest `r truncate_days` reported data. 
 - We modelled at a `r parameters$timespan` day resolution with a `r parameters$horizon` day forecast. 
-- We used a weakly informative prior for a transmission advantage for the VoC vs non-VoC cases of mean `r parameters$voc_scale[1]` (standard deviation `r parameters$voc_scale[2]`), based on early work from South Africa^[2021-12-03, Carl Pearson and others, "Omicron spread in South Africa", Epidemics8]
+- We used a weakly informative prior for a transmission advantage for the VoC vs non-VoC cases of mean `r parameters$voc_scale[1]` (standard deviation `r parameters$voc_scale[2]`), based on early work from South Africa^[2021-12-03, Carl Pearson et al., "Omicron spread in South Africa", Epidemics8]
 - We defined the relationship between variants as `r knitr::combine_words(variant_relationships)`.
 
 
@@ -43,7 +43,6 @@ source(here("transmission", "model-transmission.R"))
 forecast_fits <- readRDS(here("transmission", "fit", "forecast-fits.rds"))
 forecasts <- readRDS(here("transmission", "fit", "forecasts.rds"))
 ```
-
 
 ```{r plot-voc-advantage, fig.cap="The transmission advantage of Omicron, modelled in a fixed relationship to Delta (left) and a time-varying relationship (right)."}
 # Plot VOC advantage
@@ -67,7 +66,6 @@ plot_advantage <- voc_scaled +
 ggsave(here("transmission", "figures", "voc_advantage.png"), plot_advantage)
 
 plot_advantage
-
 ```
 
 Transmission advantage is shown where 100% is equivalent to the current dominant strain, Delta (figure \@ref(fig:plot-voc-advantage)). Both models indicated a stronger transmission advantage for Omicron. 
@@ -96,7 +94,6 @@ plot_growth_rt <- growth_scaled + growth_correlated +
   plot_annotation(theme = theme(legend.position = "bottom"))
 ggsave(here("transmission", "figures", "growth_rt.png"), plot_growth_rt)
 plot_growth_rt
-
 ```
 
 ```{r plot-voc-frac, fig.cap="Fraction of cases attributable to Omicron, modelled in a fixed relationship to Delta (left) and a time-varying relationship (right)."}
@@ -113,7 +110,6 @@ plot_frac <- voc_frac_scaled +
   plot_annotation(theme = theme(legend.position = "bottom"))
 ggsave(here("transmission", "figures", "voc_frac.png"), plot_frac)
 plot_frac
-
 ``` 
 
 ```{r plot-cases, fig.cap="Weekly cases shown on a log scale, modelled in a fixed relationship to Delta (left) and a time-varying relationship (right)."}
@@ -139,11 +135,12 @@ plot_cases
 variant_relationships <- c("scaled", "correlated")
 loo_scaled <- forecast_fits$scaled$fit[[1]]$loo()
 loo_correlated <- forecast_fits$correlated$fit[[1]]$loo()
-loo_comp <- as_tibble(loo_compare(loo_scaled, loo_correlated), rownames = "model") %>%
+loo_comp <- as_tibble(
+  loo_compare(loo_scaled, loo_correlated), rownames = "model"
+ ) %>%
   mutate(model = recode(model, "model1" = "scaled", "model2" = "correlated"),
-         across(c(elpd_diff,se_diff), round, 2)) %>%
+         across(c(elpd_diff, se_diff), round, 2)) %>%
   filter(elpd_diff != 0)
-
 ```
 
 - Comparing the models on PSIS-LOO indicated an estimated difference in expected log pointwise predictive density of `r loo_comp$elpd_diff` (with a standard error of `r loo_comp$se_diff`) for the `r loo_comp$model` model compared to the `r variant_relationships[!grepl(loo_comp$model, variant_relationships)]` model. 
@@ -153,13 +150,13 @@ loo_comp <- as_tibble(loo_compare(loo_scaled, loo_correlated), rownames = "model
 # Compare model scores
 scores <- map2_dfr(forecasts,
                    variant_relationships,
-                   ~ summary(.x, type = "cases") %>%
+                   ~ summary(.x, type = "cases", forecast = TRUE) %>%
                      fv_score_forecast(., obs, summarise_by = "strains",
                                        metrics = NULL) %>%
                      mutate("Variant relationship" = .y))
 
 scores <- scores %>%
-  select("Variant relationship", 
+  select("Variant relationship",
          interval_score:bias)
 kable(scores)
 
