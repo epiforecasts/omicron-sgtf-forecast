@@ -3,9 +3,15 @@ library(forecast.vocs)
 library(purrr)
 options(mc.cores = 4)
 
-build_models <- function(save_to,
+build_models <- function(obs,
+                         region,
+                         save_to,
                          variant_relationships,
                          parameters) {
+
+  # Use only one region
+  obs <- obs[nhs_region == region]
+
   # build model for each variant relationship
   forecast_fits <- map(variant_relationships,
                        ~ forecast(obs,
@@ -28,10 +34,15 @@ build_models <- function(save_to,
                                   refresh = 0,
                                   show_messages = FALSE))
   names(forecast_fits) <- variant_relationships
+
   # Unnest posterior
   forecasts <- map(forecast_fits,
                    ~ unnest_posterior(.x))
+  # Create files if not already
+  if (!dir.exists(here(save_to, region))) {
+    dir.create(here(save_to, region, "figures"), recursive = TRUE)
+  }
   # Save output
-  saveRDS(forecast_fits, here(save_to, "forecast-fits.rds"))
-  saveRDS(forecasts, here(save_to, "forecasts.rds"))
+  saveRDS(forecast_fits, here(save_to, region, "forecast-fits.rds"))
+  saveRDS(forecasts, here(save_to, region, "forecasts.rds"))
 }

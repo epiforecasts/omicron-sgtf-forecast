@@ -20,6 +20,7 @@ library(knitr)
 # get data and parameters without rebuilding model
 run_model <- FALSE
 data_type <- "raw"
+nhs_region_name <- "England"
 source(here("transmission", "model-transmission.R"))
 ```
 ### Aims {-}
@@ -148,13 +149,12 @@ loo_comp <- as_tibble(
 
 ```{r compare-score, include=TRUE}
 # Compare model scores
-scores <- map2_dfr(forecasts,
+scores <- map2_dfr(forecast_fits,
                    variant_relationships,
                    ~ summary(.x, type = "cases", forecast = TRUE) %>%
                      fv_score_forecast(., obs, summarise_by = "strains",
                                        metrics = NULL) %>%
                      mutate("Variant relationship" = .y))
-
 scores <- scores %>%
   select("Variant relationship",
          interval_score:bias)
