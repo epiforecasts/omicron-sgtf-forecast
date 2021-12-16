@@ -34,7 +34,7 @@
 	],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "Rscript -e 'cmdstanr::set_cmdstan_path(); precommit::use_precommit();'",
+	"postCreateCommand": "Rscript -e 'cmdstanr::set_cmdstan_path();'",
 
 	// Uncomment to use Docker from inside the container. See https://aka.ms/vscode-remote/samples/docker-from-docker.
 	// "mounts": [ "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind" ],
