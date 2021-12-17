@@ -2,10 +2,12 @@ library(ggplot2)
 library(tidyr)
 library(scales)
 
-plot_daily_cases <- function(raw, caption) {
+plot_daily_cases <- function(raw, caption, start_date) {
   sgtf_fills <- c("non_sgtf" = "#c994c7", "sgtf" = "#dd1c77",
                   "sgtf_unknown" = "#e7e1ef")
+
   raw %>%
+    filter(date >= start_date) %>%
     tidyr::pivot_longer(cols = c(non_sgtf, sgtf, sgtf_unknown),
                         names_to = "S-gene result") %>%
     ggplot(aes(x = date, y = value, fill = `S-gene result`)) +

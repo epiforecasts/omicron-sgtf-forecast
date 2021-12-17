@@ -27,7 +27,7 @@ plan("callr", workers = floor(future::availableCores() / 2))
 ##############################
 
 # Target date
-target_date <- as.Date("2021-12-13")
+target_date <- get_latest_date() 
 
 # Estimation start date
 start_date <- as.Date("2021-11-23")

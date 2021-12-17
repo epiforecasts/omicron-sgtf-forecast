@@ -12,8 +12,9 @@ readr::write_csv(
 )
 
 plot <- plot_daily_cases(
-  daily, caption = "Data are sourced from the UKHSA and are by specimen data"
+  daily, caption = "Data are sourced from the UKHSA and are by specimen data",
+  start_date = "2021-11-23"
 )
 
 ggsave(here("figures", "daily-cases.png"),
-       plot, dpi = "print", width = 7, height = 7)
+       plot, dpi = "print", width = 9, height = 9)
