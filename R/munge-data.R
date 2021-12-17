@@ -59,7 +59,6 @@ sgtf_data_to_fv <- function(obs) {
               seq_voc = sgtf,
               share_voc = sgtf / total_sgt,
               seq_available = date)
-  return(obs)
 }
 
 bias_data_to_fv <- function(obs) {

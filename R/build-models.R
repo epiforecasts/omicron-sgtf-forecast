@@ -1,10 +1,10 @@
 # Build and save a model run
 build_models <- function(obs, parameters,
                          variant_relationships = c("scaled", "correlated"),
-                         cores = 4, chains = 4) {
+                         cores = 4, chains = 4, samples_per_chain = 1000) {
 
   # build model for each variant relationship
-  forecast_fits <- purrr::map(variant_relationships,
+  forecasts <- purrr::map_dfr(variant_relationships,
                        ~ forecast.vocs::forecast(obs = obs,
                                   # variant relationship
                                   variant_relationship = .x,
@@ -25,8 +25,7 @@ build_models <- function(obs, parameters,
                                   adapt_delta = 0.99,
                                   max_treedepth = 15,
                                   refresh = 0,
-                                  show_messages = FALSE))
-  names(forecast_fits) <- variant_relationships
-  forecasts <- purrr::map(forecast_fits, ~ forecast.vocs::unnest_posterior(.x))
+                                  show_messages = FALSE,
+                                  iter_sampling = samples_per_chain))
   return(forecasts)
 }

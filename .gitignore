@@ -13,3 +13,4 @@ data/private
 *.aux
 *.log
 *.out
+data/forecasts

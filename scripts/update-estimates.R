@@ -19,7 +19,7 @@ source(here("R", "load-local-data.R"))
 source(here("R", "munge-data.R"))
 
 # Set up in parallel estimation
-plan("callr", workers = floor(future::availableCores() / 4))
+plan("callr", workers = floor(future::availableCores() / 2))
 
 ##############################
 # Load data and settings
@@ -44,14 +44,19 @@ bias_parameters <- load_bias_parameters()
 ##############################
 
 sgtf_regional <- daily_regional %>%
-  sgtf_data_to_fv() %>%
-  truncate_cases(days = 2)
+  truncate_cases(days = 2) %>%
+  sgtf_data_to_fv()
 
 # Estimate models for SGTF data
-region_omicorn_posteriors <- build_models_by_region(
-  obs, parameters,
+region_omicorn_forecasts <- build_models_by_region(
+  sgtf_regional, sgtf_parameters,
   variant_relationships = c("scaled", "correlated"),
-  cores_per_model = 4
+  cores_per_model = 2, chains = 2, samples_per_chain = 2000
+)
+
+saveRDS(
+  region_omicorn_forecasts,
+  here("data", "forecasts", "sgtf", paste0(target_date, ".rds"))
 )
 
 ##############################
@@ -59,12 +64,17 @@ region_omicorn_posteriors <- build_models_by_region(
 ##############################
 
 bias_regional <- daily_regional %>%
-  bias_data_to_fv() %>%
-  truncate_cases(days = 2)
+  truncate_cases(days = 2) %>%
+  bias_data_to_fv()
 
 # Estimate models for SGTF data
-region_bias_posteriors <- build_models_by_region(
-  obs, parameters,
+region_bias_forecasts <- build_models_by_region(
+  bias_obs, bias_parameters,
   variant_relationships = c("correlated"),
-  cores_per_model = 4
+  cores_per_model = 2, chains = 2, iter_sampling = 2000
+)
+
+saveRDS(
+  region_bias_forecasts,
+  here("data", "forecasts", "bias", paste0(target_date, ".rds"))
 )
