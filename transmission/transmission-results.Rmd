@@ -82,7 +82,7 @@ advantage <- regional_forecasts %>%
 
 We also estimated the growth rate (figure \@ref(fig:plot-growth-rt)), the proportion of cases attributable to Omicron (figure \@ref(fig:plot-voc-frac)) and case counts (figure \@ref(fig:plot-cases)).
 
-```{r plot-voc-advantage, fig.cap="The transmission advantage of Omicron, modelled by NHS region in a fixed relationship to Delta (left) and a time-varying correlated relationship (right)."}
+```{r plot-voc-advantage, fig.cap="The transmission advantage of Omicron, modelled by NHS region in a fixed relationship to Delta (left) and a time-varying correlated relationship (right).", fig.dim=c(7,12)}
 plot_voc <- filter(regional_forecasts, value_type == "voc_advantage") %>%
   ggplot(aes(x = date)) + 
     geom_line(aes(y = median), size = 1, alpha = 0.6) + 
@@ -93,7 +93,7 @@ plot_voc <- filter(regional_forecasts, value_type == "voc_advantage") %>%
     labs(x = NULL, y = "Omicron transmission advantage") +
     scale_y_continuous(labels = scales::percent) +
     facet_wrap(facets = c("nhs_region", "variant_relationship"),
-               scales = "freey_y", ncol = 2) +
+               scales = "free_y", ncol = 2) +
     theme_classic() +
     theme(legend.position = "bottom", strip.background = element_blank())
 
@@ -101,7 +101,7 @@ ggsave(here("transmission", "figures", "growth.png"), plot_voc)
 plot_voc
 ```
 
-```{r plot-growth-rt, fig.cap="The growth rate of Omicron, modelled by NHS region in a fixed relationship to Delta (left) and a time-varying correlated relationship (right).", fig.dim=c(9,12)}
+```{r plot-growth-rt, fig.cap="The growth rate of Omicron, modelled by NHS region in a fixed relationship to Delta (left) and a time-varying correlated relationship (right).", fig.dim=c(7,12)}
 plot_growth <- filter(regional_forecasts, value_type == "growth") %>%
   ggplot(aes(x = date, col = type, fill = type)) + 
     geom_line(aes(y = median), size = 1, alpha = 0.6) + 
@@ -113,7 +113,7 @@ plot_growth <- filter(regional_forecasts, value_type == "growth") %>%
     labs(x = NULL, y = "Growth rate") +
     scale_y_continuous() +
     facet_wrap(facets = c("nhs_region", "variant_relationship"),
-               scales = "freey_y", ncol = 2) +
+               scales = "free_y", ncol = 2) +
     theme_classic() +
     theme(legend.position = "bottom", strip.background = element_blank())
 
@@ -121,7 +121,7 @@ ggsave(here("transmission", "figures", "growth.png"), plot_growth)
 plot_growth
 ```
 
-```{r plot-voc-frac, fig.cap="Fraction of cases attributable to Omicron, modelled by NHS region in a fixed relationship to Delta (left) and a time-varying correlated relationship (right)."}
+```{r plot-voc-frac, fig.cap="Fraction of cases attributable to Omicron, modelled by NHS region in a fixed relationship to Delta (left) and a time-varying correlated relationship (right).", fig.dim=c(7,12)}
 plot_voc_frac <- filter(regional_forecasts, value_type == "voc_frac") %>%
   left_join(select(obs, date, nhs_region, share_voc), 
             by = c("date", "nhs_region")) %>%
@@ -136,7 +136,7 @@ plot_voc_frac <- filter(regional_forecasts, value_type == "voc_frac") %>%
   scale_y_continuous(labels = scales::percent, 
                      trans = scales::logit_trans()) +
   facet_wrap(facets = c("nhs_region", "variant_relationship"),
-             scales = "freey_y", ncol = 2) +
+             scales = "free_y", ncol = 2) +
   theme_classic() +
   theme(legend.position = "bottom", strip.background = element_blank())
 
@@ -144,7 +144,7 @@ ggsave(here("transmission", "figures", "voc_frac.png"), plot_voc_frac)
 plot_voc_frac
 ``` 
 
-```{r plot-cases, fig.cap="Weekly cases shown on a log scale, modelled by NHS region in a fixed relationship to Delta (left) and a time-varying correlated relationship (right)."}
+```{r plot-cases, fig.cap="Weekly cases shown on a log scale, modelled by NHS region in a fixed relationship to Delta (left) and a time-varying correlated relationship (right).", fig.dim=c(7,12)}
 # Plot cases
 plot_log_cases <- filter(regional_forecasts, value_type == "cases") %>%
     left_join(select(obs, date, nhs_region, share_voc), 
