@@ -41,10 +41,34 @@ tidy_data <- function(regional, region = NULL) {
   return(regional)
 }
 
-truncate_cases <- function(regional, start_date, days = 0) {
+truncate_cases <- function(regional, days = 0) {
   case_end_date <- max(regional$date) - lubridate::days(days)
-  regional <- filter(regional, date >= start_date) %>%
+  regional <- regional %>%
     mutate(total_cases = ifelse(date > case_end_date, NA, total_cases),
           sgtf_unknown = ifelse(date > case_end_date, NA, sgtf_unknown))
   return(regional)
+}
+
+sgtf_data_to_fv <- function(obs) {
+  obs %>%
+    transmute(region = region,
+              date = date,
+              cases = total_cases,
+              cases_available = date,
+              seq_total = total_sgt,
+              seq_voc = sgtf,
+              share_voc = sgtf / total_sgt,
+              seq_available = date)
+  return(obs)
+}
+
+bias_data_to_fv <- function(obs) {
+  obs %>%
+    transmute(date = date,
+              cases = total_cases,
+              seq_total = total_cases,
+              seq_voc = total_sgt,
+              share_voc = total_sgt / total_cases,
+              cases_available = date,
+              seq_available = date)
 }

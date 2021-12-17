@@ -1,5 +1,5 @@
 # Load parameters for VOC model
-load_parameters <- function() {
+load_sgtf_parameters <- function() {
   parameters <- list(
 
     voc_label = "Omicron",
@@ -31,5 +31,13 @@ load_parameters <- function() {
   )
 
   parameters$voc_scale <- parameters$voc_scale * parameters$timespan
+  return(parameters)
+}
+
+# Load parameters bias model
+load_bias_parameters <- function() {
+  parameters <- load_sgtf_parameters()
+  parameters$voc_scale <- c(0, 0.2)
+  parameters$voc_label <- "SGT-result"
   return(parameters)
 }

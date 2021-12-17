@@ -1,3 +1,5 @@
+library(readr)
+library(ggplot2)
 
 source(here::here("R", "load-data.R"))
 source(here::here("R", "plot-daily-cases.R"))
@@ -10,7 +12,7 @@ readr::write_csv(
 )
 
 plot <- plot_daily_cases(
-  daily, caption = "Data are sourced from the UKHSA and are by specimen dat"
+  daily, caption = "Data are sourced from the UKHSA and are by specimen data"
 )
 
 ggsave(here("figures", "daily-cases.png"),
