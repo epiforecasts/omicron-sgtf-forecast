@@ -4,6 +4,7 @@
 	"name": "omicron-sgtf-forecast",
 	"build": {
 		"dockerfile": "Dockerfile",
+		"context": ".."
 	},
 
 	// Set *default* container specific settings.json values on container create.
