@@ -34,7 +34,8 @@ source(here("transmission", "model-transmission.R"))
 
 ### Methods {-}
 
-- Data are all test-positive cases for England and by `r region_type`. We used `r data_type` data by `r date_type` date (figure \@ref(fig:plot-raw-data)). Models are based on data between `r min(obs$date)` and `r max(obs$date)`, which excludes the latest `r truncate_days` reported dates. Omicron is modelled from those cases reporting an S-gene target result (failure or not)^[`r if(open_data){"SGTF data from UKHSA: https://www.gov.uk/government/publications/covid-19-omicron-daily-overview"} else {"Data held confidentially"}`]. 
+- Data are all test-positive cases for England and by `r region_type`. Omicron is modelled from those cases reporting an S-gene target result (failure or not)^[`r if(open_data){"SGTF data from UKHSA: https://www.gov.uk/government/publications/covid-19-omicron-daily-overview"} else {"Data held confidentially"}`]. 
+- We used `r data_type` data by `r date_type` date (figure \@ref(fig:plot-raw-data)). Models are based on data from `r min(obs$date)` to `r max(obs$date)` for SGTF data, while total cases exclude the latest `r truncate_days` reported dates. 
 - We modelled at a `r parameters$timespan` day resolution with a `r parameters$horizon` day forecast. We used a weakly informative prior for a transmission advantage for the VoC vs non-VoC cases of mean `r parameters$voc_scale[1]` (standard deviation `r parameters$voc_scale[2]`), based on early work from South Africa^[Carl Pearson et al. (2021). "Omicron spread in South Africa", Epidemics8]. We defined the relationship between variants as either `r knitr::combine_words(variant_relationships, and = "or")`. We used the `forecast.vocs` package^[Sam Abbott (2021). forecast.vocs: Forecast case and sequence notifications using variant of concern strain dynamics, DOI:10.5281/zenodo.5559016] with a two-strain branching process model.
 
 
