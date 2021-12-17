@@ -97,7 +97,8 @@ plot_voc <- filter(regional_forecasts, value_type == "voc_advantage") %>%
     theme_classic() +
     theme(legend.position = "bottom", strip.background = element_blank())
 
-ggsave(here("transmission", "figures", "growth.png"), plot_voc)
+ggsave(here("transmission", "figures", "voc-advantage.png"), plot_voc, 
+       dpi = "print", width = 8, height = 16)
 plot_voc
 ```
 
@@ -117,7 +118,8 @@ plot_growth <- filter(regional_forecasts, value_type == "growth") %>%
     theme_classic() +
     theme(legend.position = "bottom", strip.background = element_blank())
 
-ggsave(here("transmission", "figures", "growth.png"), plot_growth)
+ggsave(here("transmission", "figures", "growth.png"), plot_growth,
+       dpi = "print", width = 8, height = 16)
 plot_growth
 ```
 
@@ -140,7 +142,8 @@ plot_voc_frac <- filter(regional_forecasts, value_type == "voc_frac") %>%
   theme_classic() +
   theme(legend.position = "bottom", strip.background = element_blank())
 
-ggsave(here("transmission", "figures", "voc_frac.png"), plot_voc_frac)
+ggsave(here("transmission", "figures", "voc_frac.png"), plot_voc_frac,
+       dpi = "print", width = 8, height = 16)
 plot_voc_frac
 ``` 
 
@@ -165,7 +168,8 @@ plot_log_cases <- filter(regional_forecasts, value_type == "cases") %>%
   theme_classic() +
   theme(legend.position = "bottom", strip.background = element_blank())
 
-ggsave(here("transmission", "figures", "cases_log.png"), plot_log_cases)
+ggsave(here("transmission", "figures", "cases_log.png"), plot_log_cases,
+       dpi = "print", width = 8, height = 16)
 plot_log_cases
 
 ```
