@@ -14,7 +14,7 @@ Folder/File | Purpose
 
 All dependencies can be installed using the following, 
 
-```{r}
+```r
 remotes::install_dev_deps()
 ```
 
@@ -24,10 +24,20 @@ If `cmdstanr` has not been installed previously then stan may need to be install
 cmdstanr::install_cmdstan()
 ```
 
+## Access observations and estimates
+
+```r
+source(here::here("R", "load-local-data.R"))
+get_available_dates()
+get_latest_date()
+get_local_data(date = <date>)
+load_results(date <date>)
+```
+
 ## Update estimates
 
 To update the data and estimates run the following. Note this will update estimates regardless of if the data has been updated. 
 
-```{bash}
+```bash
 bash bin/update.sh
 ```
