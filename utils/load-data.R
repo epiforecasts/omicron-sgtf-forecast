@@ -97,9 +97,11 @@ if ("Unknown" %in% unique(daily_raw$region)) {
 
 # Common settings -----------------------------------------------------------
 # Date cut offs
-end_date <- max(daily_raw$date) - days(truncate_days)
-daily_raw <- filter(daily_raw,
-                    between(date, start_date, end_date))
+case_end_date <- max(daily_raw$date) - days(truncate_days)
+daily_raw <- filter(daily_raw, date >= start_date) %>%
+  mutate(total_cases = ifelse(date > case_end_date, NA, total_cases),
+         sgtf_unknown = ifelse(date > case_end_date, NA, sgtf_unknown))
+
 # Set england to come at top of plots
 subregions <- unique(daily_raw$region)[!grepl("^England$", unique(daily_raw$region))]
 daily_raw <- mutate(daily_raw,
@@ -112,8 +114,7 @@ if (exists("region_name")) {
 }
 
 # Plot --------------------------------
-sgtf_fills <- c("non_sgtf" = "#c994c7", "sgtf" = "#dd1c77",
-           "sgtf_unknown" = "#e7e1ef")
+sgtf_fills <- c("non_sgtf" = "#c994c7", "sgtf" = "#dd1c77", "sgtf_unknown" = "#e7e1ef")
 
 plot_daily_cases <- daily_raw %>%
   tidyr::pivot_longer(cols = c(non_sgtf, sgtf, sgtf_unknown),
