@@ -24,7 +24,7 @@ if (!exists("truncate_days")) {
   } else {truncate_days <- 1}}
 
 # - length of dataset
-if (!exists("weeks_data")) {weeks_data <- 3}
+if (!exists("start_date")) {start_date <- as.Date("2021-11-20")}
 
 
 # Public data -------------------------------------------------------------
@@ -97,7 +97,6 @@ if ("Unknown" %in% unique(daily_raw$region)) {
 
 # Common settings -----------------------------------------------------------
 # Date cut offs
-start_date <- max(daily_raw$date) - weeks(weeks_data)
 end_date <- max(daily_raw$date) - days(truncate_days)
 daily_raw <- filter(daily_raw,
                     between(date, start_date, end_date))
@@ -123,7 +122,9 @@ plot_daily_cases <- daily_raw %>%
   geom_col(position = "stack") +
   geom_line(aes(y = total_cases), col = "grey 20") +
   labs(x = NULL, y = NULL,
-       caption = paste("data are", open_data, "by", date_type,
+       caption = paste("data are",
+                       if (open_data) {"public from UKHSA,"},
+                       "by", date_type,
                        "date \n excludes most recent",
                        truncate_days, "days")) +
   scale_fill_manual(values = sgtf_fills) +
