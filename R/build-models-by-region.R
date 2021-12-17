@@ -3,7 +3,8 @@ source(here("R", "build-models.R"))
 build_models_by_region <- function(
     obs, parameters,
     variant_relationships = c("scaled", "correlated"),
-    cores_per_model = 4, chains = 4, samples_per_chain = 1000) {
+    cores_per_model = 4, chains = 4, samples_per_chain = 1000,
+    keep_fit = FALSE) {
   regions <- unique(obs$region)
 
   # make sure models are compiled
@@ -26,5 +27,11 @@ build_models_by_region <- function(
     forecasts, regions, ~ dplyr::mutate(.x, region = .y)
   )
   forecasts <- dplyr::bind_rows(forecasts)
+  forecasts <- forecasts %>%
+    dplyr::mutate(loo = purrr::map(fit, .$loo()))
+  if (!keep_fit) {
+    forecasts <- forecasts %>%
+      select(-fit)
+  }
   return(forecasts)
 }
