@@ -78,3 +78,6 @@ plot_daily_cases <- daily_raw %>%
   theme_bw() +
   theme(legend.position = "bottom") +
   facet_wrap(~ nhs_region, scales = "free")
+
+ggsave(here("transmission", "figures", "daily-cases.png"),
+       plot_daily_cases, dpi = "print", width = 7, height = 7)
