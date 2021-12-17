@@ -5,17 +5,19 @@ library(purrr)
 build_models <- function(obs,
                          region,
                          save_to,
-                         variant_relationships,
                          parameters,
+                         variant_relationships = c("scaled", "correlated"),
                          cores = 4
                          ) {
 
   # Use only one region
-  obs <- obs[nhs_region == region]
+  if (missing(region)) {obs <- obs
+  } else {
+    obs <- obs[obs$nhs_region == region,]}
 
   # build model for each variant relationship
   forecast_fits <- map(variant_relationships,
-                       ~ forecast(obs,
+                       ~ forecast(obs = obs,
                                   # variant relationship
                                   variant_relationship = .x,
                                   # variant options
