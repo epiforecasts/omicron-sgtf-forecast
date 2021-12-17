@@ -63,7 +63,8 @@ sgtf_data_to_fv <- function(obs) {
 
 bias_data_to_fv <- function(obs) {
   obs %>%
-    transmute(date = date,
+    transmute(region = region,
+              date = date,
               cases = total_cases,
               seq_total = total_cases,
               seq_voc = total_sgt,
