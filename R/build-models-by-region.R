@@ -4,7 +4,7 @@ build_models_by_region <- function(
     obs, parameters,
     variant_relationships = c("scaled", "correlated"),
     cores_per_model = 4, chains = 4, samples_per_chain = 1000,
-    keep_fit = FALSE) {
+    keep_fit = TRUE) {
   regions <- unique(obs$region)
 
   # make sure models are compiled
@@ -22,16 +22,12 @@ build_models_by_region <- function(
         variant_relationships = variant_relationships,
         cores = cores_per_model,
         chains = chains,
-        samples_per_chain = samples_per_chain)
+        samples_per_chain = samples_per_chain,
+        keep_fit = keep_fit,
+        future.seed = TRUE)
   forecasts <- purrr::map2(
     forecasts, regions, ~ dplyr::mutate(.x, region = .y)
   )
   forecasts <- dplyr::bind_rows(forecasts)
-  forecasts <- forecasts %>%
-    dplyr::mutate(loo = purrr::map(fit, .$loo()))
-  if (!keep_fit) {
-    forecasts <- forecasts %>%
-      select(-fit)
-  }
   return(forecasts)
 }

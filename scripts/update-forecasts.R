@@ -17,6 +17,7 @@ source(here("R", "build-models-by-region.R"))
 source(here("R", "load-parameters.R"))
 source(here("R", "load-local-data.R"))
 source(here("R", "munge-data.R"))
+source(here("R", "postprocess.R"))
 
 # Set up in parallel estimation
 plan("callr", workers = floor(future::availableCores() / 2))
@@ -54,10 +55,13 @@ region_omicorn_forecasts <- build_models_by_region(
   cores_per_model = 2, chains = 2, samples_per_chain = 2000
 )
 
-saveRDS(
-  region_omicorn_forecasts,
-  here("data", "forecasts", "sgtf", paste0(target_date, ".rds"))
+omicron_results < list(
+  posterior = summary(region_omicorn_forecasts, target = "posterior"),
+  diagnostics = summary(region_omicorn_forecasts, target = "diagnostics"),
+  loo = extract_loo(region_omicorn_forecasts)
 )
+
+save_results(omicron_results, "sgtf", target_date)
 
 ##############################
 # Estimate Bias in SGTF by region
@@ -74,7 +78,9 @@ region_bias_forecasts <- build_models_by_region(
   cores_per_model = 2, chains = 2, iter_sampling = 2000
 )
 
-saveRDS(
-  region_bias_forecasts,
-  here("data", "forecasts", "bias", paste0(target_date, ".rds"))
+bias_results < list(
+  posterior = summary(region_bias_forecasts, target = "posterior"),
+  diagnostics = summary(region_bias_forecasts, target = "diagnostics")
 )
+
+save_results(omicron_results, "bias", target_date)
