@@ -15,7 +15,7 @@ extract_loo <- function(forecasts) {
 }
 
 save_results <- function(results, type, date) {
-  path <- here::here("data", "estimates", "sgtf", date)
+  path <- here::here("data", "estimates", type, date)
   dir.create(path, recursive = TRUE, showWarnings = FALSE)
   purrr::walk2(
     results, names(results),

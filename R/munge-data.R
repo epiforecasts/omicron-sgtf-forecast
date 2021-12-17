@@ -70,5 +70,6 @@ bias_data_to_fv <- function(obs) {
               seq_voc = total_sgt,
               share_voc = total_sgt / total_cases,
               cases_available = date,
-              seq_available = date)
+              seq_available = date) %>%
+    filter(!is.na(seq_total))
 }
