@@ -31,7 +31,7 @@ source(here::here("R", "load-local-data.R"))
 get_available_dates()
 get_latest_date()
 get_local_data(date = <date>)
-load_results(date <date>)
+load_results(date = <date>)
 ```
 
 ## Update estimates
