@@ -14,6 +14,7 @@ library(purrr)
 library(future)
 library(future.callr)
 library(future.apply)
+library(forecast.vocs)
 
 # Load parameters
 source(here("utils", "load-parameters.R"))
@@ -45,22 +46,24 @@ if (data_type == "smooth") {
 # define regions
 nhs_regions <- unique(obs$nhs_region)
 
-# make sure models are compiled
-model_1 <- fv_model(strains = 1)
-model_2 <- fv_model(strains = 2)
-
 # set up working in parallel assuming using 4 cores inside loop
 plan("callr", workers = floor(future::availableCores() / 4))
 
 # Build models and save
 if (run_model) {
+  # make sure models are compiled
+  model_1 <- fv_model(strains = 1)
+  model_2 <- fv_model(strains = 2)
+
   source(here("utils", "build-models.R"))
-  future.apply::future_lapply(nhs_regions,
-      ~ build_models(obs,
-                     region = .x,
-                     save_to = here("transmission", "nhs_region"),
-                     variant_relationships,
-                     parameters))
+  future.apply::future_lapply(X = nhs_regions,
+      FUN = build_models,
+      obs = obs,
+      # region = X,
+      save_to = here("transmission", "nhs_region"),
+      parameters = parameters,
+      variant_relationships = variant_relationships,
+      cores = 4)
 }
 
 # clean up env
