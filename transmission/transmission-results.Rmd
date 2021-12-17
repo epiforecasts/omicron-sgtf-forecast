@@ -20,8 +20,10 @@ library(scoringutils)
 library(knitr)
 # get data and parameters without rebuilding model
 run_model <- FALSE
+open_data <- TRUE
+date_type <- "specimen"
 data_type <- "raw"
-nhs_region_name <- NA # pass to load-data.R. Set to NA to return all regions
+region_name <- NA # pass to load-data.R. Set to NA to return all regions
 source(here("transmission", "model-transmission.R"))
 ```
 ### Aims {-}
@@ -32,7 +34,7 @@ source(here("transmission", "model-transmission.R"))
 
 ### Methods {-}
 
-- Data are all test-positive cases for England. Omicron is modelled from those cases reporting an S-gene target result (failure or positive).
+- Data are all test-positive cases for England and by `r region_type`. Omicron is modelled from those cases reporting an S-gene target result (failure or positive).
 - We used `r data_type` data by `r date_type` date (figure \@ref(fig:plot-raw-data)).
 - Models are based on data between `r min(obs$date)` and `r max(obs$date)`. We used only the most recent three weeks of data and excluded the latest `r truncate_days` reported data. 
 - We modelled at a `r parameters$timespan` day resolution with a `r parameters$horizon` day forecast. 
@@ -44,21 +46,21 @@ source(here("transmission", "model-transmission.R"))
 ```{r load-forecasts}
 safely_readRDS <- possibly(readRDS, otherwise = NULL)
 # get model result
-regional_forecast_fits <- map(nhs_regions,
-                              ~ safely_readRDS(here("transmission", "nhs_region", 
+regional_forecast_fits <- map(regions,
+                              ~ safely_readRDS(here("transmission", "region", 
                                                     .x, "forecast-fits.rds"))) 
-names(regional_forecast_fits) <- nhs_regions
+names(regional_forecast_fits) <- regions
 regional_forecast_fits <- compact(regional_forecast_fits)
 
 # get unnested
-regional_forecasts <- map(nhs_regions,
-                          ~ safely_readRDS(here("transmission", "nhs_region",
+regional_forecasts <- map(regions,
+                          ~ safely_readRDS(here("transmission", "region",
                                                 .x, "forecasts.rds")))
-names(regional_forecasts) <- nhs_regions
+names(regional_forecasts) <- regions
 regional_forecasts <- compact(regional_forecasts)
 regional_forecasts <- imap_dfr(regional_forecasts, 
                      ~ bind_rows(.x) %>%
-                       mutate(nhs_region = .y,
+                       mutate(region = .y,
                               variant_relationship = factor(
                                 variant_relationship, 
                                 c("scaled", "correlated"))))
@@ -70,7 +72,7 @@ Transmission advantage is shown where 100% is equivalent to the current dominant
 # Get VOC advantage for England
 advantage <- regional_forecasts %>%
   as_tibble() %>%
-  filter(nhs_region == "England" & value_type == "model" & 
+  filter(region == "England" & value_type == "model" & 
            variable == "avg_voc_advantage") %>%
   select(variant_relationship, variable, clean_name, exponentiated:ess_bulk) %>%
   mutate(across(mean:q95, exp),
@@ -92,7 +94,7 @@ plot_voc <- filter(regional_forecasts, value_type == "voc_advantage") %>%
     geom_ribbon(aes(ymin = q20, ymax = q80, col = NULL), alpha = 0.2) +
     labs(x = NULL, y = "Omicron transmission advantage") +
     scale_y_continuous(labels = scales::percent) +
-    facet_wrap(facets = c("nhs_region", "variant_relationship"),
+    facet_wrap(facets = c("region", "variant_relationship"),
                scales = "free_y", ncol = 2) +
     theme_classic() +
     theme(legend.position = "bottom", strip.background = element_blank())
@@ -113,7 +115,7 @@ plot_growth <- filter(regional_forecasts, value_type == "growth") %>%
   geom_vline(xintercept = forecast_start, lty = 2, size = 1) +
     labs(x = NULL, y = "Growth rate") +
     scale_y_continuous() +
-    facet_wrap(facets = c("nhs_region", "variant_relationship"),
+    facet_wrap(facets = c("region", "variant_relationship"),
                scales = "free_y", ncol = 2) +
     theme_classic() +
     theme(legend.position = "bottom", strip.background = element_blank())
@@ -125,8 +127,8 @@ plot_growth
 
 ```{r plot-voc-frac, fig.cap="Fraction of cases attributable to Omicron, modelled by NHS region in a fixed relationship to Delta (left) and a time-varying correlated relationship (right).", fig.dim=c(7,12)}
 plot_voc_frac <- filter(regional_forecasts, value_type == "voc_frac") %>%
-  left_join(select(obs, date, nhs_region, share_voc), 
-            by = c("date", "nhs_region")) %>%
+  left_join(select(obs, date, region, share_voc), 
+            by = c("date", "region")) %>%
   ggplot(aes(x = date)) + 
   geom_line(aes(y = median), size = 1, alpha = 0.6) + 
   geom_line(aes(y = mean), linetype = 2) + 
@@ -137,7 +139,7 @@ plot_voc_frac <- filter(regional_forecasts, value_type == "voc_frac") %>%
   labs(x = NULL, y = "Percentage of overall cases with Omicron") +
   scale_y_continuous(labels = scales::percent, 
                      trans = scales::logit_trans()) +
-  facet_wrap(facets = c("nhs_region", "variant_relationship"),
+  facet_wrap(facets = c("region", "variant_relationship"),
              scales = "free_y", ncol = 2) +
   theme_classic() +
   theme(legend.position = "bottom", strip.background = element_blank())
@@ -150,8 +152,8 @@ plot_voc_frac
 ```{r plot-cases, fig.cap="Weekly cases shown on a log scale, modelled by NHS region in a fixed relationship to Delta (left) and a time-varying correlated relationship (right).", fig.dim=c(7,12)}
 # Plot cases
 plot_log_cases <- filter(regional_forecasts, value_type == "cases") %>%
-    left_join(select(obs, date, nhs_region, share_voc), 
-            by = c("date", "nhs_region")) %>%
+    left_join(select(obs, date, region, share_voc), 
+            by = c("date", "region")) %>%
   ggplot(aes(x = date, col = type, fill = type)) + 
   geom_line(aes(y = median), size = 1, alpha = 0.6) + 
   geom_line(aes(y = mean), linetype = 2) + 
@@ -163,7 +165,7 @@ plot_log_cases <- filter(regional_forecasts, value_type == "cases") %>%
   scale_y_continuous(labels = scales::comma, trans = scales::log2_trans()) +
   scale_color_brewer(palette = "Dark2") + 
   scale_fill_brewer(palette = "Dark2") +
-  facet_wrap(facets = c("nhs_region", "variant_relationship"),
+  facet_wrap(facets = c("region", "variant_relationship"),
              scales = "free_y", ncol = 2) +
   theme_classic() +
   theme(legend.position = "bottom", strip.background = element_blank())
@@ -184,7 +186,7 @@ compare_loo_region <- function(region_fit, region_name) {
   loo_correlated <- region_fit$correlated$fit[[1]]$loo()
   loo_comp <- as_tibble(
     loo_compare(loo_scaled, loo_correlated), rownames = "model") %>%
-    mutate(nhs_region = region_name,
+    mutate(region = region_name,
            best_model = recode(model, "model1" = "scaled", 
                           "model2" = "correlated"),
            across(c(elpd_diff, se_diff), round, 2)) %>%
@@ -194,10 +196,10 @@ compare_loo_region <- function(region_fit, region_name) {
 
 loo_region <- imap_dfr(regional_forecast_fits,
                        ~ compare_loo_region(region_fit = .x, region_name = .y)) %>%
-  select(nhs_region, best_model, elpd_diff, se_diff)
+  select(region, best_model, elpd_diff, se_diff)
 ```
 
-We compared PSIS-LOO by region (table \@ref(tab:loo-table)). Using data for all England, comparing the models on PSIS-LOO indicated an estimated difference in expected log pointwise predictive density of `r loo_region %>% filter(nhs_region == "England") %>% pull(elpd_diff)` (with a standard error of `r loo_region %>% filter(nhs_region == "England") %>% pull(se_diff)`) for the `r loo_region %>% filter(nhs_region == "England") %>% pull(best_model)` model compared to the `r variant_relationships[!grepl(loo_region %>% filter(nhs_region == "England") %>% pull(best_model), variant_relationships)]` model. 
+We compared PSIS-LOO by region (table \@ref(tab:loo-table)). Using data for all England, comparing the models on PSIS-LOO indicated an estimated difference in expected log pointwise predictive density of `r loo_region %>% filter(region == "England") %>% pull(elpd_diff)` (with a standard error of `r loo_region %>% filter(region == "England") %>% pull(se_diff)`) for the `r loo_region %>% filter(region == "England") %>% pull(best_model)` model compared to the `r variant_relationships[!grepl(loo_region %>% filter(region == "England") %>% pull(best_model), variant_relationships)]` model. 
 
 ```{r loo-table}
 kable(loo_region, caption = "PSIS-LOO cross validation by NHS region comparing models with fixed and correlated over time relationships between variants")

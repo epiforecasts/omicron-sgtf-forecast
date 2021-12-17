@@ -24,7 +24,7 @@ source(here("utils", "load-data.R"))
 
 # Set up data for forecast.vocs
 obs <- daily_raw %>%
-  transmute(nhs_region = nhs_region,
+  transmute(region = region,
             date = date,
             cases = total_cases,
             cases_available = date,
@@ -37,14 +37,14 @@ obs <- daily_raw %>%
 if (data_type == "smooth") {
   # Remove day-of-week in daily data for all cases (not applied to SGTF)
   obs <- daily_sgt %>%
-    group_by(nhs_region) %>%
+    group_by(region) %>%
     mutate(cases = zoo::rollmean(cases, k = 7, align = "center", fill = NA),
            share_voc = seq_voc / seq_total) %>%
     filter(!is.na(cases))
 }
 
 # define regions
-nhs_regions <- unique(obs$nhs_region)
+regions <- unique(obs$region)
 
 # set up working in parallel assuming using 4 cores inside loop
 plan("callr", workers = floor(future::availableCores() / 4))
@@ -56,15 +56,17 @@ if (run_model) {
   model_2 <- fv_model(strains = 2)
 
   source(here("utils", "build-models.R"))
-  future.apply::future_lapply(X = nhs_regions,
+  future.apply::future_lapply(X = regions,
       FUN = build_models,
       obs = obs,
       # region = X,
-      save_to = here("transmission", "nhs_region"),
+      save_to = here("transmission", "region"),
       parameters = parameters,
       variant_relationships = variant_relationships,
       cores = 4)
 }
 
-# clean up env
-rm(sgtf_fills, england, regional, data_path)
+# clean up env (all from load-data.R)
+rm(sgtf_fills, england, regional,
+   data_sgt, data_tot, data_path_sgt, data_path_tot,
+   subregions)

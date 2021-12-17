@@ -13,7 +13,7 @@ build_models <- function(obs,
   # Use only one region
   if (missing(region)) {obs <- obs
   } else {
-    obs <- obs[obs$nhs_region == region,]}
+    obs <- obs[obs$region == region,]}
 
   # build model for each variant relationship
   forecast_fits <- map(variant_relationships,
