@@ -33,7 +33,7 @@ load_public_case_data <- function() {
 }
 
 link_public_data <- function(sgt, cases) {
-  regional <- left_join(sgt, cases, by = c("region", "date")) %>%
+  regional <- full_join(sgt, cases, by = c("region", "date")) %>%
     mutate(sgtf_unknown = total_cases - total_sgt,
            source = "public")
   return(regional)

@@ -4,7 +4,7 @@ build_models_by_region <- function(
     obs, parameters,
     variant_relationships = c("scaled", "correlated"),
     cores_per_model = 4, chains = 4, samples_per_chain = 1000,
-    keep_fit = TRUE) {
+    keep_fit = TRUE, loo = TRUE) {
   regions <- unique(obs$region)
 
   # make sure models are compiled

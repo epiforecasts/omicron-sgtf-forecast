@@ -8,7 +8,7 @@ knitr::opts_chunk$set(echo = FALSE)
 library(here)
 ```
 
-### Utils
+### R
 
 [load-data.R](./load-data.R): load case data (saved in "data/private"), and add row totals. Data are all test-positive cases in England by specimen date.
 

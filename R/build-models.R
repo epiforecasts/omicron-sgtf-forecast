@@ -2,7 +2,7 @@
 build_models <- function(obs, parameters,
                          variant_relationships = c("scaled", "correlated"),
                          cores = 4, chains = 4, samples_per_chain = 1000,
-                         keep_fit = TRUE) {
+                         keep_fit = TRUE, loo = TRUE) {
 
   # build model for each variant relationship
   forecasts <- purrr::map_dfr(variant_relationships,
@@ -28,8 +28,10 @@ build_models <- function(obs, parameters,
                                   refresh = 0,
                                   show_messages = FALSE,
                                   iter_sampling = samples_per_chain))
-  forecasts <- forecasts %>%
-    dplyr::mutate(loo = purrr::map(fit, ~ .$loo()))
+  if (loo) {
+    forecasts <- forecasts %>%
+      dplyr::mutate(loo = purrr::map(fit, ~ .$loo()))
+  }
   if (!keep_fit) {
     forecasts <- forecasts %>%
       select(-fit)

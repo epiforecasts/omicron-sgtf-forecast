@@ -52,12 +52,17 @@ sgtf_regional <- daily_regional %>%
 region_omicorn_forecasts <- build_models_by_region(
   sgtf_regional, sgtf_parameters,
   variant_relationships = c("scaled", "correlated"),
-  cores_per_model = 2, chains = 2, samples_per_chain = 2000
+  cores_per_model = 2, chains = 2, samples_per_chain = 2000,
+  keep_fit = FALSE
 )
 
-omicron_results < list(
-  posterior = summary(region_omicorn_forecasts, target = "posterior"),
-  diagnostics = summary(region_omicorn_forecasts, target = "diagnostics"),
+omicron_results <- list(
+  posterior = summary(region_omicorn_forecasts, target = "posterior")[,
+   loo := NULL
+  ],
+  diagnostics = summary(region_omicorn_forecasts, target = "diagnostics")[,
+   loo := NULL
+  ],
   loo = extract_loo(region_omicorn_forecasts)
 )
 
@@ -75,12 +80,13 @@ bias_regional <- daily_regional %>%
 region_bias_forecasts <- build_models_by_region(
   bias_obs, bias_parameters,
   variant_relationships = c("correlated"),
-  cores_per_model = 2, chains = 2, iter_sampling = 2000
+  cores_per_model = 2, chains = 2, iter_sampling = 2000,
+  keep_fit = FALSE, loo = FALSE
 )
 
-bias_results < list(
+bias_results <- list(
   posterior = summary(region_bias_forecasts, target = "posterior"),
   diagnostics = summary(region_bias_forecasts, target = "diagnostics")
 )
 
-save_results(omicron_results, "bias", target_date)
+save_results(bias_results, "bias", target_date)

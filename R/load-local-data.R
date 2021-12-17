@@ -13,7 +13,7 @@ load_local_data <- function(date = Sys.Date(), path = "data/public") {
 }
 
 get_available_dates <- function(path = "data/public/") {
-  csv_obs <- list.files(path)
+  csv_obs <- list.files(here::here(path))
   dates <- gsub("-cases-by-sgtf.csv", "", csv_obs)
   dates <- as.Date(dates)
   return(dates)
@@ -23,4 +23,13 @@ get_latest_date <- function(path = "data/public/") {
   dates <- get_available_dates(path = path)
   date <- max(dates)
   return(date)
+}
+
+load_results <- function(date, type = "sgtf", path = "data/estimates") {
+  path <- here::here(path, type, date)
+  files <- list.files(path)
+  file_names <- gsub(".rds", "", files)
+  results <- purrr::map(files, ~ readRDS(file.path(path, .)))
+  names(results) <- file_names
+  return(results)
 }
