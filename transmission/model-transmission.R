@@ -60,7 +60,7 @@ if (run_model) {
       FUN = build_models,
       obs = obs,
       # region = X,
-      save_to = here("transmission", "region"),
+      save_to = here("transmission", "regional"),
       parameters = parameters,
       variant_relationships = variant_relationships,
       cores = 4)

@@ -47,14 +47,14 @@ source(here("transmission", "model-transmission.R"))
 safely_readRDS <- possibly(readRDS, otherwise = NULL)
 # get model result
 regional_forecast_fits <- map(regions,
-                              ~ safely_readRDS(here("transmission", "region", 
+                              ~ safely_readRDS(here("transmission", "regional", 
                                                     .x, "forecast-fits.rds"))) 
 names(regional_forecast_fits) <- regions
 regional_forecast_fits <- compact(regional_forecast_fits)
 
 # get unnested
 regional_forecasts <- map(regions,
-                          ~ safely_readRDS(here("transmission", "region",
+                          ~ safely_readRDS(here("transmission", "regional",
                                                 .x, "forecasts.rds")))
 names(regional_forecasts) <- regions
 regional_forecasts <- compact(regional_forecasts)
