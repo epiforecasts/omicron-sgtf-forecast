@@ -1,23 +1,11 @@
 # Build and save a model run
-library(forecast.vocs)
-library(purrr)
-
-build_models <- function(obs,
-                         region,
-                         save_to,
-                         parameters,
+build_models <- function(obs, parameters,
                          variant_relationships = c("scaled", "correlated"),
-                         cores = 4
-                         ) {
-
-  # Use only one region
-  if (missing(region)) {obs <- obs
-  } else {
-    obs <- obs[obs$region == region,]}
+                         cores = 4, chains = 4) {
 
   # build model for each variant relationship
-  forecast_fits <- map(variant_relationships,
-                       ~ forecast(obs = obs,
+  forecast_fits <- purrr::map(variant_relationships,
+                       ~ forecast.vocs::forecast(obs = obs,
                                   # variant relationship
                                   variant_relationship = .x,
                                   # variant options
@@ -30,6 +18,7 @@ build_models <- function(obs,
                                   timespan = parameters$timespan,
                                   horizon = parameters$horizon,
                                   voc_label = parameters$voc_label,
+                                  chains = chains,
                                   parallel_chains = cores,
                                   # processing options
                                   output_loglik = TRUE,
@@ -38,15 +27,6 @@ build_models <- function(obs,
                                   refresh = 0,
                                   show_messages = FALSE))
   names(forecast_fits) <- variant_relationships
-
-  # Unnest posterior
-  forecasts <- map(forecast_fits,
-                   ~ unnest_posterior(.x))
-  # Create files if not already
-  if (!dir.exists(here(save_to, region))) {
-    dir.create(here(save_to, region, "figures"), recursive = TRUE)
-  }
-  # Save output
-  saveRDS(forecast_fits, here(save_to, region, "forecast-fits.rds"))
-  saveRDS(forecasts, here(save_to, region, "forecasts.rds"))
+  forecasts <- purrr::map(forecast_fits, ~ forecast.vocs::unnest_posterior(.x))
+  return(forecasts)
 }

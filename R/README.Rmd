@@ -18,5 +18,5 @@ library(here)
 
 ```{r show-params}
 source(here("utils", "load-parameters.R"))
-parameters
+load_parameters()
 ```
