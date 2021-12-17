@@ -23,7 +23,7 @@ build_models_by_region <- function(
         cores = cores_per_model,
         chains = chains,
         samples_per_chain = samples_per_chain,
-        keep_fit = keep_fit,
+        keep_fit = keep_fit, loo = loo,
         future.seed = TRUE)
   forecasts <- purrr::map2(
     forecasts, regions, ~ dplyr::mutate(.x, region = .y)
