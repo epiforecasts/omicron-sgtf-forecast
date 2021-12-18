@@ -141,7 +141,7 @@ loo_scaled <- forecast_fits$scaled$fit[[1]]$loo()
 loo_independent <- forecast_fits$independent$fit[[1]]$loo()
 loo_comp <- as_tibble(loo_compare(loo_scaled, loo_independent), rownames = "model") %>%
   mutate(model = recode(model, "model1" = "scaled", "model2" = "independent"),
-         across(c(elpd_diff,se_diff), round, 2)) %>%
+         across(c(elpd_diff, se_diff), round, 2)) %>%
   filter(elpd_diff != 0)
 
 ```

@@ -1,23 +1,12 @@
 # Build and save a model run
-library(forecast.vocs)
-library(purrr)
-
-build_models <- function(obs,
-                         region,
-                         save_to,
-                         parameters,
+build_models <- function(obs, parameters,
                          variant_relationships = c("scaled", "correlated"),
-                         cores = 4
-                         ) {
-
-  # Use only one region
-  if (missing(region)) {obs <- obs
-  } else {
-    obs <- obs[obs$region == region,]}
+                         cores = 4, chains = 4, samples_per_chain = 1000,
+                         keep_fit = TRUE, loo = TRUE) {
 
   # build model for each variant relationship
-  forecast_fits <- map(variant_relationships,
-                       ~ forecast(obs = obs,
+  forecasts <- purrr::map_dfr(variant_relationships,
+                       ~ forecast.vocs::forecast(obs = obs,
                                   # variant relationship
                                   variant_relationship = .x,
                                   # variant options
@@ -30,23 +19,22 @@ build_models <- function(obs,
                                   timespan = parameters$timespan,
                                   horizon = parameters$horizon,
                                   voc_label = parameters$voc_label,
+                                  chains = chains,
                                   parallel_chains = cores,
                                   # processing options
                                   output_loglik = TRUE,
                                   adapt_delta = 0.99,
                                   max_treedepth = 15,
                                   refresh = 0,
-                                  show_messages = FALSE))
-  names(forecast_fits) <- variant_relationships
-
-  # Unnest posterior
-  forecasts <- map(forecast_fits,
-                   ~ unnest_posterior(.x))
-  # Create files if not already
-  if (!dir.exists(here(save_to, region))) {
-    dir.create(here(save_to, region, "figures"), recursive = TRUE)
+                                  show_messages = FALSE,
+                                  iter_sampling = samples_per_chain))
+  if (loo) {
+    forecasts <- forecasts %>%
+      dplyr::mutate(loo = purrr::map(fit, ~ .$loo()))
   }
-  # Save output
-  saveRDS(forecast_fits, here(save_to, region, "forecast-fits.rds"))
-  saveRDS(forecasts, here(save_to, region, "forecasts.rds"))
+  if (!keep_fit) {
+    forecasts <- forecasts %>%
+      select(-fit)
+  }
+  return(forecasts)
 }
