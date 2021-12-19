@@ -23,12 +23,12 @@ jobs:
 
       - name: Render summary
         run: |
-          rmarkdown::render("writeup/summary.Rmd", output_dir = "writeups")
+          rmarkdown::render("writeup/summary.Rmd", output_dir = "writeup")
         shell: Rscript {0}
 
       - name: Render paper
         run: |
-          rmarkdown::render("writeup/paper.Rmd", output_dir = "writeups")
+          rmarkdown::render("writeup/paper.Rmd", output_dir = "writeup")
         shell: Rscript {0}
 
       - name: Upload documentation
