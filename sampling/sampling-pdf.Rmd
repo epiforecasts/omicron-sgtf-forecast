@@ -59,10 +59,6 @@ voc_scaled <- plot_voc_advantage(forecasts) +
 ggsave(here("sampling", data_type, "figures", "voc_advantage.png"), voc_scaled)
 ```
 
-On average, `r round(mean(obs$share_voc, na.rm=T)*100)`% cases had an SGT result. We found a median advantage for SGT-result cases of `r exp(advantage$median)` (95% credible interval `r exp(advantage$q5)` - `r exp(advantage$q95)`), scaled against cases without an SGT result. The growth rate increased over time at a similar rate between SGT-result and no-SGT-result cases (figure \ref{fig:plot-growth}).
-
-We compared fitting to raw data against fitting to smoothed daily data (see Appendix). We found no substantial difference in transmission advantage when using smoothed data, with better predictive performance from the model using raw unsmoothed data.
-
 ```{r plot-growth, fig.cap="Growth rate for all cases (Combined), those with an S-gene target result (SGT-result) and those without"}
 growth_scaled <- plot_growth(forecasts) +
   labs(y = "Growth rate", x = NULL)

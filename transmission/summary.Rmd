@@ -1,0 +1,224 @@
+---
+title: "Exploring the transmission advantage of Omicron in England"
+author: "Epiforecasts"
+date: "`r format(Sys.time(), '%d %B %Y')`"
+output:
+  bookdown::pdf_document2:
+    toc: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, include = TRUE, 
+                      warning = FALSE, message = FALSE,
+                      root.dir = here::here())
+options(digits = 1)
+library(here)
+library(forecast.vocs)
+library(dplyr)
+library(loo)
+library(scoringutils)
+library(knitr)
+# get data and parameters without rebuilding model
+run_model <- FALSE
+open_data <- TRUE
+date_type <- "specimen"
+data_type <- "raw"
+region_name <- NA # pass to load-data.R. Set to NA to return all regions
+source(here("transmission", "model-transmission.R"))
+```
+### Aims {-}
+
+- We aimed to assess competing explanations of the transmission advantage of Omicron, compared to the existing dominant strain, Delta, in England. 
+- We explored the likelihood of increased transmissibility compared to immune escape, using S-gene target failure as a proxy for infection with Omicron.
+- We use a model framework where we vary only the relationship between variants while holding all other parameters constant.
+
+### Methods {-}
+
+- Data are all test-positive cases for England and by `r region_type`. Omicron is modelled from those cases reporting an S-gene target result (failure or not)^[`r if(open_data){"SGTF data from UKHSA: https://www.gov.uk/government/publications/covid-19-omicron-daily-overview"} else {"Data held confidentially"}`]. 
+- We used `r data_type` data by `r date_type` date (figure \@ref(fig:plot-raw-data)). Models are based on data from `r min(obs$date)` to `r max(obs$date)` for SGTF data, while total cases exclude the latest `r truncate_days` reported dates. 
+- We modelled at a `r parameters$timespan` day resolution with a `r parameters$horizon` day forecast. We used a weakly informative prior for a transmission advantage for the VoC vs non-VoC cases of mean `r parameters$voc_scale[1]` (standard deviation `r parameters$voc_scale[2]`), based on early work from South Africa^[Carl Pearson et al. (2021). "Omicron spread in South Africa", Epidemics8]. We defined the relationship between variants as either `r knitr::combine_words(variant_relationships, and = "or")`. We used the `forecast.vocs` package^[Sam Abbott (2021). forecast.vocs: Forecast case and sequence notifications using variant of concern strain dynamics, DOI:10.5281/zenodo.5559016] with a two-strain branching process model.
+
+
+### Results {-}
+```{r load-forecasts}
+safely_readRDS <- possibly(readRDS, otherwise = NULL)
+# get model result
+regional_forecast_fits <- map(regions,
+                              ~ safely_readRDS(here("transmission", "regional", 
+                                                    .x, "forecast-fits.rds"))) 
+names(regional_forecast_fits) <- regions
+regional_forecast_fits <- compact(regional_forecast_fits)
+
+# get unnested
+regional_forecasts <- map(regions,
+                          ~ safely_readRDS(here("transmission", "regional",
+                                                .x, "forecasts.rds")))
+names(regional_forecasts) <- regions
+regional_forecasts <- compact(regional_forecasts)
+regional_forecasts <- imap_dfr(regional_forecasts, 
+                     ~ bind_rows(.x) %>%
+                       mutate(region = .y,
+                              variant_relationship = factor(
+                                variant_relationship, 
+                                c("scaled", "correlated"))))
+forecast_start <- filter(regional_forecasts, forecast_start == TRUE)$date[[1]]
+```
+
+Transmission advantage is shown where 100% is equivalent to the current dominant strain, Delta (figure \@ref(fig:plot-voc-advantage)). Both models indicated a stronger transmission advantage for Omicron. For England as a whole:
+```{r england-voc-advantage}
+# Get VOC advantage for England
+advantage <- regional_forecasts %>%
+  as_tibble() %>%
+  filter(region == "England" & value_type == "model" & 
+           variable == "avg_voc_advantage") %>%
+  select(variant_relationship, variable, clean_name, exponentiated:ess_bulk) %>%
+  mutate(across(mean:q95, exp),
+         across(mean:q95, round, 2))
+```
+
+- In a fixed relationship estimated Omicron advantage is `r advantage[advantage$variant_relationship=="scaled", "median"]` (95% credible interval `r advantage[advantage$variant_relationship=="scaled","q5"]` - `r advantage[advantage$variant_relationship=="scaled","q95"]`). 
+- In an correlated relationship Omicron advantage is `r advantage[advantage$variant_relationship=="correlated","median"]` (95% CrI `r advantage[advantage$variant_relationship=="correlated","q5"]` - `r advantage[advantage$variant_relationship=="correlated","q95"]`).
+
+We also estimated the growth rate (figure \@ref(fig:plot-growth-rt)), the proportion of cases attributable to Omicron (figure \@ref(fig:plot-voc-frac)) and case counts (figure \@ref(fig:plot-cases)).
+
+```{r plot-voc-advantage, fig.cap="The transmission advantage of Omicron, modelled by NHS region in a fixed relationship to Delta (left) and a time-varying correlated relationship (right).", fig.dim=c(7,12)}
+plot_voc <- filter(regional_forecasts, value_type == "voc_advantage") %>%
+  ggplot(aes(x = date)) + 
+    geom_line(aes(y = median), size = 1, alpha = 0.6) + 
+    geom_line(aes(y = mean), linetype = 2) + 
+    geom_ribbon(aes(ymin = q5, ymax = q95), alpha = 0.2, size = 0.2) + 
+  geom_vline(xintercept = forecast_start, lty = 2, size = 1) +
+    geom_ribbon(aes(ymin = q20, ymax = q80, col = NULL), alpha = 0.2) +
+    labs(x = NULL, y = "Omicron transmission advantage") +
+    scale_y_continuous(labels = scales::percent) +
+    facet_wrap(facets = c("region", "variant_relationship"),
+               scales = "free_y", ncol = 2) +
+    theme_classic() +
+    theme(legend.position = "bottom", strip.background = element_blank())
+
+ggsave(here("transmission", "figures", "voc-advantage.png"), plot_voc, 
+       dpi = "print", width = 8, height = 16)
+plot_voc
+```
+
+```{r plot-growth-rt, fig.cap="The growth rate of Omicron, modelled by NHS region in a fixed relationship to Delta (left) and a time-varying correlated relationship (right).", fig.dim=c(7,12)}
+plot_growth <- filter(regional_forecasts, value_type == "growth") %>%
+  ggplot(aes(x = date, col = type, fill = type)) + 
+    geom_line(aes(y = median), size = 1, alpha = 0.6) + 
+    geom_line(aes(y = mean), linetype = 2) + 
+    geom_ribbon(aes(ymin = q5, ymax = q95), alpha = 0.2, size = 0.2) + 
+    geom_ribbon(aes(ymin = q20, ymax = q80, col = NULL), alpha = 0.2) +
+  geom_hline(yintercept = 0, linetype = 3, col = "black") +
+  geom_vline(xintercept = forecast_start, lty = 2, size = 1) +
+    labs(x = NULL, y = "Growth rate") +
+    scale_y_continuous() +
+    facet_wrap(facets = c("region", "variant_relationship"),
+               scales = "free_y", ncol = 2) +
+    theme_classic() +
+    theme(legend.position = "bottom", strip.background = element_blank())
+
+ggsave(here("transmission", "figures", "growth.png"), plot_growth,
+       dpi = "print", width = 8, height = 16)
+plot_growth
+```
+
+```{r plot-voc-frac, fig.cap="Fraction of cases attributable to Omicron, modelled by NHS region in a fixed relationship to Delta (left) and a time-varying correlated relationship (right).", fig.dim=c(7,12)}
+plot_voc_frac <- filter(regional_forecasts, value_type == "voc_frac") %>%
+  left_join(select(obs, date, region, share_voc), 
+            by = c("date", "region")) %>%
+  ggplot(aes(x = date)) + 
+  geom_line(aes(y = median), size = 1, alpha = 0.6) + 
+  geom_line(aes(y = mean), linetype = 2) + 
+  geom_ribbon(aes(ymin = q5, ymax = q95), alpha = 0.2, size = 0.2) + 
+  geom_ribbon(aes(ymin = q20, ymax = q80, col = NULL), alpha = 0.2) +
+  geom_point(aes(y = share_voc)) +
+  geom_vline(xintercept = forecast_start, lty = 2, size = 1) +
+  labs(x = NULL, y = "Percentage of overall cases with Omicron") +
+  scale_y_continuous(labels = scales::percent, 
+                     trans = scales::logit_trans()) +
+  facet_wrap(facets = c("region", "variant_relationship"),
+             scales = "free_y", ncol = 2) +
+  theme_classic() +
+  theme(legend.position = "bottom", strip.background = element_blank())
+
+ggsave(here("transmission", "figures", "voc_frac.png"), plot_voc_frac,
+       dpi = "print", width = 8, height = 16)
+plot_voc_frac
+``` 
+
+```{r plot-cases, fig.cap="Weekly cases shown on a log scale, modelled by NHS region in a fixed relationship to Delta (left) and a time-varying correlated relationship (right).", fig.dim=c(7,12)}
+# Plot cases
+plot_log_cases <- filter(regional_forecasts, value_type == "cases") %>%
+    left_join(select(obs, date, region, share_voc), 
+            by = c("date", "region")) %>%
+  ggplot(aes(x = date, col = type, fill = type)) + 
+  geom_line(aes(y = median), size = 1, alpha = 0.6) + 
+  geom_line(aes(y = mean), linetype = 2) + 
+  geom_ribbon(aes(ymin = q5, ymax = q95), alpha = 0.2, size = 0.2) + 
+  geom_ribbon(aes(ymin = q20, ymax = q80, col = NULL), alpha = 0.2) +
+  geom_point(aes(y = obs), colour = "black") +
+  geom_vline(xintercept = forecast_start, lty = 2, size = 1) +
+  labs(x = NULL, y = "Notificaions") +
+  scale_y_continuous(labels = scales::comma, trans = scales::log2_trans()) +
+  scale_color_brewer(palette = "Dark2") + 
+  scale_fill_brewer(palette = "Dark2") +
+  facet_wrap(facets = c("region", "variant_relationship"),
+             scales = "free_y", ncol = 2) +
+  theme_classic() +
+  theme(legend.position = "bottom", strip.background = element_blank())
+
+ggsave(here("transmission", "figures", "cases_log.png"), plot_log_cases,
+       dpi = "print", width = 8, height = 16)
+plot_log_cases
+
+```
+
+
+##### Model comparison {-}
+
+```{r compare-loo}
+# Compare LOO
+compare_loo_region <- function(region_fit, region_name) {
+  loo_scaled <- region_fit$scaled$fit[[1]]$loo()
+  loo_correlated <- region_fit$correlated$fit[[1]]$loo()
+  loo_comp <- as_tibble(
+    loo_compare(loo_scaled, loo_correlated), rownames = "model") %>%
+    mutate(region = region_name,
+           best_model = recode(model, "model1" = "scaled", 
+                          "model2" = "correlated"),
+           across(c(elpd_diff, se_diff), round, 2)) %>%
+    filter(elpd_diff != 0)
+  return(loo_comp)
+}
+
+loo_region <- imap_dfr(regional_forecast_fits,
+                       ~ compare_loo_region(region_fit = .x, region_name = .y)) %>%
+  select(region, best_model, elpd_diff, se_diff)
+```
+
+We compared PSIS-LOO by region (table \@ref(tab:loo-table)). Using data for all England, comparing the models on PSIS-LOO indicated an estimated difference in expected log pointwise predictive density of `r loo_region %>% filter(region == "England") %>% pull(elpd_diff)` (with a standard error of `r loo_region %>% filter(region == "England") %>% pull(se_diff)`) for the `r loo_region %>% filter(region == "England") %>% pull(best_model)` model compared to the `r variant_relationships[!grepl(loo_region %>% filter(region == "England") %>% pull(best_model), variant_relationships)]` model. 
+
+```{r loo-table}
+kable(loo_region, caption = "PSIS-LOO cross validation by NHS region comparing models with fixed and correlated over time relationships between variants")
+```
+
+```{r compare-score}
+# # Compare model scores
+# scores <- map2_dfr(forecast_fits,
+#                    variant_relationships,
+#                    ~ summary(.x, type = "cases", forecast = TRUE) %>%
+#                      fv_score_forecast(., obs, summarise_by = "strains",
+#                                        metrics = NULL) %>%
+#                      mutate("Variant relationship" = .y))
+# scores <- scores %>%
+#   select("Variant relationship",
+#          interval_score:bias)
+# kable(scores)
+
+```
+\newpage
+
+
+```{r plot-raw-data, fig.cap="Raw data"}
+plot(plot_daily_cases)
+```
