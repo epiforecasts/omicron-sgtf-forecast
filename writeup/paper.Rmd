@@ -1,7 +1,6 @@
 ---
-title: "Exploring the transmission advantage of Omicron in England"
-author: "Epiforecasts"
-date: "`r format(Sys.time(), '%d %B %Y')`"
+title: "Real-time estimation of the time-varying transmissibility advantage of Omicron in England using S-Gene Target Status as a Proxy"
+author: Katharine Sherratt, Sam Abbott, Sebastian Funk
 output: bookdown::pdf_document2
 ---
 
@@ -15,17 +14,34 @@ library(forecast.vocs)
 library(dplyr)
 library(tidyr)
 library(ggplot2)
+library(janitor)
+library(knitr)
+library(data.table)
 ```
 
+
 ```{r load-results}
+# load packags
+library(ggplot2)
+library(scales)
+library(dplyr)
+library(here)
+library(readr)
+
 # load functions
 source(here("R", "load-local-data.R"))
 
-# load results
+# get latest date
 date <- get_latest_date()
+
+# load data
+daily <- load_local_data(date)
+
+# load results
 sgtf <- load_results(date)
 bias <- load_results(date, type = "bias")
 ```
+
 ## Abstract {-}
 
 **Background**
@@ -183,107 +199,20 @@ On average, `r round(mean(obs$share_voc, na.rm=T)*100)`% cases had an SGT result
 
 ### Model comparison
 
-We explored the difference in expected predictive performance between the two models. Comparing the models on PSIS-LOO indicated an estimated difference in expected log pointwise predictive density of `r loo_comp$elpd_diff` (with a standard error of `r loo_comp$se_diff`) for the `r loo_comp$model` model compared to the `r models[!grepl(loo_comp$model, models)]` model. We also compared each model using model scoring.
-
 ```{r compare-score}
+scores <- janitor::clean_names(
+  select(sgtf$loo, -forecast_date), case = "sentence"
+)
 kable(scores)
 ```
 
 ### Growth rate of S-gene positive and negative cases
 
-* Growth rates over time plot
-
-We estimated the growth rate (figure \@ref(fig:plot-growth-rt)), the proportion of cases attributable to Omicron (figure \@ref(fig:plot-voc-frac)) and case counts (figure \@ref(fig:plot-cases)).
-
-
-```{r plot-growth-rt, fig.cap="The growth rate and reproduction number of Omicron, modelled in a fixed relationship to Delta (left) and a time-varying relationship (right)."}
-growth_scaled <- plot_growth(forecasts$scaled) +
-  labs(subtitle = "Fixed variant relationship", 
-       y = "Growth rate", x = NULL)
-rt_scaled <- plot_rt(forecasts$scaled) +
-  labs(y = "Rt", x = NULL)
-
-growth_independent <- plot_growth(forecasts$independent) +
-  labs(subtitle = "independent variant relationship", 
-       y = NULL, x = NULL)
-rt_independent <- plot_rt(forecasts$independent) +
-  labs(y = NULL, x = NULL)
-
-plot_growth_rt <- growth_scaled + growth_independent +
-  #rt_scaled + rt_independent +
-  plot_layout(nrow = 1, guides = "collect") +
-  plot_annotation(theme = theme(legend.position = "bottom"))
-ggsave(here("transmission", "figures", "growth_rt.png"), plot_growth_rt)
-plot_growth_rt
-
-```
-
 ### Proportion of cases with SGTF
-
-```{r plot-voc-frac, fig.cap="Fraction of cases attributable to Omicron, modelled in a fixed relationship to Delta (left) and a time-varying relationship (right)."}
-voc_frac_scaled <- plot_voc_frac(forecasts$scaled) +
-  labs(subtitle = "Fixed variant relationship", 
-       y = "% overall cases with Omicron", x = NULL)
-voc_frac_independent <- plot_voc_frac(forecasts$independent) +
-  labs(subtitle = "independent variant relationship", 
-       y = NULL, x = NULL)
-
-plot_frac <- voc_frac_scaled +
-  voc_frac_independent +
-  plot_layout(nrow = 1, guides = "collect") +
-  plot_annotation(theme = theme(legend.position = "bottom"))
-ggsave(here("transmission", "figures", "voc_frac.png"), plot_frac)
-plot_frac
-
-``` 
 
 ### Transmission advantage of the cases with SGTF
 
-```{r plot-voc-advantage, fig.cap="The transmission advantage of Omicron, modelled in a fixed relationship to Delta (left) and a time-varying relationship (right)."}
-# Plot VOC advantage
-advantage <- map(forecasts,
-                 ~ filter(.x, value_type == "model" &
-                            variable == "avg_voc_advantage") %>%
-                   select(variant_relationship, variable, clean_name, 
-                          exponentiated:ess_bulk))
-
-voc_scaled <- plot_voc_advantage(forecasts$scaled) +
-  labs(subtitle = "Fixed variant relationship", 
-       y = "Transmission advantage for Omicron", x = NULL)
-voc_independent <- plot_voc_advantage(forecasts$independent) +
-  labs(subtitle = "independent variant relationship", 
-       y = NULL, x = NULL)
-
-plot_advantage <- voc_scaled +
-    voc_independent +
-  plot_layout(nrow = 1, guides = "collect") +
-  plot_annotation(theme = theme(legend.position = "bottom"))
-ggsave(here("transmission", "figures", "voc_advantage.png"), plot_advantage)
-
-plot_advantage
-
-```
-
-Transmission advantage is shown where 100% is equivalent to the current dominant strain, Delta (figure \@ref(fig:plot-voc-advantage)). Both models indicated a stronger transmission advantage for Omicron. 
-
-As a baseline, we assumed a fixed relationship between variants to model transmission advantage without variation over time. Here, estimated Omicron advantage is `r exp(advantage[["scaled"]][["median"]])` (95% credible interval `r exp(advantage[["scaled"]][["q5"]])` - `r exp(advantage[["scaled"]][["q95"]])`). In comparison, we used a independent relationship drawn from data to allow transmission advantage to vary over time. In this setting, the apparent transmission advantage of Omicron rose over time before stabilising at a higher transmission advantage compared to Delta. On average over time, we found an Omicron advantage of `r exp(advantage[["independent"]][["median"]])` (95% CrI `r exp(advantage[["independent"]][["q5"]])` - `r exp(advantage[["independent"]][["q95"]])`).
-
 ### Posterior predictions of cases with an without SGTF as well as overall
-
-```{r plot-cases, fig.cap="Weekly cases shown on a log scale, modelled in a fixed relationship to Delta (left) and a time-varying relationship (right)."}
-# Plot cases
-cases_scaled <- plot_cases(forecasts$scaled, obs, log = TRUE) +
-  labs(subtitle = "Fixed variant relationship", x = NULL)
-cases_independent <- plot_cases(forecasts$independent, obs, log = TRUE) +
-  labs(subtitle = "independent variant relationship", y = NULL, x = NULL)
-plot_cases <- cases_scaled +
-  cases_independent +
-  plot_layout(nrow = 1, guides = "collect") +
-  plot_annotation(theme = theme(legend.position = "bottom"))
-ggsave(here("transmission", "figures", "cases_log.png"), plot_cases)
-plot_cases
-
-```
 
 ### Evidence of sampling bias in S-gene target results among Covid-19 test-positive cases
 
@@ -291,17 +220,7 @@ plot_cases
 
 **Summary**
 
-We found that transmission advantage varied depending on the choice of relationship between the two variants. We compared between a model that uses a fixed relationship between variants, against a model that allowed the relationship to vary over time.
-
-This can be interpreted in terms of variant transmissibility compared to immune escape. If the two models show little difference in growth rate and have similar predictive performance, this suggests that increased transmissibility largely accounts for the growth of Omicron. However, if results from each model differ this might suggest transmissibility is not sufficient to explain the spread, and the advantage of Omicron is more likely to be due to immune escape. 
-
 **Strengths and weaknesses**
-
-- SGTF data may be a poor proxy for the Omicron variant, with Omicron reported with both positive and negative S-gene target. 
-
-- Only some laboratories are able to detect the S-gene target from PCR tests.
-
-- Biased sampling of testing for SGTF biases the growth rate upwards.
 
 **Literature**
 

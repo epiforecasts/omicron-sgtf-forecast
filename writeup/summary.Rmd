@@ -1,10 +1,19 @@
 ---
-title: "Exploring the transmission advantage of Omicron in England"
-author: "Epiforecasts"
-date: "`r format(Sys.time(), '%d %B %Y')`"
+title: "Real-time estimation of the time-varying transmissibility advantage of Omicron in England using S-Gene Target Status as a Proxy"
+subtitle: "Summary report"
+author: Katharine Sherratt, Sam Abbott, Sebastian Funk
+bibliography: library.bib
+csl: https://raw.githubusercontent.com/citation-style-language/styles/master/apa-numeric-superscript-brackets.csl
+date: "`r format(Sys.Date(), format = '%B %d, %Y')`"
 output:
-  bookdown::pdf_document2:
-    toc: false
+  html_document:
+    theme: cosmo
+    toc: true
+    toc_float: true
+    toc_depth: 4
+    includes:
+      before_body: header.html
+      after_body:  footer.html
 ---
 
 ```{r setup, include=FALSE}
@@ -18,12 +27,104 @@ library(dplyr)
 library(loo)
 library(scoringutils)
 library(knitr)
+library(data.table)
 ```
 
-## Aims
+```{r load-results}
+# load packags
+library(ggplot2)
+library(scales)
+library(dplyr)
+library(here)
+library(readr)
+
+# load functions
+source(here("R", "load-local-data.R"))
+
+# get latest date
+date <- get_latest_date()
+
+# load data
+daily <- load_local_data(date)
+
+# load results
+sgtf <- load_results(date)
+bias <- load_results(date, type = "bias")
+```
+
+## Background
 
 ## Methods
 
 ## Limitations
 
-## Results
+## Results 
+
+### Summary
+
+### Data description
+
+```{r data, fig.width = 9, fig.height = 9}
+plot_daily_cases(
+  daily, caption = "Data are sourced from the UKHSA and are by specimen data",
+  start_date = date
+)
+```
+
+### Model comparison
+
+```{r compare-score}
+scores <- janitor::clean_names(
+  select(sgtf$loo, -forecast_date), case = "sentence"
+)
+kable(scores)
+```
+
+### Growth rate of S-gene positive and negative cases
+
+```{r growth, fig.width = 9, fig.height = 9}
+plot_growth(
+  as.data.table(sgtf$posterior)[variant_relationship == "correlated"]
+) +
+  facet_wrap(~ region)
+```
+
+### Proportion of cases with SGTF
+
+```{r, voc-frac, fig.height = 9 fig.width = 9}
+plot(
+  sgtf$posterior, as.data.table(sgtf$data), type = "voc_frac",
+  fill = variant_relationship, voc_label = "Omicron variant"
+) +
+  facet_wrap(~ region)
+```
+
+### Transmission advantage of the cases with SGTF
+
+
+```{r, voc-advantage, fig.height = 9 fig.width = 9}
+plot(
+  sgtf$posterior, type = "voc_advantage",
+  fill = variant_relationship, group = variant_relationship,
+  voc_label = "Omicron variant"
+) +
+  facet_wrap(~ region)
+```
+
+### Posterior predictions of cases
+
+```{r, cases, fig.height = 16, fig.width = 9}
+plot(
+  sgtf$posterior, as.data.table(sgtf$data), type = "cases"
+) +
+  facet_grid(region ~ variant_relationship, scale = "free_y")
+```
+
+### Evidence of sampling bias in S-gene target results among Covid-19 test-positive cases
+
+```{r, bias-advantage, fig.height = 9 fig.width = 9}
+plot(bias$posterior, type = "voc_advantage") +
+  labs(y = "Transmission advantage of cases with a reported S gene
+            status versus those without")
+  facet_wrap(~ region)
+```

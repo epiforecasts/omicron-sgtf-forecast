@@ -57,7 +57,10 @@ region_omicorn_forecasts <- build_models_by_region(
 )
 
 omicron_results <- list(
-  posterior = summary(region_omicorn_forecasts, target = "posterior")[,
+  data = sgtf_regional,
+  posterior = summary(
+    region_omicorn_forecasts, target = "posterior", type = "all"
+  )[,
    loo := NULL
   ],
   diagnostics = summary(region_omicorn_forecasts, target = "diagnostics")[,
@@ -85,7 +88,10 @@ region_bias_forecasts <- build_models_by_region(
 )
 
 bias_results <- list(
-  posterior = summary(region_bias_forecasts, target = "posterior"),
+  data = bias_regional,
+  posterior = summary(
+    region_bias_forecasts, target = "posterior", type = "all"
+  ),
   diagnostics = summary(region_bias_forecasts, target = "diagnostics")
 )
 
