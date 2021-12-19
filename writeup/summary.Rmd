@@ -91,7 +91,7 @@ plot_growth(
 
 ### Proportion of cases with SGTF
 
-```{r, voc-frac, fig.height = 9 fig.width = 9}
+```{r, voc-frac, fig.height = 9, fig.width = 9}
 plot(
   sgtf$posterior, as.data.table(sgtf$data), type = "voc_frac",
   fill = variant_relationship, voc_label = "Omicron variant"
@@ -102,7 +102,7 @@ plot(
 ### Transmission advantage of the cases with SGTF
 
 
-```{r, voc-advantage, fig.height = 9 fig.width = 9}
+```{r, voc-advantage, fig.height = 9, fig.width = 9}
 plot(
   sgtf$posterior, type = "voc_advantage",
   fill = variant_relationship, group = variant_relationship,
@@ -122,7 +122,7 @@ plot(
 
 ### Evidence of sampling bias in S-gene target results among Covid-19 test-positive cases
 
-```{r, bias-advantage, fig.height = 9 fig.width = 9}
+```{r, bias-advantage, fig.height = 9, fig.width = 9}
 plot(bias$posterior, type = "voc_advantage") +
   labs(y = "Transmission advantage of cases with a reported S gene
             status versus those without")

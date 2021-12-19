@@ -23,12 +23,12 @@ jobs:
 
       - name: Render summary
         run: |
-          rmarkdown::render("writeups/summary.Rmd", output_dir = "writeups")
+          rmarkdown::render("writeup/summary.Rmd", output_dir = "writeups")
         shell: Rscript {0}
 
       - name: Render paper
         run: |
-          rmarkdown::render("writeups/paper.Rmd", output_dir = "writeups")
+          rmarkdown::render("writeup/paper.Rmd", output_dir = "writeups")
         shell: Rscript {0}
 
       - name: Upload documentation
@@ -36,7 +36,7 @@ jobs:
         with:
           name: documentation
           retention-days: 5
-          path: writeups
+          path: writeup
 
   publish-documentation:
     if: github.ref == 'refs/heads/main' && github.repository == 'epiforecasts/omicron-sgtf-forecast'
