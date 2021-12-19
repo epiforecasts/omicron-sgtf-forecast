@@ -31,5 +31,8 @@ load_results <- function(date, type = "sgtf", path = "data/estimates") {
   file_names <- gsub(".rds", "", files)
   results <- purrr::map(files, ~ readRDS(file.path(path, .)))
   names(results) <- file_names
+  if (!is.null(results$posterior)) {
+    class(results$posterior) <- c("fv_posterior", class(results$posterior))
+  }
   return(results)
 }
