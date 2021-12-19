@@ -15,3 +15,5 @@ data/private
 *.out
 *.html
 *.pdf
+!writeup/footer.html
+!writeup/header.html

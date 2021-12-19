@@ -40,6 +40,7 @@ library(readr)
 
 # load functions
 source(here("R", "load-local-data.R"))
+source(here("R", "plot-daily-cases.R"))
 
 # get latest date
 date <- get_latest_date()
@@ -67,7 +68,7 @@ bias <- load_results(date, type = "bias")
 ```{r data, fig.width = 9, fig.height = 9}
 plot_daily_cases(
   daily, caption = "Data are sourced from the UKHSA and are by specimen data",
-  start_date = date
+  start_date = "2021-11-23"
 )
 ```
 
@@ -125,6 +126,6 @@ plot(
 ```{r, bias-advantage, fig.height = 9, fig.width = 9}
 plot(bias$posterior, type = "voc_advantage") +
   labs(y = "Transmission advantage of cases with a reported S gene
-            status versus those without")
+            status versus those without") +
   facet_wrap(~ region)
 ```
