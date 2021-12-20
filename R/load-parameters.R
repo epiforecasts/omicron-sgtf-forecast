@@ -27,7 +27,13 @@ load_sgtf_parameters <- function() {
     timespan = 1,
 
     # forecast
-    horizon = 14
+    horizon = 14,
+
+    # should forcast be extrapolated
+    r_forecast = FALSE,
+
+    # holidays to adjust for (as dates)
+    holidays = c()
   )
 
   parameters$voc_scale <- parameters$voc_scale * parameters$timespan
