@@ -129,3 +129,5 @@ plot(bias$posterior, type = "voc_advantage") +
             status versus those without") +
   facet_wrap(~ region)
 ```
+
+## References
