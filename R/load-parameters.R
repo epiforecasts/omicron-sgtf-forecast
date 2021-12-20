@@ -18,7 +18,7 @@ load_sgtf_parameters <- function() {
     scale_r = 1,
 
     # Use weekly piecewise constant growth rate
-    r_step = 7,
+    r_step = 3,
 
     # Account for overdispersion
     overdispersion = TRUE,
