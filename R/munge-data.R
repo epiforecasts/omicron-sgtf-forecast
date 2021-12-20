@@ -14,7 +14,12 @@ add_england_totals <- function(regional) {
     summarise(across(c(total_cases, sgtf_unknown, total_sgt, sgtf, non_sgtf),
                     sum, na.rm = TRUE),
               source = source[1]) %>%
-    mutate(region = "England")
+    mutate(region = "England") %>%
+    mutate(total_sgt = ifelse(total_sgt == 0, NA, total_sgt)) %>%
+    mutate(
+      sgtf = ifelse(is.na(total_sgt), NA, sgtf),
+      non_sgtf = ifelse(is.na(total_sgt), NA, non_sgtf)
+    )
 
   daily_raw <- bind_rows(england, regional)
   return(daily_raw)
