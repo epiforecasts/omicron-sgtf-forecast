@@ -47,7 +47,7 @@ Suggests:
 VignetteBuilder: 
     knitr
 Remotes:
-    epiforecasts/forecast.vocs@feature-day-of-week
+    epiforecasts/forecast.vocs
 Encoding: UTF-8
 Language: en-GB
 LazyData: true
