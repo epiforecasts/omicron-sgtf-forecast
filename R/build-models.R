@@ -28,6 +28,8 @@ build_models <- function(obs, parameters,
                                   output_loglik = TRUE,
                                   adapt_delta = 0.99,
                                   max_treedepth = 15,
+                                  show_messages = FALSE,
+                                  refresh = 0,
                                   iter_sampling = samples_per_chain))
   if (loo) {
     forecasts <- forecasts %>%
