@@ -27,14 +27,16 @@ load_public_case_data <- function() {
   raw_data_tot <- read_csv(data_path_tot)
 
   data_tot <- raw_data_tot %>%
-    select(date, region = areaName, total_cases = newCasesBySpecimenDate) %>%
+    select(date, region_code = areaCode, region = areaName,
+           total_cases = newCasesBySpecimenDate) %>%
     mutate(region = gsub("The ", "", region))
   return(data_tot)
 }
 
 link_public_data <- function(sgt, cases) {
   regional <- full_join(sgt, cases, by = c("region", "date")) %>%
-    mutate(sgtf_unknown = total_cases - total_sgt,
+    mutate(sgtf_unknown = ifelse(is.na(total_sgt), total_cases,
+                                 total_cases - total_sgt),
            source = "public")
   return(regional)
 }
