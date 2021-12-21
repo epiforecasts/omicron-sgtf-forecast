@@ -21,7 +21,7 @@ knitr::opts_chunk$set(echo = FALSE, include = TRUE,
                       warning = FALSE, message = FALSE,
                       root.dir = here::here(),
                       fig.width = 9, fig.height = 9)
-options(digits = 1)
+options(digits = 3)
 library(here)
 library(forecast.vocs)
 library(dplyr)
@@ -42,14 +42,14 @@ library(readr)
 # load functions
 source(here("R", "load-local-data.R"))
 source(here("R", "plot-daily-cases.R"))
+source(here("R", "plot-summary.R"))
 source(here("R", "plot-omicron-95.R"))
 source(here("R", "plot-cumulative-percent.R"))
 
 growth_type <- "growth_from_rt" # or "growth" the default returned by forecast.vocs
 
 # get latest date
-# date_latest <- get_latest_date()
-date_latest <- as.Date("2021-12-19")
+date_latest <- get_latest_date()
 
 # load data
 daily <- load_local_data(date_latest)
@@ -57,9 +57,8 @@ daily <- load_local_data(date_latest)
 # load results
 sgtf <- load_results(date_latest, growth_type = "growth_from_rt")
 voc_frac <- simplify_posterior(sgtf$posterior, value_type = "voc_frac") 
-cases <- simplify_posterior(sgtf$posterior, value_type = "cases") %>%
-  filter(type == "Omicron")
-
+sgtf_cases <- simplify_posterior(sgtf$posterior, 
+                            value_type = "cases", variant_type = "Omicron")
 bias <- load_results(date_latest, type = "bias")
 # set up dates
 date_data_start <- min(sgtf$data$date)
@@ -69,54 +68,10 @@ date_forecast_end <- max(sgtf$posterior$date, na.rm = TRUE)
 ### Summary
 
 ```{r summary}
-# Summary plot:
-# omicron transmission advantage
-advantage <- simplify_posterior(sgtf$posterior, value_type = "voc_advantage") %>%
-  mutate(value_type = "Omicron transmission advantage")
-
-# growth
-growth <- simplify_posterior(sgtf$posterior, value_type = "growth", 
-                             variant_type = "Omicron") %>%
-  mutate(value_type = "Growth rate")
-
-# cumulative pop
-cumpercent <- simplify_posterior(sgtf$posterior, value_type = "cases",
-                                 variant_type = "Omicron")
-cumpercent <- plot_cumulative_percent(cases = cases,
-                                      forecast_start = date_forecast_start,
-                                      data_start = date_data_start)$data %>%
-  mutate(value_type = "Omicron cumulative population proportion",
-         region = as.character(region))
-
-# bias
-sampling <- simplify_posterior(bias$posterior, value_type = "voc_advantage") %>%
-  mutate(value_type = "Transmission advantage of S-gene result")
-
-# join --------------------------------------------------------------------
-region_factor <- as.character(sgtf$posterior$region)
-region_factor <- unique(region_factor)
-names(region_factor) <- region_factor
-
-summary_data <- bind_rows(advantage, growth, cumpercent, sampling) %>%
-  filter(date == date_latest & type %in% c("Omicron", "SGT-result")) %>%
-  mutate(region = recode_factor(region, !!!region_factor))
-
-summary_plot <- summary_data %>%
-  ggplot(aes(y = region)) +
-  geom_linerange(aes(xmin = q5, xmax = q95)) +
-  geom_point(aes(x = median)) +
-  facet_wrap(~ value_type, scales = "free_x") +
-  labs(y = NULL, x = NULL)
-summary_plot <- forecast.vocs::plot_theme(summary_plot) +
-  scale_x_continuous()
-
+# Summary plot
+summary_plot <- plot_summary(sgtf, bias, sgtf_cases, 
+                             date_forecast_start, date_data_start)
 plot(summary_plot)
-
-# # # date at which Omicron accounts for 95% all cases
-# voc_frac <- simplify_posterior(sgtf$posterior, value_type = "voc_frac")
-# voc_frac <- plot_omicron_95(voc_frac = voc_frac,
-#                             forecast_start = date_forecast_start,
-#                             forecast_end = date_forecast_end)
 ```
 
 ## Background
@@ -193,7 +148,7 @@ plot(
 ```
 #### Cumulative cases since `r format(date_data_start, "%d %B %y")` by population
 ```{r cumulative-population}
-plot_cumulative_percent(cases = cases, 
+plot_cumulative_percent(cases = sgtf_cases, 
                         forecast_start = date_forecast_start,
                         data_start = date_data_start)
 ```
