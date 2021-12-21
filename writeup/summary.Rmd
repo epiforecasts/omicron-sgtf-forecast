@@ -84,28 +84,36 @@ date_forecast_end <- max(cases$date)
 
 Since being highlighted by Scientists in South Africa Omicron has spread rapidly globally. Using initial South African data it has been estimated that Omicron may be both more transmissible and have greater immune escape than the previously dominant Delta variant. 
 
-In this work, we use S-gene target failure (SGTF) as a proxy of variant status combined with reported case counts to explore the evidence for changes in transmission advantage over time for the Omicron variant. If present this could indicate the impact of immune escape, bias in SGTF data or differences in the populations within which the variants are circulating. We also report estimates for growth rates by variant and overall, case counts overall and by variant for a 14 day forecast window assuming constant future growth, the date at which Omicron will become dominant in England and in each NHS region, and the estimated cumulative percentage of the population with a reported Omicron case
+In this work, we use S-gene target failure (SGTF) as a proxy of variant status combined with reported case counts to explore the evidence for changes in transmission advantage over time for the Omicron variant. If present this could indicate the impact of immune escape, bias in SGTF data or differences in the populations within which the variants are circulating. We also report estimates for growth rates by variant and overall, case counts overall and by variant for a 14 day forecast window assuming constant future growth, the date at which Omicron will become dominant in England and in each NHS region, and the estimated cumulative percentage of the population with a reported Omicron case.
 
 ## Methods
 
 ### Data
 
-We use S-gene status data sourced from UKHSA as a direct proxy for the Omicron variant with a failure indicating a case has the Omicron variant. We augment this data with reported cases counts by date of specimen truncated by two days to account for delayed reporting.
+We use S-gene status by specimen date sourced from UKHSA as a direct proxy for the Omicron variant with a target failure indicating a case has the Omicron variant. We augment this data with reported cases counts by date of specimen truncated by two days to account for delayed reporting. Data was available for England and for NHS region from both sources.
 
 ### Models
 
 We consider two autoregressive models with different assumptions about the relationship between growth rates for Omicron and non-Omicron cases. Both models estimate expected cases for each variant as a combination of expected cases from the previous day and the exponential of the log growth rate. The growth rate is then itself modelled as a differenced AR(1) process. 
 
-For the first model variants are assumed to 
+For the first model variants are assumed to have growth rates related by a fixed scaling (described from now on as the scaled model). In this model variant growth rates then share a single differenced AR(1) process meaning that they vary over time in the same way. This model assumes that variants differ only due to a transmissibility advantage and that there are no time-varying biases in the reported data.
 
+In the second model, we relax the assumption that variants co-vary using a vector autoregression structure which assume that the 1st differences of the variant growth rates are drawn from a multivariate normal distribution. This model formulation can account for variant differences other than a transmissibility advantage and can also better handle time-varying biases in data sources.
 
-### Statistical inference
+For both models, we fit jointly to reported cases and SGTF data assuming a negative binomial and beta-binomial observation model respectively. We also initialise both models by fitting to a week of case only data where the Omicron variant is assumed to not be present (from the 17th of November to the 22nd).
 
+A full description of the models described here can be found in the documentation for the [`forecast.vocs` R package](https://epiforecasts.io/forecast.vocs/) [@forecast.vocs].
 
+### Statistical Inference
 
-All models were implemented using the `forecast.vocs` R package [@forecast.vocs] and fit using `stan` [@stan] and `cmdstanr` [@cmdstanr]. Each model was fit using 2 chains with each chain having a 1000 warmup steps and 2000 sampling steps. Convergence was assessed using the $R^{\hat}$ diagnostic [@stan]. Models were compared using the 
+We first visualised our combined data sources (cases by specimen date and SGTF status by specimen date). We then fit both models separately to data for England and to each NHS region. Using these model fits we report posterior estimates from the best fitting model for the following summary statistics of epidemiological interest: growth rates by variant and overall, the time-varying transmission advantage for the Omicron variant, case counts overall and by variant for a 14 day forecast window assuming constant future growth, the date at which Omicron will become dominant in England and in each NHS region, and the estimated cumulative percentage of the population with a reported Omicron case. 
 
-We tested the difference between the two models by comparing out of sample predictive fit using efficient approximate leave-one-out (LOO) cross-validation for Bayesian models using Pareto smoothed importance sampling, and model scoring.
+To explore the potential for bias in cases that have a reported SGTF status we also fit the correlated model to case counts and S-gene tested status and reported the apparent transmission advantage for those with a S-gene status over time. Any variation in this metrice from 100% may be interpreted as indicating biased sampling of those with known S-gene status which may bias our main results.
+
+### Implementation
+
+All models were implemented using the [`forecast.vocs` R package](https://epiforecasts.io/forecast.vocs/) [@R; @forecast.vocs] and fit using `stan` [@stan] and `cmdstanr` [@cmdstanr]. Each model was fit using 2 chains with each chain having a 1000 warmup steps and 2000 sampling steps. Convergence was assessed using the $R^{\hat}$ diagnostic [@stan]. Models were compared using approximate leave-one-out (LOO) cross-validation [@loo; @loo-paper] where negative values indicate an improved fit for the correlated model.
+
 
 ## Limitations
 
@@ -114,11 +122,11 @@ We tested the difference between the two models by comparing out of sample predi
 
 * We make a crude adjustment for the right censoring of reported case counts by specimen date by excluding the last two days of data. However, this may be insufficient to correct for the bias and so our real-time growth rates estimates may be biased downwards.
 
-* Our analysis is based on reported case counts augmented with SGTF data. Growth rates estimated from reported case counts may be biased during periods when changes in testing practice occur.
+* Our analysis is based on reported case counts augmented with SGTF data. Growth rates estimated from reported case counts may be biased during periods when changes in testing practice occur or when available testing is at capacity.
 
-* We reported the log growth rate approimation to the growth rate. This approximation becomes less valid for high absolute growth rates.
+* We reported the log growth rate approximation to the growth rate. This approximation becomes less valid for high absolute growth rates.
 
-* Our models do not attempt to capture the underlying transmission process or the delays in reporting.
+* Our models do not attempt to capture the underlying transmission process or delays in reporting. In particular, we do not consider the generation time of variants which may differ. Differences in the generation time would result in apparent differences in the growth rate (on the scale of the generation time) even in scenarios where growth rates were fixed. 
 
 * Our forecasts assume a fixed growth rate across the forecast horizon and do not account for population susceptibility or other factors such as changes in contact patterns.
 
