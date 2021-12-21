@@ -18,7 +18,7 @@ load_sgtf_parameters <- function() {
     scale_r = 1,
 
     # Use weekly piecewise constant growth rate
-    r_step = 7,
+    r_step = 3,
 
     # Account for overdispersion
     overdispersion = TRUE,
@@ -45,5 +45,6 @@ load_bias_parameters <- function() {
   parameters <- load_sgtf_parameters()
   parameters$voc_scale <- c(0, 0.2)
   parameters$voc_label <- "SGT-result"
+  parameters$horizon <- 0
   return(parameters)
 }
