@@ -30,7 +30,8 @@ plan("callr", workers = floor(future::availableCores() / 2))
 target_date <- get_latest_date()
 
 # Estimation start date
-start_date <- as.Date("2021-11-23")
+start_date <- as.Date("2021-11-16")
+start_sgtf_date <- as.Data("2021-11-23")
 
 # Load data for the target date
 daily_regional <- load_local_data(target_date) %>%
@@ -45,6 +46,7 @@ bias_parameters <- load_bias_parameters()
 ##############################
 
 sgtf_regional <- daily_regional %>%
+  truncate_sequences(start_date = start_sgtf_date) %>%
   truncate_cases(days = 2) %>%
   sgtf_data_to_fv() %>%
   filter(!(is.na(cases) & is.na(seq_voc)))
@@ -77,6 +79,7 @@ save_results(omicron_results, "sgtf", target_date)
 ##############################
 
 bias_regional <- daily_regional %>%
+  truncate_sequences(start_date = start_sgtf_date) %>%
   truncate_cases(days = 2) %>%
   bias_data_to_fv() %>%
   filter(!(is.na(cases) & is.na(seq_voc)))

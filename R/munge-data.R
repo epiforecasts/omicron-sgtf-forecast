@@ -54,6 +54,13 @@ truncate_cases <- function(regional, days = 0) {
   return(regional)
 }
 
+truncate_sequences <- function(regional, start_date) {
+  regional <- regional %>%
+    mutate(sgtf = ifelse(date < start_date, NA, sgtf),
+           total_sgt = ifelse(date < start_date, NA, total_sgt)) %>%
+  return(regional)
+}
+
 sgtf_data_to_fv <- function(obs) {
   obs %>%
     transmute(region = region,
