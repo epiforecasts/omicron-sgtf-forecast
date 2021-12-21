@@ -47,7 +47,7 @@ source(here("R", "plot-omicron-95.R"))
 source(here("R", "plot-cumulative-percent.R"))
 
 # get latest date
-date_latest <- get_latest_date() - 1
+date_latest <- get_latest_date()
 
 # load data
 daily <- load_local_data(date_latest)
@@ -57,8 +57,11 @@ pop <- load_population()
 sgtf <- load_results(date_latest)
 bias <- load_results(date_latest, type = "bias")
 
-sgtf_posterior <- as.data.table(sgtf$posterior)[
-  variant_relationship == "correlated"
+sgtfposterior <- sgtf$posterior[,
+   variant_relationship := stringr::str_to_sentence(variant_relationship)
+]
+sgtf_posterior <- sgtf$posterior[
+  variant_relationship == "Correlated"
 ]
 
 # get cases from correlated model
@@ -79,19 +82,42 @@ date_forecast_end <- max(cases$date)
 
 ## Background
 
+Using S-gene target status as a proxy for the recently discovered Omicron variant it appears that
+The Omicron variant has recently been estimated to be both more transmissible than the previously dominant Delta variant and better able to escape prior immunity. Here we eplore the evidence of this using reported case data and data on the number of cases with a kn
+
 ## Methods
+
+### Data
+
+We use S-gene status data sourced from UKHSA as a direct proxy for the Omicron variant with a failure indicating a case has the Omicron variant. We augment this data with reported cases counts by date of specimen truncated by two days to account for delayed reporting.
+
+### Modelling
+
+
+### Statistical inference
+
+* We fit two multi-strain autoregressive models to these data sources jointly. The first model assumes a fixed transmission advantage for the Omicron variant and then models the evolution of both Omicron and non-Omicrons growth rate jointly over time as a AR(1) differenced process.
+
+As well as posterior predictions and forecasts for both notifications by variant and variant of concern proportion the models also return several summary statistics which may be useful for drawing inferences about underlying transmission dynamics. These include the log scale growth rate ($g^{o, \delta}_t$), the instantaneous effective reproduction number ($R^{o, \delta}_t$), and the transmission advantage of the variant of concern ($A_t$). These are calculated as follows:
+
+\begin{align}
+  g^{o, \delta}_t &= T_s r^{o, \delta}_t \\
+  R^{o, \delta}_t &= \text{exp}\left(T_s r^{o, \delta}_t\right) \\
+  A_t &= \text{exp}\left(T_s \left(r^{\delta}_t - r^{o}_t \right)\right)\\
+\end{align}
+
+$T_s$ is a user set scaling parameter that defines the timespan over which the summary metrics apply dependent on the time step of the data. It can be set using the `scale_r` and defaults to 1 which returns summary statistics scaled to the timestep of the data. Depending on the setup of the model used these summary measures will be more or less related to their epidemiological definitions. In particular, adding a weighting to past expected cases that is more complex than a simple lag may cause interpretation issues.
+
+
+We tested the difference between the two models by comparing out of sample predictive fit using leave-one-out cross-validation with Pareto smoothed importance sampling, and model scoring.
 
 ## Limitations
 
+## Summary
+
+
 ## Results 
 
-### Summary
-
-```{r summary}
-# Summary plot:
-# - date at which omicron is 95% cases 
-# - 
-```
 
 ### Data description
 
@@ -111,31 +137,50 @@ scores <- janitor::clean_names(
 kable(scores)
 ```
 
-### Growth rate of S-gene positive and negative cases
+### Growth rate of reported cases overall, with the Omicron variant, and with the non-Omicron variant
 
-```{r growth}
+```{r growth, fig.cap = "Estimates of the time-varying daily growth rate for England and by NHS region (using the log scale approximation) for reported cases overall, with the Omicron variant, and with the non-Omicron variant. Growth rates are assumed to be piecewise constant with potential changes every 3 days. Growth rates are assumed to be constant beyond the forecast horizon (vertical dashed line)."}
 plot_growth(sgtf_posterior) +
   facet_wrap(~ region)
 ```
 
-### Proportion of cases with SGTF
+### Proportion of cases with the Omicron variant on the logit scale
 
-```{r, voc-frac}
+#### Natural scale
+
+```{r, voc-frac, fig.cap = "Estimates of the proportion of reported cases with the Omicron variant for England and by NHS region using both the scaled model and the correlated model on the natural scale."}
+plot(
+  sgtf$posterior[,
+   variant_relationship := stringr::str_to_sentence(variant_relationship)
+  ], as.data.table(sgtf$data), type = "voc_frac",
+  fill = variant_relationship, voc_label = "Omicron variant", log = FALSE
+) +
+  labs(fill = "Variant relationship") +
+  facet_wrap(~ region)
+```
+
+#### Logit scale
+
+```{r, voc-frac, fig.cap = "Estimates of the proportion of reported cases with the Omicron variant for England and by NHS region using both the scaled model and the correlated model on the logit scale. Note that scaled model is effectively assuming a linear relationship on this scale."}
 plot(
   sgtf$posterior, as.data.table(sgtf$data), type = "voc_frac",
   fill = variant_relationship, voc_label = "Omicron variant"
 ) +
+  labs(fill = "Variant relationship") +
   facet_wrap(~ region)
 ```
 
-### Transmission advantage of the cases with SGTF
+### Transmission advantage of the Omicron variant
 
-```{r, voc-advantage}
+```{r, voc-advantage, "Estimates of the time-varying daily transmission advantage for the Omicron cases vs non-Omicron cases for England and by NHS region. Estimates are shown for both the scaled model and the correlated model. Variation in the advantage over time could be an indicator of biases in the SGTF data, differences in the populations in which the variants are circulating or as a result of immune escape. Transmission advantage is assumed to be constant beyond the forecasting horizon (dashed line)."}
 plot(
   sgtf$posterior, type = "voc_advantage",
   fill = variant_relationship, group = variant_relationship,
   voc_label = "Omicron variant"
 ) +
+  labs(fill = "Variant relationship",
+       y = "Transmission advantage for the Omicron variant"
+  ) +
   facet_wrap(~ region)
 ```
 
