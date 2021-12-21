@@ -11,15 +11,18 @@ library(readr)
 plot_omicron_95 <- function(voc_frac, forecast_start, forecast_end) {
 
   omicron_95 <- voc_frac %>%
+    as_tibble() %>%
     select(date, region, q_median = median, q5, q95) %>%
     pivot_longer(cols = starts_with("q"),
                  names_to = "quantile", values_to = "omicron_prop") %>%
+    mutate(quantile = factor(quantile)) %>%
     group_by(region, quantile) %>%
     filter(omicron_prop >= 0.95) %>%
     slice_min(date) %>%
+    ungroup() %>%
+    complete(quantile) %>%
     select(region, quantile, date) %>%
     pivot_wider(id_cols = region, names_from = quantile, values_from = date) %>%
-    ungroup() %>%
     arrange(q_median) %>%
     mutate(q5 = as.Date(ifelse(is.na(q5), forecast_end, q5),
                         origin = lubridate::origin),

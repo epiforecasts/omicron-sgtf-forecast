@@ -139,7 +139,7 @@ kable(scores)
 
 ### Growth rate of reported cases overall, with the Omicron variant, and with the non-Omicron variant
 
-```{r growth, fig.cap = "Estimates of the time-varying daily growth rate for England and by NHS region (using the log scale approximation) for reported cases overall, with the Omicron variant, and with the non-Omicron variant. Growth rates are assumed to be piecewise constant with potential changes every 3 days. Growth rates are assumed to be constant beyond the forecast horizon (vertical dashed line)."}
+```{r growth, fig.cap = "Estimates of the time-varying daily growth rate for England and by NHS region (using the log scale approximation) for reported cases overall, with the Omicron variant, and with the non-Omicron variant. Growth rates are assumed to be piecewise constant with potential changes every 3 days. Growth rates are assumed to be constant beyond the forecast horizon (vertical dashed line). 90% and 60% credible intervals are shown."}
 plot_growth(sgtf_posterior) +
   facet_wrap(~ region)
 ```
@@ -148,7 +148,7 @@ plot_growth(sgtf_posterior) +
 
 #### Natural scale
 
-```{r, voc-frac, fig.cap = "Estimates of the proportion of reported cases with the Omicron variant for England and by NHS region using both the scaled model and the correlated model on the natural scale."}
+```{r, voc-frac, fig.cap = "Estimates of the proportion of reported cases with the Omicron variant for England and by NHS region using both the scaled model and the correlated model on the natural scale. 90% and 60% credible intervals are shown."}
 plot(
   sgtf$posterior[,
    variant_relationship := stringr::str_to_sentence(variant_relationship)
@@ -161,7 +161,7 @@ plot(
 
 #### Logit scale
 
-```{r, voc-frac, fig.cap = "Estimates of the proportion of reported cases with the Omicron variant for England and by NHS region using both the scaled model and the correlated model on the logit scale. Note that scaled model is effectively assuming a linear relationship on this scale."}
+```{r, voc-frac, fig.cap = "Estimates of the proportion of reported cases with the Omicron variant for England and by NHS region using both the scaled model and the correlated model on the logit scale. Note that scaled model is effectively assuming a linear relationship on this scale. 90% and 60% credible intervals are shown."}
 plot(
   sgtf$posterior, as.data.table(sgtf$data), type = "voc_frac",
   fill = variant_relationship, voc_label = "Omicron variant"
@@ -172,7 +172,7 @@ plot(
 
 ### Transmission advantage of the Omicron variant
 
-```{r, voc-advantage, "Estimates of the time-varying daily transmission advantage for the Omicron cases vs non-Omicron cases for England and by NHS region. Estimates are shown for both the scaled model and the correlated model. Variation in the advantage over time could be an indicator of biases in the SGTF data, differences in the populations in which the variants are circulating or as a result of immune escape. Transmission advantage is assumed to be constant beyond the forecasting horizon (dashed line)."}
+```{r, voc-advantage, "Estimates of the time-varying daily transmission advantage for the Omicron cases vs non-Omicron cases for England and by NHS region. Estimates are shown for both the scaled model and the correlated model. Variation in the advantage over time could be an indicator of biases in the SGTF data, differences in the populations in which the variants are circulating or as a result of immune escape. Transmission advantage is assumed to be constant beyond the forecasting horizon (dashed line). 90% and 60% credible intervals are shown."}
 plot(
   sgtf$posterior, type = "voc_advantage",
   fill = variant_relationship, group = variant_relationship,
@@ -184,9 +184,9 @@ plot(
   facet_wrap(~ region)
 ```
 
-### Posterior predictions of cases
+### Posterior predictions and forecasts of reported cases
 
-```{r, cases}
+```{r, cases, fig.cap = "Estimates of the number of reported cases by variant and overall for England and each NHS region. Estimates are shown both within the window supported by the data and for 14 days afterwards as a forecast where it is assumed that growth rates for each variant are stable. The forecast horizon is indicated using a dashed line. 90% and 60% credible intervals are shown."}
 plot(
   sgtf_posterior, as.data.table(sgtf$data), type = "cases"
 ) +
