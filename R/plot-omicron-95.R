@@ -26,7 +26,8 @@ plot_omicron_95 <- function(voc_frac, forecast_start, forecast_end) {
     arrange(q_median) %>%
     mutate(q5 = as.Date(ifelse(is.na(q5), forecast_end, q5),
                         origin = lubridate::origin),
-           region = factor(region, ordered = TRUE))
+           region = factor(region, ordered = TRUE)) %>%
+    filter(!is.na(region))
 
   plot_95_percent <- omicron_95 %>%
     ggplot(aes(y = region)) +

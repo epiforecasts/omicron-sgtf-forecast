@@ -134,7 +134,10 @@ plot_daily_cases(
 scores <- janitor::clean_names(
   select(sgtf$loo, -forecast_date), case = "sentence"
 )
-kable(scores)
+kable(scores, caption = "Estimated differences in the ELPD metric (with
+ standard errors) between the scaled and correlated models for England and NHS
+ regions. Negative values indicate that the correlated model is estimated to be
+ a better fit to the data. ")
 ```
 
 ### Growth rate of reported cases overall, with the Omicron variant, and with the non-Omicron variant
@@ -148,7 +151,7 @@ plot_growth(sgtf_posterior) +
 
 #### Natural scale
 
-```{r, voc-frac, fig.cap = "Estimates of the proportion of reported cases with the Omicron variant for England and by NHS region using both the scaled model and the correlated model on the natural scale. 90% and 60% credible intervals are shown."}
+```{r, voc-frac, fig.cap = "Estimates of the proportion of reported cases with the Omicron variant for England and by NHS region using both the scaled model and the correlated model on the natural scale. he forecast horizon is indicated using a dashed line. 90% and 60% credible intervals are shown."}
 plot(
   sgtf$posterior[,
    variant_relationship := stringr::str_to_sentence(variant_relationship)
@@ -161,7 +164,7 @@ plot(
 
 #### Logit scale
 
-```{r, voc-frac, fig.cap = "Estimates of the proportion of reported cases with the Omicron variant for England and by NHS region using both the scaled model and the correlated model on the logit scale. Note that scaled model is effectively assuming a linear relationship on this scale. 90% and 60% credible intervals are shown."}
+```{r, voc-frac, fig.cap = "Estimates of the proportion of reported cases with the Omicron variant for England and by NHS region using both the scaled model and the correlated model on the logit scale. Note that scaled model is effectively assuming a linear relationship on this scale. he forecast horizon is indicated using a dashed line. 90% and 60% credible intervals are shown."}
 plot(
   sgtf$posterior, as.data.table(sgtf$data), type = "voc_frac",
   fill = variant_relationship, voc_label = "Omicron variant"
@@ -194,15 +197,15 @@ plot(
 ```
 
 ### Date at which Omicron estimated to account for 95% of reported cases
-```{r omicron-95}
+```{r omicron-95, fig.cap = "Estimated dates at which 95% of reported cases will have the Omicron variant for England and NHS regions. Points represent the median date and ranges represent the 90% credible interval."}
 plot_omicron_95(voc_frac = voc_frac,
                 forecast_start = date_forecast_start,
                 forecast_end = date_forecast_end)
 ```
 
-### Percentage of the population with a reported Omicron case
+### Percentage of the population who have been reported Omicron case
 
-```{r cumulative-population}
+```{r cumulative-population, fig.cap = "Estimates of the percentage of the populations of England and NHS regions that will have reported an Omicron case. "}
 plot_cumulative_percent(
   cum_per, forecast_start = date_forecast_start, data_start = date_data_start
 )
