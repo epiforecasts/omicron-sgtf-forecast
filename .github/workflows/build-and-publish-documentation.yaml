@@ -1,0 +1,64 @@
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - '*'
+  workflow_dispatch:
+
+name: render-documentation
+
+jobs:
+  render-documentation:
+    runs-on: macOS-latest
+    env:
+      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v2
+      - uses: r-lib/actions/setup-pandoc@v2
+      - uses: r-lib/actions/setup-r@v2
+      - uses: r-lib/actions/setup-r-dependencies@v2
+      - uses: r-lib/actions/setup-tinytex@v2
+
+      - name: Render summary
+        run: |
+          rmarkdown::render("writeup/summary.Rmd", output_dir = "writeup")
+        shell: Rscript {0}
+
+      - name: Render paper
+        run: |
+          rmarkdown::render("writeup/paper.Rmd", output_dir = "writeup")
+        shell: Rscript {0}
+
+      - name: Upload documentation
+        uses: actions/upload-artifact@v2
+        with:
+          name: documentation
+          retention-days: 5
+          path: writeup
+
+  publish-documentation:
+    if: github.ref == 'refs/heads/main' && github.repository == 'epiforecasts/omicron-sgtf-forecast'
+    needs: render-documentation
+    runs-on: macOS-latest
+    env:
+      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+    - uses: actions/checkout@v2
+    - name: Make a clean gh-pages branch
+      run: |
+        git checkout --orphan gh-pages
+        git rm -rf .
+    - uses: actions/download-artifact@v2
+      with:
+        name: documentation
+        path: .
+    - name: Commit and push documentation
+      run: |
+        git config user.email "action@github.com"
+        git config user.name "GitHub Action - Published documentation"
+        git add --all
+        git commit -m "Published documentation"
+        git push -f origin gh-pages:gh-pages
+        echo "reports published to GitHub"

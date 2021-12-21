@@ -13,3 +13,7 @@ data/private
 *.aux
 *.log
 *.out
+*.html
+*.pdf
+!writeup/footer.html
+!writeup/header.html

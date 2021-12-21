@@ -14,7 +14,12 @@ add_england_totals <- function(regional) {
     summarise(across(c(total_cases, sgtf_unknown, total_sgt, sgtf, non_sgtf),
                     sum, na.rm = TRUE),
               source = source[1]) %>%
-    mutate(region = "England")
+    mutate(region = "England") %>%
+    mutate(total_sgt = ifelse(total_sgt == 0, NA, total_sgt)) %>%
+    mutate(
+      sgtf = ifelse(is.na(total_sgt), NA, sgtf),
+      non_sgtf = ifelse(is.na(total_sgt), NA, non_sgtf)
+    )
 
   daily_raw <- bind_rows(england, regional)
   return(daily_raw)
@@ -45,7 +50,14 @@ truncate_cases <- function(regional, days = 0) {
   case_end_date <- max(regional$date) - lubridate::days(days)
   regional <- regional %>%
     mutate(total_cases = ifelse(date > case_end_date, NA, total_cases),
-          sgtf_unknown = ifelse(date > case_end_date, NA, sgtf_unknown))
+          sgtf_unknown = ifelse(date > case_end_date, NA, sgtf_unknown)) %>%
+  return(regional)
+}
+
+truncate_sequences <- function(regional, start_date) {
+  regional <- regional %>%
+    mutate(sgtf = ifelse(date < start_date, NA, sgtf),
+           total_sgt = ifelse(date < start_date, NA, total_sgt)) %>%
   return(regional)
 }
 

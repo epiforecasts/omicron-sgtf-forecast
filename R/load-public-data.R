@@ -11,7 +11,7 @@ load_public_sgtf_data <- function() {
    raw_data_sgt <- read_csv(data_path_sgt)
 
    data_sgt <- raw_data_sgt %>%
-    mutate(date = dmy(specimen_date),
+    mutate(date = ymd(specimen_date),
            sgtf_type = recode(sgtf,
                               "Cases with confirmed S-gene" = "non_sgtf",
                               "Cases with confirmed SGTF" = "sgtf")) %>%

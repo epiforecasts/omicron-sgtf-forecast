@@ -1,3 +1,5 @@
+# Real-time estimation of the time-varying transmissibility advantage of Omicron in England using S-Gene Target Status as a Proxy
+
 This repo aims to explore dynamics of the Omicron variant of Covid-19 in England, using [forecast.vocs](https://github.com/epiforecasts/forecast.vocs).
 
 ## Key files and folders
