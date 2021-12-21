@@ -6,12 +6,12 @@ library(lubridate)
 library(tidyr)
 
 load_public_sgtf_data <- function() {
-  data_path_sgt <- "https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/1041666/sgtf_regionepicurve_2021-12-15.csv" # nolint
+  data_path_sgt <- "https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/1042751/sgtf_regionepicurve_2021-12-20-1.csv" # nolint
 
    raw_data_sgt <- read_csv(data_path_sgt)
 
    data_sgt <- raw_data_sgt %>%
-    mutate(date = ymd(specimen_date),
+    mutate(date = dmy(specimen_date),
            sgtf_type = recode(sgtf,
                               "Cases with confirmed S-gene" = "non_sgtf",
                               "Cases with confirmed SGTF" = "sgtf")) %>%
