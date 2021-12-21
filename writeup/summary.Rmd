@@ -80,10 +80,11 @@ date_forecast_start <- max(as.data.table(sgtf$data)[!is.na(seq_total)]$date)
 date_forecast_end <- max(cases$date)
 ```
 
-## Background
+## Introduction
 
-Using S-gene target status as a proxy for the recently discovered Omicron variant it appears that
-The Omicron variant has recently been estimated to be both more transmissible than the previously dominant Delta variant and better able to escape prior immunity. Here we eplore the evidence of this using reported case data and data on the number of cases with a kn
+Since being highlighted by Scientists in South Africa Omicron has spread rapidly globally. Using initial South African data it has been estimated that Omicron may be both more transmissible and have greater immune escape than the previously dominant Delta variant. 
+
+In this work, we use S-gene target failure (SGTF) as a proxy of variant status combined with reported case counts to explore the evidence for changes in transmission advantage over time for the Omicron variant. If present this could indicate the impact of immune escape, bias in SGTF data or differences in the populations within which the variants are circulating. We also report estimates for growth rates by variant and overall, case counts overall and by variant for a 14 day forecast window assuming constant future growth, the date at which Omicron will become dominant in England and in each NHS region, and the estimated cumulative percentage of the population with a reported Omicron case
 
 ## Methods
 
@@ -91,33 +92,43 @@ The Omicron variant has recently been estimated to be both more transmissible th
 
 We use S-gene status data sourced from UKHSA as a direct proxy for the Omicron variant with a failure indicating a case has the Omicron variant. We augment this data with reported cases counts by date of specimen truncated by two days to account for delayed reporting.
 
-### Modelling
+### Models
+
+We consider two autoregressive models with different assumptions about the relationship between growth rates for Omicron and non-Omicron cases. Both models estimate expected cases for each variant as a combination of expected cases from the previous day and the exponential of the log growth rate. The growth rate is then itself modelled as a differenced AR(1) process. 
+
+For the first model variants are assumed to 
 
 
 ### Statistical inference
 
-* We fit two multi-strain autoregressive models to these data sources jointly. The first model assumes a fixed transmission advantage for the Omicron variant and then models the evolution of both Omicron and non-Omicrons growth rate jointly over time as a AR(1) differenced process.
-
-As well as posterior predictions and forecasts for both notifications by variant and variant of concern proportion the models also return several summary statistics which may be useful for drawing inferences about underlying transmission dynamics. These include the log scale growth rate ($g^{o, \delta}_t$), the instantaneous effective reproduction number ($R^{o, \delta}_t$), and the transmission advantage of the variant of concern ($A_t$). These are calculated as follows:
-
-\begin{align}
-  g^{o, \delta}_t &= T_s r^{o, \delta}_t \\
-  R^{o, \delta}_t &= \text{exp}\left(T_s r^{o, \delta}_t\right) \\
-  A_t &= \text{exp}\left(T_s \left(r^{\delta}_t - r^{o}_t \right)\right)\\
-\end{align}
-
-$T_s$ is a user set scaling parameter that defines the timespan over which the summary metrics apply dependent on the time step of the data. It can be set using the `scale_r` and defaults to 1 which returns summary statistics scaled to the timestep of the data. Depending on the setup of the model used these summary measures will be more or less related to their epidemiological definitions. In particular, adding a weighting to past expected cases that is more complex than a simple lag may cause interpretation issues.
 
 
-We tested the difference between the two models by comparing out of sample predictive fit using leave-one-out cross-validation with Pareto smoothed importance sampling, and model scoring.
+All models were implemented using the `forecast.vocs` R package [@forecast.vocs] and fit using `stan` [@stan] and `cmdstanr` [@cmdstanr]. Each model was fit using 2 chains with each chain having a 1000 warmup steps and 2000 sampling steps. Convergence was assessed using the $R^{\hat}$ diagnostic [@stan]. Models were compared using the 
+
+We tested the difference between the two models by comparing out of sample predictive fit using efficient approximate leave-one-out (LOO) cross-validation for Bayesian models using Pareto smoothed importance sampling, and model scoring.
 
 ## Limitations
 
-## Summary
 
+* We make no adjustment for the background rate of SGTF observed for Delta or other factors that might lead to SGTF.
+
+* We make a crude adjustment for the right censoring of reported case counts by specimen date by excluding the last two days of data. However, this may be insufficient to correct for the bias and so our real-time growth rates estimates may be biased downwards.
+
+* Our analysis is based on reported case counts augmented with SGTF data. Growth rates estimated from reported case counts may be biased during periods when changes in testing practice occur.
+
+* We reported the log growth rate approimation to the growth rate. This approximation becomes less valid for high absolute growth rates.
+
+* Our models do not attempt to capture the underlying transmission process or the delays in reporting.
+
+* Our forecasts assume a fixed growth rate across the forecast horizon and do not account for population susceptibility or other factors such as changes in contact patterns.
+
+* Our estimates are at the national or NHS region scale. There may be additional variation within these areas that these estimates cannot capture.
+
+* We used an approximate form of leave-one-out cross validation to compare the performance of the models we considered. This may be inappropriate in situations where performance on held out time-series data is the target of interest.
 
 ## Results 
 
+### Summary
 
 ### Data description
 
@@ -137,7 +148,7 @@ scores <- janitor::clean_names(
 kable(scores, caption = "Estimated differences in the ELPD metric (with
  standard errors) between the scaled and correlated models for England and NHS
  regions. Negative values indicate that the correlated model is estimated to be
- a better fit to the data. ")
+ a better fit to the data.")
 ```
 
 ### Growth rate of reported cases overall, with the Omicron variant, and with the non-Omicron variant
