@@ -33,15 +33,26 @@ load_results <- function(date, type = "sgtf", path = "data/estimates") {
   names(results) <- file_names
   if (!is.null(results$posterior)) {
     class(results$posterior) <- c("fv_posterior", class(results$posterior))
+    # Re-define growth using Rt - 1
+    growth_from_rt <- filter(results$posterior, value_type == "rt") %>%
+      mutate(across(mean:q95, ~ (. - 1)),
+             value_type = "growth_from_rt")
+    results$posterior <- bind_rows(results$posterior, growth_from_rt)
   }
   return(results)
 }
 
 simplify_posterior <- function(posterior, value_type,
+                               dates_between = NULL,
                                variant_relationship = "correlated") {
   results <- posterior %>%
-    filter(value_type == !!value_type &
-             variant_relationship == !!variant_relationship) %>%
-    select(value_type, date, region, type, median, q5, q95)
+    filter(value_type %in% !!value_type &
+             variant_relationship %in% !!variant_relationship) %>%
+    select(value_type, date, region, type, mean, median, q5, q20, q80, q95)
+
+  if (length(dates_between) == 2) {
+    results <- filter(results, between(date,
+                                       min(dates_between), max(dates_between)))
+  }
   return(results)
 }
