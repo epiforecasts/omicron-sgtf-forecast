@@ -1,7 +1,7 @@
 ---
 title: "Real-time estimation of the time-varying transmissibility advantage of Omicron in England using S-Gene Target Status as a Proxy"
 subtitle: "Summary report"
-author: Katharine Sherratt, Sam Abbott, Sebastian Funk
+author: Sam Abbott, Katharine Sherratt, Sebastian Funk
 bibliography: library.bib
 csl: https://raw.githubusercontent.com/citation-style-language/styles/master/apa-numeric-superscript-brackets.csl
 date: "`r format(Sys.Date(), format = '%B %d, %Y')`"
@@ -143,9 +143,9 @@ plot(
 
 ```{r, cases}
 plot(
-  sgtf$posterior, as.data.table(sgtf$data), type = "cases"
+  sgtf_posterior, as.data.table(sgtf$data), type = "cases"
 ) +
-  facet_grid(region ~ variant_relationship, scales = "free_y")
+  facet_wrap(~region, scales = "free_y")
 ```
 
 ### Date at which Omicron estimated to account for 95% of reported cases

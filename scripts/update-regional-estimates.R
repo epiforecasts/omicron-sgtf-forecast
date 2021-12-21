@@ -89,7 +89,7 @@ region_bias_forecasts <- build_models_by_region(
   bias_regional, bias_parameters,
   variant_relationships = c("correlated"),
   cores_per_model = 2, chains = 2, samples_per_chain = 2000,
-  keep_fit = FALSE, loo = FALSE
+  keep_fit = FALSE
 )
 
 bias_results <- list(

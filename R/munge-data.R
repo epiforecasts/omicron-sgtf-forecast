@@ -82,7 +82,8 @@ bias_data_to_fv <- function(obs) {
               share_voc = total_sgt / total_cases,
               cases_available = date,
               seq_available = date) %>%
-    filter(!is.na(seq_total))
+    filter(!is.na(seq_total)) %>%
+    mutate(seq_total = ifelse(is.na(seq_voc), NA, seq_total))
 }
 
 cumulative_percentage <- function(cases, pop) {
