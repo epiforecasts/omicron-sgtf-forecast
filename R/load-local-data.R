@@ -25,7 +25,8 @@ get_latest_date <- function(path = "data/public/") {
   return(date)
 }
 
-load_results <- function(date, type = "sgtf", path = "data/estimates") {
+load_results <- function(date, type = "sgtf", path = "data/estimates",
+                         growth_type = "growth") {
   path <- here::here(path, type, date)
   files <- list.files(path)
   file_names <- gsub(".rds", "", files)
@@ -33,11 +34,14 @@ load_results <- function(date, type = "sgtf", path = "data/estimates") {
   names(results) <- file_names
   if (!is.null(results$posterior)) {
     class(results$posterior) <- c("fv_posterior", class(results$posterior))
-    # Re-define growth using Rt - 1
-    growth_from_rt <- filter(results$posterior, value_type == "rt") %>%
-      mutate(across(mean:q95, ~ (. - 1)),
-             value_type = "growth_from_rt")
-    results$posterior <- bind_rows(results$posterior, growth_from_rt)
+    if (growth_type == "growth_from_rt") {
+      # Re-define growth using Rt - 1
+      growth_from_rt <- filter(results$posterior, value_type == "rt") %>%
+        mutate(across(mean:q95, ~ (. - 1)),
+               value_type = "growth")
+      results$posterior <- bind_rows(
+        results$posterior %>% filter(!value_type == "growth"), growth_from_rt)
+    }
   }
   return(results)
 }

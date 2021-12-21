@@ -45,26 +45,76 @@ source(here("R", "plot-daily-cases.R"))
 source(here("R", "plot-omicron-95.R"))
 source(here("R", "plot-cumulative-percent.R"))
 
+growth_type <- "growth_from_rt" # or "growth" the default returned by forecast.vocs
+
 # get latest date
-date_latest <- get_latest_date()
+# date_latest <- get_latest_date()
+date_latest <- as.Date("2021-12-19")
 
 # load data
 daily <- load_local_data(date_latest)
 
 # load results
-sgtf <- load_results(date_latest)
-bias <- load_results(date_latest, type = "bias")
-
-# get cases from correlated model
-cases <-  simplify_posterior(sgtf$posterior, value_type = "cases")
-
-# get VOC fraction from correlated model
+sgtf <- load_results(date_latest, growth_type = "growth_from_rt")
 voc_frac <- simplify_posterior(sgtf$posterior, value_type = "voc_frac") 
+cases <- simplify_posterior(sgtf$posterior, value_type = "cases") %>%
+  filter(type == "Omicron")
 
+bias <- load_results(date_latest, type = "bias")
 # set up dates
 date_data_start <- min(sgtf$data$date)
 date_forecast_start <- max(sgtf$data$date)
-date_forecast_end <- max(cases$date)
+date_forecast_end <- max(sgtf$posterior$date, na.rm = TRUE)
+```
+### Summary
+
+```{r summary}
+# Summary plot:
+# omicron transmission advantage
+advantage <- simplify_posterior(sgtf$posterior, value_type = "voc_advantage") %>%
+  mutate(value_type = "Transmission advantage of Omicron")
+
+# growth
+growth <- simplify_posterior(sgtf$posterior, value_type = "growth")
+
+# cumulative pop
+cumpercent <- simplify_posterior(sgtf$posterior, value_type = "cases") %>%
+  filter(type == "Omicron")
+cumpercent <- plot_cumulative_percent(cases = cases,
+                                      forecast_start = date_forecast_start,
+                                      data_start = date_data_start)$data %>%
+  mutate(value_type = "Omicron cumulative % population",
+         region = as.character(region))
+
+# bias
+sampling <- simplify_posterior(bias$posterior, value_type = "voc_advantage") %>%
+  mutate(value_type = "Transmission advantage of S-gene result")
+
+# join --------------------------------------------------------------------
+region_factor <- unique(sgtf$posterior$region)
+names(region_factor) <- region_factor
+
+summary_data <- bind_rows(advantage, growth, cumpercent, sampling) %>%
+  filter(date == date_latest & !type %in% c("Combined", "non-Omicron")) %>%
+  select(region, value_type, type, median, q5, q95)
+
+summary_plot <- summary_data %>%
+  ggplot(aes(y = region)) +
+  geom_linerange(aes(xmin = q5, xmax = q95)) +
+  geom_point(aes(x = median)) +
+  facet_wrap(~ value_type, scales = "free_x") +
+  labs(y = NULL, x = NULL)
+
+forecast.vocs::plot_theme(summary_plot) +
+  scale_x_continuous()
+
+# # date at which Omicron accounts for 95% all cases
+# voc_frac <- simplify_posterior(sgtf$posterior, value_type = "voc_frac")
+# voc_frac <- plot_omicron_95(voc_frac = voc_frac,
+#                             forecast_start = date_forecast_start,
+#                             forecast_end = date_forecast_end)$data %>%
+#   rename_with(~gsub(pattern = "q_", replacement = "", .))
+
 ```
 
 ## Background
@@ -74,14 +124,6 @@ date_forecast_end <- max(cases$date)
 ## Limitations
 
 ## Results 
-
-### Summary
-
-```{r summary}
-# Summary plot:
-# - date at which omicron is 95% cases 
-# - 
-```
 
 ### Data description
 
@@ -120,6 +162,13 @@ plot(
   facet_wrap(~ region)
 ```
 
+#### Date at which SGTF accounts for 95% all cases
+```{r omicron-95}
+plot_omicron_95(voc_frac = voc_frac, 
+                forecast_start = date_forecast_start, 
+                forecast_end = date_forecast_end)
+```
+
 ### Transmission advantage of the cases with SGTF
 
 
@@ -140,6 +189,12 @@ plot(
 ) +
   facet_grid(region ~ variant_relationship, scales = "free_y")
 ```
+#### Cumulative cases since `r format(date_data_start, "%d %B %y")` by population
+```{r cumulative-population}
+plot_cumulative_percent(cases = cases, 
+                        forecast_start = date_forecast_start,
+                        data_start = date_data_start)
+```
 
 ### Evidence of sampling bias in S-gene target results among Covid-19 test-positive cases
 
@@ -148,20 +203,6 @@ plot(bias$posterior, type = "voc_advantage") +
   labs(y = "Transmission advantage of cases with a reported S gene
             status versus those without") +
   facet_wrap(~ region)
-```
-
-### Date at which Omicron accounts for 95% all cases
-```{r omicron-95}
-plot_omicron_95(voc_frac = voc_frac, 
-                forecast_start = date_forecast_start, 
-                forecast_end = date_forecast_end)
-```
-
-### Cumulative cases since `r format(date_data_start, "%d %B %y")` by population
-```{r cumulative-population}
-plot_cumulative_percent(cases = cases, 
-                        forecast_start = date_forecast_start,
-                        data_start = date_data_start)
 ```
 
 ## References
