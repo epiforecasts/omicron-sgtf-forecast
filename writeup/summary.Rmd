@@ -19,7 +19,8 @@ output:
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, include = TRUE, 
                       warning = FALSE, message = FALSE,
-                      root.dir = here::here())
+                      root.dir = here::here(),
+                      fig.width = 9, fig.height = 9)
 options(digits = 1)
 library(here)
 library(forecast.vocs)
@@ -31,7 +32,7 @@ library(data.table)
 ```
 
 ```{r load-results}
-# load packags
+# load packages
 library(ggplot2)
 library(scales)
 library(dplyr)
@@ -42,31 +43,32 @@ library(readr)
 source(here("R", "load-local-data.R"))
 source(here("R", "plot-daily-cases.R"))
 source(here("R", "plot-omicron-95.R"))
-source(here("R", "plot-cases-100k.R"))
+source(here("R", "plot-cumulative-percent.R"))
 
 # get latest date
-date <- get_latest_date()
+date_latest <- get_latest_date()
 
 # load data
-daily <- load_local_data(date)
+daily <- load_local_data(date_latest)
 
 # load results
-sgtf <- load_results(date)
-bias <- load_results(date, type = "bias")
+sgtf <- load_results(date_latest)
+bias <- load_results(date_latest, type = "bias")
 
 # get cases from correlated model
 cases <- filter(sgtf$posterior, value_type == "cases" &
                   variant_relationship == "correlated") %>%
   select(date, region, type, median, q5, q95)
 
-# get VOC fracton from correlated model
+# get VOC fraction from correlated model
 voc_frac <- filter(sgtf$posterior, value_type == "voc_frac" &
                      variant_relationship == "correlated") %>%
   select(date, region, type, median, q5, q95)
 
 # set up dates
-forecast_start <- max(sgtf$data$date)
-forecast_end <- max(cases$date)
+date_data_start <- min(sgtf$data$date)
+date_forecast_start <- max(sgtf$data$date)
+date_forecast_end <- max(cases$date)
 ```
 
 ## Background
@@ -87,7 +89,7 @@ forecast_end <- max(cases$date)
 
 ### Data description
 
-```{r data, fig.width = 9, fig.height = 9, fig.cap = "Daily cases in England and by UKHSA region, with S-gene target result (failed, confirmed detected, or unknown), and centred 7-day moving average up to date of data truncation (dotted line)."}
+```{r data, fig.cap = "Daily cases in England and by UKHSA region, with S-gene target result (failed, confirmed detected, or unknown), and centred 7-day moving average up to date of data truncation (dotted line)."}
 plot_daily_cases(
   daily, caption = "Source: UKHSA and coronavirus.gov.uk; data by specimen date",
   truncate_date = Sys.Date() - 1, start_date = "2021-11-23", smooth_total = TRUE
@@ -105,7 +107,7 @@ kable(scores)
 
 ### Growth rate of S-gene positive and negative cases
 
-```{r growth, fig.width = 9, fig.height = 9}
+```{r growth}
 plot_growth(
   as.data.table(sgtf$posterior)[variant_relationship == "correlated"]
 ) +
@@ -114,7 +116,7 @@ plot_growth(
 
 ### Proportion of cases with SGTF
 
-```{r, voc-frac, fig.height = 9, fig.width = 9}
+```{r, voc-frac}
 plot(
   sgtf$posterior, as.data.table(sgtf$data), type = "voc_frac",
   fill = variant_relationship, voc_label = "Omicron variant"
@@ -125,7 +127,7 @@ plot(
 ### Transmission advantage of the cases with SGTF
 
 
-```{r, voc-advantage, fig.height = 9, fig.width = 9}
+```{r, voc-advantage}
 plot(
   sgtf$posterior, type = "voc_advantage",
   fill = variant_relationship, group = variant_relationship,
@@ -136,7 +138,7 @@ plot(
 
 ### Posterior predictions of cases
 
-```{r, cases, fig.height = 16, fig.width = 9}
+```{r, cases}
 plot(
   sgtf$posterior, as.data.table(sgtf$data), type = "cases"
 ) +
@@ -145,7 +147,7 @@ plot(
 
 ### Evidence of sampling bias in S-gene target results among Covid-19 test-positive cases
 
-```{r, bias-advantage, fig.height = 9, fig.width = 9}
+```{r, bias-advantage}
 plot(bias$posterior, type = "voc_advantage") +
   labs(y = "Transmission advantage of cases with a reported S gene
             status versus those without") +
@@ -153,14 +155,17 @@ plot(bias$posterior, type = "voc_advantage") +
 ```
 
 ### Date at which Omicron accounts for 95% all cases
-```{r}
+```{r omicron-95}
 plot_omicron_95(voc_frac = voc_frac, 
-                forecast_start = forecast_start, forecast_end = forecast_end)
+                forecast_start = date_forecast_start, 
+                forecast_end = date_forecast_end)
 ```
 
-### Cases per 100,000 population
-```{r}
-plot_inc_100k(cases = cases, forecast_start = forecast_start)
+### Cumulative cases since `r format(date_data_start, "%d %B %y")` by population
+```{r cumulative-population}
+plot_cumulative_percent(cases = cases, 
+                        forecast_start = date_forecast_start,
+                        data_start = date_data_start)
 ```
 
 ## References
