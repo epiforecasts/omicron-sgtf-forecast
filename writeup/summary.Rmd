@@ -97,30 +97,32 @@ plot_daily_cases(
 scores <- janitor::clean_names(
   select(sgtf$loo, -forecast_date), case = "sentence"
 )
-kable(scores)
+kable(scores, caption = "LOO cross validation, comparing performance improvement from a correlated time-varying relationship compared to a fixed variant relationship")
 ```
 
 ### Growth rate of S-gene positive and negative cases
 
-```{r growth}
+```{r growth, fig.cap = "Daily growth rate for Omicron, non-Omicron, and combined cases, by variant in England and by UKHSA region, estimated and forecast (after dashed line). Growth rate estimated with 3 day step"}
 plot_growth(
   as.data.table(sgtf$posterior)[variant_relationship == "correlated"]
 ) +
-  facet_wrap(~ region)
+  facet_wrap(~ region) +
+  labs(x = NULL)
 ```
 
 ### Proportion of cases with SGTF
 
-```{r, voc-frac}
+```{r, voc-frac, fig.cap = "Percentage cases with Omicron variant, by model of variant relationship (scaled or time-varying correlated), for England and UKHSA region"}
 plot(
   sgtf$posterior, as.data.table(sgtf$data), type = "voc_frac",
   fill = variant_relationship, voc_label = "Omicron variant"
 ) +
-  facet_wrap(~ region)
+  facet_wrap(~ region) +
+  labs(x = NULL, fill = "Variant relationship")
 ```
 
 #### Date at which SGTF accounts for 95% all cases
-```{r omicron-95}
+```{r omicron-95, fig.cap = "Date at which Omicron accounts for 95% case notifications using a time-varying correlated model of the relationship between variants, in England and by UKHSA region. The dashed line indicates the start of the forecast period"}
 plot_omicron_95(voc_frac = voc_frac, 
                 forecast_start = date_forecast_start, 
                 forecast_end = date_forecast_end)
@@ -129,25 +131,27 @@ plot_omicron_95(voc_frac = voc_frac,
 ### Transmission advantage of the cases with SGTF
 
 
-```{r, voc-advantage}
+```{r, voc-advantage, fig.cap = "Transmission advantage of Omicron, using models with both fixed and time-varying relationship between variants, in England and by UKHSA region"}
 plot(
   sgtf$posterior, type = "voc_advantage",
   fill = variant_relationship, group = variant_relationship,
   voc_label = "Omicron variant"
 ) +
-  facet_wrap(~ region)
+  facet_wrap(~ region) +
+  labs(x = NULL, fill = "Variant relationship")
 ```
 
 ### Posterior predictions of cases
 
-```{r, cases}
+```{r, cases, fig.cap = "Estimated and forecast (after dashed line) cases for scaled and time-varying correlated models of the variant relationship, by England and UKHSA region"}
 plot(
   sgtf$posterior, as.data.table(sgtf$data), type = "cases"
 ) +
-  facet_grid(region ~ variant_relationship, scales = "free_y")
+  facet_grid(region ~ variant_relationship, scales = "free_y") +
+  labs(x = NULL, fill = "Variant type")
 ```
 #### Cumulative cases since `r format(date_data_start, "%d %B %y")` by population
-```{r cumulative-population}
+```{r cumulative-population, fig.cap = "Cumulative Omicron cases as a % regional population since mid-November"}
 plot_cumulative_percent(cases = sgtf_cases, 
                         forecast_start = date_forecast_start,
                         data_start = date_data_start)
@@ -155,11 +159,12 @@ plot_cumulative_percent(cases = sgtf_cases,
 
 ### Evidence of sampling bias in S-gene target results among Covid-19 test-positive cases
 
-```{r, bias-advantage}
+```{r, bias-advantage, fig.cap = "Potential sampling bias among testing Covid-19 positive cases, in terms of transmission advantage where 100% indicates equivalence between reported cases with an S-gene target result and those without"}
 plot(bias$posterior, type = "voc_advantage") +
   labs(y = "Transmission advantage of cases with a reported S gene
             status versus those without") +
-  facet_wrap(~ region)
+  facet_wrap(~ region) +
+  labs(x = NULL)
 ```
 
 ## References
