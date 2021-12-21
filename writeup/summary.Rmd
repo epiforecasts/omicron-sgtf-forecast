@@ -38,6 +38,7 @@ library(scales)
 library(dplyr)
 library(here)
 library(readr)
+library(data.table)
 
 # load functions
 source(here("R", "load-local-data.R"))
@@ -46,7 +47,7 @@ source(here("R", "plot-omicron-95.R"))
 source(here("R", "plot-cumulative-percent.R"))
 
 # get latest date
-date_latest <- get_latest_date()
+date_latest <- get_latest_date() - 1
 
 # load data
 daily <- load_local_data(date_latest)
@@ -55,11 +56,13 @@ daily <- load_local_data(date_latest)
 sgtf <- load_results(date_latest)
 bias <- load_results(date_latest, type = "bias")
 
+sgtf_posterior <- sgtf$posterior[variant_relationship == "correlated"]
+
 # get cases from correlated model
-cases <-  simplify_posterior(sgtf$posterior, value_type = "cases")
+cases <- summary(sgtf_posterior, type = "cases")
 
 # get VOC fraction from correlated model
-voc_frac <- simplify_posterior(sgtf$posterior, value_type = "voc_frac") 
+voc_frac <- summary(sgtf_posterior, type = "voc_frac")
 
 # set up dates
 date_data_start <- min(sgtf$data$date)
@@ -85,10 +88,10 @@ date_forecast_end <- max(cases$date)
 
 ### Data description
 
-```{r data, fig.cap = "Daily cases in England and by UKHSA region, with S-gene target result (failed, confirmed detected, or unknown), and centred 7-day moving average up to date of data truncation (dotted line)."}
+```{r data, fig.cap = "Daily cases in England and by UKHSA region, with S-gene target result (failed, confirmed detected, or unknown), and centred 7-day moving average up to date of data truncation (dotted line). Source: UKHSA and coronavirus.gov.uk; data by specimen date"}
 plot_daily_cases(
-  daily, caption = "Source: UKHSA and coronavirus.gov.uk; data by specimen date",
-  truncate_date = Sys.Date() - 1, start_date = "2021-11-23", smooth_total = TRUE
+  daily, truncate_date = date_forecast_start + 2, caption = "",
+  start_date = "2021-11-23", smooth_total = TRUE
 )
 ```
 
@@ -122,7 +125,6 @@ plot(
 
 ### Transmission advantage of the cases with SGTF
 
-
 ```{r, voc-advantage}
 plot(
   sgtf$posterior, type = "voc_advantage",
@@ -141,15 +143,6 @@ plot(
   facet_grid(region ~ variant_relationship, scales = "free_y")
 ```
 
-### Evidence of sampling bias in S-gene target results among Covid-19 test-positive cases
-
-```{r, bias-advantage}
-plot(bias$posterior, type = "voc_advantage") +
-  labs(y = "Transmission advantage of cases with a reported S gene
-            status versus those without") +
-  facet_wrap(~ region)
-```
-
 ### Date at which Omicron accounts for 95% all cases
 ```{r omicron-95}
 plot_omicron_95(voc_frac = voc_frac, 
@@ -162,6 +155,16 @@ plot_omicron_95(voc_frac = voc_frac,
 plot_cumulative_percent(cases = cases, 
                         forecast_start = date_forecast_start,
                         data_start = date_data_start)
+```
+
+
+### Evidence of sampling bias in S-gene target results among Covid-19 test-positive cases
+
+```{r, bias-advantage}
+plot(bias$posterior, type = "voc_advantage") +
+  labs(y = "Transmission advantage of cases with a reported S gene
+            status versus those without") +
+  facet_wrap(~ region)
 ```
 
 ## References
