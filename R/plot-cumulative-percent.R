@@ -16,16 +16,17 @@ plot_cumulative_percent <- function(cases, forecast_start, data_start) {
     bind_rows(summarise(., population = sum(population), region = "England"))
 
   cases_pop <- cases %>%
+    select(date, region, type, median, q5, q95) %>%
     left_join(pop, by = c("region")) %>%
     group_by(region, type) %>%
     arrange(date) %>%
-    mutate(c_median = cumsum(median) / population,
-           c_q5 = cumsum(q5) / population,
-           c_q95 = cumsum(q95) / population)
+    mutate(median = cumsum(median) / population,
+           q5 = cumsum(q5) / population,
+           q95 = cumsum(q95) / population)
 
   plot_cumulative_pop <- cases_pop %>%
     ggplot(aes(x = date, fill = type, colour = type)) +
-    geom_ribbon(aes(ymin = c_q5, ymax = c_q95), alpha = 0.7) +
+    geom_ribbon(aes(ymin = q5, ymax = q95), alpha = 0.7) +
     geom_vline(xintercept = forecast_start, lty = 5, lwd = 1, col = "black") +
     scale_y_continuous(labels = scales::label_percent()) + #, limits = c(0,0.01)
     facet_wrap(~ region, scales = "free_y") +
