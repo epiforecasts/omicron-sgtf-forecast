@@ -56,14 +56,10 @@ sgtf <- load_results(date_latest)
 bias <- load_results(date_latest, type = "bias")
 
 # get cases from correlated model
-cases <- filter(sgtf$posterior, value_type == "cases" &
-                  variant_relationship == "correlated") %>%
-  select(date, region, type, median, q5, q95)
+cases <-  simplify_posterior(sgtf$posterior, value_type = "cases")
 
 # get VOC fraction from correlated model
-voc_frac <- filter(sgtf$posterior, value_type == "voc_frac" &
-                     variant_relationship == "correlated") %>%
-  select(date, region, type, median, q5, q95)
+voc_frac <- simplify_posterior(sgtf$posterior, value_type = "voc_frac") 
 
 # set up dates
 date_data_start <- min(sgtf$data$date)
