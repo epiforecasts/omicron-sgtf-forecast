@@ -29,11 +29,16 @@ plot_omicron_95 <- function(voc_frac, forecast_start, forecast_end) {
     ggplot(aes(y = region)) +
     geom_linerange(aes(xmin = q5, xmax = q95)) +
     geom_point(aes(x = q_median)) +
-    geom_vline(xintercept = forecast_start, lty = 3) +
-    xlim(x = c(forecast_start - 1, forecast_end)) +
-    labs(y = NULL, x = "Date that 95% cases are Omicron")
+    geom_vline(xintercept = forecast_start, lty = 5, lwd = 1, col = "black") +
+    labs(y = NULL, x = "Date when 95% cases are Omicron")
 
-  plot_95_percent <- forecast.vocs:::plot_theme(plot_95_percent)
+  # copy code from forecast.vocs::plot_theme() to avoid overwriting x limits
+  plot_95_percent <- plot_95_percent +
+    theme_bw() +
+    theme(legend.position = "bottom", legend.box = "vertical") +
+    scale_x_date(date_breaks = "1 week", date_labels = "%b %d",
+                 limits = c(forecast_start - 1, forecast_end)) +
+    theme(axis.text.x = element_text(angle = 90))
+
   return(plot_95_percent)
 }
-

@@ -28,7 +28,7 @@ plot_inc_100k <- function(cases, forecast_start) {
     filter(p100k_q95 < 100000) %>%
     ggplot(aes(x = date, fill = type)) +
     geom_ribbon(aes(ymin = p100k_q5, ymax = p100k_q95), alpha = 0.7) +
-    geom_vline(xintercept = forecast_start, lty = 2, lwd = 1) +
+    geom_vline(xintercept = forecast_start, lty = 5, lwd = 1, col = "black") +
     facet_wrap(~ region, scales = "free_y") +
     labs(x = NULL, y = "Notifications per 100,000",
          fill = "Variant")
