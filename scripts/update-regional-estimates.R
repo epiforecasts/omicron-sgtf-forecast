@@ -46,7 +46,8 @@ bias_parameters <- load_bias_parameters()
 
 sgtf_regional <- daily_regional %>%
   truncate_cases(days = 2) %>%
-  sgtf_data_to_fv()
+  sgtf_data_to_fv() %>%
+  filter(!(is.na(cases) & is.na(seq_voc)))
 
 # Estimate models for SGTF data
 region_omicorn_forecasts <- build_models_by_region(
@@ -77,7 +78,8 @@ save_results(omicron_results, "sgtf", target_date)
 
 bias_regional <- daily_regional %>%
   truncate_cases(days = 2) %>%
-  bias_data_to_fv()
+  bias_data_to_fv() %>%
+  filter(!(is.na(cases) & is.na(seq_voc)))
 
 # Estimate models for SGTF data
 region_bias_forecasts <- build_models_by_region(

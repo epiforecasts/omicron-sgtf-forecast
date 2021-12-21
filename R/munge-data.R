@@ -50,7 +50,7 @@ truncate_cases <- function(regional, days = 0) {
   case_end_date <- max(regional$date) - lubridate::days(days)
   regional <- regional %>%
     mutate(total_cases = ifelse(date > case_end_date, NA, total_cases),
-          sgtf_unknown = ifelse(date > case_end_date, NA, sgtf_unknown))
+          sgtf_unknown = ifelse(date > case_end_date, NA, sgtf_unknown)) %>%
   return(regional)
 }
 
