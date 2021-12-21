@@ -72,18 +72,20 @@ date_forecast_end <- max(sgtf$posterior$date, na.rm = TRUE)
 # Summary plot:
 # omicron transmission advantage
 advantage <- simplify_posterior(sgtf$posterior, value_type = "voc_advantage") %>%
-  mutate(value_type = "Transmission advantage of Omicron")
+  mutate(value_type = "Omicron transmission advantage")
 
 # growth
-growth <- simplify_posterior(sgtf$posterior, value_type = "growth")
+growth <- simplify_posterior(sgtf$posterior, value_type = "growth", 
+                             variant_type = "Omicron") %>%
+  mutate(value_type = "Growth rate")
 
 # cumulative pop
-cumpercent <- simplify_posterior(sgtf$posterior, value_type = "cases") %>%
-  filter(type == "Omicron")
+cumpercent <- simplify_posterior(sgtf$posterior, value_type = "cases",
+                                 variant_type = "Omicron")
 cumpercent <- plot_cumulative_percent(cases = cases,
                                       forecast_start = date_forecast_start,
                                       data_start = date_data_start)$data %>%
-  mutate(value_type = "Omicron cumulative % population",
+  mutate(value_type = "Omicron cumulative population proportion",
          region = as.character(region))
 
 # bias
@@ -91,12 +93,13 @@ sampling <- simplify_posterior(bias$posterior, value_type = "voc_advantage") %>%
   mutate(value_type = "Transmission advantage of S-gene result")
 
 # join --------------------------------------------------------------------
-region_factor <- unique(sgtf$posterior$region)
+region_factor <- as.character(sgtf$posterior$region)
+region_factor <- unique(region_factor)
 names(region_factor) <- region_factor
 
 summary_data <- bind_rows(advantage, growth, cumpercent, sampling) %>%
-  filter(date == date_latest & !type %in% c("Combined", "non-Omicron")) %>%
-  select(region, value_type, type, median, q5, q95)
+  filter(date == date_latest & type %in% c("Omicron", "SGT-result")) %>%
+  mutate(region = recode_factor(region, !!!region_factor))
 
 summary_plot <- summary_data %>%
   ggplot(aes(y = region)) +
@@ -104,17 +107,16 @@ summary_plot <- summary_data %>%
   geom_point(aes(x = median)) +
   facet_wrap(~ value_type, scales = "free_x") +
   labs(y = NULL, x = NULL)
-
-forecast.vocs::plot_theme(summary_plot) +
+summary_plot <- forecast.vocs::plot_theme(summary_plot) +
   scale_x_continuous()
 
-# # date at which Omicron accounts for 95% all cases
+plot(summary_plot)
+
+# # # date at which Omicron accounts for 95% all cases
 # voc_frac <- simplify_posterior(sgtf$posterior, value_type = "voc_frac")
 # voc_frac <- plot_omicron_95(voc_frac = voc_frac,
 #                             forecast_start = date_forecast_start,
-#                             forecast_end = date_forecast_end)$data %>%
-#   rename_with(~gsub(pattern = "q_", replacement = "", .))
-
+#                             forecast_end = date_forecast_end)
 ```
 
 ## Background

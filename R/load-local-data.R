@@ -48,10 +48,12 @@ load_results <- function(date, type = "sgtf", path = "data/estimates",
 
 simplify_posterior <- function(posterior, value_type,
                                dates_between = NULL,
-                               variant_relationship = "correlated") {
+                               variant_relationship = "correlated",
+                               variant_type = c("Combined", "Omicron", "non-Omicron")) {
   results <- posterior %>%
     filter(value_type %in% !!value_type &
-             variant_relationship %in% !!variant_relationship) %>%
+             variant_relationship %in% !!variant_relationship &
+             variant_type %in% !!variant_type) %>%
     select(value_type, date, region, type, mean, median, q5, q20, q80, q95)
 
   if (length(dates_between) == 2) {
