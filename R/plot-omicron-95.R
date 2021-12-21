@@ -30,7 +30,7 @@ plot_omicron_95 <- function(voc_frac, forecast_start, forecast_end) {
     geom_linerange(aes(xmin = q5, xmax = q95)) +
     geom_point(aes(x = q_median)) +
     geom_vline(xintercept = forecast_start, lty = 5, lwd = 1, col = "black") +
-    labs(y = NULL, x = "Date when 95% cases are Omicron")
+    labs(y = NULL, x = "Date when 95% of reported cases are Omicron")
 
   # copy code from forecast.vocs::plot_theme() to avoid overwriting x limits
   plot_95_percent <- plot_95_percent +

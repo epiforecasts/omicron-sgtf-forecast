@@ -163,7 +163,6 @@ plot_cumulative_percent(
 )
 ```
 
-
 ### Evidence of sampling bias in S-gene target results among Covid-19 test-positive cases
 
 ```{r, bias-advantage}
