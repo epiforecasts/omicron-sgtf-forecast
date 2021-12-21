@@ -31,7 +31,7 @@ target_date <- get_latest_date()
 
 # Estimation start date
 start_date <- as.Date("2021-11-16")
-start_sgtf_date <- as.Data("2021-11-23")
+start_sgtf_date <- as.Date("2021-11-23")
 
 # Load data for the target date
 daily_regional <- load_local_data(target_date) %>%
