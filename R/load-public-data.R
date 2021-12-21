@@ -47,3 +47,13 @@ load_public_data <- function() {
   linked_data <- link_public_data(sgt, cases)
   return(linked_data)
 }
+
+load_population <- function() {
+  read_csv("https://coronavirus.data.gov.uk/downloads/supplements/ONS-population_2021-08-05.csv") %>%
+    filter(grepl("^E120", areaCode) & category == "ALL") %>%
+    select(region_code = areaCode, population) %>%
+    full_join(load_public_case_data(), by = "region_code") %>%
+    filter(date == max(date)) %>%
+    select(region, population) %>%
+    bind_rows(summarise(., population = sum(population), region = "England"))
+}

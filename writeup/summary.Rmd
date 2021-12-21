@@ -51,12 +51,15 @@ date_latest <- get_latest_date() - 1
 
 # load data
 daily <- load_local_data(date_latest)
+pop <- load_population()
 
 # load results
 sgtf <- load_results(date_latest)
 bias <- load_results(date_latest, type = "bias")
 
-sgtf_posterior <- sgtf$posterior[variant_relationship == "correlated"]
+sgtf_posterior <- as.data.table(sgtf$posterior)[
+  variant_relationship == "correlated"
+]
 
 # get cases from correlated model
 cases <- summary(sgtf_posterior, type = "cases")
@@ -64,9 +67,13 @@ cases <- summary(sgtf_posterior, type = "cases")
 # get VOC fraction from correlated model
 voc_frac <- summary(sgtf_posterior, type = "voc_frac")
 
+# cumulative percentage with each variant
+cum_per <- cumulative_percentage(cases, pop) %>%
+  filter(type %in% "Omicron")
+
 # set up dates
-date_data_start <- min(sgtf$data$date)
-date_forecast_start <- max(sgtf$data$date)
+date_data_start <- min(as.data.table(sgtf$data)[!is.na(seq_total)]$date)
+date_forecast_start <- max(as.data.table(sgtf$data)[!is.na(seq_total)]$date)
 date_forecast_end <- max(cases$date)
 ```
 
@@ -90,8 +97,8 @@ date_forecast_end <- max(cases$date)
 
 ```{r data, fig.cap = "Daily cases in England and by UKHSA region, with S-gene target result (failed, confirmed detected, or unknown), and centred 7-day moving average up to date of data truncation (dotted line). Source: UKHSA and coronavirus.gov.uk; data by specimen date"}
 plot_daily_cases(
-  daily, truncate_date = date_forecast_start + 2, caption = "",
-  start_date = "2021-11-23", smooth_total = TRUE
+  daily, truncate_date = date_forecast_start, caption = "",
+  start_date = date_forecast_start, smooth_total = TRUE
 )
 ```
 
@@ -107,9 +114,7 @@ kable(scores)
 ### Growth rate of S-gene positive and negative cases
 
 ```{r growth}
-plot_growth(
-  as.data.table(sgtf$posterior)[variant_relationship == "correlated"]
-) +
+plot_growth(sgtf_posterior) +
   facet_wrap(~ region)
 ```
 
@@ -143,18 +148,19 @@ plot(
   facet_grid(region ~ variant_relationship, scales = "free_y")
 ```
 
-### Date at which Omicron accounts for 95% all cases
+### Date at which Omicron estimated to account for 95% of reported cases
 ```{r omicron-95}
-plot_omicron_95(voc_frac = voc_frac, 
-                forecast_start = date_forecast_start, 
+plot_omicron_95(voc_frac = voc_frac,
+                forecast_start = date_forecast_start,
                 forecast_end = date_forecast_end)
 ```
 
-### Cumulative cases since `r format(date_data_start, "%d %B %y")` by population
+### Percentage of the population with a reported Omicron case
+
 ```{r cumulative-population}
-plot_cumulative_percent(cases = cases, 
-                        forecast_start = date_forecast_start,
-                        data_start = date_data_start)
+plot_cumulative_percent(
+  cum_per, forecast_start = date_forecast_start, data_start = date_data_start
+)
 ```
 
 
