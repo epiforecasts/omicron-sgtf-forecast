@@ -171,9 +171,9 @@ All models were implemented using the [`forecast.vocs` R package](https://epifor
 
 * We found some evidence of bias in sampling S-gene status though this varied across regions and over time.  There was particularly strong evidence of biased sampling over time in the East Midlands. In other regions, the evidence of bias was substantially weaker and therefore less lilely to bias our main findings.
 
-### Estimates using data up to: `r date_forecast_start`
+### Latest available estimates using data up to: `r date_forecast_start`
 
-```{r summary-plot, fig.width = 10, fig.height = 6, fig.cap = "Summary of latest estimates for England and by UKHSA region, showing: bias in S-gene sampling, comparing the Omicron transmission advantage among cases with any SGT result, against cases with no SGT result (at 1); cumulative % of population reported as a case with Omicron variant; growth rate, and transmission advantage of Omicron variant"}
+```{r summary-plot, fig.width = 10, fig.height = 6, fig.cap = "Summary of latest estimates for England and by UKHSA region, showing: bias in S-gene sampling, comparing the Omicron transmission advantage among cases with any SGT result, against cases with no SGT result (at 1); cumulative % of population reported as a case with Omicron variant; current growth rate, and current transmission advantage of Omicron variant"}
 plot_summary(sgtf_posterior = sgtf_posterior,
              cum_per = cum_per,
              bias_posterior = bias_posterior,
