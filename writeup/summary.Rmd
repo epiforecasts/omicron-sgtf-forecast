@@ -1,5 +1,5 @@
 ---
-title: "Real-time estimation of the time-varying transmissibility advantage of Omicron in England using S-Gene Target Status as a Proxy"
+title: "Real-time estimation of the time-varying transmission advantage of Omicron in England using S-Gene Target Status as a Proxy"
 subtitle: "Summary report"
 author: Sam Abbott (1), Katharine Sherratt (1), Sebastian Funk (1)
 bibliography: library.bib
@@ -89,14 +89,6 @@ date_forecast_end <- max(cases$date)
 
 1. Centre for the Mathematical Modelling of Infectious Diseases, London School of Hygiene & Tropical Medicine, London WC1E 7HT, United Kingdom
 
-### Estimates for `r date_forecast_start`
-
-```{r summary-plot, fig.width = 6, fig.height = 6, fig.cap = "Summary of latest estimates for England and by UKHSA region, showing: bias in S-gene sampling, comparing the Omicron transmission advantage among cases with any SGT result, against cases with no SGT result (at 1); cumulative % of population reported as a case with Omicron variant; growth rate, and transmission advantage of Omicron variant"}
-plot_summary(sgtf_posterior = sgtf_posterior, cum_per = cum_per,
-             bias_posterior = bias_posterior, 
-             date_forecast_start = date_forecast_start)
-```
-
 ## Introduction
 
 Since being highlighted by scientists in South Africa Omicron has spread rapidly globally. Using initial South African data, it has been estimated that Omicron may be both more transmissible and have greater immune escape than the previously dominant Delta variant. 
@@ -113,9 +105,9 @@ We use S-gene status by specimen date sourced from UKHSA as a direct proxy for t
 
 We consider two autoregressive models with different assumptions about the relationship between growth rates for Omicron and non-Omicron cases. Both models estimate expected cases for each variant as a combination of expected cases from the previous day and the exponential of the log growth rate. The growth rate is then itself modelled as a differenced AR(1) process. 
 
-For the first model variants are assumed to have growth rates related by a fixed scaling (described from now on as the scaled model). In this model variant growth rates then share a single differenced AR(1) process meaning that they vary over time in the same way. This model assumes that variants differ only due to a transmissibility advantage and that there are no time-varying biases in the reported data.
+For the first model variants are assumed to have growth rates related by a fixed scaling (described from now on as the scaled model). In this model variant growth rates then share a single differenced AR(1) process meaning that they vary over time in the same way. This model assumes that variants differ only due to a transmission advantage and that there are no time-varying biases in the reported data.
 
-In the second model, we relax the assumption that variants co-vary using a vector autoregression structure which assume that the 1st differences of the variant growth rates are drawn from a multivariate normal distribution. This model formulation can account for variant differences other than a transmissibility advantage and can also better handle time-varying biases in data sources.
+In the second model, we relax the assumption that variants co-vary using a vector autoregression structure which assume that the 1st differences of the variant growth rates are drawn from a multivariate normal distribution. This model formulation can account for variant differences other than a transmission advantage and can also better handle time-varying biases in data sources.
 
 For both models, we fit jointly to reported cases and SGTF data assuming a negative binomial and beta-binomial observation model respectively. We also initialise both models by fitting to a week of case only data where the Omicron variant is assumed to not be present (from the 17th of November to the 22nd).
 
@@ -137,6 +129,8 @@ All models were implemented using the [`forecast.vocs` R package](https://epifor
 
 * SGTF may be an imperfect proxy for Omicron. We make no adjustment for the background rate of SGTF observed for Delta or other factors that might lead to SGTF, or a confirmed detected S-gene observed with Omicron.
 
+* The public case data used here does not include known reinfections. If the proportion that these account for amongst different variants changes over time then this could affect our estimates.
+
 * We make a crude adjustment for the right censoring of reported case counts by specimen date by excluding the last two days of data. However, this may be insufficient to correct for the bias and so our real-time growth rates estimates may be biased downwards.
 
 * Our analysis is based on reported case counts augmented with SGTF data. Growth rates estimated from reported case counts may be biased during periods when changes in testing practice occur or when available testing is at capacity.
@@ -146,6 +140,8 @@ All models were implemented using the [`forecast.vocs` R package](https://epifor
 * Our models do not attempt to capture the underlying transmission process or delays in reporting. In particular, we do not consider the generation time of variants which may differ. Differences in the generation time would result in apparent differences in the growth rate (on the scale of the generation time) even in scenarios where growth rates were fixed. 
 
 * Our forecasts assume a fixed growth rate across the forecast horizon and do not account for population susceptibility or other factors such as changes in contact patterns.
+
+* Our model only estimates an overall transmission advantage. We do not attempt to distinguish between "intrinsic" transmissibility and immune escape, a combination of which is likely to be underlying any sustained differences in growth rate.
 
 * Our estimates are at the national or UKHSA region scale. There may be additional variation within these areas that these estimates cannot capture.
 
@@ -157,19 +153,27 @@ All models were implemented using the [`forecast.vocs` R package](https://epifor
 
 * A model that assumed that variants growth rates varied over time relative to each other performed better in all regions than a model where the relative difference was constant over time. 
 
-* Prior to the introduction of Omicron the growth rate of non-Omicron cases was positive in most regions. In the last few weeks the growth rate for non-Omicron cases has become negative indicating that if nothing changes Omicron will be the only circulating variant at some point in the future.
+* Prior to the introduction of Omicron the growth rate of non-Omicron cases was positive in most regions. In the last few weeks the growth rate for non-Omicron cases has become negative suggesting that if nothing changes Omicron will be the only circulating variant at some point in the future.
 
 * The growth rate for Omicron cases has been consistently positive in all regions since the 23rd of November though with slightly different absolute values and with different variation over time.
 
 * In the last week both case data and the SGTF data suggest that the growth rate of Omicron in reported cases has reduced markedly though at this time still appears positive in all regions excluding London.
 
-* Assuming a fixed difference in transmissibility between variants indicates an advantage for Omicron in the order of 30% to 50% across all regions. Allowing this to vary (which was shown to better represent the data) implies that this advantage generally appears to have increased over time until the last week where it fell back to initially observed levels or below in all regions. 
+* Assuming a fixed difference in growth between variants indicates an advantage for Omicron in the order of 30% to 50% across all regions. Allowing this to vary (which was shown to better represent the data) implies that this advantage generally appears to have increased over time until the last week where it fell back to initially observed levels or below in all regions. 
 
 * The variation in transmission advantage also differed by region with some regions having a fairly stable trend (such as the South West) and some (such as the North East) indicating large changes.
 
-* Assuming growth rates stay as currently estimated we forecast that approximately 7.5% to 10% of the English population will have reported an Omicron case by the end of 2021, although with significant regional variation.
+* Assuming growth rates stay as currently estimated we forecast that approximately 7.5% to 10% of the English population will have reported an Omicron case by the end of 2021, although with significant regional variation. This does not take into account any changes in testing behaviour or capacity.
 
 * We found some evidence of bias in sampling S-gene status though this varied across regions and over time.  There was particularly strong evidence of biased sampling over time in the East Midlands. In other regions, the evidence of bias was substantially weaker and therefore less lilely to bias our main findings.
+
+### Estimates for `r date_forecast_start`
+
+```{r summary-plot, fig.width = 10, fig.height = 6, fig.cap = "Summary of latest estimates for England and by UKHSA region, showing: bias in S-gene sampling, comparing the Omicron transmission advantage among cases with any SGT result, against cases with no SGT result (at 1); cumulative % of population reported as a case with Omicron variant; growth rate, and transmission advantage of Omicron variant"}
+plot_summary(sgtf_posterior = sgtf_posterior, cum_per = cum_per,
+             bias_posterior = bias_posterior,
+             date_forecast_start = date_forecast_start)
+```
 
 ### Data description
 
