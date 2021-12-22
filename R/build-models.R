@@ -31,11 +31,11 @@ build_models <- function(obs, parameters,
                                   show_messages = FALSE,
                                   refresh = 0,
                                   iter_sampling = samples_per_chain))
-  if (loo) {
+  if (loo & !is.null(forecasts$fit)) {
     forecasts <- forecasts %>%
       dplyr::mutate(loo = purrr::map(fit, ~ .$loo()))
   }
-  if (!keep_fit) {
+  if (!keep_fit & !is.null(forecasts$fit)) {
     forecasts <- forecasts %>%
       select(-fit)
   }
