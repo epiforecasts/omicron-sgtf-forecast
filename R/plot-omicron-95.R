@@ -24,14 +24,16 @@ plot_omicron_95 <- function(voc_frac, forecast_start, forecast_end) {
     select(region, quantile, date) %>%
     pivot_wider(id_cols = region, names_from = quantile, values_from = date) %>%
     mutate(
-      across(starts_with("q"), 
-             ~ as.Date(ifelse(is.na(.x), forecast_end, .x), origin = lubridate::origin))
+      across(starts_with("q"),
+             ~ as.Date(ifelse(is.na(.x), forecast_end, .x),
+                       origin = lubridate::origin))
     ) %>%
     arrange(q_median) %>%
     mutate(region = factor(region, ordered = TRUE)) %>%
     filter(!is.na(region))
 
   plot_95_percent <- omicron_95 %>%
+    mutate(region = forcats::fct_rev(region)) %>%
     ggplot(aes(y = region)) +
     geom_linerange(aes(xmin = q5, xmax = q95), alpha = 0.3, size = 3) +
     geom_linerange(aes(xmin = q20, xmax = q80), alpha = 0.3, size = 3) +

@@ -26,6 +26,7 @@ Imports:
     cmdstanr,
     dplyr,
     forecast.vocs,
+    forcats,
     future,
     future.callr,
     future.apply,
