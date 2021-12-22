@@ -89,6 +89,8 @@ date_forecast_end <- max(cases$date)
 
 1. Centre for the Mathematical Modelling of Infectious Diseases, London School of Hygiene & Tropical Medicine, London WC1E 7HT, United Kingdom
 
+**Estimates are updated daily as new data is released but the summary of the situation is updated less frequently and so may not match current estimates. All data (both raw data and estimates) are available in [here]() and the report should be fully reproducible. Reports and data as available at the time of release are available from the [release page](https://github.com/epiforecasts/omicron-sgtf-forecast/releases).**
+
 ## Introduction
 
 Since being highlighted by scientists in South Africa Omicron has spread rapidly globally. Using initial South African data, it has been estimated that Omicron may be both more transmissible and have greater immune escape than the previously dominant Delta variant. 
@@ -150,6 +152,8 @@ All models were implemented using the [`forecast.vocs` R package](https://epifor
 ## Results 
 
 ### Summary
+
+**Last updated: 2021-12-22**
 
 * A model that assumed that variants growth rates varied over time relative to each other performed better in all regions than a model where the relative difference was constant over time. 
 
