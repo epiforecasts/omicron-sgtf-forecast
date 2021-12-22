@@ -105,9 +105,9 @@ We use S-gene status by specimen date sourced from UKHSA as a direct proxy for t
 
 We consider two autoregressive models with different assumptions about the relationship between growth rates for Omicron and non-Omicron cases. Both models estimate expected cases for each variant as a combination of expected cases from the previous day and the exponential of the log growth rate. The growth rate is then itself modelled as a differenced AR(1) process. 
 
-For the first model variants are assumed to have growth rates related by a fixed scaling (described from now on as the scaled model). In this model variant growth rates then share a single differenced AR(1) process meaning that they vary over time in the same way. This model assumes that variants differ only due to a transmissibility advantage and that there are no time-varying biases in the reported data.
+For the first model variants are assumed to have growth rates related by a fixed scaling (described from now on as the scaled model). In this model variant growth rates then share a single differenced AR(1) process meaning that they vary over time in the same way. This model assumes that variants differ only due to a transmission advantage and that there are no time-varying biases in the reported data.
 
-In the second model, we relax the assumption that variants co-vary using a vector autoregression structure which assume that the 1st differences of the variant growth rates are drawn from a multivariate normal distribution. This model formulation can account for variant differences other than a transmissibility advantage and can also better handle time-varying biases in data sources.
+In the second model, we relax the assumption that variants co-vary using a vector autoregression structure which assume that the 1st differences of the variant growth rates are drawn from a multivariate normal distribution. This model formulation can account for variant differences other than a transmission advantage and can also better handle time-varying biases in data sources.
 
 For both models, we fit jointly to reported cases and SGTF data assuming a negative binomial and beta-binomial observation model respectively. We also initialise both models by fitting to a week of case only data where the Omicron variant is assumed to not be present (from the 17th of November to the 22nd).
 
