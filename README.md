@@ -2,6 +2,11 @@
 
 In this work, we use S-gene target failure (SGTF) as a proxy of variant status combined with reported case counts to explore the evidence for changes in transmission advantage over time for the Omicron variant. If present this could indicate the impact of immune escape, bias in SGTF data or differences in the populations within which the variants are circulating. We also report estimates for growth rates by variant and overall, case counts overall and by variant for a 14 day forecast window assuming constant future growth, the date at which Omicron will become dominant in England and in each NHS region, and the estimated cumulative percentage of the population with a reported Omicron case.
 
+## Output
+
+- Summary: [html](), [pdf]()
+- Paper: 
+
 ## Key files and folders
 
 Folder/File | Purpose

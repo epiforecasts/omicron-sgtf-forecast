@@ -36,12 +36,3 @@ load_results <- function(date, type = "sgtf", path = "data/estimates") {
   }
   return(results)
 }
-
-simplify_posterior <- function(posterior, value_type,
-                               variant_relationship = "correlated") {
-  results <- posterior %>%
-    filter(value_type == !!value_type &
-             variant_relationship == !!variant_relationship) %>%
-    select(value_type, date, region, type, median, q5, q95)
-  return(results)
-}
