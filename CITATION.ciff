@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite it as below."
+authors:
+- family-names: "Abbott"
+  given-names: "Sam"
+  orcid: "https://orcid.org/0000-0001-8057-8037"
+- family-names: "Sherratt"
+  given-names: "Katharine"
+  orcid: "https://orcid.org/0000-0003-2049-3423"
+- family-names: "Funk"
+  given-names: "Sebastian"
+  orcid: "https://orcid.org/0000-0002-2842-3406"
+title: "Real-time estimation of the time-varying transmission advantage of Omicron in England using S-Gene Target Status as a Proxy"
+version: 1.0.0
+doi: 10.5281/zenodo.1234
+date-released: 2021-12-22
+url: "https://github.com/epiforecasts/omicron-sgtf-forecast"
