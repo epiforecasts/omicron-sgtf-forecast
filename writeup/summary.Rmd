@@ -129,6 +129,8 @@ All models were implemented using the [`forecast.vocs` R package](https://epifor
 
 * SGTF may be an imperfect proxy for Omicron. We make no adjustment for the background rate of SGTF observed for Delta or other factors that might lead to SGTF, or a confirmed detected S-gene observed with Omicron.
 
+* The public case data used here does not include known reinfections. If the proportion that these account for amongst different variants changes over time then this could affect our estimates.
+
 * We make a crude adjustment for the right censoring of reported case counts by specimen date by excluding the last two days of data. However, this may be insufficient to correct for the bias and so our real-time growth rates estimates may be biased downwards.
 
 * Our analysis is based on reported case counts augmented with SGTF data. Growth rates estimated from reported case counts may be biased during periods when changes in testing practice occur or when available testing is at capacity.
@@ -155,11 +157,11 @@ All models were implemented using the [`forecast.vocs` R package](https://epifor
 
 * In the last week both case data and the SGTF data suggest that the growth rate of Omicron in reported cases has reduced markedly though at this time still appears positive in all regions excluding London.
 
-* Assuming a fixed difference in transmissibility between variants indicates an advantage for Omicron in the order of 30% to 50% across all regions. Allowing this to vary (which was shown to better represent the data) implies that this advantage generally appears to have increased over time until the last week where it fell back to initially observed levels or below in all regions. 
+* Assuming a fixed difference in growth between variants indicates an advantage for Omicron in the order of 30% to 50% across all regions. Allowing this to vary (which was shown to better represent the data) implies that this advantage generally appears to have increased over time until the last week where it fell back to initially observed levels or below in all regions. 
 
 * The variation in transmission advantage also differed by region with some regions having a fairly stable trend (such as the South West) and some (such as the North East) indicating large changes.
 
-* Assuming growth rates stay as currently estimated we forecast that approximately 7.5% to 10% of the English population will have reported an Omicron case by the end of 2021, although with significant regional variation.
+* Assuming growth rates stay as currently estimated we forecast that approximately 7.5% to 10% of the English population will have reported an Omicron case by the end of 2021, although with significant regional variation. This does not take into account any changes in testing behaviour or capacity.
 
 * We found some evidence of bias in sampling S-gene status though this varied across regions and over time.  There was particularly strong evidence of biased sampling over time in the East Midlands. In other regions, the evidence of bias was substantially weaker and therefore less lilely to bias our main findings.
 
