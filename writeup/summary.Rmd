@@ -279,7 +279,7 @@ plot_cumulative_percent(
 
 ### Evidence of sampling bias in S-gene target results among Covid-19 test-positive cases
 
-```{r, bias-advantage, eval = FALSE, fig.cap = "Estimates of the time-varying daily transmission advantage for cases with a reported S-gene status vs those without for England and by NHS region. Deviation from 100% indicates that growth rates differ in the two populations which is itself an indication of sampling bias. If present this sampling bias could impact our main results. Transmission advantage is assumed to be constant beyond the forecasting horizon (dashed line). 90% and 60% credible intervals are shown. Note that here a 7-day piecewise constant growth rate has been used."}
+```{r, bias-advantage, eval = TRUE, fig.cap = "Estimates of the time-varying daily transmission advantage for cases with a reported S-gene status vs those without for England and by NHS region. Deviation from 100% indicates that growth rates differ in the two populations which is itself an indication of sampling bias. If present this sampling bias could impact our main results. Transmission advantage is assumed to be constant beyond the forecasting horizon (dashed line). 90% and 60% credible intervals are shown. Note that here a 7-day piecewise constant growth rate has been used."}
 plot(bias$posterior, type = "voc_advantage") +
   labs(y = "Transmission advantage of cases with a reported S gene
             status versus those without") +
