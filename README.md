@@ -1,6 +1,6 @@
 # Real-time estimation of the time-varying transmissibility advantage of Omicron in England using S-Gene Target Status as a Proxy
 
-This repo aims to explore dynamics of the Omicron variant of Covid-19 in England, using [forecast.vocs](https://github.com/epiforecasts/forecast.vocs).
+In this work, we use S-gene target failure (SGTF) as a proxy of variant status combined with reported case counts to explore the evidence for changes in transmission advantage over time for the Omicron variant. If present this could indicate the impact of immune escape, bias in SGTF data or differences in the populations within which the variants are circulating. We also report estimates for growth rates by variant and overall, case counts overall and by variant for a 14 day forecast window assuming constant future growth, the date at which Omicron will become dominant in England and in each NHS region, and the estimated cumulative percentage of the population with a reported Omicron case.
 
 ## Key files and folders
 
@@ -41,5 +41,5 @@ load_results(date = <date>)
 To update the data and estimates run the following. Note this will update estimates regardless of if the data has been updated. 
 
 ```bash
-bash bin/update.sh
+bash bin/update-regional-estimates.sh
 ```

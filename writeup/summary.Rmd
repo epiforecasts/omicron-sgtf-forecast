@@ -1,7 +1,7 @@
 ---
 title: "Real-time estimation of the time-varying transmissibility advantage of Omicron in England using S-Gene Target Status as a Proxy"
 subtitle: "Summary report"
-author: Sam Abbott, Katharine Sherratt, Sebastian Funk
+author: Sam Abbott (1), Katharine Sherratt (1), Sebastian Funk (1)
 bibliography: library.bib
 csl: https://raw.githubusercontent.com/citation-style-language/styles/master/apa-numeric-superscript-brackets.csl
 date: "`r format(Sys.Date(), format = '%B %d, %Y')`"
@@ -80,9 +80,11 @@ date_forecast_start <- max(as.data.table(sgtf$data)[!is.na(seq_total)]$date)
 date_forecast_end <- max(cases$date)
 ```
 
+1. Center for the Mathematical Modelling of Infectious Diseases, London School of Hygiene & Tropical Medicine, London WC1E 7HT, United Kingdom
+
 ## Introduction
 
-Since being highlighted by Scientists in South Africa Omicron has spread rapidly globally. Using initial South African data it has been estimated that Omicron may be both more transmissible and have greater immune escape than the previously dominant Delta variant. 
+Since being highlighted by scientists in South Africa Omicron has spread rapidly globally. Using initial South African data, it has been estimated that Omicron may be both more transmissible and have greater immune escape than the previously dominant Delta variant. 
 
 In this work, we use S-gene target failure (SGTF) as a proxy of variant status combined with reported case counts to explore the evidence for changes in transmission advantage over time for the Omicron variant. If present this could indicate the impact of immune escape, bias in SGTF data or differences in the populations within which the variants are circulating. We also report estimates for growth rates by variant and overall, case counts overall and by variant for a 14 day forecast window assuming constant future growth, the date at which Omicron will become dominant in England and in each NHS region, and the estimated cumulative percentage of the population with a reported Omicron case.
 
@@ -112,7 +114,7 @@ To explore the potential for bias in cases that have a reported SGTF status we a
 
 ### Implementation
 
-All models were implemented using the [`forecast.vocs` R package](https://epiforecasts.io/forecast.vocs/) [@R; @forecast.vocs] and fit using `stan` [@stan] and `cmdstanr` [@cmdstanr]. Each model was fit using 2 chains with each chain having a 1000 warmup steps and 2000 sampling steps. Convergence was assessed using the $R^{\hat}$ diagnostic [@stan]. Models were compared using approximate leave-one-out (LOO) cross-validation [@loo; @loo-paper] where negative values indicate an improved fit for the correlated model.
+All models were implemented using the [`forecast.vocs` R package](https://epiforecasts.io/forecast.vocs/) [@R; @forecast.vocs] and fit using `stan` [@stan] and `cmdstanr` [@cmdstanr]. Each model was fit using 2 chains with each chain having a 1000 warmup steps and 2000 sampling steps. Convergence was assessed using the Rhat diagnostic [@stan]. Models were compared using approximate leave-one-out (LOO) cross-validation [@loo; @loo-paper] where negative values indicate an improved fit for the correlated model.
 
 
 ## Limitations
@@ -138,12 +140,26 @@ All models were implemented using the [`forecast.vocs` R package](https://epifor
 
 ### Summary
 
+* A model that assumed that variants growth rates varied over time relative to each other performed better in all regions than a model where the relative difference was cosntant over time. 
+
+* Prior to the introduction of Omicron the growth rate of non-Omicron cases was positive in most regions. In the last few weeks the growth rate for non-Omicron cases has become negative indicating that if nothing changes Omicron will be the only circulating variant at some point in the future.
+
+* The growth rate for Omicron cases has been consistently positive in all regions since the 23rd of November though with slightly different absolute values and with different variation over time.
+
+* In the last week both case data and the SGTF data suggest that the growth rate of Omicron in reported cases has reduced markedly though at this time still appears positive in all regions excluding London.
+
+* Assuming a fixed difference in transmissibilty between variants indicate an advantage for Omciron in the order of 30% to 50% across all regions. Allowing this to vary (which was shown to better represent the data) implies that this advantage generally appears to have increased over time until the last week where it fell back to initially observed levels or below in all regions. 
+
+* The variation in transmission advantage also differed by region with some regions having a fairly stable trend (such as the South West) and some (such as the North East) indicating large changes.
+
+* Assuming growth rates stay as currently estimated we forecast that approimately 7.5% to 10% of the English population will have reported an Omicron case by the end of 2021 though significant regional variation.
+
 ### Data description
 
 ```{r data, fig.cap = "Daily cases in England and by UKHSA region, with S-gene target result (failed, confirmed detected, or unknown), and centred 7-day moving average up to date of data truncation (dotted line). Source: UKHSA and coronavirus.gov.uk; data by specimen date"}
 plot_daily_cases(
   daily, truncate_date = date_forecast_start, caption = "",
-  start_date = date_forecast_start, smooth_total = TRUE
+  start_date = data_date_start, smooth_total = TRUE
 )
 ```
 
@@ -156,12 +172,12 @@ scores <- janitor::clean_names(
 kable(scores, caption = "Estimated differences in the ELPD metric (with
  standard errors) between the scaled and correlated models for England and NHS
  regions. Negative values indicate that the correlated model is estimated to be
- a better fit to the data.")
+ a better fit to the data. ")
 ```
 
-### Growth rate of reported cases overall, with the Omicron variant, and with the non-Omicron variant
+### Growth rate of reported cases overall, with the Omicron variant, and not with the Omicron variant
 
-```{r growth, fig.cap = "Estimates of the time-varying daily growth rate for England and by NHS region (using the log scale approximation) for reported cases overall, with the Omicron variant, and with the non-Omicron variant. Growth rates are assumed to be piecewise constant with potential changes every 3 days. Growth rates are assumed to be constant beyond the forecast horizon (vertical dashed line). 90% and 60% credible intervals are shown."}
+```{r growth, fig.cap = "Estimates of the time-varying daily growth rate for England and by NHS region (using the log scale approximation) for reported cases overall, with the Omicron variant, and not with the Omicron variant. Growth rates are assumed to be piecewise constant with potential changes every 3 days. Growth rates are assumed to be constant beyond the forecast horizon (vertical dashed line). 90% and 60% credible intervals are shown."}
 plot_growth(sgtf_posterior) +
   facet_wrap(~ region)
 ```
@@ -170,11 +186,9 @@ plot_growth(sgtf_posterior) +
 
 #### Natural scale
 
-```{r, voc-frac, fig.cap = "Estimates of the proportion of reported cases with the Omicron variant for England and by NHS region using both the scaled model and the correlated model on the natural scale. he forecast horizon is indicated using a dashed line. 90% and 60% credible intervals are shown."}
+```{r voc-frac-natural, fig.cap = "Estimates of the proportion of reported cases with the Omicron variant for England and by NHS region using both the scaled model and the correlated model on the natural scale. The forecast horizon is indicated using a dashed line. 90% and 60% credible intervals are shown."}
 plot(
-  sgtf$posterior[,
-   variant_relationship := stringr::str_to_sentence(variant_relationship)
-  ], as.data.table(sgtf$data), type = "voc_frac",
+  sgtf$posterior, as.data.table(sgtf$data), type = "voc_frac",
   fill = variant_relationship, voc_label = "Omicron variant", log = FALSE
 ) +
   labs(fill = "Variant relationship") +
@@ -183,7 +197,7 @@ plot(
 
 #### Logit scale
 
-```{r, voc-frac, fig.cap = "Estimates of the proportion of reported cases with the Omicron variant for England and by NHS region using both the scaled model and the correlated model on the logit scale. Note that scaled model is effectively assuming a linear relationship on this scale. he forecast horizon is indicated using a dashed line. 90% and 60% credible intervals are shown."}
+```{r voc-frac-logit, fig.cap = "Estimates of the proportion of reported cases with the Omicron variant for England and by NHS region using both the scaled model and the correlated model on the logit scale. Note that scaled model is effectively assuming a linear relationship on this scale. The forecast horizon is indicated using a dashed line. 90% and 60% credible intervals are shown."}
 plot(
   sgtf$posterior, as.data.table(sgtf$data), type = "voc_frac",
   fill = variant_relationship, voc_label = "Omicron variant"
@@ -192,9 +206,17 @@ plot(
   facet_wrap(~ region)
 ```
 
-### Transmission advantage of the Omicron variant
+### Date at which Omicron estimated to account for 95% of reported cases
+```{r omicron-95, fig.cap = "Estimated dates at which 95% of reported cases will have the Omicron variant for England and NHS regions. Points represent the median date and ranges represent the 90% credible interval.", fig.height = 6, fig.width = 6}
+plot_omicron_95(voc_frac = voc_frac,
+                forecast_start = date_forecast_start,
+                forecast_end = date_forecast_end)
+```
 
-```{r, voc-advantage, "Estimates of the time-varying daily transmission advantage for the Omicron cases vs non-Omicron cases for England and by NHS region. Estimates are shown for both the scaled model and the correlated model. Variation in the advantage over time could be an indicator of biases in the SGTF data, differences in the populations in which the variants are circulating or as a result of immune escape. Transmission advantage is assumed to be constant beyond the forecasting horizon (dashed line). 90% and 60% credible intervals are shown."}
+
+### Time-varyign transmission advantage of the Omicron variant
+
+```{r voc-advantage, fig.cap = "Estimates of the time-varying daily transmission advantage for the Omicron cases vs non-Omicron cases for England and by NHS region. Estimates are shown for both the scaled model and the correlated model. Variation in the advantage over time could be an indicator of biases in the SGTF data, differences in the populations in which the variants are circulating or as a result of immune escape. Transmission advantage is assumed to be constant beyond the forecasting horizon (dashed line). 90% and 60% credible intervals are shown."}
 plot(
   sgtf$posterior, type = "voc_advantage",
   fill = variant_relationship, group = variant_relationship,
@@ -208,23 +230,27 @@ plot(
 
 ### Posterior predictions and forecasts of reported cases
 
-```{r, cases, fig.cap = "Estimates of the number of reported cases by variant and overall for England and each NHS region. Estimates are shown both within the window supported by the data and for 14 days afterwards as a forecast where it is assumed that growth rates for each variant are stable. The forecast horizon is indicated using a dashed line. 90% and 60% credible intervals are shown."}
+#### Natural
+
+```{r natural-cases, fig.cap = "Estimates of the number of reported cases by variant and overall for England and each NHS region. Estimates are shown both within the window supported by the data and for 14 days afterwards as a forecast where it is assumed that growth rates for each variant are stable. The forecast horizon is indicated using a dashed line. 90% and 60% credible intervals are shown."}
+plot(
+  sgtf_posterior, as.data.table(sgtf$data), type = "cases", log = FALSE
+) +
+  facet_wrap(~region, scales = "free_y")
+```
+
+#### Log
+
+```{r log-cases, fig.cap = "Estimates of the number of reported cases by variant and overall for England and each NHS region on the log 2 scale. Estimates are shown both within the window supported by the data and for 14 days afterwards as a forecast where it is assumed that growth rates for each variant are stable. The forecast horizon is indicated using a dashed line. 90% and 60% credible intervals are shown."}
 plot(
   sgtf_posterior, as.data.table(sgtf$data), type = "cases"
 ) +
   facet_wrap(~region, scales = "free_y")
 ```
 
-### Date at which Omicron estimated to account for 95% of reported cases
-```{r omicron-95, fig.cap = "Estimated dates at which 95% of reported cases will have the Omicron variant for England and NHS regions. Points represent the median date and ranges represent the 90% credible interval."}
-plot_omicron_95(voc_frac = voc_frac,
-                forecast_start = date_forecast_start,
-                forecast_end = date_forecast_end)
-```
+### Cumulative percentage of the population with a reported Omicron case
 
-### Percentage of the population who have been reported Omicron case
-
-```{r cumulative-population, fig.cap = "Estimates of the percentage of the populations of England and NHS regions that will have reported an Omicron case. "}
+```{r cumulative-population, fig.cap = "Estimates of the cumulative percentage of the population with a reported Omicron casep in England and by NHS. The forecast horizon is indicated using a dashed line. 90% and 60% credible intervals are shown."}
 plot_cumulative_percent(
   cum_per, forecast_start = date_forecast_start, data_start = date_data_start
 )
@@ -232,7 +258,7 @@ plot_cumulative_percent(
 
 ### Evidence of sampling bias in S-gene target results among Covid-19 test-positive cases
 
-```{r, bias-advantage}
+```{r, bias-advantage, eval = FALSE}
 plot(bias$posterior, type = "voc_advantage") +
   labs(y = "Transmission advantage of cases with a reported S gene
             status versus those without") +

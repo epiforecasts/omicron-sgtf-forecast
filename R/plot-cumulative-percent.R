@@ -16,7 +16,7 @@ plot_cumulative_percent <- function(cases_pop, forecast_start, data_start) {
     scale_y_continuous(labels = scales::label_percent()) + #, limits = c(0,0.01)
     facet_wrap(~ region) +
     labs(x = NULL,
-         y = "% of the population estimated reported as an Omicron case")
+         y = "Cumulative % of the population with a reported Omicron case")
 
   plot_cumulative_pop <- forecast.vocs:::plot_theme(plot_cumulative_pop)
   return(plot_cumulative_pop)
