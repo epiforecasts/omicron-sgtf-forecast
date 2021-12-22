@@ -6,10 +6,7 @@ In this work, we use S-gene target failure (SGTF) as a proxy of variant status c
 
 Estimates are updated daily as new data is released but the summary of the situation is updated less frequently and so may not match current estimates. All data (both raw data and estimates) are available [here](https://github.com/epiforecasts/omicron-sgtf-forecast/tree/main/data) and the report should be fully reproducible. Reports and data as available at the time of release are available from the [release page](https://github.com/epiforecasts/omicron-sgtf-forecast/releases).
 
-## Output
-
-- Summary: [html](https://epiforecasts.io/omicron-sgtf-forecast/summary), [pdf](https://epiforecasts.io/omicron-sgtf-forecast/summary.pdf)
-- Paper: 
+**Real-time report: [as html](https://epiforecasts.io/omicron-sgtf-forecast/summary), [or pdf](https://epiforecasts.io/omicron-sgtf-forecast/summary.pdf)**
 
 ## Key files and folders
 
