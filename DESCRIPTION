@@ -1,5 +1,5 @@
 Package: omicron.sgtf.forcast
-Title: Real-time estimation of the time-varying transmissibility advantage of Omicron in England using S-Gene Target Status as a Proxy
+Title: Real-time estimation of the time-varying transmission advantage of Omicron in England using S-Gene Target Status as a Proxy
 Version: 0.1.0
 Authors@R: 
     c(person(given = "Katharine",
@@ -16,7 +16,7 @@ Authors@R:
             role = c("aut"),
             email = "sebastian.funk@lshtm.ac.uk",
             comment = c(ORCID = "0000-0002-2842-3406")))
-Description: Real-time estimation of the time-varying transmissibility advantage of Omicron in England using S-Gene Target Status as a Proxy.
+Description: Real-time estimation of the time-varying transmission advantage of Omicron in England using S-Gene Target Status as a Proxy.
 License: MIT + file LICENSE
 Depends: 
     R (>= 2.10)
