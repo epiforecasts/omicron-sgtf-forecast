@@ -244,7 +244,7 @@ plot_omicron_95(voc_frac = voc_frac,
 
 ### Time-varying transmission advantage of the Omicron variant
 
-```{r voc-advantage, fig.cap = "Estimates of the time-varying daily transmission advantage for the Omicron cases vs non-Omicron cases for England and by UKHSA region. Estimates are shown for both the scaled model and the correlated model. Variation in the advantage over time could be an indicator of biases in the SGTF data, differences in the populations in which the variants are circulating or as a result of immune escape. Transmission advantage is assumed to be constant beyond the forecasting horizon (dashed line). 90% and 60% credible intervals are shown. Advantage is calculated as the exponential of Omicron's growth rate non-Omicron's growth rate."}
+```{r voc-advantage, fig.cap = "Estimates of the time-varying daily transmission advantage for the Omicron cases vs non-Omicron cases for England and by UKHSA region. Estimates are shown for both the scaled model and the correlated model. Variation in the advantage over time could be an indicator of biases in the SGTF data, differences in the populations in which the variants are circulating or as a result of immune escape. Transmission advantage is assumed to be constant beyond the forecasting horizon (dashed line). 90% and 60% credible intervals are shown. Advantage is calculated as the exponential of Omicron's growth rate minus non-Omicron's growth rate."}
 plot(
   sgtf$posterior, type = "voc_advantage",
   fill = variant_relationship, group = variant_relationship,
