@@ -87,11 +87,11 @@ date_forecast_start <- max(as.data.table(sgtf$data)[!is.na(seq_total)]$date)
 date_forecast_end <- max(cases$date)
 ```
 
-_1. Center for the Mathematical Modelling of Infectious Diseases, London School of Hygiene & Tropical Medicine, London WC1E 7HT, United Kingdom_
+1. Centre for the Mathematical Modelling of Infectious Diseases, London School of Hygiene & Tropical Medicine, London WC1E 7HT, United Kingdom
 
 ### Estimates for `r date_forecast_start`
 
-```{r summary-plot, fig.width = 6, fig.height = 6, fig.cap = "Summary of latest estimates for England and by UKHSA region, showing: bias in S-gene sampling, comparing transmissibility among cases with any SGT result, against cases with no SGT result (1); cumulative % of population reported as a case with Omicron variant; growth rate, and transmission advantage of Omicron variant"}
+```{r summary-plot, fig.width = 6, fig.height = 6, fig.cap = "Summary of latest estimates for England and by UKHSA region, showing: bias in S-gene sampling, comparing the Omicron transmission advantage among cases with any SGT result, against cases with no SGT result (at 1); cumulative % of population reported as a case with Omicron variant; growth rate, and transmission advantage of Omicron variant"}
 plot_summary(sgtf_posterior = sgtf_posterior, cum_per = cum_per,
              bias_posterior = bias_posterior, 
              date_forecast_start = date_forecast_start)

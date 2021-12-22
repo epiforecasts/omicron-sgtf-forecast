@@ -30,7 +30,7 @@ plot_summary <- function(sgtf_posterior, cum_per, bias_posterior,
 
   # bias
   sampling <- summary(bias_posterior, type = "voc_advantage") %>%
-    mutate(value_type = "Bias: any-SGT vs no-result transmission")
+    mutate(value_type = "Bias: any-SGT vs no-SGT result")
 
   # join --------------------------------------------------------------------
   region_factor <- as.character(sgtf$posterior$region)
@@ -40,7 +40,7 @@ plot_summary <- function(sgtf_posterior, cum_per, bias_posterior,
   reference_lines <- c("Omicron: transmission advantage" = "1",
                        "Omicron: growth rate" = "0",
                        "Omicron: cumulative population proportion" = "",
-                       "Bias: any-SGT vs no-result transmission" = "1")
+                       "Bias: any-SGT vs no-SGT result" = "1")
 
   summary_data <- bind_rows(advantage, growth, cumpercent, sampling) %>%
     filter(date == date_forecast_start & type %in% c("Omicron", "SGT-result")) %>%
