@@ -260,7 +260,7 @@ plot(
 
 #### Natural
 
-```{r natural-cases, fig.cap = "Estimates of the number of reported cases by variant and overall for England and each UKHSA region. Estimates are shown both within the window supported by the data and for 14 days afterwards as a forecast where it is assumed that growth rates for each variant are stable. The forecast horizon is indicated using a dashed line. 90% and 60% credible intervals are shown."
+```{r natural-cases, fig.cap = "Estimates of the number of reported cases by variant and overall for England and each UKHSA region. Estimates are shown both within the window supported by the data and for 14 days afterwards as a forecast where it is assumed that growth rates for each variant are stable. The forecast horizon is indicated using a dashed line. 90% and 60% credible intervals are shown."}
 plot(
   sgtf_posterior, as.data.table(sgtf$data), type = "cases", log = FALSE
 ) +
