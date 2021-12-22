@@ -4,7 +4,7 @@ In this work, we use S-gene target failure (SGTF) as a proxy of variant status c
 
 ## Output
 
-- Summary: [html](), [pdf]()
+- Summary: [html](https://epiforecasts.io/omicron-sgtf-forecast/summary), [pdf](https://epiforecasts.io/omicron-sgtf-forecast/summary.pdf)
 - Paper: 
 
 ## Key files and folders
