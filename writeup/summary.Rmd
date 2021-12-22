@@ -157,7 +157,7 @@ All models were implemented using the [`forecast.vocs` R package](https://epifor
 
 * A model that assumed that variants growth rates varied over time relative to each other performed better in all regions than a model where the relative difference was constant over time. 
 
-* Prior to the introduction of Omicron the growth rate of non-Omicron cases was positive in most regions. In the last few weeks the growth rate for non-Omicron cases has become negative indicating that if nothing changes Omicron will be the only circulating variant at some point in the future.
+* Prior to the introduction of Omicron the growth rate of non-Omicron cases was positive in most regions. In the last few weeks the growth rate for non-Omicron cases has become negative suggesting that if nothing changes Omicron will be the only circulating variant at some point in the future.
 
 * The growth rate for Omicron cases has been consistently positive in all regions since the 23rd of November though with slightly different absolute values and with different variation over time.
 
