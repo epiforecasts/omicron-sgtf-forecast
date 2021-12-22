@@ -82,7 +82,8 @@ bias_regional <- daily_regional %>%
   truncate_sequences(start_date = start_sgtf_date) %>%
   truncate_cases(days = 2) %>%
   bias_data_to_fv() %>%
-  filter(!(is.na(cases) & is.na(seq_voc)))
+  filter(!(is.na(cases) & is.na(seq_voc))) %>%
+  filter(!is.na(seq_total))
 
 # Estimate models for SGTF data
 region_bias_forecasts <- build_models_by_region(
