@@ -42,6 +42,7 @@ library(data.table)
 
 # load functions
 source(here("R", "load-local-data.R"))
+source(here("R", "plot-summary.R"))
 source(here("R", "plot-daily-cases.R"))
 source(here("R", "plot-omicron-95.R"))
 source(here("R", "plot-cumulative-percent.R"))
@@ -63,6 +64,8 @@ sgtfposterior <- sgtf$posterior[,
 sgtf_posterior <- sgtf$posterior[
   variant_relationship == "Correlated"
 ]
+
+bias_posterior <- bias$posterior[variant_relationship == "correlated"]
 ```
 
 ```{r summarise-results}
@@ -84,7 +87,15 @@ date_forecast_start <- max(as.data.table(sgtf$data)[!is.na(seq_total)]$date)
 date_forecast_end <- max(cases$date)
 ```
 
-1. Center for the Mathematical Modelling of Infectious Diseases, London School of Hygiene & Tropical Medicine, London WC1E 7HT, United Kingdom
+_1. Center for the Mathematical Modelling of Infectious Diseases, London School of Hygiene & Tropical Medicine, London WC1E 7HT, United Kingdom_
+
+### Estimates for `r date_forecast_start`
+
+```{r summary-plot, fig.width = 6, fig.height = 6, fig.cap = "Summary of latest estimates for England and by UKHSA region, showing: bias in S-gene sampling, comparing transmissibility among cases with any SGT result, against cases with no SGT result (1); cumulative % of population reported as a case with Omicron variant; growth rate, and transmission advantage of Omicron variant"}
+plot_summary(sgtf_posterior = sgtf_posterior, cum_per = cum_per,
+             bias_posterior = bias_posterior, 
+             date_forecast_start = date_forecast_start)
+```
 
 ## Introduction
 
