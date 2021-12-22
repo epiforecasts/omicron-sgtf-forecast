@@ -22,9 +22,11 @@ plot_omicron_95 <- function(voc_frac, forecast_start, forecast_end) {
     ungroup() %>%
     complete(quantile) %>%
     select(region, quantile, date) %>%
-    mutate(date = as.Date(ifelse(is.na(date), forecast_end, date),
-                        origin = lubridate::origin)) %>%
     pivot_wider(id_cols = region, names_from = quantile, values_from = date) %>%
+    mutate(
+      across(starts_with("q"), 
+             ~ as.Date(ifelse(is.na(.x), forecast_end, .x), origin = lubridate::origin))
+    ) %>%
     arrange(q_median) %>%
     mutate(region = factor(region, ordered = TRUE)) %>%
     filter(!is.na(region))
@@ -40,7 +42,7 @@ plot_omicron_95 <- function(voc_frac, forecast_start, forecast_end) {
   plot_95_percent <- plot_95_percent +
     theme_bw() +
     theme(legend.position = "bottom", legend.box = "vertical") +
-    scale_x_date(date_breaks = "1 week", date_labels = "%b %d",
+    scale_x_date(date_breaks = "1 day", date_labels = "%b %d",
                  limits = c(forecast_start - 1, forecast_end)) +
     theme(axis.text.x = element_text(angle = 90))
 
