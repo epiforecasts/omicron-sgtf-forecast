@@ -159,7 +159,7 @@ All models were implemented using the [`forecast.vocs` R package](https://epifor
 ```{r data, fig.cap = "Daily cases in England and by UKHSA region, with S-gene target result (failed, confirmed detected, or unknown), and centred 7-day moving average up to date of data truncation (dotted line). Source: UKHSA and coronavirus.gov.uk; data by specimen date"}
 plot_daily_cases(
   daily, truncate_date = date_forecast_start, caption = "",
-  start_date = data_date_start, smooth_total = TRUE
+  start_date = date_data_start, smooth_total = TRUE
 )
 ```
 
