@@ -14,13 +14,16 @@ output:
     includes:
       before_body: header.html
       after_body:  footer.html
+  pdf_document:
+    extra_dependencies: ["float"]
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE, include = TRUE, 
+knitr::opts_chunk$set(echo = FALSE, include = TRUE,
                       warning = FALSE, message = FALSE,
                       root.dir = here::here(),
-                      fig.width = 9, fig.height = 9)
+                      fig.width = 9, fig.height = 9,
+                      fig.pos = "!H", out.extra = "")
 options(digits = 1)
 library(here)
 library(forecast.vocs)
