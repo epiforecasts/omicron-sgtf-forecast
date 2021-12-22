@@ -46,5 +46,6 @@ load_bias_parameters <- function() {
   parameters$voc_scale <- c(0, 0.2)
   parameters$voc_label <- "SGT-result"
   parameters$horizon <- 0
+  parameters$r_step <- 7
   return(parameters)
 }
