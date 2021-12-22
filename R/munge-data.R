@@ -4,7 +4,6 @@ library(readr)
 library(dplyr)
 library(lubridate)
 library(tidyr)
-library(zoo)
 library(ggplot2)
 
 
@@ -83,5 +82,21 @@ bias_data_to_fv <- function(obs) {
               share_voc = total_sgt / total_cases,
               cases_available = date,
               seq_available = date) %>%
+    filter(!is.na(seq_total)) %>%
+    mutate(seq_total = ifelse(is.na(seq_voc), NA, seq_total)) %>%
+    filter(!(is.na(cases) & is.na(seq_voc))) %>%
     filter(!is.na(seq_total))
+}
+
+cumulative_percentage <- function(cases, pop) {
+  cases_pop <- cases %>%
+    left_join(pop, by = c("region")) %>%
+    group_by(region) %>%
+    arrange(date) %>%
+    mutate(c_median = cumsum(median) / population,
+           c_q5 = cumsum(q5) / population,
+           c_q95 = cumsum(q95) / population,
+           c_q20 = cumsum(q20) / population,
+           c_q80 = cumsum(q80) / population)
+  return(cases_pop)
 }

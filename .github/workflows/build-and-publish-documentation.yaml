@@ -11,24 +11,28 @@ name: render-documentation
 
 jobs:
   render-documentation:
-    runs-on: macOS-latest
+    runs-on: macos-latest
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - uses: actions/checkout@v2
       - uses: r-lib/actions/setup-pandoc@v2
       - uses: r-lib/actions/setup-r@v2
-      - uses: r-lib/actions/setup-r-dependencies@v2
+      - name: Install R package dependencies
+        run: |
+          install.packages("devtools")
+          devtools::install_dev_deps()
+        shell: Rscript {0}
+
       - uses: r-lib/actions/setup-tinytex@v2
 
       - name: Render summary
         run: |
-          rmarkdown::render("writeup/summary.Rmd", output_dir = "writeup")
-        shell: Rscript {0}
-
-      - name: Render paper
-        run: |
-          rmarkdown::render("writeup/paper.Rmd", output_dir = "writeup")
+          rmarkdown::render(
+            "writeup/summary.Rmd", 
+            output_format = c("html_document", "pdf_document"),
+            output_dir = "writeup"
+          )
         shell: Rscript {0}
 
       - name: Upload documentation

@@ -11,7 +11,7 @@ load_public_sgtf_data <- function() {
    raw_data_sgt <- read_csv(data_path_sgt)
 
    data_sgt <- raw_data_sgt %>%
-    mutate(date = ymd(specimen_date),
+    mutate(date = dmy(specimen_date),
            sgtf_type = recode(sgtf,
                               "Cases with confirmed S-gene" = "non_sgtf",
                               "Cases with confirmed SGTF" = "sgtf")) %>%
@@ -27,14 +27,16 @@ load_public_case_data <- function() {
   raw_data_tot <- read_csv(data_path_tot)
 
   data_tot <- raw_data_tot %>%
-    select(date, region = areaName, total_cases = newCasesBySpecimenDate) %>%
+    select(date, region_code = areaCode, region = areaName,
+           total_cases = newCasesBySpecimenDate) %>%
     mutate(region = gsub("The ", "", region))
   return(data_tot)
 }
 
 link_public_data <- function(sgt, cases) {
   regional <- full_join(sgt, cases, by = c("region", "date")) %>%
-    mutate(sgtf_unknown = total_cases - total_sgt,
+    mutate(sgtf_unknown = ifelse(is.na(total_sgt), total_cases,
+                                 total_cases - total_sgt),
            source = "public")
   return(regional)
 }
@@ -44,4 +46,14 @@ load_public_data <- function() {
   cases <- load_public_case_data()
   linked_data <- link_public_data(sgt, cases)
   return(linked_data)
+}
+
+load_population <- function() {
+  read_csv("https://coronavirus.data.gov.uk/downloads/supplements/ONS-population_2021-08-05.csv") %>%
+    filter(grepl("^E120", areaCode) & category == "ALL") %>%
+    select(region_code = areaCode, population) %>%
+    full_join(load_public_case_data(), by = "region_code") %>%
+    filter(date == max(date)) %>%
+    select(region, population) %>%
+    bind_rows(summarise(., population = sum(population), region = "England"))
 }
