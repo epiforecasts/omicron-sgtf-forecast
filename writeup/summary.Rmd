@@ -158,6 +158,8 @@ All models were implemented using the [`forecast.vocs` R package](https://epifor
 
 * Assuming growth rates stay as currently estimated we forecast that approximately 7.5% to 10% of the English population will have reported an Omicron case by the end of 2021, although with significant regional variation.
 
+* We found some evidence of bias in sampling S-gene status though this varied across regions and over time.  There was particularly strong evidence of biased sampling over time in the East Midlands. In other regions, the evidence of bias was substantially weaker and therefore less lilely to bias our main findings.
+
 ### Data description
 
 ```{r data, fig.cap = "Daily cases in England and by UKHSA region, with S-gene target result (failed, confirmed detected, or unknown), and centred 7-day moving average up to date of data truncation (dotted line). Source: UKHSA and coronavirus.gov.uk; data by specimen date"}
