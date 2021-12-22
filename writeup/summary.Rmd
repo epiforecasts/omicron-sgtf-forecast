@@ -141,6 +141,8 @@ All models were implemented using the [`forecast.vocs` R package](https://epifor
 
 * Our forecasts assume a fixed growth rate across the forecast horizon and do not account for population susceptibility or other factors such as changes in contact patterns.
 
+* Our model only estimates an overall transmission advantage. We do not attempt to distinguish between "intrinsic" transmissibility and immune escape, a combination of which is likely to be underlying any sustained differences in growth rate.
+
 * Our estimates are at the national or UKHSA region scale. There may be additional variation within these areas that these estimates cannot capture.
 
 * We used an approximate form of leave-one-out cross validation to compare the performance of the models we considered. This may be inappropriate in situations where performance on held out time-series data is the target of interest.
