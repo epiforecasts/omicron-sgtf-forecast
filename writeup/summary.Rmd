@@ -91,7 +91,7 @@ date_forecast_end <- max(cases$date)
 
 1. Centre for the Mathematical Modelling of Infectious Diseases, London School of Hygiene & Tropical Medicine, London WC1E 7HT, United Kingdom
 
-**Estimates are updated daily as new data is released but the summary of the situation is updated less frequently and so may not match current estimates. All data (both raw data and estimates) are available [here](https://github.com/epiforecasts/omicron-sgtf-forecast/tree/main/data) and the report should be fully reproducible. Reports and data as available at the time of release are available from the [release page](https://github.com/epiforecasts/omicron-sgtf-forecast/releases).**
+**Estimates are updated daily as new data is released but the summary of the situation is updated less frequently and so may not match current estimates. All data (both raw data and estimates) are available [here](https://github.com/epiforecasts/omicron-sgtf-forecast/tree/main/data) and the report should be fully reproducible. Reports and data as available at the time of release are available from the [release page](https://github.com/epiforecasts/omicron-sgtf-forecast/releases). See our [news file](https://github.com/epiforecasts/omicron-sgtf-forecast/blob/main/NEWS.md) for details of what updates were made when.**
 
 ## Introduction
 
@@ -155,7 +155,7 @@ All models were implemented using the [`forecast.vocs` R package](https://epifor
 
 ### Summary
 
-**Last updated: 2021-12-22**
+**Last updated: 2021-12-23**
 
 * A model that assumed that variants growth rates varied over time relative to each other performed better in all regions than a model where the relative difference was constant over time. 
 
@@ -169,7 +169,7 @@ All models were implemented using the [`forecast.vocs` R package](https://epifor
 
 * The variation in transmission advantage also differed by region with some regions having a fairly stable trend (such as the South West) and some (such as the North East) indicating large changes.
 
-* Assuming growth rates stay as currently estimated we forecast that approximately 7.5% to 10% of the English population will have reported an Omicron case by the end of 2021, although with significant regional variation. This does not take into account any changes in testing behaviour or capacity.
+* Assuming growth rates stay as currently estimated we forecast that approximately 1.5% to 2.5% of the English population will have reported an Omicron case by the end of 2021, although with significant regional variation. This does not take into account any changes in testing behaviour or capacity.
 
 * We found some evidence of bias in sampling S-gene status though this varied across regions and over time.  There was particularly strong evidence of biased sampling over time in the East Midlands. In other regions, the evidence of bias was substantially weaker and therefore less likely to bias our main findings.
 
