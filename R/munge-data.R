@@ -91,7 +91,7 @@ bias_data_to_fv <- function(obs) {
 cumulative_percentage <- function(cases, pop) {
   cases_pop <- cases %>%
     left_join(pop, by = c("region")) %>%
-    group_by(region) %>%
+    group_by(region, type) %>%
     arrange(date) %>%
     mutate(c_median = cumsum(median) / population,
            c_q5 = cumsum(q5) / population,
