@@ -29,6 +29,13 @@ plan("callr", workers = floor(future::availableCores() / 2))
 # Target date
 target_date <- get_latest_date()
 
+# load results from latest date
+results <- load_results(target_date)
+rerun <- FALSE
+if (!is.null(results) | !rerun) {
+  stop("No new data - not updating estimates")
+}
+
 # Estimation start date
 start_date <- as.Date("2021-11-16")
 start_sgtf_date <- as.Date("2021-11-23")
