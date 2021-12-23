@@ -8,6 +8,7 @@ source(here::here("R", "load-public-data.R"))
 plot_cumulative_percent <- function(cases_pop, forecast_start, data_start) {
 
   plot_cumulative_pop <- cases_pop %>%
+    ungroup() %>%
     mutate(region = factor(region, ordered = TRUE)) %>%
     ggplot(aes(x = date)) +
     geom_ribbon(aes(ymin = c_q5, ymax = c_q95), alpha = 0.3) +
