@@ -32,7 +32,7 @@ target_date <- get_latest_date()
 # load results from latest date
 results <- load_results(target_date)
 rerun <- FALSE
-if (!is.null(results) | !rerun) {
+if (!is.null(results$posterior) | !rerun) {
   stop("No new data - not updating estimates")
 }
 
