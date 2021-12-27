@@ -1,3 +1,10 @@
+# 2021-12-26
+
+- Automation has been improved so that new data is checked for every two hours. A new model run is only started if not result exist for the current data snapshot or if new SGTF data is detected.
+
+- Updated the plotting of SGTF case and target failure data to be more flexible for other analyses.
+
+
 # 2021-12-23
 
 - Thanks to [Ritwik Priya](https://twitter.com/ritwik_priya) for spotting an issue with our cumulative incidence as a percentage of the population estimates. Unfortunately, our code accidently combined all cases types (Omicron, non-Omicron, and combined) when making the calculating leading to estimates roughly 3 times higher than they should have been.

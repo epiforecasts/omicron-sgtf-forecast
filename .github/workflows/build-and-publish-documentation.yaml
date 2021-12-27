@@ -35,6 +35,15 @@ jobs:
           )
         shell: Rscript {0}
 
+      - name: Render Omicron delay
+        run: |
+          rmarkdown::render(
+            "writeup/omicron-delay.Rmd", 
+            output_format = c("html_document", "pdf_document"),
+            output_dir = "writeup"
+          )
+        shell: Rscript {0}
+
       - name: Upload documentation
         uses: actions/upload-artifact@v2
         with:

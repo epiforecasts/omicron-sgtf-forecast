@@ -7,15 +7,15 @@ plot_daily_cases <- function(raw, caption,
 
   if (smooth_total) {
     smooth <- raw %>%
-      filter(date < truncate_date, !is.na(total_cases)) %>%
+      filter(date < truncate_date) %>%
+      filter(!is.na(total_cases)) %>%
       group_by(region) %>%
       mutate(total_cases_smooth = zoo::rollmean(total_cases, k = 7,
                                          align = "center", fill = NA)) %>%
       ungroup() %>%
       select(date, region, total_cases_smooth)
     raw <- left_join(raw, smooth, by = c("date", "region")) %>%
-      select(date, region,
-             total_cases = total_cases_smooth, contains("sgtf"))
+      mutate(total_cases = total_cases_smooth)
   }
 
   sgtf_fills <- c("Detected" = "#c994c7", "Failure" = "#dd1c77",
