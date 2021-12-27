@@ -31,10 +31,6 @@ target_date <- get_latest_date()
 
 # load results from latest date
 results <- load_results(target_date)
-rerun <- FALSE
-if (!is.null(results$posterior) & !rerun) {
-  stop("No new data - not updating estimates")
-}
 
 # Estimation start date
 start_date <- as.Date("2021-11-16")
@@ -43,6 +39,32 @@ start_sgtf_date <- as.Date("2021-11-23")
 # Load data for the target date
 daily_regional <- load_local_data(target_date) %>%
   filter(date >= start_date)
+
+# check is the sgtf data is newer than the sgtf data in the results
+# if results are present
+if (!is.null(results$posterior)) {
+  max_data_sgtf_date <- daily_regional %>%
+  filter(!is.na(sgtf)) %>%
+  slice_max(date) %>%
+  pull(date) %>%
+  unique()
+
+  max_results_sgtf_date <- results$data %>%
+    filter(!is.na(seq_voc)) %>%
+    slice_max(date) %>%
+    pull(date) %>%
+    unique()
+
+  if (max_data_sgtf_date > max_results_sgtf_date) {
+    rerun <- TRUE
+  }else{
+    rerun <- FALSE
+  }
+
+  if (!rerun) {
+    stop("No new data - not updating estimates")
+  }
+}
 
 # Load settings
 sgtf_parameters <- load_sgtf_parameters()

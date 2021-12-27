@@ -1,0 +1,96 @@
+---
+title: "Real-time estimation of the difference in the test seeking distribution of Omicron compared to Delta in England using S-Gene Target Status as a Proxy"
+subtitle: "Summary report"
+author: Sam Abbott (1)
+bibliography: library.bib
+csl: https://raw.githubusercontent.com/citation-style-language/styles/master/apa-numeric-superscript-brackets.csl
+date: "`r format(Sys.Date(), format = '%B %d, %Y')`"
+output:
+  html_document:
+    theme: cosmo
+    toc: true
+    toc_float: true
+    toc_depth: 4
+    includes:
+      before_body: header.html
+      after_body:  footer.html
+  pdf_document:
+    extra_dependencies: ["float"]
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, include = TRUE,
+                      warning = FALSE, message = FALSE,
+                      root.dir = here::here(),
+                      fig.width = 12, fig.height = 9)
+options(digits = 1)
+library(here)
+library(forecast.vocs)
+library(dplyr)
+library(loo)
+library(scoringutils)
+library(knitr)
+library(data.table)
+```
+
+```{r load-results}
+# load packages
+library(ggplot2)
+library(scales)
+library(dplyr)
+library(here)
+library(readr)
+library(data.table)
+
+# load functions
+source(here("R", "load-local-data.R"))
+source(here("R", "plot-summary.R"))
+source(here("R", "plot-daily-cases.R"))
+source(here("R", "plot-omicron-95.R"))
+source(here("R", "plot-cumulative-percent.R"))
+
+# get latest date
+date_latest <- get_latest_date()
+
+# load data
+daily <- load_local_data(date_latest)
+```
+
+1. Centre for the Mathematical Modelling of Infectious Diseases, London School of Hygiene & Tropical Medicine, London WC1E 7HT, United Kingdom
+
+
+## Introduction
+
+## Methods
+
+### Data
+
+We use S-gene status by specimen date sourced from UKHSA as a direct proxy for the Omicron variant with a target failure indicating a case has the Omicron variant. Data was available by UKHSA region.
+
+### Models
+
+### Statistical Inference
+
+### Implementation
+
+All models were implemented using the [`forecast.vocs` R package](https://epiforecasts.io/forecast.vocs/) [@R; @forecast.vocs] and fit using `stan` [@stan] and `cmdstanr` [@cmdstanr]. Each model was fit using 2 chains with each chain having 1000 warmup steps and 2000 sampling steps. Convergence was assessed using the Rhat diagnostic [@stan]. Models were compared using approximate leave-one-out (LOO) cross-validation [@loo; @loo-paper] where negative values indicate an improved fit for the correlated model.
+
+
+## Limitations
+
+
+## Results 
+
+### Summary
+
+### Data description
+
+```{r data, fig.cap = "Daily cases in England and by UKHSA region, with S-gene target result (failed, confirmed detected, or unknown), and centred 7-day moving average up to date of data truncation (dotted line). Source: UKHSA and coronavirus.gov.uk; data by specimen date."}
+plot_daily_cases(
+  daily, truncate_date = date_forecast_start, caption = "",
+  start_date = date_data_start, smooth_total = TRUE
+)
+```
+
+
+## References
