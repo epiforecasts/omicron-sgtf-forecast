@@ -76,7 +76,7 @@ daily <- daily %>%
   filter(!is.na(sgtf)) %>%
   filter(!(region %in% "England"))
 
-# rescale to logit
+# munge fraction, logit scaling, difference, and dow
 daily <- daily %>%
   mutate(frac_sgtf = sgtf / total_sgt) %>%
   mutate(logit_frac_sgtf = log(frac_sgtf / (1 - frac_sgtf))) %>%
@@ -89,6 +89,7 @@ daily <- daily %>%
                      "Friday", "Saturday", "Sunday"))) %>%
   mutate(mondays = ifelse(weekday %in% "Monday", date, NA_Date_))
 ```
+
 ### Models
 
 ### Statistical Inference

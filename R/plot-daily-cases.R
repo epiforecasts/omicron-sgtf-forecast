@@ -7,7 +7,7 @@ plot_daily_cases <- function(raw, caption,
 
   if (smooth_total) {
     smooth <- raw %>%
-      filter(date < truncate_date) %>%
+      filter(date < as.Date(truncate_date)) %>%
       filter(!is.na(total_cases)) %>%
       group_by(region) %>%
       mutate(total_cases_smooth = zoo::rollmean(total_cases, k = 7,
