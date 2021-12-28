@@ -97,6 +97,7 @@ cumulative_percentage <- function(cases, pop) {
            c_q5 = cumsum(q5) / population,
            c_q95 = cumsum(q95) / population,
            c_q20 = cumsum(q20) / population,
-           c_q80 = cumsum(q80) / population)
+           c_q80 = cumsum(q80) / population) %>%
+    ungroup()
   return(cases_pop)
 }
