@@ -13,12 +13,18 @@ plot_summary <- function(sgtf_posterior, cum_per, bias_posterior,
 
   # omicron transmission advantage
   advantage <- summary(sgtf_posterior, type = "voc_advantage") %>%
-    mutate(value_type = "Omicron: current transmission advantage")
+    mutate(value_type = "Omicron: current transmission advantage") %>%
+    group_by(region) %>%
+    slice_max(date) %>%
+    ungroup()
 
   # growth
   growth <- summary(sgtf_posterior, type = "growth") %>%
     filter(type == "Omicron") %>%
-    mutate(value_type = "Omicron: current growth rate")
+    mutate(value_type = "Omicron: current growth rate") %>%
+    group_by(region) %>%
+    slice_max(date) %>%
+    ungroup()
 
   # cumulative pop
   cumpercent <- cum_per %>%
@@ -28,11 +34,17 @@ plot_summary <- function(sgtf_posterior, cum_per, bias_posterior,
     mutate(value_type = "Omicron: cumulative % population",
            region = as.character(region),
            type = "Omicron",
-           across(starts_with("q"), ~ . * 100))
+           across(starts_with("q"), ~ . * 100)) %>%
+    group_by(region) %>%
+    slice_max(date) %>%
+    ungroup()
 
   # bias
   sampling <- summary(bias_posterior, type = "voc_advantage") %>%
-    mutate(value_type = "Current bias: any-SGT vs no-SGT result")
+    mutate(value_type = "Current bias: any-SGT vs no-SGT result") %>%
+    group_by(region) %>%
+    slice_max(date) %>%
+    ungroup()
 
   # join --------------------------------------------------------------------
   region_factor <- as.character(sgtf_posterior$region)
@@ -46,7 +58,7 @@ plot_summary <- function(sgtf_posterior, cum_per, bias_posterior,
 
   summary_data <- bind_rows(advantage, growth, cumpercent, sampling) %>%
     filter(
-        date == date_forecast_start & type %in% c("Omicron", "SGT-result")
+        type %in% c("Omicron", "SGT-result")
     ) %>%
     mutate(region = recode_factor(region, !!!region_factor),
            ref_line = as.numeric(recode(value_type, !!!reference_lines)))
