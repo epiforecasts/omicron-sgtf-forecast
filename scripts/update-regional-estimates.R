@@ -69,12 +69,7 @@ if (!is.null(results$posterior)) {
     unique()
 
   rerun <- max_data_sgtf_date > max_results_sgtf_date
-  rerun <- ifelse(max_data_case_date > max_results_sgtf_date)
-  if (max_data_sgtf_date > max_results_sgtf_date) {
-    rerun <- TRUE
-  }else{
-    rerun <- FALSE
-  }
+  rerun <- ifelse(max_data_case_date > max_results_case_date, TRUE, rerun)
 
   if (!rerun) {
     stop("No new data - not updating estimates")
