@@ -210,7 +210,7 @@ plot_growth(sgtf_posterior) +
   facet_wrap(~ region)
 ```
 
-### Proportion of cases with the Omicron variant on the logit scale
+### Proportion of cases with the Omicron variant
 
 #### Natural scale
 
