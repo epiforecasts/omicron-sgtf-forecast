@@ -1,3 +1,7 @@
+# 2021-12-29
+
+- Fixed a bug for the centred 7-day moving average where partially complete case data was included for regions. This impacted on the data overview plot.
+
 # 2021-12-28
 
 - Updated data and results archiving to be by date of access rather than by the maximum date available in the data. This has the download of making an update occur every day the pipeline runs regardless of if the data has been updated but the upside of protecting archived data from retrospective updates.

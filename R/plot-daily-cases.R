@@ -9,12 +9,15 @@ plot_daily_cases <- function(raw, caption,
     smooth <- raw %>%
       filter(date < as.Date(truncate_date)) %>%
       filter(!is.na(total_cases)) %>%
+      arrange(date) %>%
       group_by(region) %>%
       mutate(total_cases_smooth = zoo::rollmean(total_cases, k = 7,
                                          align = "center", fill = NA)) %>%
       ungroup() %>%
       select(date, region, total_cases_smooth)
-    raw <- left_join(raw, smooth, by = c("date", "region")) %>%
+    raw <- raw %>%
+      select(-total_cases) %>%
+      left_join(smooth, by = c("date", "region")) %>%
       mutate(total_cases = total_cases_smooth)
   }
 
