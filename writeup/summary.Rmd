@@ -85,7 +85,7 @@ cum_per <- cumulative_percentage(cases, pop) %>%
 ```{r setup-dates}
 # set up dates
 date_data_start <- min(as.data.table(sgtf$data)[!is.na(seq_total)]$date)
-date_forecast_start <- max(as.data.table(sgtf$data)[!is.na(seq_total)]$date)
+date_forecast_start <- max(cases$date) - 2 * 7
 date_forecast_end <- max(cases$date)
 ```
 

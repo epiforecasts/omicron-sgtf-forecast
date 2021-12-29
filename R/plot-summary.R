@@ -13,6 +13,7 @@ plot_summary <- function(sgtf_posterior, cum_per, bias_posterior,
 
   # omicron transmission advantage
   advantage <- summary(sgtf_posterior, type = "voc_advantage") %>%
+    filter(date < date_forecast_start) %>%
     mutate(value_type = "Omicron: current transmission advantage") %>%
     group_by(region) %>%
     slice_max(date) %>%
@@ -21,6 +22,7 @@ plot_summary <- function(sgtf_posterior, cum_per, bias_posterior,
   # growth
   growth <- summary(sgtf_posterior, type = "growth") %>%
     filter(type == "Omicron") %>%
+    filter(date < date_forecast_start) %>%
     mutate(value_type = "Omicron: current growth rate") %>%
     group_by(region) %>%
     slice_max(date) %>%
@@ -35,6 +37,7 @@ plot_summary <- function(sgtf_posterior, cum_per, bias_posterior,
            region = as.character(region),
            type = "Omicron",
            across(starts_with("q"), ~ . * 100)) %>%
+    filter(date < date_forecast_start) %>%
     group_by(region) %>%
     slice_max(date) %>%
     ungroup()
@@ -42,6 +45,7 @@ plot_summary <- function(sgtf_posterior, cum_per, bias_posterior,
   # bias
   sampling <- summary(bias_posterior, type = "voc_advantage") %>%
     mutate(value_type = "Current bias: any-SGT vs no-SGT result") %>%
+    filter(date < date_forecast_start) %>%
     group_by(region) %>%
     slice_max(date) %>%
     ungroup()
