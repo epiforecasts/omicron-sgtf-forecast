@@ -17,3 +17,4 @@ data/private
 *.pdf
 !writeup/footer.html
 !writeup/header.html
+stan/generation-time
