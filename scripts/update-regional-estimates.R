@@ -44,10 +44,16 @@ daily_regional <- load_local_data(target_date) %>%
 # if results are present
 if (!is.null(results$posterior)) {
   max_data_sgtf_date <- daily_regional %>%
-  filter(!is.na(sgtf)) %>%
-  slice_max(date) %>%
-  pull(date) %>%
-  unique()
+    filter(!is.na(sgtf)) %>%
+    slice_max(date) %>%
+    pull(date) %>%
+    unique()
+
+  max_data_case_date <- daily_regional %>%
+    filter(!is.na(total_cases)) %>%
+    slice_max(date) %>%
+    pull(date) %>%
+    unique()
 
   max_results_sgtf_date <- results$data %>%
     filter(!is.na(seq_voc)) %>%
@@ -55,6 +61,15 @@ if (!is.null(results$posterior)) {
     pull(date) %>%
     unique()
 
+  max_results_case_date <- results$data %>%
+    filter(!is.na(cases)) %>%
+    slice_max(date) %>%
+    mutate(date = date + 2) %>% # account for applied truncation
+    pull(date) %>%
+    unique()
+
+  rerun <- max_data_sgtf_date > max_results_sgtf_date
+  rerun <- ifelse(max_data_case_date > max_results_sgtf_date)
   if (max_data_sgtf_date > max_results_sgtf_date) {
     rerun <- TRUE
   }else{
