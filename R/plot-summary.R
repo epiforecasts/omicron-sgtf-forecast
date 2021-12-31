@@ -78,7 +78,7 @@ plot_summary <- function(sgtf_posterior, cum_per, bias_posterior,
         caption = paste("Estimates using data available up to: ",
                         date_forecast_start))
   summary_plot <- forecast.vocs::plot_theme(summary_plot) +
-    scale_x_continuous(labels = scales::label_number(accuracy = 0.1))
+    scale_x_continuous(labels = scales::label_number(accuracy = 0.01))
 
   return(summary_plot)
 }
