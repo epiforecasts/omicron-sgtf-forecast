@@ -35,6 +35,7 @@ plot_omicron_95 <- function(voc_frac, forecast_start, forecast_end) {
   plot_95_percent <- omicron_95 %>%
     mutate(region = forcats::fct_rev(region)) %>%
     ggplot(aes(y = region)) +
+    geom_point(aes(x = q_median)) +
     geom_linerange(aes(xmin = q5, xmax = q95), alpha = 0.3, size = 3) +
     geom_linerange(aes(xmin = q20, xmax = q80), alpha = 0.3, size = 3) +
     geom_vline(xintercept = forecast_start, lty = 5, lwd = 1, col = "black") +
@@ -44,8 +45,7 @@ plot_omicron_95 <- function(voc_frac, forecast_start, forecast_end) {
   plot_95_percent <- plot_95_percent +
     theme_bw() +
     theme(legend.position = "bottom", legend.box = "vertical") +
-    scale_x_date(date_breaks = "1 day", date_labels = "%b %d",
-                 limits = c(forecast_start - 1, forecast_end)) +
+    scale_x_date(date_breaks = "1 day", date_labels = "%b %d") +
     theme(axis.text.x = element_text(angle = 90))
 
   return(plot_95_percent)

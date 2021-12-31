@@ -155,23 +155,25 @@ All models were implemented using the [`forecast.vocs` R package](https://epifor
 
 ### Summary
 
-**Last updated: 2021-12-23**
+**Last updated: 2021-12-31**
 
 * A model that assumed that variants growth rates varied over time relative to each other performed better in all regions than a model where the relative difference was constant over time. 
 
-* Prior to the introduction of Omicron the growth rate of non-Omicron cases was positive in most regions. In the last few weeks the growth rate for non-Omicron cases has become negative suggesting that if nothing changes Omicron will be the only circulating variant at some point in the future.
+* Prior to the introduction of Omicron the growth rate of non-Omicron cases was positive in most regions. In the last few weeks prior to Christmas the growth rate for non-Omicron cases became negative suggesting that if nothing changes Omicron will be the only circulating variant at some point in the future.
 
 * The growth rate for Omicron cases has been consistently positive in all regions since the 23rd of November though with slightly different absolute values and with different variation over time.
 
-* In the last week both case data and the SGTF data suggest that the growth rate of Omicron in reported cases has reduced markedly though at this time still appears positive in all regions excluding London.
+* In the week before Christmas both case data and the SGTF data suggested that the growth rate of Omicron in reported cases has reduced markedly though still appeared positive in all regions excluding London.
 
-* Assuming a fixed difference in growth between variants indicates an advantage for Omicron in the order of 30% to 50% across all regions. Allowing this to vary (which was shown to better represent the data) implies that this advantage generally appears to have increased over time until the last week where it fell back to initially observed levels or below in all regions. 
+* Since Christmas growth rates for both variants have slightly increased though only Omicron has a positive growth rate. The estimated growth rate for Omicron in London returned to being positive on the 31st of December.
+
+* Assuming a fixed difference in growth between variants indicates an advantage for Omicron in the order of 30% to 50% across all regions. Allowing this to vary (which was shown to better represent the data) implies that this advantage generally appears to have increased over time until the week before Christmas where it fell back to initially observed levels or below in all regions. 
 
 * The variation in transmission advantage also differed by region with some regions having a fairly stable trend (such as the South West) and some (such as the North East) indicating large changes.
 
-* Assuming growth rates stay as currently estimated we forecast that approximately 1.5% to 2.5% of the English population will have reported an Omicron case by the end of 2021, although with significant regional variation. This does not take into account any changes in testing behaviour or capacity.
+* Assuming growth rates stay as currently estimated we forecast that approximately 5% to 10% of the English population will have reported an Omicron case by the 10th of January 2021, although with significant regional variation. This does not take into account any changes in testing behaviour, capacity, or changes in growth rate due to susceptible depletion or other interventions.
 
-* We found some evidence of bias in sampling S-gene status though this varied across regions and over time.  There was particularly strong evidence of biased sampling over time in the East Midlands. In other regions, the evidence of bias was substantially weaker and therefore less likely to bias our main findings.
+* We found some evidence of bias in sampling S-gene status though this varied across regions and over time. There was particularly strong evidence of biased sampling over time in the East Midlands and in the more recent data.
 
 ### Latest available estimates using data up to: `r date_forecast_start`
 
@@ -235,10 +237,12 @@ plot(
 ```
 
 ### Date at which Omicron estimated to account for 95% of reported cases
-```{r omicron-95, fig.cap = "Estimated dates at which 95% of reported cases will have the Omicron variant for England and UKHSA regions. 90% and 60% credible intervals are shown,", fig.height = 6, fig.width = 6}
-plot_omicron_95(voc_frac = voc_frac,
-                forecast_start = date_forecast_start,
-                forecast_end = date_forecast_end)
+```{r omicron-95, fig.cap = "Estimated dates at which 95% of reported cases will have the Omicron variant for England and UKHSA regions. 90% and 60% credible intervals are shown along with the median estimate (point),", fig.height = 6, fig.width = 6}
+plot_omicron_95(
+  voc_frac = voc_frac,
+  forecast_start = date_forecast_start,
+  forecast_end = date_forecast_end
+)
 ```
 
 

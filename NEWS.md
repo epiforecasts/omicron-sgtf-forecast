@@ -1,3 +1,8 @@
+# 2021-12-31
+
+- Updated the summary text to reflect post-Christmas changes.
+- Updated the time at 95% Omicron plot to include median estimates. This was needed to prevent estimates disappearing when uncertainty was less than or equal to a day.
+
 # 2021-12-29
 
 - Fixed a bug for the centred 7-day moving average where partially complete case data was included for regions. This impacted on the data overview plot.
