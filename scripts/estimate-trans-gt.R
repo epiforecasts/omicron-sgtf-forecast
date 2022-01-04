@@ -43,8 +43,31 @@ stan_dt <- list(
   gt_sd_sd = 0.18
 )
 
+# Set initial conditions based on priors
+stan_inits <- function(data) {
+  function() {
+    data <- list(
+      nvoc_r = purrr::map2(
+        data$nvoc_r_mean, data$nvoc_r_sd, ~ rnorm(1, .x, .y * 0.1)
+      ),
+      gt_mean = rnorm(1, data$gt_mean_mean, data$gt_mean_sd * 0.1),
+      gt_sd = rnorm(1, data$gt_sd_mean, data$gt_sd_sd * 0.1),
+      voc_gt_mean_mod = rnorm(1, 1, 0.01),
+      voc_gt_sd_mod = rnorm(1, 1, 0.01),
+      sigma = rnorm(1, 0.1, 0.01),
+      ta = rnorm(1, 1, 0.1)
+    )
+    data$voc_gt_mean <- data$gt_mean
+    data$voc_gt_sd <- data$gt_sd
+    return(data)
+  }
+}
+
 # Fit model
-fit <- model$sample(data = stan_dt, adapt_delta = 0.9, max_treedepth = 15)
+fit <- model$sample(
+  data = stan_dt, adapt_delta = 0.95, max_treedepth = 15,
+  init = stan_inits(stan_dt)
+)
 
 # summarise variables of interest
 vars_of_interest <- c("gt_mean", "gt_sd", "voc_gt_mean_mod", "voc_gt_sd_mod",
