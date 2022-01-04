@@ -15,7 +15,7 @@ results <- load_results(target_date)
 growth <- summary(results$posterior, type = "growth")
 growth <- growth[type %in% c("Omicron", "non-Omicron")]
 growth <- growth[variant_relationship %in% "correlated"]
-growth <- dcast(growth, region + date ~ type, value.var = "median")
+growth <- dcast(growth, region + date ~ type, value.var = "mean")
 growth <- growth[!(region %in% "England")]
 growth <- growth[!is.na(Omicron)]
 growth <- growth[date <= "2021-12-31"]
@@ -29,8 +29,10 @@ stan_dt <- list(
   t = nrow(growth),
   voc_r = growth$Omicron,
   nvoc_r = growth$`non-Omicron`,
-  gt_mean = 6,
-  gt_sd = 0
+  gt_mean_mean = 5.1,
+  gt_mean_sd = 0.5,
+  gt_sd_mean = 1,
+  gt_sd_sd = 0.1
 )
 
 # Fit model
