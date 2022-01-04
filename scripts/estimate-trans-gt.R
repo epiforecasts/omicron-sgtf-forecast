@@ -64,7 +64,7 @@ stan_inits <- function(data) {
   }
 }
 
-# Fit model
+# Fit model (initially a little stroppy)
 fit <- model$sample(
   data = stan_dt, adapt_delta = 0.95, max_treedepth = 15,
   init = stan_inits(stan_dt)
