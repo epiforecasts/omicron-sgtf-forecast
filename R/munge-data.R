@@ -72,6 +72,19 @@ sgtf_data_to_fv <- function(obs) {
               seq_available = date)
 }
 
+age_sgtf_data_to_fv <- function(obs) {
+  obs %>%
+    transmute(region = region,
+              age_group = age_group,
+              date = date,
+              cases = total_cases,
+              cases_available = date,
+              seq_total = total_sgt,
+              seq_voc = sgtf,
+              share_voc = sgtf / total_sgt,
+              seq_available = date)
+}
+
 bias_data_to_fv <- function(obs) {
   obs %>%
     transmute(region = region,

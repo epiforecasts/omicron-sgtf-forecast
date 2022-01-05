@@ -45,4 +45,6 @@ sgtf_by_region_and_age <- sgtf_by_region_and_age %>%
   filter(pillar == 2)
 
 # Save as csv
-write_csv(here("data", "private", "sgtf-by-region-and-age.csv"))
+write_csv(sgtf_by_region_and_age, 
+          here("data", "private", "sgtf-by-region-and-age.csv")
+)

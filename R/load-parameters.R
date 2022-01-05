@@ -49,3 +49,9 @@ load_bias_parameters <- function() {
   parameters$r_step <- 7
   return(parameters)
 }
+
+load_sgft_age_parameters <- function() {
+  parameters <- load_sgtf_parameters()
+  parameters$horizon <- 1
+  return(parameters)
+}
