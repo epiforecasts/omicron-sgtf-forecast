@@ -19,25 +19,11 @@ growth <- growth[!(region %in% "England")]
 # Compile the stan model
 model <- gt_load_model()
 
-# Data for stan
-stan_dt <- gt_dt(
-  growth, by = "region",
-  gt = gt_prior(type = "intrinsic", source = "hart2021")
+estimates <- gt_estimate(
+  growth, model, by = "region",
+  gt = gt_prior(source = "hart2021", type = "household")
 )
-
-# Set initial conditions based on priors
-# Fit model (initially a little stroppy)
-fit <- model$sample(
-  data = stan_dt, adapt_delta = 0.95, max_treedepth = 15,
-  init = gt_inits(stan_dt)
-)
-
-# summarise variables of interest
-voi_summary <- gt_summarise_posterior(fit)
-
-# summmarise posterior predictions
-r_pp <- gt_summarise_growth_pp(fit, growth, by = "region")
 
 # plot posterior predictions
-gt_plot_pp(r_pp) +
+gt_plot_pp(estimates$pp[[1]]) +
   facet_wrap(~region)

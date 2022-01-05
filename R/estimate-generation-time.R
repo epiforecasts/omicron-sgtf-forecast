@@ -118,6 +118,31 @@ gt_summarise_growth_pp <- function(fit, growth, by = c()) {
   return(r_pp[])
 }
 
+gt_estimate <- function(growth, model, by = c(), gt, ...) {
+
+  # Data for stan
+  stan_dt <- gt_dt(growth, by = by, gt = gt)
+
+  # Set initial conditions based on priors
+  # Fit model (initially a little stroppy)
+  fit <- model$sample(
+    data = stan_dt, init = gt_inits(stan_dt), ...
+  )
+
+  # summarise variables of interest
+  summary <- gt_summarise_posterior(fit)
+  # summmarise posterior predictions
+  r_pp <- gt_summarise_growth_pp(fit, growth, by = by)
+  out <- data.table::data.table(
+    gt_dt = list(stan_dt),
+    fit = list(fit),
+    summary = list(summary),
+    pp = list(r_pp)
+  )
+  return(out[])
+}
+
+
 gt_plot_pp <- function(r_pp) {
     ggplot2::ggplot(r_pp) +
     ggplot2::aes(x = date, y = median, fill = type) +
