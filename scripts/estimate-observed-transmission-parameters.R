@@ -15,7 +15,9 @@ source(here("R", "estimate-generation-time.R"))
 
 # Load growth estimates
 region_target_date <- get_latest_date()
-region_growth <- load_growth(region_target_date, max_date = "2021-12-23")
+region_growth <- load_growth(
+  region_target_date, min_date = "2021-12-01", max_date = "2021-12-23"
+)
 region_growth <- region_growth[!(region %in% "England")]
 
 growth <- data.table(

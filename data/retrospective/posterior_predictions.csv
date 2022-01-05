@@ -1,12 +1,4 @@
 stratification,gt_type,id,forecast_date,strains,overdispersion,variant_relationship,r_init,voc_scale,region,variable,date,type,observed,forecast_start,mean,median,sd,mad,q5,q20,q80,q95,rhat,ess_bulk,ess_tail
-region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",East Midlands,voc_r[1],2021-11-23,Estimate,TRUE,FALSE,0.225,0.227,0.0724,0.0735,0.104,0.164,0.286,0.345,1,3930,2990
-region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",East Midlands,voc_r[2],2021-11-24,Estimate,TRUE,FALSE,0.225,0.227,0.0724,0.0735,0.104,0.164,0.286,0.345,1,3930,2990
-region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",East Midlands,voc_r[3],2021-11-25,Estimate,TRUE,FALSE,0.225,0.227,0.0724,0.0735,0.104,0.164,0.286,0.345,1,3930,2990
-region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",East Midlands,voc_r[4],2021-11-26,Estimate,TRUE,FALSE,0.251,0.249,0.0884,0.0867,0.107,0.18,0.326,0.397,1,3850,3500
-region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",East Midlands,voc_r[5],2021-11-27,Estimate,TRUE,FALSE,0.251,0.249,0.0884,0.0867,0.107,0.18,0.326,0.397,1,3850,3500
-region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",East Midlands,voc_r[6],2021-11-28,Estimate,TRUE,FALSE,0.251,0.249,0.0884,0.0867,0.107,0.18,0.326,0.397,1,3850,3500
-region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",East Midlands,voc_r[7],2021-11-29,Estimate,TRUE,FALSE,0.265,0.262,0.0928,0.0912,0.116,0.188,0.341,0.418,1,4580,3590
-region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",East Midlands,voc_r[8],2021-11-30,Estimate,TRUE,FALSE,0.265,0.262,0.0928,0.0912,0.116,0.188,0.341,0.418,1,4580,3590
 region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",East Midlands,voc_r[9],2021-12-01,Estimate,TRUE,FALSE,0.265,0.262,0.0928,0.0912,0.116,0.188,0.341,0.418,1,4580,3590
 region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",East Midlands,voc_r[10],2021-12-02,Estimate,TRUE,FALSE,0.187,0.191,0.0894,0.0864,0.0348,0.114,0.26,0.329,1,4160,3440
 region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",East Midlands,voc_r[11],2021-12-03,Estimate,TRUE,FALSE,0.187,0.191,0.0894,0.0864,0.0348,0.114,0.26,0.329,1,4160,3440
@@ -30,14 +22,6 @@ region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",East Midlan
 region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",East Midlands,voc_r[29],2021-12-21,Estimate,TRUE,FALSE,0.123,0.123,0.0319,0.0317,0.0684,0.0966,0.15,0.175,1,4620,3400
 region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",East Midlands,voc_r[30],2021-12-22,Estimate,TRUE,FALSE,0.123,0.123,0.0319,0.0317,0.0684,0.0966,0.15,0.175,1,4620,3400
 region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",East Midlands,voc_r[31],2021-12-23,Estimate,TRUE,FALSE,-0.0208,-0.0212,0.0339,0.0337,-0.0752,-0.0491,0.00786,0.0355,1,3310,3100
-region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",East of England,voc_r[1],2021-11-23,Estimate,TRUE,FALSE,0.256,0.256,0.0694,0.0692,0.139,0.198,0.315,0.37,1,4340,2830
-region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",East of England,voc_r[2],2021-11-24,Estimate,TRUE,FALSE,0.256,0.256,0.0694,0.0692,0.139,0.198,0.315,0.37,1,4340,2830
-region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",East of England,voc_r[3],2021-11-25,Estimate,TRUE,FALSE,0.256,0.256,0.0694,0.0692,0.139,0.198,0.315,0.37,1,4340,2830
-region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",East of England,voc_r[4],2021-11-26,Estimate,TRUE,FALSE,0.211,0.211,0.0896,0.0893,0.0639,0.135,0.285,0.358,1,3970,3080
-region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",East of England,voc_r[5],2021-11-27,Estimate,TRUE,FALSE,0.211,0.211,0.0896,0.0893,0.0639,0.135,0.285,0.358,1,3970,3080
-region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",East of England,voc_r[6],2021-11-28,Estimate,TRUE,FALSE,0.211,0.211,0.0896,0.0893,0.0639,0.135,0.285,0.358,1,3970,3080
-region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",East of England,voc_r[7],2021-11-29,Estimate,TRUE,FALSE,0.288,0.288,0.09,0.0876,0.138,0.214,0.361,0.435,1,5170,3380
-region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",East of England,voc_r[8],2021-11-30,Estimate,TRUE,FALSE,0.288,0.288,0.09,0.0876,0.138,0.214,0.361,0.435,1,5170,3380
 region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",East of England,voc_r[9],2021-12-01,Estimate,TRUE,FALSE,0.288,0.288,0.09,0.0876,0.138,0.214,0.361,0.435,1,5170,3380
 region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",East of England,voc_r[10],2021-12-02,Estimate,TRUE,FALSE,0.453,0.451,0.0696,0.0683,0.341,0.396,0.512,0.567,1,4720,3360
 region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",East of England,voc_r[11],2021-12-03,Estimate,TRUE,FALSE,0.453,0.451,0.0696,0.0683,0.341,0.396,0.512,0.567,1,4720,3360
@@ -61,14 +45,6 @@ region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",East of Eng
 region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",East of England,voc_r[29],2021-12-21,Estimate,TRUE,FALSE,0.102,0.102,0.0256,0.0253,0.0588,0.0815,0.124,0.144,1,3880,3360
 region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",East of England,voc_r[30],2021-12-22,Estimate,TRUE,FALSE,0.102,0.102,0.0256,0.0253,0.0588,0.0815,0.124,0.144,1,3880,3360
 region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",East of England,voc_r[31],2021-12-23,Estimate,TRUE,FALSE,-0.0797,-0.0796,0.0294,0.0287,-0.127,-0.104,-0.0554,-0.0314,1,3430,2920
-region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",London,voc_r[1],2021-11-23,Estimate,TRUE,FALSE,0.349,0.349,0.0661,0.0665,0.241,0.294,0.404,0.454,1,3010,2550
-region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",London,voc_r[2],2021-11-24,Estimate,TRUE,FALSE,0.349,0.349,0.0661,0.0665,0.241,0.294,0.404,0.454,1,3010,2550
-region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",London,voc_r[3],2021-11-25,Estimate,TRUE,FALSE,0.349,0.349,0.0661,0.0665,0.241,0.294,0.404,0.454,1,3010,2550
-region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",London,voc_r[4],2021-11-26,Estimate,TRUE,FALSE,0.34,0.339,0.0768,0.0758,0.219,0.277,0.404,0.465,1,2770,2520
-region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",London,voc_r[5],2021-11-27,Estimate,TRUE,FALSE,0.34,0.339,0.0768,0.0758,0.219,0.277,0.404,0.465,1,2770,2520
-region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",London,voc_r[6],2021-11-28,Estimate,TRUE,FALSE,0.34,0.339,0.0768,0.0758,0.219,0.277,0.404,0.465,1,2770,2520
-region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",London,voc_r[7],2021-11-29,Estimate,TRUE,FALSE,0.334,0.335,0.0716,0.0693,0.216,0.275,0.392,0.449,1,4470,3260
-region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",London,voc_r[8],2021-11-30,Estimate,TRUE,FALSE,0.334,0.335,0.0716,0.0693,0.216,0.275,0.392,0.449,1,4470,3260
 region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",London,voc_r[9],2021-12-01,Estimate,TRUE,FALSE,0.334,0.335,0.0716,0.0693,0.216,0.275,0.392,0.449,1,4470,3260
 region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",London,voc_r[10],2021-12-02,Estimate,TRUE,FALSE,0.504,0.504,0.0553,0.0539,0.413,0.459,0.55,0.595,1,4920,3540
 region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",London,voc_r[11],2021-12-03,Estimate,TRUE,FALSE,0.504,0.504,0.0553,0.0539,0.413,0.459,0.55,0.595,1,4920,3540
@@ -92,14 +68,6 @@ region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",London,voc_
 region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",London,voc_r[29],2021-12-21,Estimate,TRUE,FALSE,0.00983,0.00983,0.0318,0.0313,-0.0425,-0.0165,0.0363,0.062,1,3750,3700
 region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",London,voc_r[30],2021-12-22,Estimate,TRUE,FALSE,0.00983,0.00983,0.0318,0.0313,-0.0425,-0.0165,0.0363,0.062,1,3750,3700
 region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",London,voc_r[31],2021-12-23,Estimate,TRUE,FALSE,-0.0756,-0.076,0.0359,0.0361,-0.133,-0.105,-0.0457,-0.0169,1,3600,3760
-region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",North East,voc_r[1],2021-11-23,Estimate,TRUE,FALSE,0.106,0.107,0.0805,0.0807,-0.0266,0.0381,0.174,0.236,1,3700,3040
-region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",North East,voc_r[2],2021-11-24,Estimate,TRUE,FALSE,0.106,0.107,0.0805,0.0807,-0.0266,0.0381,0.174,0.236,1,3700,3040
-region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",North East,voc_r[3],2021-11-25,Estimate,TRUE,FALSE,0.106,0.107,0.0805,0.0807,-0.0266,0.0381,0.174,0.236,1,3700,3040
-region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",North East,voc_r[4],2021-11-26,Estimate,TRUE,FALSE,0.059,0.0606,0.111,0.106,-0.124,-0.0293,0.148,0.239,1,3480,3130
-region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",North East,voc_r[5],2021-11-27,Estimate,TRUE,FALSE,0.059,0.0606,0.111,0.106,-0.124,-0.0293,0.148,0.239,1,3480,3130
-region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",North East,voc_r[6],2021-11-28,Estimate,TRUE,FALSE,0.059,0.0606,0.111,0.106,-0.124,-0.0293,0.148,0.239,1,3480,3130
-region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",North East,voc_r[7],2021-11-29,Estimate,TRUE,FALSE,0.0563,0.0595,0.111,0.108,-0.132,-0.0333,0.149,0.233,1,3950,3150
-region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",North East,voc_r[8],2021-11-30,Estimate,TRUE,FALSE,0.0563,0.0595,0.111,0.108,-0.132,-0.0333,0.149,0.233,1,3950,3150
 region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",North East,voc_r[9],2021-12-01,Estimate,TRUE,FALSE,0.0563,0.0595,0.111,0.108,-0.132,-0.0333,0.149,0.233,1,3950,3150
 region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",North East,voc_r[10],2021-12-02,Estimate,TRUE,FALSE,0.139,0.141,0.113,0.106,-0.0528,0.0493,0.23,0.317,1,3920,3290
 region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",North East,voc_r[11],2021-12-03,Estimate,TRUE,FALSE,0.139,0.141,0.113,0.106,-0.0528,0.0493,0.23,0.317,1,3920,3290
@@ -123,14 +91,6 @@ region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",North East,
 region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",North East,voc_r[29],2021-12-21,Estimate,TRUE,FALSE,0.247,0.246,0.0377,0.0377,0.186,0.215,0.279,0.309,1,4240,3170
 region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",North East,voc_r[30],2021-12-22,Estimate,TRUE,FALSE,0.247,0.246,0.0377,0.0377,0.186,0.215,0.279,0.309,1,4240,3170
 region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",North East,voc_r[31],2021-12-23,Estimate,TRUE,FALSE,0.0506,0.0498,0.0405,0.0409,-0.0154,0.0162,0.0843,0.119,1,3270,3290
-region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",North West,voc_r[1],2021-11-23,Estimate,TRUE,FALSE,0.24,0.242,0.0716,0.0713,0.119,0.181,0.3,0.356,1,3170,2690
-region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",North West,voc_r[2],2021-11-24,Estimate,TRUE,FALSE,0.24,0.242,0.0716,0.0713,0.119,0.181,0.3,0.356,1,3170,2690
-region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",North West,voc_r[3],2021-11-25,Estimate,TRUE,FALSE,0.24,0.242,0.0716,0.0713,0.119,0.181,0.3,0.356,1,3170,2690
-region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",North West,voc_r[4],2021-11-26,Estimate,TRUE,FALSE,0.316,0.319,0.0852,0.0821,0.17,0.247,0.384,0.451,1,2990,3030
-region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",North West,voc_r[5],2021-11-27,Estimate,TRUE,FALSE,0.316,0.319,0.0852,0.0821,0.17,0.247,0.384,0.451,1,2990,3030
-region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",North West,voc_r[6],2021-11-28,Estimate,TRUE,FALSE,0.316,0.319,0.0852,0.0821,0.17,0.247,0.384,0.451,1,2990,3030
-region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",North West,voc_r[7],2021-11-29,Estimate,TRUE,FALSE,0.381,0.381,0.0831,0.0782,0.247,0.315,0.45,0.518,1,4570,3130
-region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",North West,voc_r[8],2021-11-30,Estimate,TRUE,FALSE,0.381,0.381,0.0831,0.0782,0.247,0.315,0.45,0.518,1,4570,3130
 region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",North West,voc_r[9],2021-12-01,Estimate,TRUE,FALSE,0.381,0.381,0.0831,0.0782,0.247,0.315,0.45,0.518,1,4570,3130
 region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",North West,voc_r[10],2021-12-02,Estimate,TRUE,FALSE,0.423,0.422,0.0746,0.0706,0.304,0.363,0.484,0.545,1,4890,2710
 region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",North West,voc_r[11],2021-12-03,Estimate,TRUE,FALSE,0.423,0.422,0.0746,0.0706,0.304,0.363,0.484,0.545,1,4890,2710
@@ -154,14 +114,6 @@ region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",North West,
 region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",North West,voc_r[29],2021-12-21,Estimate,TRUE,FALSE,0.166,0.167,0.0309,0.03,0.115,0.141,0.191,0.216,1,3220,2650
 region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",North West,voc_r[30],2021-12-22,Estimate,TRUE,FALSE,0.166,0.167,0.0309,0.03,0.115,0.141,0.191,0.216,1,3220,2650
 region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",North West,voc_r[31],2021-12-23,Estimate,TRUE,FALSE,-0.0138,-0.014,0.0353,0.0356,-0.0717,-0.0436,0.0162,0.0449,1,2190,2100
-region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",South East,voc_r[1],2021-11-23,Estimate,TRUE,FALSE,0.283,0.283,0.0705,0.0725,0.168,0.224,0.343,0.398,1,3600,2800
-region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",South East,voc_r[2],2021-11-24,Estimate,TRUE,FALSE,0.283,0.283,0.0705,0.0725,0.168,0.224,0.343,0.398,1,3600,2800
-region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",South East,voc_r[3],2021-11-25,Estimate,TRUE,FALSE,0.283,0.283,0.0705,0.0725,0.168,0.224,0.343,0.398,1,3600,2800
-region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",South East,voc_r[4],2021-11-26,Estimate,TRUE,FALSE,0.303,0.302,0.0838,0.0799,0.165,0.237,0.372,0.44,1,3170,2930
-region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",South East,voc_r[5],2021-11-27,Estimate,TRUE,FALSE,0.303,0.302,0.0838,0.0799,0.165,0.237,0.372,0.44,1,3170,2930
-region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",South East,voc_r[6],2021-11-28,Estimate,TRUE,FALSE,0.303,0.302,0.0838,0.0799,0.165,0.237,0.372,0.44,1,3170,2930
-region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",South East,voc_r[7],2021-11-29,Estimate,TRUE,FALSE,0.267,0.27,0.084,0.0806,0.126,0.198,0.336,0.397,1,4760,3010
-region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",South East,voc_r[8],2021-11-30,Estimate,TRUE,FALSE,0.267,0.27,0.084,0.0806,0.126,0.198,0.336,0.397,1,4760,3010
 region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",South East,voc_r[9],2021-12-01,Estimate,TRUE,FALSE,0.267,0.27,0.084,0.0806,0.126,0.198,0.336,0.397,1,4760,3010
 region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",South East,voc_r[10],2021-12-02,Estimate,TRUE,FALSE,0.355,0.353,0.0709,0.0678,0.241,0.298,0.413,0.473,1,5000,3280
 region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",South East,voc_r[11],2021-12-03,Estimate,TRUE,FALSE,0.355,0.353,0.0709,0.0678,0.241,0.298,0.413,0.473,1,5000,3280
@@ -185,14 +137,6 @@ region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",South East,
 region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",South East,voc_r[29],2021-12-21,Estimate,TRUE,FALSE,0.0748,0.0748,0.0279,0.0279,0.0287,0.0513,0.0989,0.121,1,4510,3570
 region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",South East,voc_r[30],2021-12-22,Estimate,TRUE,FALSE,0.0748,0.0748,0.0279,0.0279,0.0287,0.0513,0.0989,0.121,1,4510,3570
 region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",South East,voc_r[31],2021-12-23,Estimate,TRUE,FALSE,-0.0529,-0.054,0.0317,0.0315,-0.104,-0.0794,-0.0268,0.00168,1,2970,2600
-region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",South West,voc_r[1],2021-11-23,Estimate,TRUE,FALSE,0.271,0.272,0.0697,0.069,0.155,0.213,0.329,0.386,1,2660,2940
-region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",South West,voc_r[2],2021-11-24,Estimate,TRUE,FALSE,0.271,0.272,0.0697,0.069,0.155,0.213,0.329,0.386,1,2660,2940
-region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",South West,voc_r[3],2021-11-25,Estimate,TRUE,FALSE,0.271,0.272,0.0697,0.069,0.155,0.213,0.329,0.386,1,2660,2940
-region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",South West,voc_r[4],2021-11-26,Estimate,TRUE,FALSE,0.337,0.335,0.0845,0.0778,0.202,0.272,0.402,0.479,1,2430,2650
-region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",South West,voc_r[5],2021-11-27,Estimate,TRUE,FALSE,0.337,0.335,0.0845,0.0778,0.202,0.272,0.402,0.479,1,2430,2650
-region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",South West,voc_r[6],2021-11-28,Estimate,TRUE,FALSE,0.337,0.335,0.0845,0.0778,0.202,0.272,0.402,0.479,1,2430,2650
-region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",South West,voc_r[7],2021-11-29,Estimate,TRUE,FALSE,0.309,0.313,0.0822,0.0782,0.168,0.244,0.375,0.438,1,4000,3160
-region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",South West,voc_r[8],2021-11-30,Estimate,TRUE,FALSE,0.309,0.313,0.0822,0.0782,0.168,0.244,0.375,0.438,1,4000,3160
 region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",South West,voc_r[9],2021-12-01,Estimate,TRUE,FALSE,0.309,0.313,0.0822,0.0782,0.168,0.244,0.375,0.438,1,4000,3160
 region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",South West,voc_r[10],2021-12-02,Estimate,TRUE,FALSE,0.369,0.369,0.0745,0.0715,0.253,0.309,0.428,0.493,1,5020,3640
 region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",South West,voc_r[11],2021-12-03,Estimate,TRUE,FALSE,0.369,0.369,0.0745,0.0715,0.253,0.309,0.428,0.493,1,5020,3640
@@ -216,14 +160,6 @@ region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",South West,
 region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",South West,voc_r[29],2021-12-21,Estimate,TRUE,FALSE,0.0881,0.0878,0.03,0.0297,0.0392,0.0628,0.113,0.138,1,4070,3260
 region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",South West,voc_r[30],2021-12-22,Estimate,TRUE,FALSE,0.0881,0.0878,0.03,0.0297,0.0392,0.0628,0.113,0.138,1,4070,3260
 region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",South West,voc_r[31],2021-12-23,Estimate,TRUE,FALSE,-0.000298,5.6e-05,0.0348,0.0356,-0.0583,-0.0297,0.0294,0.0561,1,2600,2780
-region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",West Midlands,voc_r[1],2021-11-23,Estimate,TRUE,FALSE,0.215,0.216,0.0749,0.0761,0.0919,0.153,0.278,0.337,1,3690,2980
-region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",West Midlands,voc_r[2],2021-11-24,Estimate,TRUE,FALSE,0.215,0.216,0.0749,0.0761,0.0919,0.153,0.278,0.337,1,3690,2980
-region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",West Midlands,voc_r[3],2021-11-25,Estimate,TRUE,FALSE,0.215,0.216,0.0749,0.0761,0.0919,0.153,0.278,0.337,1,3690,2980
-region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",West Midlands,voc_r[4],2021-11-26,Estimate,TRUE,FALSE,0.204,0.207,0.0937,0.0892,0.0494,0.129,0.279,0.354,1,3770,3340
-region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",West Midlands,voc_r[5],2021-11-27,Estimate,TRUE,FALSE,0.204,0.207,0.0937,0.0892,0.0494,0.129,0.279,0.354,1,3770,3340
-region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",West Midlands,voc_r[6],2021-11-28,Estimate,TRUE,FALSE,0.204,0.207,0.0937,0.0892,0.0494,0.129,0.279,0.354,1,3770,3340
-region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",West Midlands,voc_r[7],2021-11-29,Estimate,TRUE,FALSE,0.22,0.224,0.0986,0.0911,0.0544,0.143,0.297,0.374,1,4550,3000
-region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",West Midlands,voc_r[8],2021-11-30,Estimate,TRUE,FALSE,0.22,0.224,0.0986,0.0911,0.0544,0.143,0.297,0.374,1,4550,3000
 region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",West Midlands,voc_r[9],2021-12-01,Estimate,TRUE,FALSE,0.22,0.224,0.0986,0.0911,0.0544,0.143,0.297,0.374,1,4550,3000
 region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",West Midlands,voc_r[10],2021-12-02,Estimate,TRUE,FALSE,0.356,0.355,0.0896,0.0871,0.208,0.283,0.43,0.499,1,4750,3090
 region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",West Midlands,voc_r[11],2021-12-03,Estimate,TRUE,FALSE,0.356,0.355,0.0896,0.0871,0.208,0.283,0.43,0.499,1,4750,3090
@@ -247,14 +183,6 @@ region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",West Midlan
 region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",West Midlands,voc_r[29],2021-12-21,Estimate,TRUE,FALSE,0.159,0.159,0.0286,0.0279,0.112,0.135,0.183,0.205,1,4310,3400
 region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",West Midlands,voc_r[30],2021-12-22,Estimate,TRUE,FALSE,0.159,0.159,0.0286,0.0279,0.112,0.135,0.183,0.205,1,4310,3400
 region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",West Midlands,voc_r[31],2021-12-23,Estimate,TRUE,FALSE,0.00122,0.00114,0.0315,0.0315,-0.0496,-0.0251,0.0275,0.0523,1,3770,3370
-region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",Yorkshire and Humber,voc_r[1],2021-11-23,Estimate,TRUE,FALSE,0.131,0.13,0.08,0.0802,-0.000126,0.0658,0.197,0.264,1,3500,2930
-region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",Yorkshire and Humber,voc_r[2],2021-11-24,Estimate,TRUE,FALSE,0.131,0.13,0.08,0.0802,-0.000126,0.0658,0.197,0.264,1,3500,2930
-region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",Yorkshire and Humber,voc_r[3],2021-11-25,Estimate,TRUE,FALSE,0.131,0.13,0.08,0.0802,-0.000126,0.0658,0.197,0.264,1,3500,2930
-region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",Yorkshire and Humber,voc_r[4],2021-11-26,Estimate,TRUE,FALSE,0.0168,0.0239,0.116,0.108,-0.18,-0.0765,0.11,0.202,1,2790,3230
-region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",Yorkshire and Humber,voc_r[5],2021-11-27,Estimate,TRUE,FALSE,0.0168,0.0239,0.116,0.108,-0.18,-0.0765,0.11,0.202,1,2790,3230
-region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",Yorkshire and Humber,voc_r[6],2021-11-28,Estimate,TRUE,FALSE,0.0168,0.0239,0.116,0.108,-0.18,-0.0765,0.11,0.202,1,2790,3230
-region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",Yorkshire and Humber,voc_r[7],2021-11-29,Estimate,TRUE,FALSE,0.197,0.197,0.111,0.103,0.00979,0.11,0.283,0.377,1,4020,2440
-region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",Yorkshire and Humber,voc_r[8],2021-11-30,Estimate,TRUE,FALSE,0.197,0.197,0.111,0.103,0.00979,0.11,0.283,0.377,1,4020,2440
 region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",Yorkshire and Humber,voc_r[9],2021-12-01,Estimate,TRUE,FALSE,0.197,0.197,0.111,0.103,0.00979,0.11,0.283,0.377,1,4020,2440
 region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",Yorkshire and Humber,voc_r[10],2021-12-02,Estimate,TRUE,FALSE,0.395,0.395,0.105,0.101,0.226,0.309,0.48,0.567,1,4780,3010
 region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",Yorkshire and Humber,voc_r[11],2021-12-03,Estimate,TRUE,FALSE,0.395,0.395,0.105,0.101,0.226,0.309,0.48,0.567,1,4780,3010
@@ -278,293 +206,213 @@ region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",Yorkshire a
 region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",Yorkshire and Humber,voc_r[29],2021-12-21,Estimate,TRUE,FALSE,0.185,0.185,0.027,0.0269,0.141,0.162,0.208,0.228,1,4300,3500
 region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",Yorkshire and Humber,voc_r[30],2021-12-22,Estimate,TRUE,FALSE,0.185,0.185,0.027,0.0269,0.141,0.162,0.208,0.228,1,4300,3500
 region,household,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",Yorkshire and Humber,voc_r[31],2021-12-23,Estimate,TRUE,FALSE,0.00716,0.00708,0.0303,0.0302,-0.0425,-0.0186,0.0323,0.057,1,4410,3770
-region,household,,,,,,,,East Midlands,pp_voc_r[1],2021-11-23,Posterior prediction,,,,,,,0.1588659,0.2487342,0.4302396,0.5169843,,,
-region,household,,,,,,,,East Midlands,pp_voc_r[2],2021-11-24,Posterior prediction,,,,,,,0.15996185,0.2440772,0.4290316,0.5203261,,,
-region,household,,,,,,,,East Midlands,pp_voc_r[3],2021-11-25,Posterior prediction,,,,,,,0.16351635,0.2493284,0.426035,0.50572795,,,
-region,household,,,,,,,,East Midlands,pp_voc_r[4],2021-11-26,Posterior prediction,,,,,,,0.1753715,0.2709306,0.4758294,0.5739713,,,
-region,household,,,,,,,,East Midlands,pp_voc_r[5],2021-11-27,Posterior prediction,,,,,,,0.1769453,0.272063,0.4738364,0.56803115,,,
-region,household,,,,,,,,East Midlands,pp_voc_r[6],2021-11-28,Posterior prediction,,,,,,,0.17891285,0.267138,0.476563,0.57160775,,,
-region,household,,,,,,,,East Midlands,pp_voc_r[7],2021-11-29,Posterior prediction,,,,,,,0.16783695,0.267013,0.472809,0.5753005,,,
-region,household,,,,,,,,East Midlands,pp_voc_r[8],2021-11-30,Posterior prediction,,,,,,,0.1727304,0.2674564,0.468623,0.5666807,,,
-region,household,,,,,,,,East Midlands,pp_voc_r[9],2021-12-01,Posterior prediction,,,,,,,0.17136615,0.269288,0.4734494,0.5700668,,,
-region,household,,,,,,,,East Midlands,pp_voc_r[10],2021-12-02,Posterior prediction,,,,,,,0.13088855,0.2324514,0.438805,0.53244315,,,
-region,household,,,,,,,,East Midlands,pp_voc_r[11],2021-12-03,Posterior prediction,,,,,,,0.13106875,0.228661,0.4305334,0.53352215,,,
-region,household,,,,,,,,East Midlands,pp_voc_r[12],2021-12-04,Posterior prediction,,,,,,,0.13602775,0.2316014,0.4348838,0.5315655,,,
-region,household,,,,,,,,East Midlands,pp_voc_r[13],2021-12-05,Posterior prediction,,,,,,,0.13960515,0.228676,0.4126528,0.50212705,,,
-region,household,,,,,,,,East Midlands,pp_voc_r[14],2021-12-06,Posterior prediction,,,,,,,0.1453282,0.2296044,0.4126274,0.49711745,,,
-region,household,,,,,,,,East Midlands,pp_voc_r[15],2021-12-07,Posterior prediction,,,,,,,0.1397807,0.2281738,0.4110832,0.50247935,,,
-region,household,,,,,,,,East Midlands,pp_voc_r[16],2021-12-08,Posterior prediction,,,,,,,0.13650055,0.2175728,0.3833678,0.46663325,,,
-region,household,,,,,,,,East Midlands,pp_voc_r[17],2021-12-09,Posterior prediction,,,,,,,0.13495775,0.2183212,0.3860686,0.467549,,,
-region,household,,,,,,,,East Midlands,pp_voc_r[18],2021-12-10,Posterior prediction,,,,,,,0.14530295,0.2215842,0.3886676,0.4665264,,,
-region,household,,,,,,,,East Midlands,pp_voc_r[19],2021-12-11,Posterior prediction,,,,,,,0.1126298,0.1882678,0.347053,0.41792335,,,
-region,household,,,,,,,,East Midlands,pp_voc_r[20],2021-12-12,Posterior prediction,,,,,,,0.116233,0.1893176,0.3448948,0.4200298,,,
-region,household,,,,,,,,East Midlands,pp_voc_r[21],2021-12-13,Posterior prediction,,,,,,,0.1203491,0.1928982,0.3426968,0.41442115,,,
-region,household,,,,,,,,East Midlands,pp_voc_r[22],2021-12-14,Posterior prediction,,,,,,,0.021566225,0.099169,0.256646,0.327829,,,
-region,household,,,,,,,,East Midlands,pp_voc_r[23],2021-12-15,Posterior prediction,,,,,,,0.03050961,0.09982792,0.2484208,0.32086825,,,
-region,household,,,,,,,,East Midlands,pp_voc_r[24],2021-12-16,Posterior prediction,,,,,,,0.025645815,0.1012016,0.2533418,0.32782265,,,
-region,household,,,,,,,,East Midlands,pp_voc_r[25],2021-12-17,Posterior prediction,,,,,,,-0.0094422755,0.06482184,0.2137498,0.28774905,,,
-region,household,,,,,,,,East Midlands,pp_voc_r[26],2021-12-18,Posterior prediction,,,,,,,-0.004032215,0.06546288,0.2110708,0.28568065,,,
-region,household,,,,,,,,East Midlands,pp_voc_r[27],2021-12-19,Posterior prediction,,,,,,,-0.0086371915,0.06314538,0.2122424,0.28482525,,,
-region,household,,,,,,,,East Midlands,pp_voc_r[28],2021-12-20,Posterior prediction,,,,,,,-0.027001145,0.04508788,0.2020942,0.27382685,,,
-region,household,,,,,,,,East Midlands,pp_voc_r[29],2021-12-21,Posterior prediction,,,,,,,-0.01834869,0.05449174,0.2039776,0.2757691,,,
-region,household,,,,,,,,East Midlands,pp_voc_r[30],2021-12-22,Posterior prediction,,,,,,,-0.02342588,0.04938998,0.2032856,0.27302855,,,
-region,household,,,,,,,,East Midlands,pp_voc_r[31],2021-12-23,Posterior prediction,,,,,,,-0.09411693,-0.01385788,0.1513656,0.2330888,,,
-region,household,,,,,,,,East of England,pp_voc_r[32],2021-11-23,Posterior prediction,,,,,,,0.18295035,0.2649194,0.446321,0.53258495,,,
-region,household,,,,,,,,East of England,pp_voc_r[33],2021-11-24,Posterior prediction,,,,,,,0.1817633,0.2649024,0.4464326,0.52871655,,,
-region,household,,,,,,,,East of England,pp_voc_r[34],2021-11-25,Posterior prediction,,,,,,,0.1852588,0.2689164,0.4468096,0.53401935,,,
-region,household,,,,,,,,East of England,pp_voc_r[35],2021-11-26,Posterior prediction,,,,,,,0.1829188,0.2794426,0.4841742,0.5796362,,,
-region,household,,,,,,,,East of England,pp_voc_r[36],2021-11-27,Posterior prediction,,,,,,,0.17723155,0.2754266,0.4812326,0.5819475,,,
-region,household,,,,,,,,East of England,pp_voc_r[37],2021-11-28,Posterior prediction,,,,,,,0.1857979,0.282229,0.4814862,0.58037755,,,
-region,household,,,,,,,,East of England,pp_voc_r[38],2021-11-29,Posterior prediction,,,,,,,0.15647745,0.2560958,0.4653562,0.56097305,,,
-region,household,,,,,,,,East of England,pp_voc_r[39],2021-11-30,Posterior prediction,,,,,,,0.15486215,0.2562508,0.4594686,0.5610743,,,
-region,household,,,,,,,,East of England,pp_voc_r[40],2021-12-01,Posterior prediction,,,,,,,0.161108,0.2628302,0.4610726,0.55733015,,,
-region,household,,,,,,,,East of England,pp_voc_r[41],2021-12-02,Posterior prediction,,,,,,,0.1587593,0.2444024,0.4259658,0.5165294,,,
-region,household,,,,,,,,East of England,pp_voc_r[42],2021-12-03,Posterior prediction,,,,,,,0.1620978,0.2482642,0.4310254,0.51263315,,,
-region,household,,,,,,,,East of England,pp_voc_r[43],2021-12-04,Posterior prediction,,,,,,,0.16121565,0.2476642,0.427806,0.5160973,,,
-region,household,,,,,,,,East of England,pp_voc_r[44],2021-12-05,Posterior prediction,,,,,,,0.199688,0.271873,0.4260004,0.50683105,,,
-region,household,,,,,,,,East of England,pp_voc_r[45],2021-12-06,Posterior prediction,,,,,,,0.19499465,0.2681778,0.4190194,0.49551485,,,
-region,household,,,,,,,,East of England,pp_voc_r[46],2021-12-07,Posterior prediction,,,,,,,0.19818255,0.2718322,0.4237758,0.49942705,,,
-region,household,,,,,,,,East of England,pp_voc_r[47],2021-12-08,Posterior prediction,,,,,,,0.1557693,0.2337192,0.3819562,0.4567891,,,
-region,household,,,,,,,,East of England,pp_voc_r[48],2021-12-09,Posterior prediction,,,,,,,0.1618972,0.234762,0.3834154,0.4565117,,,
-region,household,,,,,,,,East of England,pp_voc_r[49],2021-12-10,Posterior prediction,,,,,,,0.156458,0.2307314,0.379453,0.45794785,,,
-region,household,,,,,,,,East of England,pp_voc_r[50],2021-12-11,Posterior prediction,,,,,,,0.1180996,0.1925532,0.3432974,0.4130162,,,
-region,household,,,,,,,,East of England,pp_voc_r[51],2021-12-12,Posterior prediction,,,,,,,0.12547655,0.1921428,0.3423412,0.4089004,,,
-region,household,,,,,,,,East of England,pp_voc_r[52],2021-12-13,Posterior prediction,,,,,,,0.11789675,0.1913146,0.3432864,0.4139269,,,
-region,household,,,,,,,,East of England,pp_voc_r[53],2021-12-14,Posterior prediction,,,,,,,0.022983765,0.0958851,0.2416054,0.3130618,,,
-region,household,,,,,,,,East of England,pp_voc_r[54],2021-12-15,Posterior prediction,,,,,,,0.02499513,0.09771508,0.2450418,0.31778225,,,
-region,household,,,,,,,,East of England,pp_voc_r[55],2021-12-16,Posterior prediction,,,,,,,0.02734035,0.09737806,0.243258,0.31181245,,,
-region,household,,,,,,,,East of England,pp_voc_r[56],2021-12-17,Posterior prediction,,,,,,,-0.026153395,0.04226864,0.1950066,0.2651818,,,
-region,household,,,,,,,,East of England,pp_voc_r[57],2021-12-18,Posterior prediction,,,,,,,-0.02464105,0.04287766,0.1962314,0.2661225,,,
-region,household,,,,,,,,East of England,pp_voc_r[58],2021-12-19,Posterior prediction,,,,,,,-0.02521989,0.04233138,0.1932834,0.264707,,,
-region,household,,,,,,,,East of England,pp_voc_r[59],2021-12-20,Posterior prediction,,,,,,,-0.062521555,0.00991421400000001,0.1604276,0.23352835,,,
-region,household,,,,,,,,East of England,pp_voc_r[60],2021-12-21,Posterior prediction,,,,,,,-0.067880415,0.01117658,0.1594086,0.23390515,,,
-region,household,,,,,,,,East of England,pp_voc_r[61],2021-12-22,Posterior prediction,,,,,,,-0.057898605,0.01260484,0.1644586,0.23351265,,,
-region,household,,,,,,,,East of England,pp_voc_r[62],2021-12-23,Posterior prediction,,,,,,,-0.13916495,-0.05479954,0.106416,0.18739005,,,
-region,household,,,,,,,,London,pp_voc_r[63],2021-11-23,Posterior prediction,,,,,,,0.2151446,0.298711,0.474286,0.5574707,,,
-region,household,,,,,,,,London,pp_voc_r[64],2021-11-24,Posterior prediction,,,,,,,0.21221915,0.2963514,0.4711428,0.55147075,,,
-region,household,,,,,,,,London,pp_voc_r[65],2021-11-25,Posterior prediction,,,,,,,0.2063053,0.2944242,0.4736408,0.55971275,,,
-region,household,,,,,,,,London,pp_voc_r[66],2021-11-26,Posterior prediction,,,,,,,0.2059675,0.2978108,0.4826924,0.580408,,,
-region,household,,,,,,,,London,pp_voc_r[67],2021-11-27,Posterior prediction,,,,,,,0.21267925,0.299283,0.4878726,0.5812373,,,
-region,household,,,,,,,,London,pp_voc_r[68],2021-11-28,Posterior prediction,,,,,,,0.20448725,0.2978436,0.4906146,0.57695165,,,
-region,household,,,,,,,,London,pp_voc_r[69],2021-11-29,Posterior prediction,,,,,,,0.19104315,0.2837466,0.4689032,0.55561705,,,
-region,household,,,,,,,,London,pp_voc_r[70],2021-11-30,Posterior prediction,,,,,,,0.19734675,0.2813248,0.4670184,0.5519265,,,
-region,household,,,,,,,,London,pp_voc_r[71],2021-12-01,Posterior prediction,,,,,,,0.19017205,0.2834942,0.4707538,0.5553338,,,
-region,household,,,,,,,,London,pp_voc_r[72],2021-12-02,Posterior prediction,,,,,,,0.20274175,0.284113,0.4497842,0.5322622,,,
-region,household,,,,,,,,London,pp_voc_r[73],2021-12-03,Posterior prediction,,,,,,,0.2059186,0.2840726,0.44763,0.5257807,,,
-region,household,,,,,,,,London,pp_voc_r[74],2021-12-04,Posterior prediction,,,,,,,0.19685015,0.2736946,0.4417204,0.52599445,,,
-region,household,,,,,,,,London,pp_voc_r[75],2021-12-05,Posterior prediction,,,,,,,0.19951765,0.2819438,0.4357946,0.51017485,,,
-region,household,,,,,,,,London,pp_voc_r[76],2021-12-06,Posterior prediction,,,,,,,0.20180435,0.280596,0.4342132,0.50897965,,,
-region,household,,,,,,,,London,pp_voc_r[77],2021-12-07,Posterior prediction,,,,,,,0.1958846,0.2748924,0.4334364,0.50957625,,,
-region,household,,,,,,,,London,pp_voc_r[78],2021-12-08,Posterior prediction,,,,,,,0.13302965,0.2114058,0.3704824,0.4529079,,,
-region,household,,,,,,,,London,pp_voc_r[79],2021-12-09,Posterior prediction,,,,,,,0.1383762,0.2138496,0.3697778,0.4530525,,,
-region,household,,,,,,,,London,pp_voc_r[80],2021-12-10,Posterior prediction,,,,,,,0.13980725,0.2159464,0.3769176,0.4546676,,,
-region,household,,,,,,,,London,pp_voc_r[81],2021-12-11,Posterior prediction,,,,,,,0.1295422,0.20473,0.3607194,0.43050395,,,
-region,household,,,,,,,,London,pp_voc_r[82],2021-12-12,Posterior prediction,,,,,,,0.1292788,0.1996454,0.3566162,0.42775565,,,
-region,household,,,,,,,,London,pp_voc_r[83],2021-12-13,Posterior prediction,,,,,,,0.12944015,0.2042974,0.359235,0.43151165,,,
-region,household,,,,,,,,London,pp_voc_r[84],2021-12-14,Posterior prediction,,,,,,,0.00467574100000001,0.07456798,0.2294778,0.29797355,,,
-region,household,,,,,,,,London,pp_voc_r[85],2021-12-15,Posterior prediction,,,,,,,0.0054002435,0.07592846,0.2296034,0.3040231,,,
-region,household,,,,,,,,London,pp_voc_r[86],2021-12-16,Posterior prediction,,,,,,,0.0015076755,0.0736046,0.2257936,0.30328585,,,
-region,household,,,,,,,,London,pp_voc_r[87],2021-12-17,Posterior prediction,,,,,,,-0.09860128,-0.02089652,0.143915,0.22176625,,,
-region,household,,,,,,,,London,pp_voc_r[88],2021-12-18,Posterior prediction,,,,,,,-0.097104455,-0.0172788,0.1416768,0.218226,,,
-region,household,,,,,,,,London,pp_voc_r[89],2021-12-19,Posterior prediction,,,,,,,-0.08819716,-0.01383526,0.1440082,0.21600615,,,
-region,household,,,,,,,,London,pp_voc_r[90],2021-12-20,Posterior prediction,,,,,,,-0.1523179,-0.06873984,0.1001884,0.1781444,,,
-region,household,,,,,,,,London,pp_voc_r[91],2021-12-21,Posterior prediction,,,,,,,-0.15536125,-0.0688922,0.0980679,0.17371685,,,
-region,household,,,,,,,,London,pp_voc_r[92],2021-12-22,Posterior prediction,,,,,,,-0.1471366,-0.06669314,0.09605312,0.17013435,,,
-region,household,,,,,,,,London,pp_voc_r[93],2021-12-23,Posterior prediction,,,,,,,-0.19835765,-0.108702,0.06530904,0.1465232,,,
-region,household,,,,,,,,North East,pp_voc_r[94],2021-11-23,Posterior prediction,,,,,,,0.1283111,0.2181392,0.4064604,0.49921095,,,
-region,household,,,,,,,,North East,pp_voc_r[95],2021-11-24,Posterior prediction,,,,,,,0.1320358,0.2204488,0.4111128,0.50014985,,,
-region,household,,,,,,,,North East,pp_voc_r[96],2021-11-25,Posterior prediction,,,,,,,0.124775,0.2176372,0.4161002,0.50781825,,,
-region,household,,,,,,,,North East,pp_voc_r[97],2021-11-26,Posterior prediction,,,,,,,0.11372775,0.226351,0.4628596,0.565396,,,
-region,household,,,,,,,,North East,pp_voc_r[98],2021-11-27,Posterior prediction,,,,,,,0.11362205,0.2309186,0.462307,0.56956115,,,
-region,household,,,,,,,,North East,pp_voc_r[99],2021-11-28,Posterior prediction,,,,,,,0.1153292,0.2305832,0.461939,0.5722111,,,
-region,household,,,,,,,,North East,pp_voc_r[100],2021-11-29,Posterior prediction,,,,,,,0.1109778,0.2187618,0.4528658,0.5592003,,,
-region,household,,,,,,,,North East,pp_voc_r[101],2021-11-30,Posterior prediction,,,,,,,0.1095526,0.214903,0.4509466,0.55576735,,,
-region,household,,,,,,,,North East,pp_voc_r[102],2021-12-01,Posterior prediction,,,,,,,0.11537345,0.2226248,0.448451,0.56492715,,,
-region,household,,,,,,,,North East,pp_voc_r[103],2021-12-02,Posterior prediction,,,,,,,0.1073329,0.2210966,0.458893,0.5705915,,,
-region,household,,,,,,,,North East,pp_voc_r[104],2021-12-03,Posterior prediction,,,,,,,0.10900795,0.215898,0.4509922,0.5592706,,,
-region,household,,,,,,,,North East,pp_voc_r[105],2021-12-04,Posterior prediction,,,,,,,0.10363575,0.2150198,0.4466768,0.56524885,,,
-region,household,,,,,,,,North East,pp_voc_r[106],2021-12-05,Posterior prediction,,,,,,,0.1189059,0.2290726,0.456405,0.56204775,,,
-region,household,,,,,,,,North East,pp_voc_r[107],2021-12-06,Posterior prediction,,,,,,,0.1136836,0.2308618,0.4598618,0.5761683,,,
-region,household,,,,,,,,North East,pp_voc_r[108],2021-12-07,Posterior prediction,,,,,,,0.13286895,0.2323512,0.4548922,0.56760905,,,
-region,household,,,,,,,,North East,pp_voc_r[109],2021-12-08,Posterior prediction,,,,,,,0.15256275,0.2491264,0.4603448,0.55939645,,,
-region,household,,,,,,,,North East,pp_voc_r[110],2021-12-09,Posterior prediction,,,,,,,0.1512591,0.2548572,0.4517522,0.5518208,,,
-region,household,,,,,,,,North East,pp_voc_r[111],2021-12-10,Posterior prediction,,,,,,,0.15314945,0.2466176,0.4577452,0.5557746,,,
-region,household,,,,,,,,North East,pp_voc_r[112],2021-12-11,Posterior prediction,,,,,,,0.13826335,0.2268656,0.4024086,0.4877538,,,
-region,household,,,,,,,,North East,pp_voc_r[113],2021-12-12,Posterior prediction,,,,,,,0.14311035,0.2254794,0.3986896,0.4779278,,,
-region,household,,,,,,,,North East,pp_voc_r[114],2021-12-13,Posterior prediction,,,,,,,0.13516,0.2250064,0.400749,0.4880917,,,
-region,household,,,,,,,,North East,pp_voc_r[115],2021-12-14,Posterior prediction,,,,,,,0.08909805,0.162715,0.3205978,0.38877455,,,
-region,household,,,,,,,,North East,pp_voc_r[116],2021-12-15,Posterior prediction,,,,,,,0.08270991,0.1597312,0.3172946,0.3895214,,,
-region,household,,,,,,,,North East,pp_voc_r[117],2021-12-16,Posterior prediction,,,,,,,0.077282945,0.1578784,0.3196982,0.3925826,,,
-region,household,,,,,,,,North East,pp_voc_r[118],2021-12-17,Posterior prediction,,,,,,,0.057073335,0.1289134,0.281833,0.35995935,,,
-region,household,,,,,,,,North East,pp_voc_r[119],2021-12-18,Posterior prediction,,,,,,,0.04995068,0.127214,0.279038,0.3505606,,,
-region,household,,,,,,,,North East,pp_voc_r[120],2021-12-19,Posterior prediction,,,,,,,0.057156625,0.1290672,0.281054,0.35145115,,,
-region,household,,,,,,,,North East,pp_voc_r[121],2021-12-20,Posterior prediction,,,,,,,0.040778325,0.1135676,0.2656594,0.34165135,,,
-region,household,,,,,,,,North East,pp_voc_r[122],2021-12-21,Posterior prediction,,,,,,,0.03486798,0.1146828,0.2677198,0.33527105,,,
-region,household,,,,,,,,North East,pp_voc_r[123],2021-12-22,Posterior prediction,,,,,,,0.036377595,0.1110416,0.2669506,0.33793095,,,
-region,household,,,,,,,,North East,pp_voc_r[124],2021-12-23,Posterior prediction,,,,,,,-0.038171285,0.0422418,0.2083358,0.2890463,,,
-region,household,,,,,,,,North West,pp_voc_r[125],2021-11-23,Posterior prediction,,,,,,,0.1648798,0.2515092,0.4306624,0.5135432,,,
-region,household,,,,,,,,North West,pp_voc_r[126],2021-11-24,Posterior prediction,,,,,,,0.1642003,0.2492348,0.4336704,0.5246355,,,
-region,household,,,,,,,,North West,pp_voc_r[127],2021-11-25,Posterior prediction,,,,,,,0.16134655,0.2488736,0.4289068,0.516442,,,
-region,household,,,,,,,,North West,pp_voc_r[128],2021-11-26,Posterior prediction,,,,,,,0.1768512,0.2737426,0.466426,0.56217635,,,
-region,household,,,,,,,,North West,pp_voc_r[129],2021-11-27,Posterior prediction,,,,,,,0.1753883,0.266822,0.465454,0.5561197,,,
-region,household,,,,,,,,North West,pp_voc_r[130],2021-11-28,Posterior prediction,,,,,,,0.1746005,0.2673972,0.4658672,0.56251765,,,
-region,household,,,,,,,,North West,pp_voc_r[131],2021-11-29,Posterior prediction,,,,,,,0.1737444,0.2670758,0.4684644,0.56411035,,,
-region,household,,,,,,,,North West,pp_voc_r[132],2021-11-30,Posterior prediction,,,,,,,0.1780324,0.268976,0.467485,0.56687935,,,
-region,household,,,,,,,,North West,pp_voc_r[133],2021-12-01,Posterior prediction,,,,,,,0.17386175,0.2650228,0.4631012,0.55513145,,,
-region,household,,,,,,,,North West,pp_voc_r[134],2021-12-02,Posterior prediction,,,,,,,0.1702387,0.2600272,0.446104,0.53508855,,,
-region,household,,,,,,,,North West,pp_voc_r[135],2021-12-03,Posterior prediction,,,,,,,0.1690909,0.25826,0.4455888,0.53345805,,,
-region,household,,,,,,,,North West,pp_voc_r[136],2021-12-04,Posterior prediction,,,,,,,0.17437035,0.2607376,0.4447354,0.52822155,,,
-region,household,,,,,,,,North West,pp_voc_r[137],2021-12-05,Posterior prediction,,,,,,,0.1690554,0.2525084,0.4318066,0.5175577,,,
-region,household,,,,,,,,North West,pp_voc_r[138],2021-12-06,Posterior prediction,,,,,,,0.1687072,0.2498256,0.4290922,0.51271215,,,
-region,household,,,,,,,,North West,pp_voc_r[139],2021-12-07,Posterior prediction,,,,,,,0.17027805,0.2514168,0.4254408,0.50891255,,,
-region,household,,,,,,,,North West,pp_voc_r[140],2021-12-08,Posterior prediction,,,,,,,0.1409329,0.2203384,0.3890666,0.4668118,,,
-region,household,,,,,,,,North West,pp_voc_r[141],2021-12-09,Posterior prediction,,,,,,,0.1374636,0.2188214,0.384092,0.4596981,,,
-region,household,,,,,,,,North West,pp_voc_r[142],2021-12-10,Posterior prediction,,,,,,,0.13874625,0.2218496,0.3867674,0.4647871,,,
-region,household,,,,,,,,North West,pp_voc_r[143],2021-12-11,Posterior prediction,,,,,,,0.13459625,0.2110898,0.367239,0.43802385,,,
-region,household,,,,,,,,North West,pp_voc_r[144],2021-12-12,Posterior prediction,,,,,,,0.14015135,0.2138118,0.3658274,0.43491005,,,
-region,household,,,,,,,,North West,pp_voc_r[145],2021-12-13,Posterior prediction,,,,,,,0.141592,0.2143556,0.3620254,0.4335606,,,
-region,household,,,,,,,,North West,pp_voc_r[146],2021-12-14,Posterior prediction,,,,,,,0.070949945,0.1372102,0.28404,0.3602131,,,
-region,household,,,,,,,,North West,pp_voc_r[147],2021-12-15,Posterior prediction,,,,,,,0.067326015,0.1409396,0.2844496,0.3506635,,,
-region,household,,,,,,,,North West,pp_voc_r[148],2021-12-16,Posterior prediction,,,,,,,0.070016235,0.1364436,0.28321,0.3531902,,,
-region,household,,,,,,,,North West,pp_voc_r[149],2021-12-17,Posterior prediction,,,,,,,0.0145754,0.08659224,0.2375378,0.3094158,,,
-region,household,,,,,,,,North West,pp_voc_r[150],2021-12-18,Posterior prediction,,,,,,,0.01783303,0.08741338,0.2364568,0.3105121,,,
-region,household,,,,,,,,North West,pp_voc_r[151],2021-12-19,Posterior prediction,,,,,,,0.02411591,0.09125538,0.2377546,0.30930055,,,
-region,household,,,,,,,,North West,pp_voc_r[152],2021-12-20,Posterior prediction,,,,,,,-0.0057876545,0.06861924,0.2220912,0.292187,,,
-region,household,,,,,,,,North West,pp_voc_r[153],2021-12-21,Posterior prediction,,,,,,,-0.011196005,0.06656376,0.221826,0.2948662,,,
-region,household,,,,,,,,North West,pp_voc_r[154],2021-12-22,Posterior prediction,,,,,,,-0.006032589,0.06825786,0.2177298,0.29272565,,,
-region,household,,,,,,,,North West,pp_voc_r[155],2021-12-23,Posterior prediction,,,,,,,-0.093150435,-0.00947642,0.1531732,0.23642325,,,
-region,household,,,,,,,,South East,pp_voc_r[156],2021-11-23,Posterior prediction,,,,,,,0.1849153,0.2667234,0.443122,0.5328056,,,
-region,household,,,,,,,,South East,pp_voc_r[157],2021-11-24,Posterior prediction,,,,,,,0.17870885,0.267564,0.4498488,0.5363614,,,
-region,household,,,,,,,,South East,pp_voc_r[158],2021-11-25,Posterior prediction,,,,,,,0.1816498,0.2672308,0.4392388,0.5211616,,,
-region,household,,,,,,,,South East,pp_voc_r[159],2021-11-26,Posterior prediction,,,,,,,0.19278505,0.2811156,0.477908,0.57304635,,,
-region,household,,,,,,,,South East,pp_voc_r[160],2021-11-27,Posterior prediction,,,,,,,0.1883262,0.2825576,0.4747592,0.5773372,,,
-region,household,,,,,,,,South East,pp_voc_r[161],2021-11-28,Posterior prediction,,,,,,,0.18770595,0.2784582,0.474095,0.5700718,,,
-region,household,,,,,,,,South East,pp_voc_r[162],2021-11-29,Posterior prediction,,,,,,,0.15411385,0.2453588,0.4422678,0.5347902,,,
-region,household,,,,,,,,South East,pp_voc_r[163],2021-11-30,Posterior prediction,,,,,,,0.15064805,0.2406174,0.4410874,0.54066245,,,
-region,household,,,,,,,,South East,pp_voc_r[164],2021-12-01,Posterior prediction,,,,,,,0.1541181,0.2467688,0.4442478,0.5348005,,,
-region,household,,,,,,,,South East,pp_voc_r[165],2021-12-02,Posterior prediction,,,,,,,0.14709345,0.234445,0.4131328,0.5038283,,,
-region,household,,,,,,,,South East,pp_voc_r[166],2021-12-03,Posterior prediction,,,,,,,0.14118525,0.2321738,0.413618,0.49935205,,,
-region,household,,,,,,,,South East,pp_voc_r[167],2021-12-04,Posterior prediction,,,,,,,0.14454605,0.2335864,0.4096402,0.4991163,,,
-region,household,,,,,,,,South East,pp_voc_r[168],2021-12-05,Posterior prediction,,,,,,,0.16124945,0.233789,0.4017898,0.48032075,,,
-region,household,,,,,,,,South East,pp_voc_r[169],2021-12-06,Posterior prediction,,,,,,,0.15523235,0.2329364,0.4051226,0.4809855,,,
-region,household,,,,,,,,South East,pp_voc_r[170],2021-12-07,Posterior prediction,,,,,,,0.1524482,0.232502,0.3974102,0.48313905,,,
-region,household,,,,,,,,South East,pp_voc_r[171],2021-12-08,Posterior prediction,,,,,,,0.12919915,0.2074914,0.3590308,0.43465,,,
-region,household,,,,,,,,South East,pp_voc_r[172],2021-12-09,Posterior prediction,,,,,,,0.13588185,0.2069338,0.3622618,0.440841,,,
-region,household,,,,,,,,South East,pp_voc_r[173],2021-12-10,Posterior prediction,,,,,,,0.1374219,0.2070784,0.3616276,0.4290083,,,
-region,household,,,,,,,,South East,pp_voc_r[174],2021-12-11,Posterior prediction,,,,,,,0.1251463,0.199971,0.3469032,0.4137131,,,
-region,household,,,,,,,,South East,pp_voc_r[175],2021-12-12,Posterior prediction,,,,,,,0.1202823,0.191684,0.3479,0.4149168,,,
-region,household,,,,,,,,South East,pp_voc_r[176],2021-12-13,Posterior prediction,,,,,,,0.12076245,0.1931534,0.3415572,0.4102175,,,
-region,household,,,,,,,,South East,pp_voc_r[177],2021-12-14,Posterior prediction,,,,,,,0.028841795,0.0986464,0.2450384,0.31830925,,,
-region,household,,,,,,,,South East,pp_voc_r[178],2021-12-15,Posterior prediction,,,,,,,0.031654645,0.101863,0.2446626,0.3173228,,,
-region,household,,,,,,,,South East,pp_voc_r[179],2021-12-16,Posterior prediction,,,,,,,0.03142477,0.0988454,0.24694,0.3194936,,,
-region,household,,,,,,,,South East,pp_voc_r[180],2021-12-17,Posterior prediction,,,,,,,-0.021347235,0.05268866,0.1968268,0.2679701,,,
-region,household,,,,,,,,South East,pp_voc_r[181],2021-12-18,Posterior prediction,,,,,,,-0.019497595,0.04801248,0.1996672,0.26960345,,,
-region,household,,,,,,,,South East,pp_voc_r[182],2021-12-19,Posterior prediction,,,,,,,-0.02009688,0.0506119,0.1988624,0.2696666,,,
-region,household,,,,,,,,South East,pp_voc_r[183],2021-12-20,Posterior prediction,,,,,,,-0.065168585,0.00716816200000001,0.1603548,0.23150645,,,
-region,household,,,,,,,,South East,pp_voc_r[184],2021-12-21,Posterior prediction,,,,,,,-0.061414195,0.009177746,0.1588576,0.2278067,,,
-region,household,,,,,,,,South East,pp_voc_r[185],2021-12-22,Posterior prediction,,,,,,,-0.06972367,0.00718667600000001,0.1622492,0.23300355,,,
-region,household,,,,,,,,South East,pp_voc_r[186],2021-12-23,Posterior prediction,,,,,,,-0.1662038,-0.08406778,0.08170674,0.15837045,,,
-region,household,,,,,,,,South West,pp_voc_r[187],2021-11-23,Posterior prediction,,,,,,,0.1766241,0.2627452,0.4433886,0.5228271,,,
-region,household,,,,,,,,South West,pp_voc_r[188],2021-11-24,Posterior prediction,,,,,,,0.17812975,0.261374,0.4420074,0.51887645,,,
-region,household,,,,,,,,South West,pp_voc_r[189],2021-11-25,Posterior prediction,,,,,,,0.1780402,0.260146,0.443053,0.5313466,,,
-region,household,,,,,,,,South West,pp_voc_r[190],2021-11-26,Posterior prediction,,,,,,,0.18828425,0.2756502,0.48118,0.5775792,,,
-region,household,,,,,,,,South West,pp_voc_r[191],2021-11-27,Posterior prediction,,,,,,,0.1867616,0.2827756,0.474859,0.56497995,,,
-region,household,,,,,,,,South West,pp_voc_r[192],2021-11-28,Posterior prediction,,,,,,,0.18606255,0.2770564,0.4750636,0.572365,,,
-region,household,,,,,,,,South West,pp_voc_r[193],2021-11-29,Posterior prediction,,,,,,,0.1505505,0.246307,0.4418784,0.53090465,,,
-region,household,,,,,,,,South West,pp_voc_r[194],2021-11-30,Posterior prediction,,,,,,,0.1478858,0.2465264,0.4425618,0.53143785,,,
-region,household,,,,,,,,South West,pp_voc_r[195],2021-12-01,Posterior prediction,,,,,,,0.1530636,0.2464606,0.442154,0.5289465,,,
-region,household,,,,,,,,South West,pp_voc_r[196],2021-12-02,Posterior prediction,,,,,,,0.146896,0.2366544,0.419708,0.50820165,,,
-region,household,,,,,,,,South West,pp_voc_r[197],2021-12-03,Posterior prediction,,,,,,,0.14364995,0.2329822,0.4189642,0.5079415,,,
-region,household,,,,,,,,South West,pp_voc_r[198],2021-12-04,Posterior prediction,,,,,,,0.1447488,0.2349754,0.4190326,0.50867075,,,
-region,household,,,,,,,,South West,pp_voc_r[199],2021-12-05,Posterior prediction,,,,,,,0.13613,0.21767,0.3959008,0.4747516,,,
-region,household,,,,,,,,South West,pp_voc_r[200],2021-12-06,Posterior prediction,,,,,,,0.13088405,0.2193528,0.3985676,0.4796053,,,
-region,household,,,,,,,,South West,pp_voc_r[201],2021-12-07,Posterior prediction,,,,,,,0.135146,0.2207134,0.3955466,0.48005995,,,
-region,household,,,,,,,,South West,pp_voc_r[202],2021-12-08,Posterior prediction,,,,,,,0.09555482,0.1782368,0.3552732,0.439029,,,
-region,household,,,,,,,,South West,pp_voc_r[203],2021-12-09,Posterior prediction,,,,,,,0.1051607,0.1845464,0.3584562,0.44111705,,,
-region,household,,,,,,,,South West,pp_voc_r[204],2021-12-10,Posterior prediction,,,,,,,0.102614,0.182868,0.3515476,0.43094045,,,
-region,household,,,,,,,,South West,pp_voc_r[205],2021-12-11,Posterior prediction,,,,,,,0.095224465,0.171986,0.3352912,0.4130312,,,
-region,household,,,,,,,,South West,pp_voc_r[206],2021-12-12,Posterior prediction,,,,,,,0.09120189,0.1696784,0.3375192,0.4149066,,,
-region,household,,,,,,,,South West,pp_voc_r[207],2021-12-13,Posterior prediction,,,,,,,0.09206732,0.1705462,0.331782,0.4128634,,,
-region,household,,,,,,,,South West,pp_voc_r[208],2021-12-14,Posterior prediction,,,,,,,-0.011168705,0.0577857,0.213577,0.28683585,,,
-region,household,,,,,,,,South West,pp_voc_r[209],2021-12-15,Posterior prediction,,,,,,,-0.0160338,0.05717342,0.212293,0.2885364,,,
-region,household,,,,,,,,South West,pp_voc_r[210],2021-12-16,Posterior prediction,,,,,,,-0.014848835,0.058602,0.2131872,0.2890056,,,
-region,household,,,,,,,,South West,pp_voc_r[211],2021-12-17,Posterior prediction,,,,,,,-0.03979677,0.0299714,0.1812576,0.2527906,,,
-region,household,,,,,,,,South West,pp_voc_r[212],2021-12-18,Posterior prediction,,,,,,,-0.041039715,0.0292477,0.181815,0.25611325,,,
-region,household,,,,,,,,South West,pp_voc_r[213],2021-12-19,Posterior prediction,,,,,,,-0.04151262,0.02930364,0.182317,0.25360875,,,
-region,household,,,,,,,,South West,pp_voc_r[214],2021-12-20,Posterior prediction,,,,,,,-0.037500395,0.03960462,0.1908656,0.26086355,,,
-region,household,,,,,,,,South West,pp_voc_r[215],2021-12-21,Posterior prediction,,,,,,,-0.033320505,0.03529756,0.1909178,0.263269,,,
-region,household,,,,,,,,South West,pp_voc_r[216],2021-12-22,Posterior prediction,,,,,,,-0.032049505,0.03799702,0.1883644,0.26430645,,,
-region,household,,,,,,,,South West,pp_voc_r[217],2021-12-23,Posterior prediction,,,,,,,-0.08802816,-0.008651472,0.1543742,0.23432755,,,
-region,household,,,,,,,,West Midlands,pp_voc_r[218],2021-11-23,Posterior prediction,,,,,,,0.1504659,0.239356,0.4249956,0.51636695,,,
-region,household,,,,,,,,West Midlands,pp_voc_r[219],2021-11-24,Posterior prediction,,,,,,,0.1545737,0.239782,0.4247834,0.5114974,,,
-region,household,,,,,,,,West Midlands,pp_voc_r[220],2021-11-25,Posterior prediction,,,,,,,0.15131905,0.2397728,0.4277002,0.5100046,,,
-region,household,,,,,,,,West Midlands,pp_voc_r[221],2021-11-26,Posterior prediction,,,,,,,0.158768,0.2585774,0.468497,0.56598025,,,
-region,household,,,,,,,,West Midlands,pp_voc_r[222],2021-11-27,Posterior prediction,,,,,,,0.15756365,0.2598712,0.4720602,0.5663363,,,
-region,household,,,,,,,,West Midlands,pp_voc_r[223],2021-11-28,Posterior prediction,,,,,,,0.1547251,0.257959,0.4679766,0.5727632,,,
-region,household,,,,,,,,West Midlands,pp_voc_r[224],2021-11-29,Posterior prediction,,,,,,,0.15262185,0.2527388,0.4673774,0.5683247,,,
-region,household,,,,,,,,West Midlands,pp_voc_r[225],2021-11-30,Posterior prediction,,,,,,,0.1503335,0.2493398,0.4614118,0.56111995,,,
-region,household,,,,,,,,West Midlands,pp_voc_r[226],2021-12-01,Posterior prediction,,,,,,,0.1466302,0.2506994,0.4652066,0.56361875,,,
-region,household,,,,,,,,West Midlands,pp_voc_r[227],2021-12-02,Posterior prediction,,,,,,,0.16735345,0.264449,0.4637876,0.5556851,,,
-region,household,,,,,,,,West Midlands,pp_voc_r[228],2021-12-03,Posterior prediction,,,,,,,0.1698089,0.266992,0.4623706,0.56112695,,,
-region,household,,,,,,,,West Midlands,pp_voc_r[229],2021-12-04,Posterior prediction,,,,,,,0.16058455,0.258599,0.4621268,0.56313585,,,
-region,household,,,,,,,,West Midlands,pp_voc_r[230],2021-12-05,Posterior prediction,,,,,,,0.14041895,0.2397564,0.4451298,0.5356324,,,
-region,household,,,,,,,,West Midlands,pp_voc_r[231],2021-12-06,Posterior prediction,,,,,,,0.14690495,0.2378388,0.4410272,0.5360112,,,
-region,household,,,,,,,,West Midlands,pp_voc_r[232],2021-12-07,Posterior prediction,,,,,,,0.13683275,0.2403086,0.4463362,0.5464439,,,
-region,household,,,,,,,,West Midlands,pp_voc_r[233],2021-12-08,Posterior prediction,,,,,,,0.13657755,0.2183882,0.3875704,0.46528415,,,
-region,household,,,,,,,,West Midlands,pp_voc_r[234],2021-12-09,Posterior prediction,,,,,,,0.13940155,0.2206404,0.385424,0.4679017,,,
-region,household,,,,,,,,West Midlands,pp_voc_r[235],2021-12-10,Posterior prediction,,,,,,,0.14144975,0.219798,0.3854748,0.46108815,,,
-region,household,,,,,,,,West Midlands,pp_voc_r[236],2021-12-11,Posterior prediction,,,,,,,0.10434185,0.1782594,0.3311378,0.40330555,,,
-region,household,,,,,,,,West Midlands,pp_voc_r[237],2021-12-12,Posterior prediction,,,,,,,0.11036345,0.182186,0.3322428,0.4055194,,,
-region,household,,,,,,,,West Midlands,pp_voc_r[238],2021-12-13,Posterior prediction,,,,,,,0.1066382,0.1784172,0.3339668,0.4055604,,,
-region,household,,,,,,,,West Midlands,pp_voc_r[239],2021-12-14,Posterior prediction,,,,,,,0.038688875,0.109897,0.258801,0.32694385,,,
-region,household,,,,,,,,West Midlands,pp_voc_r[240],2021-12-15,Posterior prediction,,,,,,,0.035054245,0.1059378,0.258701,0.3271418,,,
-region,household,,,,,,,,West Midlands,pp_voc_r[241],2021-12-16,Posterior prediction,,,,,,,0.0365595,0.110131,0.2575344,0.32648325,,,
-region,household,,,,,,,,West Midlands,pp_voc_r[242],2021-12-17,Posterior prediction,,,,,,,-0.005226746,0.07144972,0.218564,0.2915172,,,
-region,household,,,,,,,,West Midlands,pp_voc_r[243],2021-12-18,Posterior prediction,,,,,,,-0.0004787801,0.06727812,0.2153434,0.2827582,,,
-region,household,,,,,,,,West Midlands,pp_voc_r[244],2021-12-19,Posterior prediction,,,,,,,0.00354088050000001,0.07147216,0.217458,0.28645285,,,
-region,household,,,,,,,,West Midlands,pp_voc_r[245],2021-12-20,Posterior prediction,,,,,,,-0.00794465299999999,0.0625144,0.2094358,0.2793578,,,
-region,household,,,,,,,,West Midlands,pp_voc_r[246],2021-12-21,Posterior prediction,,,,,,,-0.01025191,0.06284072,0.2124066,0.28298335,,,
-region,household,,,,,,,,West Midlands,pp_voc_r[247],2021-12-22,Posterior prediction,,,,,,,-0.011384125,0.0609202,0.21446,0.28666435,,,
-region,household,,,,,,,,West Midlands,pp_voc_r[248],2021-12-23,Posterior prediction,,,,,,,-0.081320365,-0.006571038,0.1558,0.2334219,,,
-region,household,,,,,,,,Yorkshire and Humber,pp_voc_r[249],2021-11-23,Posterior prediction,,,,,,,0.14437025,0.2309646,0.4168568,0.5077589,,,
-region,household,,,,,,,,Yorkshire and Humber,pp_voc_r[250],2021-11-24,Posterior prediction,,,,,,,0.1371358,0.2278176,0.4163672,0.50653035,,,
-region,household,,,,,,,,Yorkshire and Humber,pp_voc_r[251],2021-11-25,Posterior prediction,,,,,,,0.14216975,0.2324208,0.4187262,0.5066029,,,
-region,household,,,,,,,,Yorkshire and Humber,pp_voc_r[252],2021-11-26,Posterior prediction,,,,,,,0.1209544,0.2346806,0.4766472,0.58450455,,,
-region,household,,,,,,,,Yorkshire and Humber,pp_voc_r[253],2021-11-27,Posterior prediction,,,,,,,0.12126735,0.2389418,0.4762202,0.5920012,,,
-region,household,,,,,,,,Yorkshire and Humber,pp_voc_r[254],2021-11-28,Posterior prediction,,,,,,,0.12428105,0.2350444,0.4757526,0.58990265,,,
-region,household,,,,,,,,Yorkshire and Humber,pp_voc_r[255],2021-11-29,Posterior prediction,,,,,,,0.11389615,0.2317714,0.4637902,0.5695572,,,
-region,household,,,,,,,,Yorkshire and Humber,pp_voc_r[256],2021-11-30,Posterior prediction,,,,,,,0.1241189,0.227135,0.4606484,0.5650605,,,
-region,household,,,,,,,,Yorkshire and Humber,pp_voc_r[257],2021-12-01,Posterior prediction,,,,,,,0.1172066,0.2322218,0.462932,0.5745081,,,
-region,household,,,,,,,,Yorkshire and Humber,pp_voc_r[258],2021-12-02,Posterior prediction,,,,,,,0.11829415,0.2252826,0.4498858,0.5549711,,,
-region,household,,,,,,,,Yorkshire and Humber,pp_voc_r[259],2021-12-03,Posterior prediction,,,,,,,0.12338125,0.231658,0.4536912,0.55986055,,,
-region,household,,,,,,,,Yorkshire and Humber,pp_voc_r[260],2021-12-04,Posterior prediction,,,,,,,0.1226807,0.2282602,0.4545898,0.560704,,,
-region,household,,,,,,,,Yorkshire and Humber,pp_voc_r[261],2021-12-05,Posterior prediction,,,,,,,0.14268045,0.2350174,0.435136,0.5294926,,,
-region,household,,,,,,,,Yorkshire and Humber,pp_voc_r[262],2021-12-06,Posterior prediction,,,,,,,0.1350342,0.237522,0.4365396,0.5329832,,,
-region,household,,,,,,,,Yorkshire and Humber,pp_voc_r[263],2021-12-07,Posterior prediction,,,,,,,0.1371854,0.2289034,0.4318292,0.5323544,,,
-region,household,,,,,,,,Yorkshire and Humber,pp_voc_r[264],2021-12-08,Posterior prediction,,,,,,,0.17189305,0.2508462,0.4155142,0.49443145,,,
-region,household,,,,,,,,Yorkshire and Humber,pp_voc_r[265],2021-12-09,Posterior prediction,,,,,,,0.1713497,0.2468746,0.412389,0.49293975,,,
-region,household,,,,,,,,Yorkshire and Humber,pp_voc_r[266],2021-12-10,Posterior prediction,,,,,,,0.16649785,0.2474486,0.4145224,0.49592625,,,
-region,household,,,,,,,,Yorkshire and Humber,pp_voc_r[267],2021-12-11,Posterior prediction,,,,,,,0.15878995,0.2284224,0.3817502,0.44967245,,,
-region,household,,,,,,,,Yorkshire and Humber,pp_voc_r[268],2021-12-12,Posterior prediction,,,,,,,0.1589383,0.2295284,0.377665,0.45374895,,,
-region,household,,,,,,,,Yorkshire and Humber,pp_voc_r[269],2021-12-13,Posterior prediction,,,,,,,0.155716,0.227924,0.3765148,0.4498445,,,
-region,household,,,,,,,,Yorkshire and Humber,pp_voc_r[270],2021-12-14,Posterior prediction,,,,,,,0.08279305,0.1513838,0.2975664,0.36777845,,,
-region,household,,,,,,,,Yorkshire and Humber,pp_voc_r[271],2021-12-15,Posterior prediction,,,,,,,0.07994072,0.1508298,0.2987316,0.3658695,,,
-region,household,,,,,,,,Yorkshire and Humber,pp_voc_r[272],2021-12-16,Posterior prediction,,,,,,,0.083328125,0.1495278,0.29641,0.3658625,,,
-region,household,,,,,,,,Yorkshire and Humber,pp_voc_r[273],2021-12-17,Posterior prediction,,,,,,,0.050002215,0.1164226,0.255783,0.32469925,,,
-region,household,,,,,,,,Yorkshire and Humber,pp_voc_r[274],2021-12-18,Posterior prediction,,,,,,,0.042183495,0.1172366,0.2582038,0.3261117,,,
-region,household,,,,,,,,Yorkshire and Humber,pp_voc_r[275],2021-12-19,Posterior prediction,,,,,,,0.05005071,0.1160622,0.2580348,0.3291924,,,
-region,household,,,,,,,,Yorkshire and Humber,pp_voc_r[276],2021-12-20,Posterior prediction,,,,,,,0.01578394,0.08675538,0.2346122,0.30574345,,,
-region,household,,,,,,,,Yorkshire and Humber,pp_voc_r[277],2021-12-21,Posterior prediction,,,,,,,0.011988005,0.0859069,0.2332966,0.3049153,,,
-region,household,,,,,,,,Yorkshire and Humber,pp_voc_r[278],2021-12-22,Posterior prediction,,,,,,,0.0223365,0.08815134,0.2341596,0.3045944,,,
-region,household,,,,,,,,Yorkshire and Humber,pp_voc_r[279],2021-12-23,Posterior prediction,,,,,,,-0.05446022,0.0246706,0.183802,0.25481475,,,
-region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",East Midlands,voc_r[1],2021-11-23,Estimate,TRUE,FALSE,0.225,0.227,0.0724,0.0735,0.104,0.164,0.286,0.345,1,3930,2990
-region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",East Midlands,voc_r[2],2021-11-24,Estimate,TRUE,FALSE,0.225,0.227,0.0724,0.0735,0.104,0.164,0.286,0.345,1,3930,2990
-region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",East Midlands,voc_r[3],2021-11-25,Estimate,TRUE,FALSE,0.225,0.227,0.0724,0.0735,0.104,0.164,0.286,0.345,1,3930,2990
-region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",East Midlands,voc_r[4],2021-11-26,Estimate,TRUE,FALSE,0.251,0.249,0.0884,0.0867,0.107,0.18,0.326,0.397,1,3850,3500
-region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",East Midlands,voc_r[5],2021-11-27,Estimate,TRUE,FALSE,0.251,0.249,0.0884,0.0867,0.107,0.18,0.326,0.397,1,3850,3500
-region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",East Midlands,voc_r[6],2021-11-28,Estimate,TRUE,FALSE,0.251,0.249,0.0884,0.0867,0.107,0.18,0.326,0.397,1,3850,3500
-region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",East Midlands,voc_r[7],2021-11-29,Estimate,TRUE,FALSE,0.265,0.262,0.0928,0.0912,0.116,0.188,0.341,0.418,1,4580,3590
-region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",East Midlands,voc_r[8],2021-11-30,Estimate,TRUE,FALSE,0.265,0.262,0.0928,0.0912,0.116,0.188,0.341,0.418,1,4580,3590
+region,household,,,,,,,,East Midlands,pp_voc_r[1],2021-12-01,Posterior prediction,,,,,,,0.29055765,0.3750672,0.555934,0.63835185,,,
+region,household,,,,,,,,East Midlands,pp_voc_r[2],2021-12-02,Posterior prediction,,,,,,,0.21050255,0.290327,0.4693804,0.55405955,,,
+region,household,,,,,,,,East Midlands,pp_voc_r[3],2021-12-03,Posterior prediction,,,,,,,0.2040283,0.2894632,0.4659898,0.54921995,,,
+region,household,,,,,,,,East Midlands,pp_voc_r[4],2021-12-04,Posterior prediction,,,,,,,0.2000951,0.2883164,0.4675274,0.5517059,,,
+region,household,,,,,,,,East Midlands,pp_voc_r[5],2021-12-05,Posterior prediction,,,,,,,0.24905075,0.3189362,0.4671894,0.54746775,,,
+region,household,,,,,,,,East Midlands,pp_voc_r[6],2021-12-06,Posterior prediction,,,,,,,0.24400535,0.322594,0.4726638,0.5422009,,,
+region,household,,,,,,,,East Midlands,pp_voc_r[7],2021-12-07,Posterior prediction,,,,,,,0.24142205,0.319801,0.4726284,0.54822595,,,
+region,household,,,,,,,,East Midlands,pp_voc_r[8],2021-12-08,Posterior prediction,,,,,,,0.2303233,0.289473,0.415249,0.47491335,,,
+region,household,,,,,,,,East Midlands,pp_voc_r[9],2021-12-09,Posterior prediction,,,,,,,0.23230555,0.291855,0.4193412,0.47897985,,,
+region,household,,,,,,,,East Midlands,pp_voc_r[10],2021-12-10,Posterior prediction,,,,,,,0.22986055,0.2879004,0.4142604,0.47770175,,,
+region,household,,,,,,,,East Midlands,pp_voc_r[11],2021-12-11,Posterior prediction,,,,,,,0.26231055,0.318902,0.4284186,0.47970505,,,
+region,household,,,,,,,,East Midlands,pp_voc_r[12],2021-12-12,Posterior prediction,,,,,,,0.2649938,0.3173268,0.4275294,0.47706805,,,
+region,household,,,,,,,,East Midlands,pp_voc_r[13],2021-12-13,Posterior prediction,,,,,,,0.26283665,0.3199858,0.4283824,0.47905985,,,
+region,household,,,,,,,,East Midlands,pp_voc_r[14],2021-12-14,Posterior prediction,,,,,,,0.06115796,0.1026514,0.1891132,0.23470605,,,
+region,household,,,,,,,,East Midlands,pp_voc_r[15],2021-12-15,Posterior prediction,,,,,,,0.059227305,0.1001864,0.189835,0.23238405,,,
+region,household,,,,,,,,East Midlands,pp_voc_r[16],2021-12-16,Posterior prediction,,,,,,,0.061389085,0.102865,0.1916204,0.23293515,,,
+region,household,,,,,,,,East Midlands,pp_voc_r[17],2021-12-17,Posterior prediction,,,,,,,0.022393355,0.06174886,0.1462046,0.19086695,,,
+region,household,,,,,,,,East Midlands,pp_voc_r[18],2021-12-18,Posterior prediction,,,,,,,0.021107205,0.06165888,0.1443998,0.18871605,,,
+region,household,,,,,,,,East Midlands,pp_voc_r[19],2021-12-19,Posterior prediction,,,,,,,0.023224525,0.06096636,0.1433426,0.18407145,,,
+region,household,,,,,,,,East Midlands,pp_voc_r[20],2021-12-20,Posterior prediction,,,,,,,0.02706441,0.06954388,0.1522996,0.19342105,,,
+region,household,,,,,,,,East Midlands,pp_voc_r[21],2021-12-21,Posterior prediction,,,,,,,0.02755926,0.06945558,0.1558632,0.1963413,,,
+region,household,,,,,,,,East Midlands,pp_voc_r[22],2021-12-22,Posterior prediction,,,,,,,0.027943995,0.06819046,0.1529032,0.19476895,,,
+region,household,,,,,,,,East Midlands,pp_voc_r[23],2021-12-23,Posterior prediction,,,,,,,-0.074963875,-0.03160306,0.0576939,0.1026121,,,
+region,household,,,,,,,,East of England,pp_voc_r[24],2021-12-01,Posterior prediction,,,,,,,0.27159985,0.3521356,0.5322696,0.61428565,,,
+region,household,,,,,,,,East of England,pp_voc_r[25],2021-12-02,Posterior prediction,,,,,,,0.2988164,0.3672658,0.514004,0.58667425,,,
+region,household,,,,,,,,East of England,pp_voc_r[26],2021-12-03,Posterior prediction,,,,,,,0.2936673,0.368448,0.5149684,0.5862677,,,
+region,household,,,,,,,,East of England,pp_voc_r[27],2021-12-04,Posterior prediction,,,,,,,0.29085235,0.3675196,0.5205786,0.5887356,,,
+region,household,,,,,,,,East of England,pp_voc_r[28],2021-12-05,Posterior prediction,,,,,,,0.3896349,0.447438,0.5556246,0.60625565,,,
+region,household,,,,,,,,East of England,pp_voc_r[29],2021-12-06,Posterior prediction,,,,,,,0.39108295,0.4449518,0.5583648,0.6065865,,,
+region,household,,,,,,,,East of England,pp_voc_r[30],2021-12-07,Posterior prediction,,,,,,,0.3917406,0.4451602,0.5563982,0.6070121,,,
+region,household,,,,,,,,East of England,pp_voc_r[31],2021-12-08,Posterior prediction,,,,,,,0.1861965,0.2316022,0.3254216,0.37617105,,,
+region,household,,,,,,,,East of England,pp_voc_r[32],2021-12-09,Posterior prediction,,,,,,,0.18018055,0.22513,0.3222134,0.3729059,,,
+region,household,,,,,,,,East of England,pp_voc_r[33],2021-12-10,Posterior prediction,,,,,,,0.1851036,0.2295352,0.3209098,0.3706624,,,
+region,household,,,,,,,,East of England,pp_voc_r[34],2021-12-11,Posterior prediction,,,,,,,0.304557,0.3509598,0.4376326,0.4795152,,,
+region,household,,,,,,,,East of England,pp_voc_r[35],2021-12-12,Posterior prediction,,,,,,,0.30465525,0.3507858,0.4408428,0.4796484,,,
+region,household,,,,,,,,East of England,pp_voc_r[36],2021-12-13,Posterior prediction,,,,,,,0.3022631,0.3503594,0.439977,0.4791942,,,
+region,household,,,,,,,,East of England,pp_voc_r[37],2021-12-14,Posterior prediction,,,,,,,0.06251649,0.09802214,0.1708082,0.2098968,,,
+region,household,,,,,,,,East of England,pp_voc_r[38],2021-12-15,Posterior prediction,,,,,,,0.06183242,0.09723812,0.1687534,0.20809765,,,
+region,household,,,,,,,,East of England,pp_voc_r[39],2021-12-16,Posterior prediction,,,,,,,0.06440632,0.09857874,0.1688116,0.2072723,,,
+region,household,,,,,,,,East of England,pp_voc_r[40],2021-12-17,Posterior prediction,,,,,,,0.0025576295,0.03843232,0.10933,0.14918485,,,
+region,household,,,,,,,,East of England,pp_voc_r[41],2021-12-18,Posterior prediction,,,,,,,0.0025203795,0.0375037,0.1095814,0.14884685,,,
+region,household,,,,,,,,East of England,pp_voc_r[42],2021-12-19,Posterior prediction,,,,,,,0.0035204025,0.0373987,0.1075876,0.1488119,,,
+region,household,,,,,,,,East of England,pp_voc_r[43],2021-12-20,Posterior prediction,,,,,,,0.0018501685,0.04390106,0.1184318,0.15378065,,,
+region,household,,,,,,,,East of England,pp_voc_r[44],2021-12-21,Posterior prediction,,,,,,,0.003511314,0.0432694,0.1187416,0.15345595,,,
+region,household,,,,,,,,East of England,pp_voc_r[45],2021-12-22,Posterior prediction,,,,,,,0.00522589000000001,0.0423085,0.1186154,0.1529155,,,
+region,household,,,,,,,,East of England,pp_voc_r[46],2021-12-23,Posterior prediction,,,,,,,-0.11123475,-0.07246546,0.008797138,0.05234222,,,
+region,household,,,,,,,,London,pp_voc_r[47],2021-12-01,Posterior prediction,,,,,,,0.28500135,0.3546496,0.513667,0.5891134,,,
+region,household,,,,,,,,London,pp_voc_r[48],2021-12-02,Posterior prediction,,,,,,,0.36934405,0.4290592,0.5610324,0.62396915,,,
+region,household,,,,,,,,London,pp_voc_r[49],2021-12-03,Posterior prediction,,,,,,,0.36377285,0.430789,0.5609808,0.62061835,,,
+region,household,,,,,,,,London,pp_voc_r[50],2021-12-04,Posterior prediction,,,,,,,0.3670575,0.4274684,0.5592598,0.62152715,,,
+region,household,,,,,,,,London,pp_voc_r[51],2021-12-05,Posterior prediction,,,,,,,0.40102545,0.452675,0.556253,0.6059088,,,
+region,household,,,,,,,,London,pp_voc_r[52],2021-12-06,Posterior prediction,,,,,,,0.39527085,0.451114,0.5541194,0.60694845,,,
+region,household,,,,,,,,London,pp_voc_r[53],2021-12-07,Posterior prediction,,,,,,,0.4020375,0.4552278,0.5577464,0.6077383,,,
+region,household,,,,,,,,London,pp_voc_r[54],2021-12-08,Posterior prediction,,,,,,,0.15236555,0.1958074,0.2971916,0.34641935,,,
+region,household,,,,,,,,London,pp_voc_r[55],2021-12-09,Posterior prediction,,,,,,,0.15044195,0.196613,0.29475,0.34519055,,,
+region,household,,,,,,,,London,pp_voc_r[56],2021-12-10,Posterior prediction,,,,,,,0.1506206,0.1953068,0.2990198,0.3514888,,,
+region,household,,,,,,,,London,pp_voc_r[57],2021-12-11,Posterior prediction,,,,,,,0.27987175,0.3260592,0.4166898,0.46158485,,,
+region,household,,,,,,,,London,pp_voc_r[58],2021-12-12,Posterior prediction,,,,,,,0.2764011,0.3224528,0.4129222,0.45637385,,,
+region,household,,,,,,,,London,pp_voc_r[59],2021-12-13,Posterior prediction,,,,,,,0.27499465,0.323117,0.4167972,0.4607012,,,
+region,household,,,,,,,,London,pp_voc_r[60],2021-12-14,Posterior prediction,,,,,,,0.022035995,0.0647553,0.1447372,0.18908525,,,
+region,household,,,,,,,,London,pp_voc_r[61],2021-12-15,Posterior prediction,,,,,,,0.027315575,0.06615342,0.1461306,0.18856465,,,
+region,household,,,,,,,,London,pp_voc_r[62],2021-12-16,Posterior prediction,,,,,,,0.02476069,0.06350838,0.1453704,0.1888361,,,
+region,household,,,,,,,,London,pp_voc_r[63],2021-12-17,Posterior prediction,,,,,,,-0.07304812,-0.03413874,0.04704534,0.0889605949999999,,,
+region,household,,,,,,,,London,pp_voc_r[64],2021-12-18,Posterior prediction,,,,,,,-0.06964672,-0.03225032,0.04784462,0.090718765,,,
+region,household,,,,,,,,London,pp_voc_r[65],2021-12-19,Posterior prediction,,,,,,,-0.07125621,-0.03237342,0.04703754,0.09167298,,,
+region,household,,,,,,,,London,pp_voc_r[66],2021-12-20,Posterior prediction,,,,,,,-0.085685485,-0.04174786,0.04386288,0.086576025,,,
+region,household,,,,,,,,London,pp_voc_r[67],2021-12-21,Posterior prediction,,,,,,,-0.08851419,-0.04305784,0.04517226,0.08337116,,,
+region,household,,,,,,,,London,pp_voc_r[68],2021-12-22,Posterior prediction,,,,,,,-0.089340085,-0.0427497,0.04512466,0.0874989999999999,,,
+region,household,,,,,,,,London,pp_voc_r[69],2021-12-23,Posterior prediction,,,,,,,-0.1436367,-0.09772684,-0.00226371999999999,0.0436308749999999,,,
+region,household,,,,,,,,North East,pp_voc_r[70],2021-12-01,Posterior prediction,,,,,,,0.18128395,0.2852792,0.4961304,0.59382735,,,
+region,household,,,,,,,,North East,pp_voc_r[71],2021-12-02,Posterior prediction,,,,,,,0.19203815,0.2940504,0.5027944,0.60082745,,,
+region,household,,,,,,,,North East,pp_voc_r[72],2021-12-03,Posterior prediction,,,,,,,0.1946943,0.296342,0.506306,0.6089225,,,
+region,household,,,,,,,,North East,pp_voc_r[73],2021-12-04,Posterior prediction,,,,,,,0.19077,0.2930574,0.5011124,0.60490365,,,
+region,household,,,,,,,,North East,pp_voc_r[74],2021-12-05,Posterior prediction,,,,,,,0.25030825,0.3408498,0.5471068,0.64482645,,,
+region,household,,,,,,,,North East,pp_voc_r[75],2021-12-06,Posterior prediction,,,,,,,0.24509335,0.3489578,0.5492214,0.65167275,,,
+region,household,,,,,,,,North East,pp_voc_r[76],2021-12-07,Posterior prediction,,,,,,,0.24565055,0.3420212,0.5463196,0.65072725,,,
+region,household,,,,,,,,North East,pp_voc_r[77],2021-12-08,Posterior prediction,,,,,,,0.31389975,0.4054064,0.5978122,0.6800547,,,
+region,household,,,,,,,,North East,pp_voc_r[78],2021-12-09,Posterior prediction,,,,,,,0.3159675,0.4071892,0.5990576,0.69203045,,,
+region,household,,,,,,,,North East,pp_voc_r[79],2021-12-10,Posterior prediction,,,,,,,0.32059655,0.4072902,0.597625,0.69666685,,,
+region,household,,,,,,,,North East,pp_voc_r[80],2021-12-11,Posterior prediction,,,,,,,0.2872607,0.3607094,0.5027146,0.5661151,,,
+region,household,,,,,,,,North East,pp_voc_r[81],2021-12-12,Posterior prediction,,,,,,,0.2886018,0.358372,0.5012322,0.5691799,,,
+region,household,,,,,,,,North East,pp_voc_r[82],2021-12-13,Posterior prediction,,,,,,,0.28852905,0.3566356,0.4997652,0.5651656,,,
+region,household,,,,,,,,North East,pp_voc_r[83],2021-12-14,Posterior prediction,,,,,,,0.1252924,0.1750648,0.2829074,0.33601285,,,
+region,household,,,,,,,,North East,pp_voc_r[84],2021-12-15,Posterior prediction,,,,,,,0.1236563,0.1749452,0.2830214,0.3321835,,,
+region,household,,,,,,,,North East,pp_voc_r[85],2021-12-16,Posterior prediction,,,,,,,0.12321325,0.1754998,0.2823098,0.33402585,,,
+region,household,,,,,,,,North East,pp_voc_r[86],2021-12-17,Posterior prediction,,,,,,,0.0997555,0.1434154,0.2400366,0.28770155,,,
+region,household,,,,,,,,North East,pp_voc_r[87],2021-12-18,Posterior prediction,,,,,,,0.098656975,0.1427846,0.2406948,0.28788025,,,
+region,household,,,,,,,,North East,pp_voc_r[88],2021-12-19,Posterior prediction,,,,,,,0.10032755,0.1448286,0.2412136,0.2904574,,,
+region,household,,,,,,,,North East,pp_voc_r[89],2021-12-20,Posterior prediction,,,,,,,0.11857355,0.1637212,0.2602592,0.3060111,,,
+region,household,,,,,,,,North East,pp_voc_r[90],2021-12-21,Posterior prediction,,,,,,,0.11781465,0.164072,0.2602744,0.31058225,,,
+region,household,,,,,,,,North East,pp_voc_r[91],2021-12-22,Posterior prediction,,,,,,,0.11557895,0.164892,0.2599172,0.30540955,,,
+region,household,,,,,,,,North East,pp_voc_r[92],2021-12-23,Posterior prediction,,,,,,,-0.018303865,0.02732378,0.1273912,0.17871815,,,
+region,household,,,,,,,,North West,pp_voc_r[93],2021-12-01,Posterior prediction,,,,,,,0.3090674,0.3888808,0.5553194,0.6335824,,,
+region,household,,,,,,,,North West,pp_voc_r[94],2021-12-02,Posterior prediction,,,,,,,0.3144459,0.3856704,0.5402662,0.6143919,,,
+region,household,,,,,,,,North West,pp_voc_r[95],2021-12-03,Posterior prediction,,,,,,,0.30739255,0.3816642,0.5372718,0.6111649,,,
+region,household,,,,,,,,North West,pp_voc_r[96],2021-12-04,Posterior prediction,,,,,,,0.3083708,0.3854968,0.5428334,0.6097889,,,
+region,household,,,,,,,,North West,pp_voc_r[97],2021-12-05,Posterior prediction,,,,,,,0.3150617,0.3836496,0.5310422,0.60538805,,,
+region,household,,,,,,,,North West,pp_voc_r[98],2021-12-06,Posterior prediction,,,,,,,0.31647955,0.3877006,0.5326156,0.60486315,,,
+region,household,,,,,,,,North West,pp_voc_r[99],2021-12-07,Posterior prediction,,,,,,,0.31175645,0.384374,0.5300336,0.5975651,,,
+region,household,,,,,,,,North West,pp_voc_r[100],2021-12-08,Posterior prediction,,,,,,,0.19464805,0.2547194,0.3746252,0.4353727,,,
+region,household,,,,,,,,North West,pp_voc_r[101],2021-12-09,Posterior prediction,,,,,,,0.1956418,0.2566346,0.3785662,0.43555435,,,
+region,household,,,,,,,,North West,pp_voc_r[102],2021-12-10,Posterior prediction,,,,,,,0.199055,0.255832,0.3737446,0.4327068,,,
+region,household,,,,,,,,North West,pp_voc_r[103],2021-12-11,Posterior prediction,,,,,,,0.2689691,0.3197056,0.4143376,0.4620617,,,
+region,household,,,,,,,,North West,pp_voc_r[104],2021-12-12,Posterior prediction,,,,,,,0.265714,0.3163726,0.414846,0.4587024,,,
+region,household,,,,,,,,North West,pp_voc_r[105],2021-12-13,Posterior prediction,,,,,,,0.2630284,0.3144026,0.4144448,0.45792115,,,
+region,household,,,,,,,,North West,pp_voc_r[106],2021-12-14,Posterior prediction,,,,,,,0.11350895,0.1540842,0.2374092,0.27856425,,,
+region,household,,,,,,,,North West,pp_voc_r[107],2021-12-15,Posterior prediction,,,,,,,0.11352715,0.1524622,0.2370904,0.2783987,,,
+region,household,,,,,,,,North West,pp_voc_r[108],2021-12-16,Posterior prediction,,,,,,,0.11327015,0.1540662,0.238358,0.280625,,,
+region,household,,,,,,,,North West,pp_voc_r[109],2021-12-17,Posterior prediction,,,,,,,0.06555726,0.103963,0.184397,0.2249463,,,
+region,household,,,,,,,,North West,pp_voc_r[110],2021-12-18,Posterior prediction,,,,,,,0.068193465,0.105558,0.185351,0.22413925,,,
+region,household,,,,,,,,North West,pp_voc_r[111],2021-12-19,Posterior prediction,,,,,,,0.06525709,0.1059928,0.185698,0.22448845,,,
+region,household,,,,,,,,North West,pp_voc_r[112],2021-12-20,Posterior prediction,,,,,,,0.067698145,0.105447,0.1896292,0.23057645,,,
+region,household,,,,,,,,North West,pp_voc_r[113],2021-12-21,Posterior prediction,,,,,,,0.05896235,0.1018744,0.1882058,0.23154115,,,
+region,household,,,,,,,,North West,pp_voc_r[114],2021-12-22,Posterior prediction,,,,,,,0.060834605,0.1029566,0.1885594,0.23028525,,,
+region,household,,,,,,,,North West,pp_voc_r[115],2021-12-23,Posterior prediction,,,,,,,-0.06846229,-0.0284217,0.06196184,0.1099454,,,
+region,household,,,,,,,,South East,pp_voc_r[116],2021-12-01,Posterior prediction,,,,,,,0.24549615,0.3273604,0.496205,0.5780034,,,
+region,household,,,,,,,,South East,pp_voc_r[117],2021-12-02,Posterior prediction,,,,,,,0.2526029,0.32067,0.4669008,0.5431498,,,
+region,household,,,,,,,,South East,pp_voc_r[118],2021-12-03,Posterior prediction,,,,,,,0.2462644,0.3151312,0.4671278,0.53763585,,,
+region,household,,,,,,,,South East,pp_voc_r[119],2021-12-04,Posterior prediction,,,,,,,0.25284875,0.3181862,0.4651158,0.5381243,,,
+region,household,,,,,,,,South East,pp_voc_r[120],2021-12-05,Posterior prediction,,,,,,,0.28817095,0.3532946,0.481026,0.541191,,,
+region,household,,,,,,,,South East,pp_voc_r[121],2021-12-06,Posterior prediction,,,,,,,0.28660425,0.3497928,0.4798164,0.54392915,,,
+region,household,,,,,,,,South East,pp_voc_r[122],2021-12-07,Posterior prediction,,,,,,,0.28910065,0.3516418,0.4790866,0.5397052,,,
+region,household,,,,,,,,South East,pp_voc_r[123],2021-12-08,Posterior prediction,,,,,,,0.2076157,0.2580936,0.3606812,0.41022185,,,
+region,household,,,,,,,,South East,pp_voc_r[124],2021-12-09,Posterior prediction,,,,,,,0.2062754,0.257165,0.360463,0.41003485,,,
+region,household,,,,,,,,South East,pp_voc_r[125],2021-12-10,Posterior prediction,,,,,,,0.20896895,0.258393,0.3616504,0.41250305,,,
+region,household,,,,,,,,South East,pp_voc_r[126],2021-12-11,Posterior prediction,,,,,,,0.25062235,0.2949196,0.3850616,0.4274721,,,
+region,household,,,,,,,,South East,pp_voc_r[127],2021-12-12,Posterior prediction,,,,,,,0.2474399,0.2926874,0.3860788,0.4281547,,,
+region,household,,,,,,,,South East,pp_voc_r[128],2021-12-13,Posterior prediction,,,,,,,0.24857225,0.2927072,0.3822546,0.42658735,,,
+region,household,,,,,,,,South East,pp_voc_r[129],2021-12-14,Posterior prediction,,,,,,,0.060698195,0.09810196,0.176026,0.2168388,,,
+region,household,,,,,,,,South East,pp_voc_r[130],2021-12-15,Posterior prediction,,,,,,,0.062035795,0.0978029,0.176765,0.2161356,,,
+region,household,,,,,,,,South East,pp_voc_r[131],2021-12-16,Posterior prediction,,,,,,,0.06114428,0.0983756,0.176575,0.21779935,,,
+region,household,,,,,,,,South East,pp_voc_r[132],2021-12-17,Posterior prediction,,,,,,,0.007425102,0.04358366,0.118092,0.15672875,,,
+region,household,,,,,,,,South East,pp_voc_r[133],2021-12-18,Posterior prediction,,,,,,,0.0063478305,0.04109896,0.1163904,0.15677935,,,
+region,household,,,,,,,,South East,pp_voc_r[134],2021-12-19,Posterior prediction,,,,,,,0.00367302,0.04183638,0.1170614,0.15843115,,,
+region,household,,,,,,,,South East,pp_voc_r[135],2021-12-20,Posterior prediction,,,,,,,-0.012920165,0.02599406,0.1014292,0.1394322,,,
+region,household,,,,,,,,South East,pp_voc_r[136],2021-12-21,Posterior prediction,,,,,,,-0.0138443,0.02559054,0.1028834,0.14312465,,,
+region,household,,,,,,,,South East,pp_voc_r[137],2021-12-22,Posterior prediction,,,,,,,-0.013644215,0.02607134,0.1033944,0.14303395,,,
+region,household,,,,,,,,South East,pp_voc_r[138],2021-12-23,Posterior prediction,,,,,,,-0.11648805,-0.0733772,0.0104914,0.053175915,,,
+region,household,,,,,,,,South West,pp_voc_r[139],2021-12-01,Posterior prediction,,,,,,,0.2430485,0.3286604,0.4965498,0.576686,,,
+region,household,,,,,,,,South West,pp_voc_r[140],2021-12-02,Posterior prediction,,,,,,,0.25267905,0.3269828,0.4826542,0.55393305,,,
+region,household,,,,,,,,South West,pp_voc_r[141],2021-12-03,Posterior prediction,,,,,,,0.25204395,0.3268712,0.4836492,0.55470875,,,
+region,household,,,,,,,,South West,pp_voc_r[142],2021-12-04,Posterior prediction,,,,,,,0.2510825,0.324116,0.4816946,0.5560003,,,
+region,household,,,,,,,,South West,pp_voc_r[143],2021-12-05,Posterior prediction,,,,,,,0.24534845,0.3116272,0.4539594,0.52215745,,,
+region,household,,,,,,,,South West,pp_voc_r[144],2021-12-06,Posterior prediction,,,,,,,0.23985665,0.3106702,0.4526866,0.5195781,,,
+region,household,,,,,,,,South West,pp_voc_r[145],2021-12-07,Posterior prediction,,,,,,,0.2439512,0.309455,0.457213,0.52557245,,,
+region,household,,,,,,,,South West,pp_voc_r[146],2021-12-08,Posterior prediction,,,,,,,0.1615528,0.2243512,0.3525918,0.41605545,,,
+region,household,,,,,,,,South West,pp_voc_r[147],2021-12-09,Posterior prediction,,,,,,,0.16789585,0.2240758,0.3536334,0.41271505,,,
+region,household,,,,,,,,South West,pp_voc_r[148],2021-12-10,Posterior prediction,,,,,,,0.1591082,0.2204154,0.3544212,0.41628005,,,
+region,household,,,,,,,,South West,pp_voc_r[149],2021-12-11,Posterior prediction,,,,,,,0.2201583,0.2787404,0.397567,0.4539876,,,
+region,household,,,,,,,,South West,pp_voc_r[150],2021-12-12,Posterior prediction,,,,,,,0.21664225,0.2792324,0.398499,0.4552461,,,
+region,household,,,,,,,,South West,pp_voc_r[151],2021-12-13,Posterior prediction,,,,,,,0.22084485,0.2816028,0.397601,0.45047145,,,
+region,household,,,,,,,,South West,pp_voc_r[152],2021-12-14,Posterior prediction,,,,,,,0.034780795,0.07499362,0.1650318,0.2110952,,,
+region,household,,,,,,,,South West,pp_voc_r[153],2021-12-15,Posterior prediction,,,,,,,0.03520736,0.07740532,0.1641694,0.2058147,,,
+region,household,,,,,,,,South West,pp_voc_r[154],2021-12-16,Posterior prediction,,,,,,,0.032304615,0.07589622,0.1635392,0.20729885,,,
+region,household,,,,,,,,South West,pp_voc_r[155],2021-12-17,Posterior prediction,,,,,,,0.018680605,0.05812164,0.1400472,0.1795634,,,
+region,household,,,,,,,,South West,pp_voc_r[156],2021-12-18,Posterior prediction,,,,,,,0.01710079,0.05691696,0.1407946,0.18156265,,,
+region,household,,,,,,,,South West,pp_voc_r[157],2021-12-19,Posterior prediction,,,,,,,0.01692571,0.06070796,0.143188,0.18300345,,,
+region,household,,,,,,,,South West,pp_voc_r[158],2021-12-20,Posterior prediction,,,,,,,0.0097191325,0.04694848,0.1279606,0.16765135,,,
+region,household,,,,,,,,South West,pp_voc_r[159],2021-12-21,Posterior prediction,,,,,,,0.009792202,0.0468845,0.1283894,0.16824635,,,
+region,household,,,,,,,,South West,pp_voc_r[160],2021-12-22,Posterior prediction,,,,,,,0.0064130815,0.04573174,0.126149,0.1683806,,,
+region,household,,,,,,,,South West,pp_voc_r[161],2021-12-23,Posterior prediction,,,,,,,-0.060735745,-0.0198339,0.0697106000000001,0.1151762,,,
+region,household,,,,,,,,West Midlands,pp_voc_r[162],2021-12-01,Posterior prediction,,,,,,,0.2542344,0.3477996,0.5391358,0.62867335,,,
+region,household,,,,,,,,West Midlands,pp_voc_r[163],2021-12-02,Posterior prediction,,,,,,,0.2995888,0.3798794,0.5517788,0.6391009,,,
+region,household,,,,,,,,West Midlands,pp_voc_r[164],2021-12-03,Posterior prediction,,,,,,,0.28721795,0.3755286,0.5550526,0.64159605,,,
+region,household,,,,,,,,West Midlands,pp_voc_r[165],2021-12-04,Posterior prediction,,,,,,,0.28932665,0.374613,0.5536718,0.6383892,,,
+region,household,,,,,,,,West Midlands,pp_voc_r[166],2021-12-05,Posterior prediction,,,,,,,0.2947016,0.3756172,0.563485,0.6506907,,,
+region,household,,,,,,,,West Midlands,pp_voc_r[167],2021-12-06,Posterior prediction,,,,,,,0.29122015,0.378377,0.5586158,0.64325705,,,
+region,household,,,,,,,,West Midlands,pp_voc_r[168],2021-12-07,Posterior prediction,,,,,,,0.2946849,0.3775052,0.5622568,0.6499037,,,
+region,household,,,,,,,,West Midlands,pp_voc_r[169],2021-12-08,Posterior prediction,,,,,,,0.24703025,0.3068614,0.4293844,0.48892265,,,
+region,household,,,,,,,,West Midlands,pp_voc_r[170],2021-12-09,Posterior prediction,,,,,,,0.2508486,0.3080774,0.4324254,0.49261345,,,
+region,household,,,,,,,,West Midlands,pp_voc_r[171],2021-12-10,Posterior prediction,,,,,,,0.24781175,0.3060026,0.4322228,0.49328895,,,
+region,household,,,,,,,,West Midlands,pp_voc_r[172],2021-12-11,Posterior prediction,,,,,,,0.26127015,0.316303,0.4209326,0.46838275,,,
+region,household,,,,,,,,West Midlands,pp_voc_r[173],2021-12-12,Posterior prediction,,,,,,,0.26972615,0.3208584,0.423875,0.47254415,,,
+region,household,,,,,,,,West Midlands,pp_voc_r[174],2021-12-13,Posterior prediction,,,,,,,0.2655185,0.3190482,0.4220686,0.46834705,,,
+region,household,,,,,,,,West Midlands,pp_voc_r[175],2021-12-14,Posterior prediction,,,,,,,0.08000153,0.1192882,0.2007112,0.2400371,,,
+region,household,,,,,,,,West Midlands,pp_voc_r[176],2021-12-15,Posterior prediction,,,,,,,0.078129695,0.1209198,0.2019022,0.2423882,,,
+region,household,,,,,,,,West Midlands,pp_voc_r[177],2021-12-16,Posterior prediction,,,,,,,0.079462445,0.1192122,0.1999438,0.24097185,,,
+region,household,,,,,,,,West Midlands,pp_voc_r[178],2021-12-17,Posterior prediction,,,,,,,0.042773785,0.08153988,0.157746,0.19780825,,,
+region,household,,,,,,,,West Midlands,pp_voc_r[179],2021-12-18,Posterior prediction,,,,,,,0.04459724,0.08226188,0.158815,0.19903135,,,
+region,household,,,,,,,,West Midlands,pp_voc_r[180],2021-12-19,Posterior prediction,,,,,,,0.041261985,0.08081848,0.157847,0.1986451,,,
+region,household,,,,,,,,West Midlands,pp_voc_r[181],2021-12-20,Posterior prediction,,,,,,,0.053641945,0.097898,0.175986,0.21690415,,,
+region,household,,,,,,,,West Midlands,pp_voc_r[182],2021-12-21,Posterior prediction,,,,,,,0.05717388,0.09800778,0.1783974,0.2177301,,,
+region,household,,,,,,,,West Midlands,pp_voc_r[183],2021-12-22,Posterior prediction,,,,,,,0.05715882,0.09576734,0.1783806,0.2151961,,,
+region,household,,,,,,,,West Midlands,pp_voc_r[184],2021-12-23,Posterior prediction,,,,,,,-0.05695201,-0.01724614,0.0676659800000001,0.11235415,,,
+region,household,,,,,,,,Yorkshire and Humber,pp_voc_r[185],2021-12-01,Posterior prediction,,,,,,,0.21376385,0.3191442,0.5256606,0.62405045,,,
+region,household,,,,,,,,Yorkshire and Humber,pp_voc_r[186],2021-12-02,Posterior prediction,,,,,,,0.2467149,0.3409072,0.545178,0.6407879,,,
+region,household,,,,,,,,Yorkshire and Humber,pp_voc_r[187],2021-12-03,Posterior prediction,,,,,,,0.246756,0.3420522,0.5431924,0.6386488,,,
+region,household,,,,,,,,Yorkshire and Humber,pp_voc_r[188],2021-12-04,Posterior prediction,,,,,,,0.25215395,0.3477606,0.5479184,0.63607755,,,
+region,household,,,,,,,,Yorkshire and Humber,pp_voc_r[189],2021-12-05,Posterior prediction,,,,,,,0.28823315,0.3780626,0.559827,0.64969075,,,
+region,household,,,,,,,,Yorkshire and Humber,pp_voc_r[190],2021-12-06,Posterior prediction,,,,,,,0.29326625,0.3756208,0.5592756,0.6457033,,,
+region,household,,,,,,,,Yorkshire and Humber,pp_voc_r[191],2021-12-07,Posterior prediction,,,,,,,0.2916183,0.3743796,0.5592812,0.6405411,,,
+region,household,,,,,,,,Yorkshire and Humber,pp_voc_r[192],2021-12-08,Posterior prediction,,,,,,,0.2748965,0.3382494,0.4680548,0.53131205,,,
+region,household,,,,,,,,Yorkshire and Humber,pp_voc_r[193],2021-12-09,Posterior prediction,,,,,,,0.27629625,0.3373636,0.4685972,0.5284913,,,
+region,household,,,,,,,,Yorkshire and Humber,pp_voc_r[194],2021-12-10,Posterior prediction,,,,,,,0.2747143,0.3393674,0.466149,0.52847975,,,
+region,household,,,,,,,,Yorkshire and Humber,pp_voc_r[195],2021-12-11,Posterior prediction,,,,,,,0.39140725,0.4472788,0.551659,0.5974081,,,
+region,household,,,,,,,,Yorkshire and Humber,pp_voc_r[196],2021-12-12,Posterior prediction,,,,,,,0.39094235,0.4467278,0.5546166,0.60346075,,,
+region,household,,,,,,,,Yorkshire and Humber,pp_voc_r[197],2021-12-13,Posterior prediction,,,,,,,0.3879783,0.4464424,0.5520244,0.5985061,,,
+region,household,,,,,,,,Yorkshire and Humber,pp_voc_r[198],2021-12-14,Posterior prediction,,,,,,,0.1169516,0.152898,0.2284806,0.2720242,,,
+region,household,,,,,,,,Yorkshire and Humber,pp_voc_r[199],2021-12-15,Posterior prediction,,,,,,,0.1179079,0.1517086,0.2279628,0.26889755,,,
+region,household,,,,,,,,Yorkshire and Humber,pp_voc_r[200],2021-12-16,Posterior prediction,,,,,,,0.11284375,0.152952,0.2293826,0.2722688,,,
+region,household,,,,,,,,Yorkshire and Humber,pp_voc_r[201],2021-12-17,Posterior prediction,,,,,,,0.087405145,0.1244958,0.1968456,0.2349346,,,
+region,household,,,,,,,,Yorkshire and Humber,pp_voc_r[202],2021-12-18,Posterior prediction,,,,,,,0.08555575,0.121866,0.194872,0.2341813,,,
+region,household,,,,,,,,Yorkshire and Humber,pp_voc_r[203],2021-12-19,Posterior prediction,,,,,,,0.08952533,0.1232924,0.1963734,0.23541375,,,
+region,household,,,,,,,,Yorkshire and Humber,pp_voc_r[204],2021-12-20,Posterior prediction,,,,,,,0.08384074,0.1250528,0.2026744,0.2415442,,,
+region,household,,,,,,,,Yorkshire and Humber,pp_voc_r[205],2021-12-21,Posterior prediction,,,,,,,0.08614794,0.1262052,0.2024782,0.2421564,,,
+region,household,,,,,,,,Yorkshire and Humber,pp_voc_r[206],2021-12-22,Posterior prediction,,,,,,,0.088446735,0.125692,0.2042338,0.23895065,,,
+region,household,,,,,,,,Yorkshire and Humber,pp_voc_r[207],2021-12-23,Posterior prediction,,,,,,,-0.038627895,0.001754354,0.08334892,0.12825235,,,
 region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",East Midlands,voc_r[9],2021-12-01,Estimate,TRUE,FALSE,0.265,0.262,0.0928,0.0912,0.116,0.188,0.341,0.418,1,4580,3590
 region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",East Midlands,voc_r[10],2021-12-02,Estimate,TRUE,FALSE,0.187,0.191,0.0894,0.0864,0.0348,0.114,0.26,0.329,1,4160,3440
 region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",East Midlands,voc_r[11],2021-12-03,Estimate,TRUE,FALSE,0.187,0.191,0.0894,0.0864,0.0348,0.114,0.26,0.329,1,4160,3440
@@ -588,14 +436,6 @@ region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",East Midlan
 region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",East Midlands,voc_r[29],2021-12-21,Estimate,TRUE,FALSE,0.123,0.123,0.0319,0.0317,0.0684,0.0966,0.15,0.175,1,4620,3400
 region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",East Midlands,voc_r[30],2021-12-22,Estimate,TRUE,FALSE,0.123,0.123,0.0319,0.0317,0.0684,0.0966,0.15,0.175,1,4620,3400
 region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",East Midlands,voc_r[31],2021-12-23,Estimate,TRUE,FALSE,-0.0208,-0.0212,0.0339,0.0337,-0.0752,-0.0491,0.00786,0.0355,1,3310,3100
-region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",East of England,voc_r[1],2021-11-23,Estimate,TRUE,FALSE,0.256,0.256,0.0694,0.0692,0.139,0.198,0.315,0.37,1,4340,2830
-region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",East of England,voc_r[2],2021-11-24,Estimate,TRUE,FALSE,0.256,0.256,0.0694,0.0692,0.139,0.198,0.315,0.37,1,4340,2830
-region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",East of England,voc_r[3],2021-11-25,Estimate,TRUE,FALSE,0.256,0.256,0.0694,0.0692,0.139,0.198,0.315,0.37,1,4340,2830
-region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",East of England,voc_r[4],2021-11-26,Estimate,TRUE,FALSE,0.211,0.211,0.0896,0.0893,0.0639,0.135,0.285,0.358,1,3970,3080
-region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",East of England,voc_r[5],2021-11-27,Estimate,TRUE,FALSE,0.211,0.211,0.0896,0.0893,0.0639,0.135,0.285,0.358,1,3970,3080
-region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",East of England,voc_r[6],2021-11-28,Estimate,TRUE,FALSE,0.211,0.211,0.0896,0.0893,0.0639,0.135,0.285,0.358,1,3970,3080
-region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",East of England,voc_r[7],2021-11-29,Estimate,TRUE,FALSE,0.288,0.288,0.09,0.0876,0.138,0.214,0.361,0.435,1,5170,3380
-region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",East of England,voc_r[8],2021-11-30,Estimate,TRUE,FALSE,0.288,0.288,0.09,0.0876,0.138,0.214,0.361,0.435,1,5170,3380
 region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",East of England,voc_r[9],2021-12-01,Estimate,TRUE,FALSE,0.288,0.288,0.09,0.0876,0.138,0.214,0.361,0.435,1,5170,3380
 region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",East of England,voc_r[10],2021-12-02,Estimate,TRUE,FALSE,0.453,0.451,0.0696,0.0683,0.341,0.396,0.512,0.567,1,4720,3360
 region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",East of England,voc_r[11],2021-12-03,Estimate,TRUE,FALSE,0.453,0.451,0.0696,0.0683,0.341,0.396,0.512,0.567,1,4720,3360
@@ -619,14 +459,6 @@ region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",East of Eng
 region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",East of England,voc_r[29],2021-12-21,Estimate,TRUE,FALSE,0.102,0.102,0.0256,0.0253,0.0588,0.0815,0.124,0.144,1,3880,3360
 region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",East of England,voc_r[30],2021-12-22,Estimate,TRUE,FALSE,0.102,0.102,0.0256,0.0253,0.0588,0.0815,0.124,0.144,1,3880,3360
 region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",East of England,voc_r[31],2021-12-23,Estimate,TRUE,FALSE,-0.0797,-0.0796,0.0294,0.0287,-0.127,-0.104,-0.0554,-0.0314,1,3430,2920
-region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",London,voc_r[1],2021-11-23,Estimate,TRUE,FALSE,0.349,0.349,0.0661,0.0665,0.241,0.294,0.404,0.454,1,3010,2550
-region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",London,voc_r[2],2021-11-24,Estimate,TRUE,FALSE,0.349,0.349,0.0661,0.0665,0.241,0.294,0.404,0.454,1,3010,2550
-region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",London,voc_r[3],2021-11-25,Estimate,TRUE,FALSE,0.349,0.349,0.0661,0.0665,0.241,0.294,0.404,0.454,1,3010,2550
-region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",London,voc_r[4],2021-11-26,Estimate,TRUE,FALSE,0.34,0.339,0.0768,0.0758,0.219,0.277,0.404,0.465,1,2770,2520
-region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",London,voc_r[5],2021-11-27,Estimate,TRUE,FALSE,0.34,0.339,0.0768,0.0758,0.219,0.277,0.404,0.465,1,2770,2520
-region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",London,voc_r[6],2021-11-28,Estimate,TRUE,FALSE,0.34,0.339,0.0768,0.0758,0.219,0.277,0.404,0.465,1,2770,2520
-region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",London,voc_r[7],2021-11-29,Estimate,TRUE,FALSE,0.334,0.335,0.0716,0.0693,0.216,0.275,0.392,0.449,1,4470,3260
-region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",London,voc_r[8],2021-11-30,Estimate,TRUE,FALSE,0.334,0.335,0.0716,0.0693,0.216,0.275,0.392,0.449,1,4470,3260
 region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",London,voc_r[9],2021-12-01,Estimate,TRUE,FALSE,0.334,0.335,0.0716,0.0693,0.216,0.275,0.392,0.449,1,4470,3260
 region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",London,voc_r[10],2021-12-02,Estimate,TRUE,FALSE,0.504,0.504,0.0553,0.0539,0.413,0.459,0.55,0.595,1,4920,3540
 region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",London,voc_r[11],2021-12-03,Estimate,TRUE,FALSE,0.504,0.504,0.0553,0.0539,0.413,0.459,0.55,0.595,1,4920,3540
@@ -650,14 +482,6 @@ region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",London,voc_
 region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",London,voc_r[29],2021-12-21,Estimate,TRUE,FALSE,0.00983,0.00983,0.0318,0.0313,-0.0425,-0.0165,0.0363,0.062,1,3750,3700
 region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",London,voc_r[30],2021-12-22,Estimate,TRUE,FALSE,0.00983,0.00983,0.0318,0.0313,-0.0425,-0.0165,0.0363,0.062,1,3750,3700
 region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",London,voc_r[31],2021-12-23,Estimate,TRUE,FALSE,-0.0756,-0.076,0.0359,0.0361,-0.133,-0.105,-0.0457,-0.0169,1,3600,3760
-region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",North East,voc_r[1],2021-11-23,Estimate,TRUE,FALSE,0.106,0.107,0.0805,0.0807,-0.0266,0.0381,0.174,0.236,1,3700,3040
-region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",North East,voc_r[2],2021-11-24,Estimate,TRUE,FALSE,0.106,0.107,0.0805,0.0807,-0.0266,0.0381,0.174,0.236,1,3700,3040
-region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",North East,voc_r[3],2021-11-25,Estimate,TRUE,FALSE,0.106,0.107,0.0805,0.0807,-0.0266,0.0381,0.174,0.236,1,3700,3040
-region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",North East,voc_r[4],2021-11-26,Estimate,TRUE,FALSE,0.059,0.0606,0.111,0.106,-0.124,-0.0293,0.148,0.239,1,3480,3130
-region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",North East,voc_r[5],2021-11-27,Estimate,TRUE,FALSE,0.059,0.0606,0.111,0.106,-0.124,-0.0293,0.148,0.239,1,3480,3130
-region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",North East,voc_r[6],2021-11-28,Estimate,TRUE,FALSE,0.059,0.0606,0.111,0.106,-0.124,-0.0293,0.148,0.239,1,3480,3130
-region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",North East,voc_r[7],2021-11-29,Estimate,TRUE,FALSE,0.0563,0.0595,0.111,0.108,-0.132,-0.0333,0.149,0.233,1,3950,3150
-region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",North East,voc_r[8],2021-11-30,Estimate,TRUE,FALSE,0.0563,0.0595,0.111,0.108,-0.132,-0.0333,0.149,0.233,1,3950,3150
 region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",North East,voc_r[9],2021-12-01,Estimate,TRUE,FALSE,0.0563,0.0595,0.111,0.108,-0.132,-0.0333,0.149,0.233,1,3950,3150
 region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",North East,voc_r[10],2021-12-02,Estimate,TRUE,FALSE,0.139,0.141,0.113,0.106,-0.0528,0.0493,0.23,0.317,1,3920,3290
 region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",North East,voc_r[11],2021-12-03,Estimate,TRUE,FALSE,0.139,0.141,0.113,0.106,-0.0528,0.0493,0.23,0.317,1,3920,3290
@@ -681,14 +505,6 @@ region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",North East,
 region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",North East,voc_r[29],2021-12-21,Estimate,TRUE,FALSE,0.247,0.246,0.0377,0.0377,0.186,0.215,0.279,0.309,1,4240,3170
 region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",North East,voc_r[30],2021-12-22,Estimate,TRUE,FALSE,0.247,0.246,0.0377,0.0377,0.186,0.215,0.279,0.309,1,4240,3170
 region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",North East,voc_r[31],2021-12-23,Estimate,TRUE,FALSE,0.0506,0.0498,0.0405,0.0409,-0.0154,0.0162,0.0843,0.119,1,3270,3290
-region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",North West,voc_r[1],2021-11-23,Estimate,TRUE,FALSE,0.24,0.242,0.0716,0.0713,0.119,0.181,0.3,0.356,1,3170,2690
-region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",North West,voc_r[2],2021-11-24,Estimate,TRUE,FALSE,0.24,0.242,0.0716,0.0713,0.119,0.181,0.3,0.356,1,3170,2690
-region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",North West,voc_r[3],2021-11-25,Estimate,TRUE,FALSE,0.24,0.242,0.0716,0.0713,0.119,0.181,0.3,0.356,1,3170,2690
-region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",North West,voc_r[4],2021-11-26,Estimate,TRUE,FALSE,0.316,0.319,0.0852,0.0821,0.17,0.247,0.384,0.451,1,2990,3030
-region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",North West,voc_r[5],2021-11-27,Estimate,TRUE,FALSE,0.316,0.319,0.0852,0.0821,0.17,0.247,0.384,0.451,1,2990,3030
-region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",North West,voc_r[6],2021-11-28,Estimate,TRUE,FALSE,0.316,0.319,0.0852,0.0821,0.17,0.247,0.384,0.451,1,2990,3030
-region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",North West,voc_r[7],2021-11-29,Estimate,TRUE,FALSE,0.381,0.381,0.0831,0.0782,0.247,0.315,0.45,0.518,1,4570,3130
-region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",North West,voc_r[8],2021-11-30,Estimate,TRUE,FALSE,0.381,0.381,0.0831,0.0782,0.247,0.315,0.45,0.518,1,4570,3130
 region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",North West,voc_r[9],2021-12-01,Estimate,TRUE,FALSE,0.381,0.381,0.0831,0.0782,0.247,0.315,0.45,0.518,1,4570,3130
 region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",North West,voc_r[10],2021-12-02,Estimate,TRUE,FALSE,0.423,0.422,0.0746,0.0706,0.304,0.363,0.484,0.545,1,4890,2710
 region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",North West,voc_r[11],2021-12-03,Estimate,TRUE,FALSE,0.423,0.422,0.0746,0.0706,0.304,0.363,0.484,0.545,1,4890,2710
@@ -712,14 +528,6 @@ region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",North West,
 region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",North West,voc_r[29],2021-12-21,Estimate,TRUE,FALSE,0.166,0.167,0.0309,0.03,0.115,0.141,0.191,0.216,1,3220,2650
 region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",North West,voc_r[30],2021-12-22,Estimate,TRUE,FALSE,0.166,0.167,0.0309,0.03,0.115,0.141,0.191,0.216,1,3220,2650
 region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",North West,voc_r[31],2021-12-23,Estimate,TRUE,FALSE,-0.0138,-0.014,0.0353,0.0356,-0.0717,-0.0436,0.0162,0.0449,1,2190,2100
-region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",South East,voc_r[1],2021-11-23,Estimate,TRUE,FALSE,0.283,0.283,0.0705,0.0725,0.168,0.224,0.343,0.398,1,3600,2800
-region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",South East,voc_r[2],2021-11-24,Estimate,TRUE,FALSE,0.283,0.283,0.0705,0.0725,0.168,0.224,0.343,0.398,1,3600,2800
-region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",South East,voc_r[3],2021-11-25,Estimate,TRUE,FALSE,0.283,0.283,0.0705,0.0725,0.168,0.224,0.343,0.398,1,3600,2800
-region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",South East,voc_r[4],2021-11-26,Estimate,TRUE,FALSE,0.303,0.302,0.0838,0.0799,0.165,0.237,0.372,0.44,1,3170,2930
-region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",South East,voc_r[5],2021-11-27,Estimate,TRUE,FALSE,0.303,0.302,0.0838,0.0799,0.165,0.237,0.372,0.44,1,3170,2930
-region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",South East,voc_r[6],2021-11-28,Estimate,TRUE,FALSE,0.303,0.302,0.0838,0.0799,0.165,0.237,0.372,0.44,1,3170,2930
-region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",South East,voc_r[7],2021-11-29,Estimate,TRUE,FALSE,0.267,0.27,0.084,0.0806,0.126,0.198,0.336,0.397,1,4760,3010
-region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",South East,voc_r[8],2021-11-30,Estimate,TRUE,FALSE,0.267,0.27,0.084,0.0806,0.126,0.198,0.336,0.397,1,4760,3010
 region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",South East,voc_r[9],2021-12-01,Estimate,TRUE,FALSE,0.267,0.27,0.084,0.0806,0.126,0.198,0.336,0.397,1,4760,3010
 region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",South East,voc_r[10],2021-12-02,Estimate,TRUE,FALSE,0.355,0.353,0.0709,0.0678,0.241,0.298,0.413,0.473,1,5000,3280
 region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",South East,voc_r[11],2021-12-03,Estimate,TRUE,FALSE,0.355,0.353,0.0709,0.0678,0.241,0.298,0.413,0.473,1,5000,3280
@@ -743,14 +551,6 @@ region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",South East,
 region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",South East,voc_r[29],2021-12-21,Estimate,TRUE,FALSE,0.0748,0.0748,0.0279,0.0279,0.0287,0.0513,0.0989,0.121,1,4510,3570
 region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",South East,voc_r[30],2021-12-22,Estimate,TRUE,FALSE,0.0748,0.0748,0.0279,0.0279,0.0287,0.0513,0.0989,0.121,1,4510,3570
 region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",South East,voc_r[31],2021-12-23,Estimate,TRUE,FALSE,-0.0529,-0.054,0.0317,0.0315,-0.104,-0.0794,-0.0268,0.00168,1,2970,2600
-region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",South West,voc_r[1],2021-11-23,Estimate,TRUE,FALSE,0.271,0.272,0.0697,0.069,0.155,0.213,0.329,0.386,1,2660,2940
-region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",South West,voc_r[2],2021-11-24,Estimate,TRUE,FALSE,0.271,0.272,0.0697,0.069,0.155,0.213,0.329,0.386,1,2660,2940
-region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",South West,voc_r[3],2021-11-25,Estimate,TRUE,FALSE,0.271,0.272,0.0697,0.069,0.155,0.213,0.329,0.386,1,2660,2940
-region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",South West,voc_r[4],2021-11-26,Estimate,TRUE,FALSE,0.337,0.335,0.0845,0.0778,0.202,0.272,0.402,0.479,1,2430,2650
-region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",South West,voc_r[5],2021-11-27,Estimate,TRUE,FALSE,0.337,0.335,0.0845,0.0778,0.202,0.272,0.402,0.479,1,2430,2650
-region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",South West,voc_r[6],2021-11-28,Estimate,TRUE,FALSE,0.337,0.335,0.0845,0.0778,0.202,0.272,0.402,0.479,1,2430,2650
-region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",South West,voc_r[7],2021-11-29,Estimate,TRUE,FALSE,0.309,0.313,0.0822,0.0782,0.168,0.244,0.375,0.438,1,4000,3160
-region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",South West,voc_r[8],2021-11-30,Estimate,TRUE,FALSE,0.309,0.313,0.0822,0.0782,0.168,0.244,0.375,0.438,1,4000,3160
 region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",South West,voc_r[9],2021-12-01,Estimate,TRUE,FALSE,0.309,0.313,0.0822,0.0782,0.168,0.244,0.375,0.438,1,4000,3160
 region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",South West,voc_r[10],2021-12-02,Estimate,TRUE,FALSE,0.369,0.369,0.0745,0.0715,0.253,0.309,0.428,0.493,1,5020,3640
 region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",South West,voc_r[11],2021-12-03,Estimate,TRUE,FALSE,0.369,0.369,0.0745,0.0715,0.253,0.309,0.428,0.493,1,5020,3640
@@ -774,14 +574,6 @@ region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",South West,
 region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",South West,voc_r[29],2021-12-21,Estimate,TRUE,FALSE,0.0881,0.0878,0.03,0.0297,0.0392,0.0628,0.113,0.138,1,4070,3260
 region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",South West,voc_r[30],2021-12-22,Estimate,TRUE,FALSE,0.0881,0.0878,0.03,0.0297,0.0392,0.0628,0.113,0.138,1,4070,3260
 region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",South West,voc_r[31],2021-12-23,Estimate,TRUE,FALSE,-0.000298,5.6e-05,0.0348,0.0356,-0.0583,-0.0297,0.0294,0.0561,1,2600,2780
-region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",West Midlands,voc_r[1],2021-11-23,Estimate,TRUE,FALSE,0.215,0.216,0.0749,0.0761,0.0919,0.153,0.278,0.337,1,3690,2980
-region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",West Midlands,voc_r[2],2021-11-24,Estimate,TRUE,FALSE,0.215,0.216,0.0749,0.0761,0.0919,0.153,0.278,0.337,1,3690,2980
-region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",West Midlands,voc_r[3],2021-11-25,Estimate,TRUE,FALSE,0.215,0.216,0.0749,0.0761,0.0919,0.153,0.278,0.337,1,3690,2980
-region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",West Midlands,voc_r[4],2021-11-26,Estimate,TRUE,FALSE,0.204,0.207,0.0937,0.0892,0.0494,0.129,0.279,0.354,1,3770,3340
-region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",West Midlands,voc_r[5],2021-11-27,Estimate,TRUE,FALSE,0.204,0.207,0.0937,0.0892,0.0494,0.129,0.279,0.354,1,3770,3340
-region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",West Midlands,voc_r[6],2021-11-28,Estimate,TRUE,FALSE,0.204,0.207,0.0937,0.0892,0.0494,0.129,0.279,0.354,1,3770,3340
-region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",West Midlands,voc_r[7],2021-11-29,Estimate,TRUE,FALSE,0.22,0.224,0.0986,0.0911,0.0544,0.143,0.297,0.374,1,4550,3000
-region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",West Midlands,voc_r[8],2021-11-30,Estimate,TRUE,FALSE,0.22,0.224,0.0986,0.0911,0.0544,0.143,0.297,0.374,1,4550,3000
 region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",West Midlands,voc_r[9],2021-12-01,Estimate,TRUE,FALSE,0.22,0.224,0.0986,0.0911,0.0544,0.143,0.297,0.374,1,4550,3000
 region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",West Midlands,voc_r[10],2021-12-02,Estimate,TRUE,FALSE,0.356,0.355,0.0896,0.0871,0.208,0.283,0.43,0.499,1,4750,3090
 region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",West Midlands,voc_r[11],2021-12-03,Estimate,TRUE,FALSE,0.356,0.355,0.0896,0.0871,0.208,0.283,0.43,0.499,1,4750,3090
@@ -805,14 +597,6 @@ region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",West Midlan
 region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",West Midlands,voc_r[29],2021-12-21,Estimate,TRUE,FALSE,0.159,0.159,0.0286,0.0279,0.112,0.135,0.183,0.205,1,4310,3400
 region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",West Midlands,voc_r[30],2021-12-22,Estimate,TRUE,FALSE,0.159,0.159,0.0286,0.0279,0.112,0.135,0.183,0.205,1,4310,3400
 region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",West Midlands,voc_r[31],2021-12-23,Estimate,TRUE,FALSE,0.00122,0.00114,0.0315,0.0315,-0.0496,-0.0251,0.0275,0.0523,1,3770,3370
-region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",Yorkshire and Humber,voc_r[1],2021-11-23,Estimate,TRUE,FALSE,0.131,0.13,0.08,0.0802,-0.000126,0.0658,0.197,0.264,1,3500,2930
-region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",Yorkshire and Humber,voc_r[2],2021-11-24,Estimate,TRUE,FALSE,0.131,0.13,0.08,0.0802,-0.000126,0.0658,0.197,0.264,1,3500,2930
-region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",Yorkshire and Humber,voc_r[3],2021-11-25,Estimate,TRUE,FALSE,0.131,0.13,0.08,0.0802,-0.000126,0.0658,0.197,0.264,1,3500,2930
-region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",Yorkshire and Humber,voc_r[4],2021-11-26,Estimate,TRUE,FALSE,0.0168,0.0239,0.116,0.108,-0.18,-0.0765,0.11,0.202,1,2790,3230
-region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",Yorkshire and Humber,voc_r[5],2021-11-27,Estimate,TRUE,FALSE,0.0168,0.0239,0.116,0.108,-0.18,-0.0765,0.11,0.202,1,2790,3230
-region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",Yorkshire and Humber,voc_r[6],2021-11-28,Estimate,TRUE,FALSE,0.0168,0.0239,0.116,0.108,-0.18,-0.0765,0.11,0.202,1,2790,3230
-region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",Yorkshire and Humber,voc_r[7],2021-11-29,Estimate,TRUE,FALSE,0.197,0.197,0.111,0.103,0.00979,0.11,0.283,0.377,1,4020,2440
-region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",Yorkshire and Humber,voc_r[8],2021-11-30,Estimate,TRUE,FALSE,0.197,0.197,0.111,0.103,0.00979,0.11,0.283,0.377,1,4020,2440
 region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",Yorkshire and Humber,voc_r[9],2021-12-01,Estimate,TRUE,FALSE,0.197,0.197,0.111,0.103,0.00979,0.11,0.283,0.377,1,4020,2440
 region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",Yorkshire and Humber,voc_r[10],2021-12-02,Estimate,TRUE,FALSE,0.395,0.395,0.105,0.101,0.226,0.309,0.48,0.567,1,4780,3010
 region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",Yorkshire and Humber,voc_r[11],2021-12-03,Estimate,TRUE,FALSE,0.395,0.395,0.105,0.101,0.226,0.309,0.48,0.567,1,4780,3010
@@ -836,282 +620,210 @@ region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",Yorkshire a
 region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",Yorkshire and Humber,voc_r[29],2021-12-21,Estimate,TRUE,FALSE,0.185,0.185,0.027,0.0269,0.141,0.162,0.208,0.228,1,4300,3500
 region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",Yorkshire and Humber,voc_r[30],2021-12-22,Estimate,TRUE,FALSE,0.185,0.185,0.027,0.0269,0.141,0.162,0.208,0.228,1,4300,3500
 region,intrinsic,0,2022-01-01,2,TRUE,correlated,"0, 0.1","0.21, 0.1",Yorkshire and Humber,voc_r[31],2021-12-23,Estimate,TRUE,FALSE,0.00716,0.00708,0.0303,0.0302,-0.0425,-0.0186,0.0323,0.057,1,4410,3770
-region,intrinsic,,,,,,,,East Midlands,pp_voc_r[1],2021-11-23,Posterior prediction,,,,,,,0.1647169,0.247997,0.4317224,0.5191069,,,
-region,intrinsic,,,,,,,,East Midlands,pp_voc_r[2],2021-11-24,Posterior prediction,,,,,,,0.15791885,0.243831,0.431761,0.52204545,,,
-region,intrinsic,,,,,,,,East Midlands,pp_voc_r[3],2021-11-25,Posterior prediction,,,,,,,0.1581681,0.2436876,0.4284384,0.5139117,,,
-region,intrinsic,,,,,,,,East Midlands,pp_voc_r[4],2021-11-26,Posterior prediction,,,,,,,0.18275585,0.2747084,0.482088,0.57923615,,,
-region,intrinsic,,,,,,,,East Midlands,pp_voc_r[5],2021-11-27,Posterior prediction,,,,,,,0.1727339,0.274273,0.4744244,0.572509,,,
-region,intrinsic,,,,,,,,East Midlands,pp_voc_r[6],2021-11-28,Posterior prediction,,,,,,,0.1734639,0.2720418,0.473163,0.5704017,,,
-region,intrinsic,,,,,,,,East Midlands,pp_voc_r[7],2021-11-29,Posterior prediction,,,,,,,0.1696769,0.2658794,0.4734322,0.574109,,,
-region,intrinsic,,,,,,,,East Midlands,pp_voc_r[8],2021-11-30,Posterior prediction,,,,,,,0.1674766,0.2676324,0.473255,0.5740818,,,
-region,intrinsic,,,,,,,,East Midlands,pp_voc_r[9],2021-12-01,Posterior prediction,,,,,,,0.17467945,0.267902,0.475697,0.5736563,,,
-region,intrinsic,,,,,,,,East Midlands,pp_voc_r[10],2021-12-02,Posterior prediction,,,,,,,0.1336288,0.230246,0.4359632,0.5332988,,,
-region,intrinsic,,,,,,,,East Midlands,pp_voc_r[11],2021-12-03,Posterior prediction,,,,,,,0.1361358,0.2352398,0.4411282,0.5386367,,,
-region,intrinsic,,,,,,,,East Midlands,pp_voc_r[12],2021-12-04,Posterior prediction,,,,,,,0.1281939,0.2300106,0.4323294,0.52736885,,,
-region,intrinsic,,,,,,,,East Midlands,pp_voc_r[13],2021-12-05,Posterior prediction,,,,,,,0.13600535,0.2285228,0.4120528,0.5041784,,,
-region,intrinsic,,,,,,,,East Midlands,pp_voc_r[14],2021-12-06,Posterior prediction,,,,,,,0.1481158,0.2332074,0.4147708,0.50588335,,,
-region,intrinsic,,,,,,,,East Midlands,pp_voc_r[15],2021-12-07,Posterior prediction,,,,,,,0.14067435,0.2291202,0.4151786,0.50096395,,,
-region,intrinsic,,,,,,,,East Midlands,pp_voc_r[16],2021-12-08,Posterior prediction,,,,,,,0.1438071,0.2211744,0.3868226,0.46526975,,,
-region,intrinsic,,,,,,,,East Midlands,pp_voc_r[17],2021-12-09,Posterior prediction,,,,,,,0.1433585,0.2193764,0.3893368,0.46779625,,,
-region,intrinsic,,,,,,,,East Midlands,pp_voc_r[18],2021-12-10,Posterior prediction,,,,,,,0.13666855,0.2200958,0.3866838,0.4697822,,,
-region,intrinsic,,,,,,,,East Midlands,pp_voc_r[19],2021-12-11,Posterior prediction,,,,,,,0.1123845,0.1872446,0.342926,0.4160488,,,
-region,intrinsic,,,,,,,,East Midlands,pp_voc_r[20],2021-12-12,Posterior prediction,,,,,,,0.10821295,0.186759,0.3428374,0.41966505,,,
-region,intrinsic,,,,,,,,East Midlands,pp_voc_r[21],2021-12-13,Posterior prediction,,,,,,,0.1112858,0.188287,0.3463154,0.4244396,,,
-region,intrinsic,,,,,,,,East Midlands,pp_voc_r[22],2021-12-14,Posterior prediction,,,,,,,0.02727044,0.1004264,0.2508464,0.32179575,,,
-region,intrinsic,,,,,,,,East Midlands,pp_voc_r[23],2021-12-15,Posterior prediction,,,,,,,0.025429055,0.09840894,0.2502858,0.328535,,,
-region,intrinsic,,,,,,,,East Midlands,pp_voc_r[24],2021-12-16,Posterior prediction,,,,,,,0.023557775,0.09897812,0.250257,0.3217157,,,
-region,intrinsic,,,,,,,,East Midlands,pp_voc_r[25],2021-12-17,Posterior prediction,,,,,,,-0.0106852,0.06082758,0.2111546,0.28094045,,,
-region,intrinsic,,,,,,,,East Midlands,pp_voc_r[26],2021-12-18,Posterior prediction,,,,,,,-0.009495637,0.06075508,0.2105468,0.27773605,,,
-region,intrinsic,,,,,,,,East Midlands,pp_voc_r[27],2021-12-19,Posterior prediction,,,,,,,-0.007380384,0.06199894,0.2125394,0.28102065,,,
-region,intrinsic,,,,,,,,East Midlands,pp_voc_r[28],2021-12-20,Posterior prediction,,,,,,,-0.02094399,0.0507744,0.206236,0.27473375,,,
-region,intrinsic,,,,,,,,East Midlands,pp_voc_r[29],2021-12-21,Posterior prediction,,,,,,,-0.02212132,0.05211344,0.2023412,0.2720597,,,
-region,intrinsic,,,,,,,,East Midlands,pp_voc_r[30],2021-12-22,Posterior prediction,,,,,,,-0.01964656,0.05176194,0.2037432,0.275027,,,
-region,intrinsic,,,,,,,,East Midlands,pp_voc_r[31],2021-12-23,Posterior prediction,,,,,,,-0.089369475,-0.009881346,0.1564578,0.2325458,,,
-region,intrinsic,,,,,,,,East of England,pp_voc_r[32],2021-11-23,Posterior prediction,,,,,,,0.18148805,0.266236,0.448507,0.53202655,,,
-region,intrinsic,,,,,,,,East of England,pp_voc_r[33],2021-11-24,Posterior prediction,,,,,,,0.18362685,0.2703444,0.4489064,0.53543335,,,
-region,intrinsic,,,,,,,,East of England,pp_voc_r[34],2021-11-25,Posterior prediction,,,,,,,0.18260815,0.268492,0.4485674,0.5341636,,,
-region,intrinsic,,,,,,,,East of England,pp_voc_r[35],2021-11-26,Posterior prediction,,,,,,,0.18087875,0.2795744,0.4865528,0.58243375,,,
-region,intrinsic,,,,,,,,East of England,pp_voc_r[36],2021-11-27,Posterior prediction,,,,,,,0.18709685,0.2789198,0.491301,0.5835847,,,
-region,intrinsic,,,,,,,,East of England,pp_voc_r[37],2021-11-28,Posterior prediction,,,,,,,0.1872165,0.2806972,0.4850008,0.586672,,,
-region,intrinsic,,,,,,,,East of England,pp_voc_r[38],2021-11-29,Posterior prediction,,,,,,,0.1615272,0.2534296,0.4622676,0.567036,,,
-region,intrinsic,,,,,,,,East of England,pp_voc_r[39],2021-11-30,Posterior prediction,,,,,,,0.15759995,0.262322,0.4628988,0.55840415,,,
-region,intrinsic,,,,,,,,East of England,pp_voc_r[40],2021-12-01,Posterior prediction,,,,,,,0.15921525,0.2596388,0.4638742,0.56740065,,,
-region,intrinsic,,,,,,,,East of England,pp_voc_r[41],2021-12-02,Posterior prediction,,,,,,,0.1593103,0.2471986,0.4268178,0.5114282,,,
-region,intrinsic,,,,,,,,East of England,pp_voc_r[42],2021-12-03,Posterior prediction,,,,,,,0.17242535,0.2527114,0.43003,0.51942945,,,
-region,intrinsic,,,,,,,,East of England,pp_voc_r[43],2021-12-04,Posterior prediction,,,,,,,0.1609649,0.2471488,0.4319216,0.5126421,,,
-region,intrinsic,,,,,,,,East of England,pp_voc_r[44],2021-12-05,Posterior prediction,,,,,,,0.1933117,0.2661648,0.4242964,0.496689,,,
-region,intrinsic,,,,,,,,East of England,pp_voc_r[45],2021-12-06,Posterior prediction,,,,,,,0.19253245,0.270016,0.4234734,0.5000148,,,
-region,intrinsic,,,,,,,,East of England,pp_voc_r[46],2021-12-07,Posterior prediction,,,,,,,0.1954501,0.2713222,0.422786,0.49799975,,,
-region,intrinsic,,,,,,,,East of England,pp_voc_r[47],2021-12-08,Posterior prediction,,,,,,,0.15404715,0.230834,0.3803272,0.455903,,,
-region,intrinsic,,,,,,,,East of England,pp_voc_r[48],2021-12-09,Posterior prediction,,,,,,,0.1528933,0.2288026,0.3835808,0.4562211,,,
-region,intrinsic,,,,,,,,East of England,pp_voc_r[49],2021-12-10,Posterior prediction,,,,,,,0.1582236,0.2321066,0.384555,0.4552854,,,
-region,intrinsic,,,,,,,,East of England,pp_voc_r[50],2021-12-11,Posterior prediction,,,,,,,0.1184823,0.1929894,0.342154,0.4084333,,,
-region,intrinsic,,,,,,,,East of England,pp_voc_r[51],2021-12-12,Posterior prediction,,,,,,,0.11557215,0.1928518,0.3386026,0.4089896,,,
-region,intrinsic,,,,,,,,East of England,pp_voc_r[52],2021-12-13,Posterior prediction,,,,,,,0.120786,0.1914258,0.3386634,0.4087338,,,
-region,intrinsic,,,,,,,,East of England,pp_voc_r[53],2021-12-14,Posterior prediction,,,,,,,0.02836582,0.0945368,0.2436354,0.3119627,,,
-region,intrinsic,,,,,,,,East of England,pp_voc_r[54],2021-12-15,Posterior prediction,,,,,,,0.028989125,0.09477278,0.238031,0.30921545,,,
-region,intrinsic,,,,,,,,East of England,pp_voc_r[55],2021-12-16,Posterior prediction,,,,,,,0.02885194,0.09871066,0.2425154,0.31208355,,,
-region,intrinsic,,,,,,,,East of England,pp_voc_r[56],2021-12-17,Posterior prediction,,,,,,,-0.025309675,0.04936458,0.1931102,0.2616599,,,
-region,intrinsic,,,,,,,,East of England,pp_voc_r[57],2021-12-18,Posterior prediction,,,,,,,-0.025079985,0.04465516,0.192848,0.26216385,,,
-region,intrinsic,,,,,,,,East of England,pp_voc_r[58],2021-12-19,Posterior prediction,,,,,,,-0.02567389,0.0413622,0.1916104,0.2602056,,,
-region,intrinsic,,,,,,,,East of England,pp_voc_r[59],2021-12-20,Posterior prediction,,,,,,,-0.064782365,0.01299106,0.1580806,0.22579865,,,
-region,intrinsic,,,,,,,,East of England,pp_voc_r[60],2021-12-21,Posterior prediction,,,,,,,-0.06296307,0.01048442,0.1613364,0.23583735,,,
-region,intrinsic,,,,,,,,East of England,pp_voc_r[61],2021-12-22,Posterior prediction,,,,,,,-0.058572445,0.0125479,0.164619,0.23422415,,,
-region,intrinsic,,,,,,,,East of England,pp_voc_r[62],2021-12-23,Posterior prediction,,,,,,,-0.12355165,-0.04840672,0.113929,0.19278745,,,
-region,intrinsic,,,,,,,,London,pp_voc_r[63],2021-11-23,Posterior prediction,,,,,,,0.20910285,0.2993926,0.4766712,0.56549155,,,
-region,intrinsic,,,,,,,,London,pp_voc_r[64],2021-11-24,Posterior prediction,,,,,,,0.2130409,0.301838,0.474099,0.56453895,,,
-region,intrinsic,,,,,,,,London,pp_voc_r[65],2021-11-25,Posterior prediction,,,,,,,0.20596105,0.2959342,0.480287,0.5642693,,,
-region,intrinsic,,,,,,,,London,pp_voc_r[66],2021-11-26,Posterior prediction,,,,,,,0.2098811,0.3029686,0.4965026,0.58202035,,,
-region,intrinsic,,,,,,,,London,pp_voc_r[67],2021-11-27,Posterior prediction,,,,,,,0.2042224,0.2975072,0.4931908,0.5853067,,,
-region,intrinsic,,,,,,,,London,pp_voc_r[68],2021-11-28,Posterior prediction,,,,,,,0.20908025,0.3002522,0.4901996,0.58570615,,,
-region,intrinsic,,,,,,,,London,pp_voc_r[69],2021-11-29,Posterior prediction,,,,,,,0.1934569,0.281227,0.468332,0.5573416,,,
-region,intrinsic,,,,,,,,London,pp_voc_r[70],2021-11-30,Posterior prediction,,,,,,,0.19141915,0.2836286,0.4679422,0.56218935,,,
-region,intrinsic,,,,,,,,London,pp_voc_r[71],2021-12-01,Posterior prediction,,,,,,,0.19518695,0.2852702,0.4673632,0.5584447,,,
-region,intrinsic,,,,,,,,London,pp_voc_r[72],2021-12-02,Posterior prediction,,,,,,,0.2026682,0.285579,0.451335,0.53247725,,,
-region,intrinsic,,,,,,,,London,pp_voc_r[73],2021-12-03,Posterior prediction,,,,,,,0.1996996,0.2811662,0.4549716,0.5294766,,,
-region,intrinsic,,,,,,,,London,pp_voc_r[74],2021-12-04,Posterior prediction,,,,,,,0.20427245,0.2867014,0.4490096,0.53223135,,,
-region,intrinsic,,,,,,,,London,pp_voc_r[75],2021-12-05,Posterior prediction,,,,,,,0.2062994,0.285204,0.4378704,0.51271065,,,
-region,intrinsic,,,,,,,,London,pp_voc_r[76],2021-12-06,Posterior prediction,,,,,,,0.2029513,0.283539,0.437673,0.5135529,,,
-region,intrinsic,,,,,,,,London,pp_voc_r[77],2021-12-07,Posterior prediction,,,,,,,0.20556995,0.284047,0.4382968,0.51892815,,,
-region,intrinsic,,,,,,,,London,pp_voc_r[78],2021-12-08,Posterior prediction,,,,,,,0.1329545,0.2068438,0.3728782,0.44990075,,,
-region,intrinsic,,,,,,,,London,pp_voc_r[79],2021-12-09,Posterior prediction,,,,,,,0.1326556,0.21116,0.3725128,0.4481839,,,
-region,intrinsic,,,,,,,,London,pp_voc_r[80],2021-12-10,Posterior prediction,,,,,,,0.13264265,0.2080682,0.37307,0.4553296,,,
-region,intrinsic,,,,,,,,London,pp_voc_r[81],2021-12-11,Posterior prediction,,,,,,,0.13272325,0.2032578,0.3575138,0.43108235,,,
-region,intrinsic,,,,,,,,London,pp_voc_r[82],2021-12-12,Posterior prediction,,,,,,,0.127009,0.200081,0.3570054,0.43351155,,,
-region,intrinsic,,,,,,,,London,pp_voc_r[83],2021-12-13,Posterior prediction,,,,,,,0.12452795,0.2024168,0.3607108,0.43157785,,,
-region,intrinsic,,,,,,,,London,pp_voc_r[84],2021-12-14,Posterior prediction,,,,,,,-0.00485340549999999,0.06915354,0.226227,0.3002791,,,
-region,intrinsic,,,,,,,,London,pp_voc_r[85],2021-12-15,Posterior prediction,,,,,,,0.0018590885,0.07662796,0.2295618,0.3033686,,,
-region,intrinsic,,,,,,,,London,pp_voc_r[86],2021-12-16,Posterior prediction,,,,,,,0.0072483605,0.07575028,0.2277438,0.29791515,,,
-region,intrinsic,,,,,,,,London,pp_voc_r[87],2021-12-17,Posterior prediction,,,,,,,-0.089931285,-0.0134717,0.143281,0.2180995,,,
-region,intrinsic,,,,,,,,London,pp_voc_r[88],2021-12-18,Posterior prediction,,,,,,,-0.086249055,-0.0114512,0.1469646,0.220246,,,
-region,intrinsic,,,,,,,,London,pp_voc_r[89],2021-12-19,Posterior prediction,,,,,,,-0.087975755,-0.01315146,0.145159,0.22371965,,,
-region,intrinsic,,,,,,,,London,pp_voc_r[90],2021-12-20,Posterior prediction,,,,,,,-0.1425315,-0.06503164,0.09874032,0.17466015,,,
-region,intrinsic,,,,,,,,London,pp_voc_r[91],2021-12-21,Posterior prediction,,,,,,,-0.1447218,-0.06365116,0.09875058,0.17442045,,,
-region,intrinsic,,,,,,,,London,pp_voc_r[92],2021-12-22,Posterior prediction,,,,,,,-0.14629825,-0.06362638,0.0993366,0.1736003,,,
-region,intrinsic,,,,,,,,London,pp_voc_r[93],2021-12-23,Posterior prediction,,,,,,,-0.17803595,-0.09301112,0.06960558,0.15248905,,,
-region,intrinsic,,,,,,,,North East,pp_voc_r[94],2021-11-23,Posterior prediction,,,,,,,0.119981,0.2146812,0.411213,0.51067455,,,
-region,intrinsic,,,,,,,,North East,pp_voc_r[95],2021-11-24,Posterior prediction,,,,,,,0.1263897,0.2221008,0.4094194,0.50585785,,,
-region,intrinsic,,,,,,,,North East,pp_voc_r[96],2021-11-25,Posterior prediction,,,,,,,0.12157995,0.2145428,0.409755,0.5016382,,,
-region,intrinsic,,,,,,,,North East,pp_voc_r[97],2021-11-26,Posterior prediction,,,,,,,0.124511,0.2311592,0.4599324,0.5697552,,,
-region,intrinsic,,,,,,,,North East,pp_voc_r[98],2021-11-27,Posterior prediction,,,,,,,0.12383795,0.2303714,0.4612828,0.58042885,,,
-region,intrinsic,,,,,,,,North East,pp_voc_r[99],2021-11-28,Posterior prediction,,,,,,,0.12317455,0.2311598,0.4563394,0.5687304,,,
-region,intrinsic,,,,,,,,North East,pp_voc_r[100],2021-11-29,Posterior prediction,,,,,,,0.12404635,0.2221708,0.4545926,0.5701962,,,
-region,intrinsic,,,,,,,,North East,pp_voc_r[101],2021-11-30,Posterior prediction,,,,,,,0.11562295,0.221246,0.4457342,0.5538473,,,
-region,intrinsic,,,,,,,,North East,pp_voc_r[102],2021-12-01,Posterior prediction,,,,,,,0.11081215,0.2226106,0.4460574,0.55705625,,,
-region,intrinsic,,,,,,,,North East,pp_voc_r[103],2021-12-02,Posterior prediction,,,,,,,0.102716,0.213272,0.4482242,0.5634509,,,
-region,intrinsic,,,,,,,,North East,pp_voc_r[104],2021-12-03,Posterior prediction,,,,,,,0.10936745,0.2245638,0.456922,0.56737515,,,
-region,intrinsic,,,,,,,,North East,pp_voc_r[105],2021-12-04,Posterior prediction,,,,,,,0.10627475,0.2171198,0.4515348,0.55234375,,,
-region,intrinsic,,,,,,,,North East,pp_voc_r[106],2021-12-05,Posterior prediction,,,,,,,0.1248943,0.2303312,0.4626148,0.57203655,,,
-region,intrinsic,,,,,,,,North East,pp_voc_r[107],2021-12-06,Posterior prediction,,,,,,,0.12520035,0.2315898,0.4551258,0.56838125,,,
-region,intrinsic,,,,,,,,North East,pp_voc_r[108],2021-12-07,Posterior prediction,,,,,,,0.1265614,0.23439,0.4560138,0.5659713,,,
-region,intrinsic,,,,,,,,North East,pp_voc_r[109],2021-12-08,Posterior prediction,,,,,,,0.15157165,0.2561086,0.4589358,0.5618952,,,
-region,intrinsic,,,,,,,,North East,pp_voc_r[110],2021-12-09,Posterior prediction,,,,,,,0.15027455,0.2485638,0.4549896,0.5520774,,,
-region,intrinsic,,,,,,,,North East,pp_voc_r[111],2021-12-10,Posterior prediction,,,,,,,0.15429045,0.2524466,0.462128,0.5575851,,,
-region,intrinsic,,,,,,,,North East,pp_voc_r[112],2021-12-11,Posterior prediction,,,,,,,0.1360444,0.2288634,0.3991936,0.4869416,,,
-region,intrinsic,,,,,,,,North East,pp_voc_r[113],2021-12-12,Posterior prediction,,,,,,,0.13400455,0.2230086,0.3940972,0.4836915,,,
-region,intrinsic,,,,,,,,North East,pp_voc_r[114],2021-12-13,Posterior prediction,,,,,,,0.13944525,0.2229494,0.3991144,0.482879,,,
-region,intrinsic,,,,,,,,North East,pp_voc_r[115],2021-12-14,Posterior prediction,,,,,,,0.0829483,0.1589926,0.3169104,0.3958849,,,
-region,intrinsic,,,,,,,,North East,pp_voc_r[116],2021-12-15,Posterior prediction,,,,,,,0.079949435,0.1558762,0.315741,0.38832955,,,
-region,intrinsic,,,,,,,,North East,pp_voc_r[117],2021-12-16,Posterior prediction,,,,,,,0.086677885,0.1587186,0.316481,0.3947593,,,
-region,intrinsic,,,,,,,,North East,pp_voc_r[118],2021-12-17,Posterior prediction,,,,,,,0.053608885,0.1262322,0.2793202,0.35112985,,,
-region,intrinsic,,,,,,,,North East,pp_voc_r[119],2021-12-18,Posterior prediction,,,,,,,0.05329043,0.1274916,0.2816176,0.34981,,,
-region,intrinsic,,,,,,,,North East,pp_voc_r[120],2021-12-19,Posterior prediction,,,,,,,0.060075095,0.127822,0.2783592,0.35287715,,,
-region,intrinsic,,,,,,,,North East,pp_voc_r[121],2021-12-20,Posterior prediction,,,,,,,0.03963103,0.1130096,0.2652894,0.340744,,,
-region,intrinsic,,,,,,,,North East,pp_voc_r[122],2021-12-21,Posterior prediction,,,,,,,0.035646615,0.1128778,0.2691168,0.3486787,,,
-region,intrinsic,,,,,,,,North East,pp_voc_r[123],2021-12-22,Posterior prediction,,,,,,,0.036678505,0.1076278,0.2639626,0.3378853,,,
-region,intrinsic,,,,,,,,North East,pp_voc_r[124],2021-12-23,Posterior prediction,,,,,,,-0.041624635,0.0420409,0.205725,0.28487695,,,
-region,intrinsic,,,,,,,,North West,pp_voc_r[125],2021-11-23,Posterior prediction,,,,,,,0.16711325,0.2518508,0.4299922,0.51322695,,,
-region,intrinsic,,,,,,,,North West,pp_voc_r[126],2021-11-24,Posterior prediction,,,,,,,0.1627073,0.2452326,0.4294854,0.51652435,,,
-region,intrinsic,,,,,,,,North West,pp_voc_r[127],2021-11-25,Posterior prediction,,,,,,,0.1576957,0.2479808,0.428802,0.5148512,,,
-region,intrinsic,,,,,,,,North West,pp_voc_r[128],2021-11-26,Posterior prediction,,,,,,,0.17745655,0.2708862,0.472236,0.5686533,,,
-region,intrinsic,,,,,,,,North West,pp_voc_r[129],2021-11-27,Posterior prediction,,,,,,,0.1701709,0.2681848,0.4710912,0.56631155,,,
-region,intrinsic,,,,,,,,North West,pp_voc_r[130],2021-11-28,Posterior prediction,,,,,,,0.17616585,0.2707766,0.4705934,0.56762085,,,
-region,intrinsic,,,,,,,,North West,pp_voc_r[131],2021-11-29,Posterior prediction,,,,,,,0.18020865,0.268555,0.466415,0.5600496,,,
-region,intrinsic,,,,,,,,North West,pp_voc_r[132],2021-11-30,Posterior prediction,,,,,,,0.17524095,0.2697922,0.4631134,0.55352245,,,
-region,intrinsic,,,,,,,,North West,pp_voc_r[133],2021-12-01,Posterior prediction,,,,,,,0.1783539,0.2699154,0.4634042,0.5626952,,,
-region,intrinsic,,,,,,,,North West,pp_voc_r[134],2021-12-02,Posterior prediction,,,,,,,0.17674935,0.2632846,0.4498168,0.544194,,,
-region,intrinsic,,,,,,,,North West,pp_voc_r[135],2021-12-03,Posterior prediction,,,,,,,0.17911585,0.2594068,0.4474024,0.53421415,,,
-region,intrinsic,,,,,,,,North West,pp_voc_r[136],2021-12-04,Posterior prediction,,,,,,,0.17487765,0.264092,0.448061,0.53262455,,,
-region,intrinsic,,,,,,,,North West,pp_voc_r[137],2021-12-05,Posterior prediction,,,,,,,0.168084,0.2542554,0.4340108,0.52012765,,,
-region,intrinsic,,,,,,,,North West,pp_voc_r[138],2021-12-06,Posterior prediction,,,,,,,0.1650059,0.2509976,0.4265826,0.51192235,,,
-region,intrinsic,,,,,,,,North West,pp_voc_r[139],2021-12-07,Posterior prediction,,,,,,,0.16712785,0.2534034,0.4322104,0.52080355,,,
-region,intrinsic,,,,,,,,North West,pp_voc_r[140],2021-12-08,Posterior prediction,,,,,,,0.13898925,0.2196054,0.3850118,0.462417,,,
-region,intrinsic,,,,,,,,North West,pp_voc_r[141],2021-12-09,Posterior prediction,,,,,,,0.1446699,0.2217054,0.3865786,0.4685038,,,
-region,intrinsic,,,,,,,,North West,pp_voc_r[142],2021-12-10,Posterior prediction,,,,,,,0.1427713,0.2193222,0.3844496,0.4643051,,,
-region,intrinsic,,,,,,,,North West,pp_voc_r[143],2021-12-11,Posterior prediction,,,,,,,0.14197505,0.2129544,0.3618302,0.4364447,,,
-region,intrinsic,,,,,,,,North West,pp_voc_r[144],2021-12-12,Posterior prediction,,,,,,,0.14052585,0.2135632,0.3657816,0.43742735,,,
-region,intrinsic,,,,,,,,North West,pp_voc_r[145],2021-12-13,Posterior prediction,,,,,,,0.14154,0.2113272,0.3617342,0.43183425,,,
-region,intrinsic,,,,,,,,North West,pp_voc_r[146],2021-12-14,Posterior prediction,,,,,,,0.06519228,0.1367158,0.282677,0.3516478,,,
-region,intrinsic,,,,,,,,North West,pp_voc_r[147],2021-12-15,Posterior prediction,,,,,,,0.06375731,0.1312012,0.281769,0.35344595,,,
-region,intrinsic,,,,,,,,North West,pp_voc_r[148],2021-12-16,Posterior prediction,,,,,,,0.0656183,0.134838,0.282488,0.3544969,,,
-region,intrinsic,,,,,,,,North West,pp_voc_r[149],2021-12-17,Posterior prediction,,,,,,,0.017357125,0.08585002,0.2347166,0.3037773,,,
-region,intrinsic,,,,,,,,North West,pp_voc_r[150],2021-12-18,Posterior prediction,,,,,,,0.021787275,0.09352692,0.2388938,0.3118258,,,
-region,intrinsic,,,,,,,,North West,pp_voc_r[151],2021-12-19,Posterior prediction,,,,,,,0.02005817,0.08963306,0.2363958,0.3031508,,,
-region,intrinsic,,,,,,,,North West,pp_voc_r[152],2021-12-20,Posterior prediction,,,,,,,-0.007882854,0.06586572,0.2203008,0.28839485,,,
-region,intrinsic,,,,,,,,North West,pp_voc_r[153],2021-12-21,Posterior prediction,,,,,,,-0.0087069165,0.0680355,0.2176784,0.292106,,,
-region,intrinsic,,,,,,,,North West,pp_voc_r[154],2021-12-22,Posterior prediction,,,,,,,-0.000100979229999997,0.06745332,0.2233844,0.29446585,,,
-region,intrinsic,,,,,,,,North West,pp_voc_r[155],2021-12-23,Posterior prediction,,,,,,,-0.092915185,-0.01024404,0.1596348,0.23102085,,,
-region,intrinsic,,,,,,,,South East,pp_voc_r[156],2021-11-23,Posterior prediction,,,,,,,0.17784255,0.2676242,0.4485018,0.53308205,,,
-region,intrinsic,,,,,,,,South East,pp_voc_r[157],2021-11-24,Posterior prediction,,,,,,,0.1761709,0.2652124,0.4447842,0.5359062,,,
-region,intrinsic,,,,,,,,South East,pp_voc_r[158],2021-11-25,Posterior prediction,,,,,,,0.18461685,0.265555,0.4464418,0.53480885,,,
-region,intrinsic,,,,,,,,South East,pp_voc_r[159],2021-11-26,Posterior prediction,,,,,,,0.19023985,0.2808434,0.4817002,0.5748532,,,
-region,intrinsic,,,,,,,,South East,pp_voc_r[160],2021-11-27,Posterior prediction,,,,,,,0.18759025,0.2831094,0.4837166,0.57708725,,,
-region,intrinsic,,,,,,,,South East,pp_voc_r[161],2021-11-28,Posterior prediction,,,,,,,0.19376385,0.2864558,0.4810354,0.5792611,,,
-region,intrinsic,,,,,,,,South East,pp_voc_r[162],2021-11-29,Posterior prediction,,,,,,,0.1545337,0.2490566,0.4503844,0.539591,,,
-region,intrinsic,,,,,,,,South East,pp_voc_r[163],2021-11-30,Posterior prediction,,,,,,,0.15333195,0.2485526,0.441219,0.5373543,,,
-region,intrinsic,,,,,,,,South East,pp_voc_r[164],2021-12-01,Posterior prediction,,,,,,,0.15357785,0.2479326,0.443815,0.53752105,,,
-region,intrinsic,,,,,,,,South East,pp_voc_r[165],2021-12-02,Posterior prediction,,,,,,,0.1456571,0.2356614,0.418694,0.50596625,,,
-region,intrinsic,,,,,,,,South East,pp_voc_r[166],2021-12-03,Posterior prediction,,,,,,,0.1474758,0.2326026,0.412516,0.49720965,,,
-region,intrinsic,,,,,,,,South East,pp_voc_r[167],2021-12-04,Posterior prediction,,,,,,,0.1434377,0.235296,0.4161946,0.50247375,,,
-region,intrinsic,,,,,,,,South East,pp_voc_r[168],2021-12-05,Posterior prediction,,,,,,,0.1581214,0.2377312,0.4045224,0.48249545,,,
-region,intrinsic,,,,,,,,South East,pp_voc_r[169],2021-12-06,Posterior prediction,,,,,,,0.1590694,0.2361976,0.4064138,0.484701,,,
-region,intrinsic,,,,,,,,South East,pp_voc_r[170],2021-12-07,Posterior prediction,,,,,,,0.15790485,0.236172,0.4035254,0.48724515,,,
-region,intrinsic,,,,,,,,South East,pp_voc_r[171],2021-12-08,Posterior prediction,,,,,,,0.1338781,0.2066546,0.3625384,0.43109245,,,
-region,intrinsic,,,,,,,,South East,pp_voc_r[172],2021-12-09,Posterior prediction,,,,,,,0.1303507,0.2070706,0.3624244,0.43969895,,,
-region,intrinsic,,,,,,,,South East,pp_voc_r[173],2021-12-10,Posterior prediction,,,,,,,0.1319154,0.2064128,0.359341,0.43457785,,,
-region,intrinsic,,,,,,,,South East,pp_voc_r[174],2021-12-11,Posterior prediction,,,,,,,0.1208304,0.1929376,0.3420274,0.41304105,,,
-region,intrinsic,,,,,,,,South East,pp_voc_r[175],2021-12-12,Posterior prediction,,,,,,,0.12237015,0.1944526,0.3439726,0.41270675,,,
-region,intrinsic,,,,,,,,South East,pp_voc_r[176],2021-12-13,Posterior prediction,,,,,,,0.12159885,0.1954394,0.3430312,0.4113808,,,
-region,intrinsic,,,,,,,,South East,pp_voc_r[177],2021-12-14,Posterior prediction,,,,,,,0.027190745,0.09692892,0.2444038,0.3141726,,,
-region,intrinsic,,,,,,,,South East,pp_voc_r[178],2021-12-15,Posterior prediction,,,,,,,0.025519065,0.09744494,0.2446476,0.31845525,,,
-region,intrinsic,,,,,,,,South East,pp_voc_r[179],2021-12-16,Posterior prediction,,,,,,,0.028115425,0.09734842,0.2390292,0.30961825,,,
-region,intrinsic,,,,,,,,South East,pp_voc_r[180],2021-12-17,Posterior prediction,,,,,,,-0.023335565,0.04790072,0.1938904,0.26302925,,,
-region,intrinsic,,,,,,,,South East,pp_voc_r[181],2021-12-18,Posterior prediction,,,,,,,-0.018573085,0.04893322,0.19588,0.26778645,,,
-region,intrinsic,,,,,,,,South East,pp_voc_r[182],2021-12-19,Posterior prediction,,,,,,,-0.017797335,0.04861764,0.1971604,0.26314165,,,
-region,intrinsic,,,,,,,,South East,pp_voc_r[183],2021-12-20,Posterior prediction,,,,,,,-0.064788895,0.01135758,0.1641718,0.2379647,,,
-region,intrinsic,,,,,,,,South East,pp_voc_r[184],2021-12-21,Posterior prediction,,,,,,,-0.06833022,0.00948327,0.1587256,0.2300984,,,
-region,intrinsic,,,,,,,,South East,pp_voc_r[185],2021-12-22,Posterior prediction,,,,,,,-0.060339095,0.01115282,0.162234,0.23218145,,,
-region,intrinsic,,,,,,,,South East,pp_voc_r[186],2021-12-23,Posterior prediction,,,,,,,-0.153378,-0.07361988,0.0877226000000001,0.17023635,,,
-region,intrinsic,,,,,,,,South West,pp_voc_r[187],2021-11-23,Posterior prediction,,,,,,,0.17033085,0.259235,0.437317,0.52622,,,
-region,intrinsic,,,,,,,,South West,pp_voc_r[188],2021-11-24,Posterior prediction,,,,,,,0.1706199,0.2554418,0.4421342,0.53055325,,,
-region,intrinsic,,,,,,,,South West,pp_voc_r[189],2021-11-25,Posterior prediction,,,,,,,0.1771711,0.261696,0.4450064,0.5305324,,,
-region,intrinsic,,,,,,,,South West,pp_voc_r[190],2021-11-26,Posterior prediction,,,,,,,0.1855939,0.2829086,0.4781342,0.575504,,,
-region,intrinsic,,,,,,,,South West,pp_voc_r[191],2021-11-27,Posterior prediction,,,,,,,0.1851873,0.2807112,0.4796916,0.5764278,,,
-region,intrinsic,,,,,,,,South West,pp_voc_r[192],2021-11-28,Posterior prediction,,,,,,,0.19171315,0.2810024,0.4800172,0.5715251,,,
-region,intrinsic,,,,,,,,South West,pp_voc_r[193],2021-11-29,Posterior prediction,,,,,,,0.14995105,0.2461336,0.4409898,0.53332265,,,
-region,intrinsic,,,,,,,,South West,pp_voc_r[194],2021-11-30,Posterior prediction,,,,,,,0.1469874,0.2426152,0.4330582,0.52792385,,,
-region,intrinsic,,,,,,,,South West,pp_voc_r[195],2021-12-01,Posterior prediction,,,,,,,0.15279755,0.2446846,0.44064,0.53803145,,,
-region,intrinsic,,,,,,,,South West,pp_voc_r[196],2021-12-02,Posterior prediction,,,,,,,0.14822915,0.2321124,0.4207144,0.5084495,,,
-region,intrinsic,,,,,,,,South West,pp_voc_r[197],2021-12-03,Posterior prediction,,,,,,,0.13429605,0.231007,0.4180014,0.5073623,,,
-region,intrinsic,,,,,,,,South West,pp_voc_r[198],2021-12-04,Posterior prediction,,,,,,,0.1481657,0.236875,0.4230462,0.51053635,,,
-region,intrinsic,,,,,,,,South West,pp_voc_r[199],2021-12-05,Posterior prediction,,,,,,,0.14186325,0.221922,0.3957034,0.47787965,,,
-region,intrinsic,,,,,,,,South West,pp_voc_r[200],2021-12-06,Posterior prediction,,,,,,,0.13141135,0.2183764,0.3966208,0.4798911,,,
-region,intrinsic,,,,,,,,South West,pp_voc_r[201],2021-12-07,Posterior prediction,,,,,,,0.13731785,0.2133048,0.3951258,0.47798855,,,
-region,intrinsic,,,,,,,,South West,pp_voc_r[202],2021-12-08,Posterior prediction,,,,,,,0.097206765,0.1785578,0.3519668,0.4275219,,,
-region,intrinsic,,,,,,,,South West,pp_voc_r[203],2021-12-09,Posterior prediction,,,,,,,0.094208655,0.1806864,0.351606,0.437565,,,
-region,intrinsic,,,,,,,,South West,pp_voc_r[204],2021-12-10,Posterior prediction,,,,,,,0.09917868,0.1802684,0.3532076,0.43593355,,,
-region,intrinsic,,,,,,,,South West,pp_voc_r[205],2021-12-11,Posterior prediction,,,,,,,0.085789875,0.1663438,0.3321908,0.40595925,,,
-region,intrinsic,,,,,,,,South West,pp_voc_r[206],2021-12-12,Posterior prediction,,,,,,,0.09020683,0.1657016,0.3293372,0.4055002,,,
-region,intrinsic,,,,,,,,South West,pp_voc_r[207],2021-12-13,Posterior prediction,,,,,,,0.08800279,0.1706308,0.3311348,0.41037,,,
-region,intrinsic,,,,,,,,South West,pp_voc_r[208],2021-12-14,Posterior prediction,,,,,,,-0.012314175,0.05775818,0.2077712,0.2802418,,,
-region,intrinsic,,,,,,,,South West,pp_voc_r[209],2021-12-15,Posterior prediction,,,,,,,-0.017890185,0.05383758,0.2115432,0.283935,,,
-region,intrinsic,,,,,,,,South West,pp_voc_r[210],2021-12-16,Posterior prediction,,,,,,,-0.01156838,0.06132086,0.2101664,0.2880692,,,
-region,intrinsic,,,,,,,,South West,pp_voc_r[211],2021-12-17,Posterior prediction,,,,,,,-0.041390025,0.0299192,0.1819368,0.254312,,,
-region,intrinsic,,,,,,,,South West,pp_voc_r[212],2021-12-18,Posterior prediction,,,,,,,-0.04234099,0.03309308,0.1828706,0.25743015,,,
-region,intrinsic,,,,,,,,South West,pp_voc_r[213],2021-12-19,Posterior prediction,,,,,,,-0.040914475,0.02994064,0.1817158,0.2483527,,,
-region,intrinsic,,,,,,,,South West,pp_voc_r[214],2021-12-20,Posterior prediction,,,,,,,-0.038395355,0.03611224,0.1881034,0.25946585,,,
-region,intrinsic,,,,,,,,South West,pp_voc_r[215],2021-12-21,Posterior prediction,,,,,,,-0.036270165,0.03855094,0.1884212,0.259574,,,
-region,intrinsic,,,,,,,,South West,pp_voc_r[216],2021-12-22,Posterior prediction,,,,,,,-0.035840495,0.03956362,0.188214,0.2611672,,,
-region,intrinsic,,,,,,,,South West,pp_voc_r[217],2021-12-23,Posterior prediction,,,,,,,-0.07989379,-0.00388805799999999,0.1572406,0.23639,,,
-region,intrinsic,,,,,,,,West Midlands,pp_voc_r[218],2021-11-23,Posterior prediction,,,,,,,0.15119905,0.2399516,0.4273632,0.5158159,,,
-region,intrinsic,,,,,,,,West Midlands,pp_voc_r[219],2021-11-24,Posterior prediction,,,,,,,0.14834395,0.2396572,0.427467,0.5157498,,,
-region,intrinsic,,,,,,,,West Midlands,pp_voc_r[220],2021-11-25,Posterior prediction,,,,,,,0.15279765,0.2374802,0.4221652,0.51566865,,,
-region,intrinsic,,,,,,,,West Midlands,pp_voc_r[221],2021-11-26,Posterior prediction,,,,,,,0.1609524,0.2645938,0.4735268,0.576777,,,
-region,intrinsic,,,,,,,,West Midlands,pp_voc_r[222],2021-11-27,Posterior prediction,,,,,,,0.1713409,0.2603272,0.4766672,0.57830755,,,
-region,intrinsic,,,,,,,,West Midlands,pp_voc_r[223],2021-11-28,Posterior prediction,,,,,,,0.16729565,0.2625744,0.4703032,0.57329365,,,
-region,intrinsic,,,,,,,,West Midlands,pp_voc_r[224],2021-11-29,Posterior prediction,,,,,,,0.1513053,0.2577434,0.4672666,0.5726129,,,
-region,intrinsic,,,,,,,,West Midlands,pp_voc_r[225],2021-11-30,Posterior prediction,,,,,,,0.15403065,0.258108,0.4673694,0.5730254,,,
-region,intrinsic,,,,,,,,West Midlands,pp_voc_r[226],2021-12-01,Posterior prediction,,,,,,,0.1560887,0.2565468,0.4705488,0.56351425,,,
-region,intrinsic,,,,,,,,West Midlands,pp_voc_r[227],2021-12-02,Posterior prediction,,,,,,,0.15677245,0.2601112,0.4666294,0.5606558,,,
-region,intrinsic,,,,,,,,West Midlands,pp_voc_r[228],2021-12-03,Posterior prediction,,,,,,,0.15903865,0.2560806,0.4594544,0.56133155,,,
-region,intrinsic,,,,,,,,West Midlands,pp_voc_r[229],2021-12-04,Posterior prediction,,,,,,,0.162389,0.2617002,0.4617246,0.56046735,,,
-region,intrinsic,,,,,,,,West Midlands,pp_voc_r[230],2021-12-05,Posterior prediction,,,,,,,0.13830465,0.2338996,0.442433,0.54522565,,,
-region,intrinsic,,,,,,,,West Midlands,pp_voc_r[231],2021-12-06,Posterior prediction,,,,,,,0.13609165,0.2393436,0.4452142,0.53783945,,,
-region,intrinsic,,,,,,,,West Midlands,pp_voc_r[232],2021-12-07,Posterior prediction,,,,,,,0.1405598,0.240586,0.4452234,0.54677235,,,
-region,intrinsic,,,,,,,,West Midlands,pp_voc_r[233],2021-12-08,Posterior prediction,,,,,,,0.13801315,0.2192748,0.3859928,0.46202435,,,
-region,intrinsic,,,,,,,,West Midlands,pp_voc_r[234],2021-12-09,Posterior prediction,,,,,,,0.1406132,0.2201346,0.388294,0.4647091,,,
-region,intrinsic,,,,,,,,West Midlands,pp_voc_r[235],2021-12-10,Posterior prediction,,,,,,,0.1381517,0.2167822,0.3861578,0.4655147,,,
-region,intrinsic,,,,,,,,West Midlands,pp_voc_r[236],2021-12-11,Posterior prediction,,,,,,,0.1009265,0.1766152,0.3312388,0.4053614,,,
-region,intrinsic,,,,,,,,West Midlands,pp_voc_r[237],2021-12-12,Posterior prediction,,,,,,,0.1064355,0.1788492,0.3288796,0.4015082,,,
-region,intrinsic,,,,,,,,West Midlands,pp_voc_r[238],2021-12-13,Posterior prediction,,,,,,,0.1052578,0.1722504,0.3305896,0.407811,,,
-region,intrinsic,,,,,,,,West Midlands,pp_voc_r[239],2021-12-14,Posterior prediction,,,,,,,0.035885565,0.1006206,0.2535656,0.32066915,,,
-region,intrinsic,,,,,,,,West Midlands,pp_voc_r[240],2021-12-15,Posterior prediction,,,,,,,0.031769435,0.104162,0.2545106,0.32988965,,,
-region,intrinsic,,,,,,,,West Midlands,pp_voc_r[241],2021-12-16,Posterior prediction,,,,,,,0.034164535,0.1062606,0.2529158,0.3294121,,,
-region,intrinsic,,,,,,,,West Midlands,pp_voc_r[242],2021-12-17,Posterior prediction,,,,,,,-0.00540592549999999,0.06912456,0.2155314,0.28232105,,,
-region,intrinsic,,,,,,,,West Midlands,pp_voc_r[243],2021-12-18,Posterior prediction,,,,,,,-0.004467627,0.06472444,0.2152608,0.28743115,,,
-region,intrinsic,,,,,,,,West Midlands,pp_voc_r[244],2021-12-19,Posterior prediction,,,,,,,-3.96542049999947e-05,0.06948078,0.2143308,0.279852,,,
-region,intrinsic,,,,,,,,West Midlands,pp_voc_r[245],2021-12-20,Posterior prediction,,,,,,,-0.01398796,0.06145122,0.2104926,0.27975995,,,
-region,intrinsic,,,,,,,,West Midlands,pp_voc_r[246],2021-12-21,Posterior prediction,,,,,,,-0.01007235,0.06470578,0.215822,0.28346085,,,
-region,intrinsic,,,,,,,,West Midlands,pp_voc_r[247],2021-12-22,Posterior prediction,,,,,,,-0.013025475,0.06161326,0.2129166,0.28109925,,,
-region,intrinsic,,,,,,,,West Midlands,pp_voc_r[248],2021-12-23,Posterior prediction,,,,,,,-0.073088465,-0.001114788,0.15957,0.23957805,,,
-region,intrinsic,,,,,,,,Yorkshire and Humber,pp_voc_r[249],2021-11-23,Posterior prediction,,,,,,,0.1399643,0.232064,0.4197742,0.5067431,,,
-region,intrinsic,,,,,,,,Yorkshire and Humber,pp_voc_r[250],2021-11-24,Posterior prediction,,,,,,,0.13805925,0.231905,0.420677,0.51177895,,,
-region,intrinsic,,,,,,,,Yorkshire and Humber,pp_voc_r[251],2021-11-25,Posterior prediction,,,,,,,0.1356913,0.2275526,0.417084,0.5116237,,,
-region,intrinsic,,,,,,,,Yorkshire and Humber,pp_voc_r[252],2021-11-26,Posterior prediction,,,,,,,0.11440945,0.2342976,0.4794022,0.59357315,,,
-region,intrinsic,,,,,,,,Yorkshire and Humber,pp_voc_r[253],2021-11-27,Posterior prediction,,,,,,,0.12419325,0.2381194,0.4838626,0.5943857,,,
-region,intrinsic,,,,,,,,Yorkshire and Humber,pp_voc_r[254],2021-11-28,Posterior prediction,,,,,,,0.12505415,0.237399,0.4776114,0.5908352,,,
-region,intrinsic,,,,,,,,Yorkshire and Humber,pp_voc_r[255],2021-11-29,Posterior prediction,,,,,,,0.12460835,0.2358944,0.4611816,0.5670486,,,
-region,intrinsic,,,,,,,,Yorkshire and Humber,pp_voc_r[256],2021-11-30,Posterior prediction,,,,,,,0.1221581,0.234396,0.461338,0.57175705,,,
-region,intrinsic,,,,,,,,Yorkshire and Humber,pp_voc_r[257],2021-12-01,Posterior prediction,,,,,,,0.12377145,0.2282846,0.459755,0.5656948,,,
-region,intrinsic,,,,,,,,Yorkshire and Humber,pp_voc_r[258],2021-12-02,Posterior prediction,,,,,,,0.12574415,0.2288052,0.4566432,0.56891655,,,
-region,intrinsic,,,,,,,,Yorkshire and Humber,pp_voc_r[259],2021-12-03,Posterior prediction,,,,,,,0.12849895,0.2310494,0.4539802,0.5600121,,,
-region,intrinsic,,,,,,,,Yorkshire and Humber,pp_voc_r[260],2021-12-04,Posterior prediction,,,,,,,0.1230932,0.22872,0.4484892,0.547374,,,
-region,intrinsic,,,,,,,,Yorkshire and Humber,pp_voc_r[261],2021-12-05,Posterior prediction,,,,,,,0.14190395,0.2375468,0.436332,0.5381647,,,
-region,intrinsic,,,,,,,,Yorkshire and Humber,pp_voc_r[262],2021-12-06,Posterior prediction,,,,,,,0.13747645,0.237981,0.4398428,0.5331727,,,
-region,intrinsic,,,,,,,,Yorkshire and Humber,pp_voc_r[263],2021-12-07,Posterior prediction,,,,,,,0.1392906,0.2330548,0.4356978,0.5382965,,,
-region,intrinsic,,,,,,,,Yorkshire and Humber,pp_voc_r[264],2021-12-08,Posterior prediction,,,,,,,0.16744695,0.2445346,0.4157754,0.4927247,,,
-region,intrinsic,,,,,,,,Yorkshire and Humber,pp_voc_r[265],2021-12-09,Posterior prediction,,,,,,,0.165686,0.2450998,0.4158448,0.5025883,,,
-region,intrinsic,,,,,,,,Yorkshire and Humber,pp_voc_r[266],2021-12-10,Posterior prediction,,,,,,,0.1588322,0.2452972,0.4142092,0.49567215,,,
-region,intrinsic,,,,,,,,Yorkshire and Humber,pp_voc_r[267],2021-12-11,Posterior prediction,,,,,,,0.1549024,0.2294874,0.3817752,0.45702755,,,
-region,intrinsic,,,,,,,,Yorkshire and Humber,pp_voc_r[268],2021-12-12,Posterior prediction,,,,,,,0.15097205,0.2294602,0.3834028,0.4564425,,,
-region,intrinsic,,,,,,,,Yorkshire and Humber,pp_voc_r[269],2021-12-13,Posterior prediction,,,,,,,0.15109325,0.2259326,0.377544,0.4517433,,,
-region,intrinsic,,,,,,,,Yorkshire and Humber,pp_voc_r[270],2021-12-14,Posterior prediction,,,,,,,0.07572204,0.14658,0.29376,0.3691302,,,
-region,intrinsic,,,,,,,,Yorkshire and Humber,pp_voc_r[271],2021-12-15,Posterior prediction,,,,,,,0.082779565,0.149298,0.2941592,0.3639473,,,
-region,intrinsic,,,,,,,,Yorkshire and Humber,pp_voc_r[272],2021-12-16,Posterior prediction,,,,,,,0.07721908,0.1466582,0.2925512,0.362306,,,
-region,intrinsic,,,,,,,,Yorkshire and Humber,pp_voc_r[273],2021-12-17,Posterior prediction,,,,,,,0.041580755,0.1137132,0.2557042,0.3272751,,,
-region,intrinsic,,,,,,,,Yorkshire and Humber,pp_voc_r[274],2021-12-18,Posterior prediction,,,,,,,0.043087075,0.1130796,0.2545666,0.3237799,,,
-region,intrinsic,,,,,,,,Yorkshire and Humber,pp_voc_r[275],2021-12-19,Posterior prediction,,,,,,,0.045305985,0.1102196,0.2536716,0.32375335,,,
-region,intrinsic,,,,,,,,Yorkshire and Humber,pp_voc_r[276],2021-12-20,Posterior prediction,,,,,,,0.01577342,0.08700966,0.2315048,0.29683735,,,
-region,intrinsic,,,,,,,,Yorkshire and Humber,pp_voc_r[277],2021-12-21,Posterior prediction,,,,,,,0.01166142,0.08398426,0.2297928,0.300297,,,
-region,intrinsic,,,,,,,,Yorkshire and Humber,pp_voc_r[278],2021-12-22,Posterior prediction,,,,,,,0.01109537,0.08415468,0.2311008,0.2993398,,,
-region,intrinsic,,,,,,,,Yorkshire and Humber,pp_voc_r[279],2021-12-23,Posterior prediction,,,,,,,-0.048086005,0.0276778,0.1848948,0.26052975,,,
+region,intrinsic,,,,,,,,East Midlands,pp_voc_r[1],2021-12-01,Posterior prediction,,,,,,,0.28405275,0.3705174,0.5544272,0.64737945,,,
+region,intrinsic,,,,,,,,East Midlands,pp_voc_r[2],2021-12-02,Posterior prediction,,,,,,,0.2075578,0.2901464,0.4646154,0.551763,,,
+region,intrinsic,,,,,,,,East Midlands,pp_voc_r[3],2021-12-03,Posterior prediction,,,,,,,0.2072307,0.2852494,0.4652946,0.54353665,,,
+region,intrinsic,,,,,,,,East Midlands,pp_voc_r[4],2021-12-04,Posterior prediction,,,,,,,0.2032376,0.2885334,0.4648764,0.5524131,,,
+region,intrinsic,,,,,,,,East Midlands,pp_voc_r[5],2021-12-05,Posterior prediction,,,,,,,0.24993495,0.3222,0.4674842,0.53746805,,,
+region,intrinsic,,,,,,,,East Midlands,pp_voc_r[6],2021-12-06,Posterior prediction,,,,,,,0.25037565,0.322198,0.4708656,0.5436757,,,
+region,intrinsic,,,,,,,,East Midlands,pp_voc_r[7],2021-12-07,Posterior prediction,,,,,,,0.24802705,0.3219724,0.4717694,0.5434421,,,
+region,intrinsic,,,,,,,,East Midlands,pp_voc_r[8],2021-12-08,Posterior prediction,,,,,,,0.23485735,0.2933274,0.415605,0.4733672,,,
+region,intrinsic,,,,,,,,East Midlands,pp_voc_r[9],2021-12-09,Posterior prediction,,,,,,,0.23405515,0.2906014,0.4164386,0.4771799,,,
+region,intrinsic,,,,,,,,East Midlands,pp_voc_r[10],2021-12-10,Posterior prediction,,,,,,,0.2340944,0.2886084,0.4136992,0.4734361,,,
+region,intrinsic,,,,,,,,East Midlands,pp_voc_r[11],2021-12-11,Posterior prediction,,,,,,,0.27409555,0.3256784,0.4314748,0.48461535,,,
+region,intrinsic,,,,,,,,East Midlands,pp_voc_r[12],2021-12-12,Posterior prediction,,,,,,,0.2729303,0.3277954,0.4305756,0.4812786,,,
+region,intrinsic,,,,,,,,East Midlands,pp_voc_r[13],2021-12-13,Posterior prediction,,,,,,,0.2692726,0.323506,0.428228,0.48191035,,,
+region,intrinsic,,,,,,,,East Midlands,pp_voc_r[14],2021-12-14,Posterior prediction,,,,,,,0.064284795,0.1045424,0.1895008,0.2358169,,,
+region,intrinsic,,,,,,,,East Midlands,pp_voc_r[15],2021-12-15,Posterior prediction,,,,,,,0.06253096,0.1033276,0.1893822,0.22972985,,,
+region,intrinsic,,,,,,,,East Midlands,pp_voc_r[16],2021-12-16,Posterior prediction,,,,,,,0.06351017,0.103901,0.1889896,0.2309282,,,
+region,intrinsic,,,,,,,,East Midlands,pp_voc_r[17],2021-12-17,Posterior prediction,,,,,,,0.024223675,0.06263642,0.1423676,0.18496145,,,
+region,intrinsic,,,,,,,,East Midlands,pp_voc_r[18],2021-12-18,Posterior prediction,,,,,,,0.026525235,0.06316036,0.1432376,0.1863068,,,
+region,intrinsic,,,,,,,,East Midlands,pp_voc_r[19],2021-12-19,Posterior prediction,,,,,,,0.024738425,0.0619723,0.1434084,0.1862504,,,
+region,intrinsic,,,,,,,,East Midlands,pp_voc_r[20],2021-12-20,Posterior prediction,,,,,,,0.027300175,0.07043022,0.1535018,0.19337,,,
+region,intrinsic,,,,,,,,East Midlands,pp_voc_r[21],2021-12-21,Posterior prediction,,,,,,,0.02893683,0.0716658,0.1531884,0.19870195,,,
+region,intrinsic,,,,,,,,East Midlands,pp_voc_r[22],2021-12-22,Posterior prediction,,,,,,,0.02959476,0.0689439,0.1525764,0.1948962,,,
+region,intrinsic,,,,,,,,East Midlands,pp_voc_r[23],2021-12-23,Posterior prediction,,,,,,,-0.07721118,-0.03457496,0.05483954,0.1016646,,,
+region,intrinsic,,,,,,,,East of England,pp_voc_r[24],2021-12-01,Posterior prediction,,,,,,,0.26703,0.3544944,0.5314408,0.620883,,,
+region,intrinsic,,,,,,,,East of England,pp_voc_r[25],2021-12-02,Posterior prediction,,,,,,,0.29697555,0.3664796,0.5182078,0.59217725,,,
+region,intrinsic,,,,,,,,East of England,pp_voc_r[26],2021-12-03,Posterior prediction,,,,,,,0.29846125,0.3693314,0.5201102,0.5922505,,,
+region,intrinsic,,,,,,,,East of England,pp_voc_r[27],2021-12-04,Posterior prediction,,,,,,,0.30054475,0.370603,0.5198778,0.5914826,,,
+region,intrinsic,,,,,,,,East of England,pp_voc_r[28],2021-12-05,Posterior prediction,,,,,,,0.3939126,0.4467266,0.556199,0.60821145,,,
+region,intrinsic,,,,,,,,East of England,pp_voc_r[29],2021-12-06,Posterior prediction,,,,,,,0.3995842,0.4483046,0.558078,0.61034215,,,
+region,intrinsic,,,,,,,,East of England,pp_voc_r[30],2021-12-07,Posterior prediction,,,,,,,0.395866,0.4501552,0.555995,0.6088356,,,
+region,intrinsic,,,,,,,,East of England,pp_voc_r[31],2021-12-08,Posterior prediction,,,,,,,0.18563895,0.2259814,0.3196466,0.36871085,,,
+region,intrinsic,,,,,,,,East of England,pp_voc_r[32],2021-12-09,Posterior prediction,,,,,,,0.184661,0.2294826,0.316974,0.3658933,,,
+region,intrinsic,,,,,,,,East of England,pp_voc_r[33],2021-12-10,Posterior prediction,,,,,,,0.18440745,0.2278328,0.3170504,0.3642797,,,
+region,intrinsic,,,,,,,,East of England,pp_voc_r[34],2021-12-11,Posterior prediction,,,,,,,0.3077642,0.357539,0.4404396,0.47714425,,,
+region,intrinsic,,,,,,,,East of England,pp_voc_r[35],2021-12-12,Posterior prediction,,,,,,,0.3059362,0.3549408,0.4414828,0.4795289,,,
+region,intrinsic,,,,,,,,East of England,pp_voc_r[36],2021-12-13,Posterior prediction,,,,,,,0.3084841,0.3575052,0.4383102,0.4796128,,,
+region,intrinsic,,,,,,,,East of England,pp_voc_r[37],2021-12-14,Posterior prediction,,,,,,,0.06527484,0.09815384,0.167591,0.2037079,,,
+region,intrinsic,,,,,,,,East of England,pp_voc_r[38],2021-12-15,Posterior prediction,,,,,,,0.06458851,0.0971169,0.1662188,0.204378,,,
+region,intrinsic,,,,,,,,East of England,pp_voc_r[39],2021-12-16,Posterior prediction,,,,,,,0.06770535,0.09966804,0.1680236,0.2038722,,,
+region,intrinsic,,,,,,,,East of England,pp_voc_r[40],2021-12-17,Posterior prediction,,,,,,,0.003789672,0.0381562,0.1066484,0.1476019,,,
+region,intrinsic,,,,,,,,East of England,pp_voc_r[41],2021-12-18,Posterior prediction,,,,,,,0.0035068445,0.0375633,0.1071428,0.1430332,,,
+region,intrinsic,,,,,,,,East of England,pp_voc_r[42],2021-12-19,Posterior prediction,,,,,,,0.0060877725,0.03738378,0.1072748,0.14257215,,,
+region,intrinsic,,,,,,,,East of England,pp_voc_r[43],2021-12-20,Posterior prediction,,,,,,,0.0071747885,0.04667506,0.1182286,0.15143315,,,
+region,intrinsic,,,,,,,,East of England,pp_voc_r[44],2021-12-21,Posterior prediction,,,,,,,0.01030126,0.04504922,0.1184878,0.1536569,,,
+region,intrinsic,,,,,,,,East of England,pp_voc_r[45],2021-12-22,Posterior prediction,,,,,,,0.0093436785,0.04640166,0.1191864,0.15373125,,,
+region,intrinsic,,,,,,,,East of England,pp_voc_r[46],2021-12-23,Posterior prediction,,,,,,,-0.1100587,-0.07125092,0.00720013400000002,0.0502592399999999,,,
+region,intrinsic,,,,,,,,London,pp_voc_r[47],2021-12-01,Posterior prediction,,,,,,,0.2772595,0.3528566,0.5112858,0.59348425,,,
+region,intrinsic,,,,,,,,London,pp_voc_r[48],2021-12-02,Posterior prediction,,,,,,,0.3704683,0.432684,0.5609196,0.6222767,,,
+region,intrinsic,,,,,,,,London,pp_voc_r[49],2021-12-03,Posterior prediction,,,,,,,0.37083875,0.4326922,0.5623906,0.62122105,,,
+region,intrinsic,,,,,,,,London,pp_voc_r[50],2021-12-04,Posterior prediction,,,,,,,0.36972405,0.4328726,0.5604118,0.62228525,,,
+region,intrinsic,,,,,,,,London,pp_voc_r[51],2021-12-05,Posterior prediction,,,,,,,0.4008566,0.451387,0.5546766,0.60498285,,,
+region,intrinsic,,,,,,,,London,pp_voc_r[52],2021-12-06,Posterior prediction,,,,,,,0.40477055,0.4537826,0.5576376,0.6059872,,,
+region,intrinsic,,,,,,,,London,pp_voc_r[53],2021-12-07,Posterior prediction,,,,,,,0.4021236,0.4542466,0.5583346,0.602801,,,
+region,intrinsic,,,,,,,,London,pp_voc_r[54],2021-12-08,Posterior prediction,,,,,,,0.1547427,0.1973672,0.295324,0.34418135,,,
+region,intrinsic,,,,,,,,London,pp_voc_r[55],2021-12-09,Posterior prediction,,,,,,,0.15123215,0.1977304,0.2933228,0.3418248,,,
+region,intrinsic,,,,,,,,London,pp_voc_r[56],2021-12-10,Posterior prediction,,,,,,,0.151076,0.1982416,0.294732,0.3443599,,,
+region,intrinsic,,,,,,,,London,pp_voc_r[57],2021-12-11,Posterior prediction,,,,,,,0.28291805,0.3256486,0.4148508,0.4569903,,,
+region,intrinsic,,,,,,,,London,pp_voc_r[58],2021-12-12,Posterior prediction,,,,,,,0.28165795,0.3257212,0.4143486,0.4559528,,,
+region,intrinsic,,,,,,,,London,pp_voc_r[59],2021-12-13,Posterior prediction,,,,,,,0.2826168,0.3269034,0.415189,0.45905165,,,
+region,intrinsic,,,,,,,,London,pp_voc_r[60],2021-12-14,Posterior prediction,,,,,,,0.027874545,0.06415956,0.1435716,0.1848555,,,
+region,intrinsic,,,,,,,,London,pp_voc_r[61],2021-12-15,Posterior prediction,,,,,,,0.026122735,0.06384526,0.1426972,0.18407355,,,
+region,intrinsic,,,,,,,,London,pp_voc_r[62],2021-12-16,Posterior prediction,,,,,,,0.02786737,0.0655068,0.142428,0.1855377,,,
+region,intrinsic,,,,,,,,London,pp_voc_r[63],2021-12-17,Posterior prediction,,,,,,,-0.07338364,-0.03314498,0.0469079,0.0916664099999999,,,
+region,intrinsic,,,,,,,,London,pp_voc_r[64],2021-12-18,Posterior prediction,,,,,,,-0.071860625,-0.031703,0.04561984,0.08810984,,,
+region,intrinsic,,,,,,,,London,pp_voc_r[65],2021-12-19,Posterior prediction,,,,,,,-0.07226779,-0.03305326,0.04735364,0.0886593,,,
+region,intrinsic,,,,,,,,London,pp_voc_r[66],2021-12-20,Posterior prediction,,,,,,,-0.08229565,-0.04025534,0.04188066,0.08568085,,,
+region,intrinsic,,,,,,,,London,pp_voc_r[67],2021-12-21,Posterior prediction,,,,,,,-0.08372722,-0.04009216,0.04409826,0.08596061,,,
+region,intrinsic,,,,,,,,London,pp_voc_r[68],2021-12-22,Posterior prediction,,,,,,,-0.080308265,-0.04014724,0.04309348,0.085453005,,,
+region,intrinsic,,,,,,,,London,pp_voc_r[69],2021-12-23,Posterior prediction,,,,,,,-0.1371719,-0.09335786,-0.004138666,0.0392617699999999,,,
+region,intrinsic,,,,,,,,North East,pp_voc_r[70],2021-12-01,Posterior prediction,,,,,,,0.1936414,0.286373,0.4887834,0.5920274,,,
+region,intrinsic,,,,,,,,North East,pp_voc_r[71],2021-12-02,Posterior prediction,,,,,,,0.187829,0.2922232,0.5079026,0.6052271,,,
+region,intrinsic,,,,,,,,North East,pp_voc_r[72],2021-12-03,Posterior prediction,,,,,,,0.1922455,0.2916986,0.5057614,0.61210125,,,
+region,intrinsic,,,,,,,,North East,pp_voc_r[73],2021-12-04,Posterior prediction,,,,,,,0.19025605,0.2870716,0.5031292,0.60593375,,,
+region,intrinsic,,,,,,,,North East,pp_voc_r[74],2021-12-05,Posterior prediction,,,,,,,0.24261515,0.3407584,0.5442932,0.64590095,,,
+region,intrinsic,,,,,,,,North East,pp_voc_r[75],2021-12-06,Posterior prediction,,,,,,,0.2371906,0.3355876,0.5466842,0.6489995,,,
+region,intrinsic,,,,,,,,North East,pp_voc_r[76],2021-12-07,Posterior prediction,,,,,,,0.24347965,0.3409364,0.5470912,0.6464157,,,
+region,intrinsic,,,,,,,,North East,pp_voc_r[77],2021-12-08,Posterior prediction,,,,,,,0.32111545,0.4114476,0.5993534,0.69031325,,,
+region,intrinsic,,,,,,,,North East,pp_voc_r[78],2021-12-09,Posterior prediction,,,,,,,0.3176191,0.410086,0.5989864,0.69017555,,,
+region,intrinsic,,,,,,,,North East,pp_voc_r[79],2021-12-10,Posterior prediction,,,,,,,0.3198008,0.4101158,0.5995824,0.69230625,,,
+region,intrinsic,,,,,,,,North East,pp_voc_r[80],2021-12-11,Posterior prediction,,,,,,,0.28580845,0.3560176,0.50286,0.5699565,,,
+region,intrinsic,,,,,,,,North East,pp_voc_r[81],2021-12-12,Posterior prediction,,,,,,,0.29112605,0.3592742,0.5033792,0.56660305,,,
+region,intrinsic,,,,,,,,North East,pp_voc_r[82],2021-12-13,Posterior prediction,,,,,,,0.28773985,0.3552772,0.49904,0.57287905,,,
+region,intrinsic,,,,,,,,North East,pp_voc_r[83],2021-12-14,Posterior prediction,,,,,,,0.1267133,0.1738212,0.2814002,0.33224155,,,
+region,intrinsic,,,,,,,,North East,pp_voc_r[84],2021-12-15,Posterior prediction,,,,,,,0.12166175,0.172706,0.2801968,0.33653885,,,
+region,intrinsic,,,,,,,,North East,pp_voc_r[85],2021-12-16,Posterior prediction,,,,,,,0.1238198,0.1742418,0.2829214,0.3309472,,,
+region,intrinsic,,,,,,,,North East,pp_voc_r[86],2021-12-17,Posterior prediction,,,,,,,0.1006321,0.144916,0.2379538,0.28629835,,,
+region,intrinsic,,,,,,,,North East,pp_voc_r[87],2021-12-18,Posterior prediction,,,,,,,0.09799328,0.1432762,0.2369816,0.2818967,,,
+region,intrinsic,,,,,,,,North East,pp_voc_r[88],2021-12-19,Posterior prediction,,,,,,,0.09703282,0.144526,0.2383656,0.28409615,,,
+region,intrinsic,,,,,,,,North East,pp_voc_r[89],2021-12-20,Posterior prediction,,,,,,,0.12008135,0.1654542,0.2588192,0.30644065,,,
+region,intrinsic,,,,,,,,North East,pp_voc_r[90],2021-12-21,Posterior prediction,,,,,,,0.11907325,0.1664044,0.2604402,0.30541025,,,
+region,intrinsic,,,,,,,,North East,pp_voc_r[91],2021-12-22,Posterior prediction,,,,,,,0.1199644,0.1665666,0.2601868,0.30521455,,,
+region,intrinsic,,,,,,,,North East,pp_voc_r[92],2021-12-23,Posterior prediction,,,,,,,-0.02264791,0.02533952,0.1265158,0.176471,,,
+region,intrinsic,,,,,,,,North West,pp_voc_r[93],2021-12-01,Posterior prediction,,,,,,,0.31043315,0.3895066,0.5593704,0.63675185,,,
+region,intrinsic,,,,,,,,North West,pp_voc_r[94],2021-12-02,Posterior prediction,,,,,,,0.31011365,0.3831374,0.538999,0.61576985,,,
+region,intrinsic,,,,,,,,North West,pp_voc_r[95],2021-12-03,Posterior prediction,,,,,,,0.30747385,0.3846684,0.5390262,0.61491255,,,
+region,intrinsic,,,,,,,,North West,pp_voc_r[96],2021-12-04,Posterior prediction,,,,,,,0.31129605,0.3865976,0.5432384,0.61241375,,,
+region,intrinsic,,,,,,,,North West,pp_voc_r[97],2021-12-05,Posterior prediction,,,,,,,0.324642,0.3902646,0.535241,0.60740955,,,
+region,intrinsic,,,,,,,,North West,pp_voc_r[98],2021-12-06,Posterior prediction,,,,,,,0.31927335,0.3887858,0.5318738,0.6024631,,,
+region,intrinsic,,,,,,,,North West,pp_voc_r[99],2021-12-07,Posterior prediction,,,,,,,0.3190087,0.3899158,0.5361398,0.60713785,,,
+region,intrinsic,,,,,,,,North West,pp_voc_r[100],2021-12-08,Posterior prediction,,,,,,,0.1972167,0.2534716,0.3716628,0.42477415,,,
+region,intrinsic,,,,,,,,North West,pp_voc_r[101],2021-12-09,Posterior prediction,,,,,,,0.19761285,0.255939,0.3743734,0.43331715,,,
+region,intrinsic,,,,,,,,North West,pp_voc_r[102],2021-12-10,Posterior prediction,,,,,,,0.19545375,0.2542946,0.373306,0.43102585,,,
+region,intrinsic,,,,,,,,North West,pp_voc_r[103],2021-12-11,Posterior prediction,,,,,,,0.26932125,0.3195512,0.4129906,0.46003415,,,
+region,intrinsic,,,,,,,,North West,pp_voc_r[104],2021-12-12,Posterior prediction,,,,,,,0.2715829,0.3200194,0.4150976,0.46170175,,,
+region,intrinsic,,,,,,,,North West,pp_voc_r[105],2021-12-13,Posterior prediction,,,,,,,0.27134345,0.319679,0.4165218,0.46009365,,,
+region,intrinsic,,,,,,,,North West,pp_voc_r[106],2021-12-14,Posterior prediction,,,,,,,0.11715715,0.1544832,0.2352948,0.2765113,,,
+region,intrinsic,,,,,,,,North West,pp_voc_r[107],2021-12-15,Posterior prediction,,,,,,,0.1173359,0.1548712,0.2327406,0.27500305,,,
+region,intrinsic,,,,,,,,North West,pp_voc_r[108],2021-12-16,Posterior prediction,,,,,,,0.1146094,0.1547338,0.236528,0.27791695,,,
+region,intrinsic,,,,,,,,North West,pp_voc_r[109],2021-12-17,Posterior prediction,,,,,,,0.06980817,0.108329,0.1834696,0.22325675,,,
+region,intrinsic,,,,,,,,North West,pp_voc_r[110],2021-12-18,Posterior prediction,,,,,,,0.06892465,0.1053732,0.1834924,0.2228809,,,
+region,intrinsic,,,,,,,,North West,pp_voc_r[111],2021-12-19,Posterior prediction,,,,,,,0.065759485,0.1042214,0.1833068,0.22342025,,,
+region,intrinsic,,,,,,,,North West,pp_voc_r[112],2021-12-20,Posterior prediction,,,,,,,0.063690685,0.1052184,0.1897174,0.22985215,,,
+region,intrinsic,,,,,,,,North West,pp_voc_r[113],2021-12-21,Posterior prediction,,,,,,,0.06414044,0.107658,0.187832,0.2286438,,,
+region,intrinsic,,,,,,,,North West,pp_voc_r[114],2021-12-22,Posterior prediction,,,,,,,0.06300748,0.1049068,0.1873476,0.2292603,,,
+region,intrinsic,,,,,,,,North West,pp_voc_r[115],2021-12-23,Posterior prediction,,,,,,,-0.07376011,-0.02995818,0.06238266,0.10804375,,,
+region,intrinsic,,,,,,,,South East,pp_voc_r[116],2021-12-01,Posterior prediction,,,,,,,0.2489272,0.323847,0.4952602,0.5760374,,,
+region,intrinsic,,,,,,,,South East,pp_voc_r[117],2021-12-02,Posterior prediction,,,,,,,0.2487379,0.3193064,0.4694198,0.5371739,,,
+region,intrinsic,,,,,,,,South East,pp_voc_r[118],2021-12-03,Posterior prediction,,,,,,,0.2474879,0.314039,0.4642174,0.5357236,,,
+region,intrinsic,,,,,,,,South East,pp_voc_r[119],2021-12-04,Posterior prediction,,,,,,,0.2545281,0.3222604,0.4637598,0.53527335,,,
+region,intrinsic,,,,,,,,South East,pp_voc_r[120],2021-12-05,Posterior prediction,,,,,,,0.2946984,0.3556934,0.4814594,0.5432581,,,
+region,intrinsic,,,,,,,,South East,pp_voc_r[121],2021-12-06,Posterior prediction,,,,,,,0.2925666,0.351747,0.4796284,0.53879305,,,
+region,intrinsic,,,,,,,,South East,pp_voc_r[122],2021-12-07,Posterior prediction,,,,,,,0.29212455,0.3544396,0.4803038,0.5418778,,,
+region,intrinsic,,,,,,,,South East,pp_voc_r[123],2021-12-08,Posterior prediction,,,,,,,0.20899515,0.2579066,0.3595812,0.4088299,,,
+region,intrinsic,,,,,,,,South East,pp_voc_r[124],2021-12-09,Posterior prediction,,,,,,,0.2070886,0.2564468,0.3576298,0.4112266,,,
+region,intrinsic,,,,,,,,South East,pp_voc_r[125],2021-12-10,Posterior prediction,,,,,,,0.20788645,0.2569854,0.361413,0.41336215,,,
+region,intrinsic,,,,,,,,South East,pp_voc_r[126],2021-12-11,Posterior prediction,,,,,,,0.24861705,0.2957636,0.3855812,0.4256035,,,
+region,intrinsic,,,,,,,,South East,pp_voc_r[127],2021-12-12,Posterior prediction,,,,,,,0.25113115,0.2958946,0.3851504,0.4283456,,,
+region,intrinsic,,,,,,,,South East,pp_voc_r[128],2021-12-13,Posterior prediction,,,,,,,0.2524099,0.297294,0.3862234,0.427465,,,
+region,intrinsic,,,,,,,,South East,pp_voc_r[129],2021-12-14,Posterior prediction,,,,,,,0.06277559,0.0986019,0.174905,0.2145519,,,
+region,intrinsic,,,,,,,,South East,pp_voc_r[130],2021-12-15,Posterior prediction,,,,,,,0.063913525,0.1003078,0.1744634,0.21317295,,,
+region,intrinsic,,,,,,,,South East,pp_voc_r[131],2021-12-16,Posterior prediction,,,,,,,0.063712135,0.09849752,0.1752984,0.2150312,,,
+region,intrinsic,,,,,,,,South East,pp_voc_r[132],2021-12-17,Posterior prediction,,,,,,,0.01118591,0.04365454,0.114444,0.1531981,,,
+region,intrinsic,,,,,,,,South East,pp_voc_r[133],2021-12-18,Posterior prediction,,,,,,,0.009277375,0.04280314,0.1163186,0.15456205,,,
+region,intrinsic,,,,,,,,South East,pp_voc_r[134],2021-12-19,Posterior prediction,,,,,,,0.0094670785,0.0436952,0.114997,0.15373375,,,
+region,intrinsic,,,,,,,,South East,pp_voc_r[135],2021-12-20,Posterior prediction,,,,,,,-0.0098764665,0.02705818,0.1018864,0.1391202,,,
+region,intrinsic,,,,,,,,South East,pp_voc_r[136],2021-12-21,Posterior prediction,,,,,,,-0.00815095849999999,0.02794172,0.1014272,0.13803205,,,
+region,intrinsic,,,,,,,,South East,pp_voc_r[137],2021-12-22,Posterior prediction,,,,,,,-0.010508315,0.02664388,0.101633,0.1407632,,,
+region,intrinsic,,,,,,,,South East,pp_voc_r[138],2021-12-23,Posterior prediction,,,,,,,-0.11536645,-0.07401196,0.00580117200000001,0.04989735,,,
+region,intrinsic,,,,,,,,South West,pp_voc_r[139],2021-12-01,Posterior prediction,,,,,,,0.2498534,0.325355,0.4887064,0.56992485,,,
+region,intrinsic,,,,,,,,South West,pp_voc_r[140],2021-12-02,Posterior prediction,,,,,,,0.25697075,0.3252128,0.4809212,0.55152355,,,
+region,intrinsic,,,,,,,,South West,pp_voc_r[141],2021-12-03,Posterior prediction,,,,,,,0.2554963,0.326292,0.4796818,0.55102515,,,
+region,intrinsic,,,,,,,,South West,pp_voc_r[142],2021-12-04,Posterior prediction,,,,,,,0.25506475,0.3272668,0.4805294,0.55444975,,,
+region,intrinsic,,,,,,,,South West,pp_voc_r[143],2021-12-05,Posterior prediction,,,,,,,0.2442407,0.3115246,0.4530794,0.5252806,,,
+region,intrinsic,,,,,,,,South West,pp_voc_r[144],2021-12-06,Posterior prediction,,,,,,,0.2442337,0.3129574,0.4561092,0.5269928,,,
+region,intrinsic,,,,,,,,South West,pp_voc_r[145],2021-12-07,Posterior prediction,,,,,,,0.2445718,0.311894,0.4532568,0.52740965,,,
+region,intrinsic,,,,,,,,South West,pp_voc_r[146],2021-12-08,Posterior prediction,,,,,,,0.1601678,0.2229784,0.3505588,0.4157626,,,
+region,intrinsic,,,,,,,,South West,pp_voc_r[147],2021-12-09,Posterior prediction,,,,,,,0.1610374,0.2228734,0.3521,0.41260565,,,
+region,intrinsic,,,,,,,,South West,pp_voc_r[148],2021-12-10,Posterior prediction,,,,,,,0.16018925,0.2233758,0.3533592,0.4134508,,,
+region,intrinsic,,,,,,,,South West,pp_voc_r[149],2021-12-11,Posterior prediction,,,,,,,0.22390145,0.2825268,0.4015214,0.457083,,,
+region,intrinsic,,,,,,,,South West,pp_voc_r[150],2021-12-12,Posterior prediction,,,,,,,0.2265369,0.2823906,0.3968002,0.45088335,,,
+region,intrinsic,,,,,,,,South West,pp_voc_r[151],2021-12-13,Posterior prediction,,,,,,,0.22073395,0.2835334,0.3990402,0.4550804,,,
+region,intrinsic,,,,,,,,South West,pp_voc_r[152],2021-12-14,Posterior prediction,,,,,,,0.0340047,0.07671246,0.1660654,0.2081785,,,
+region,intrinsic,,,,,,,,South West,pp_voc_r[153],2021-12-15,Posterior prediction,,,,,,,0.03576743,0.07605266,0.160905,0.20259255,,,
+region,intrinsic,,,,,,,,South West,pp_voc_r[154],2021-12-16,Posterior prediction,,,,,,,0.036608335,0.07558032,0.161685,0.20421375,,,
+region,intrinsic,,,,,,,,South West,pp_voc_r[155],2021-12-17,Posterior prediction,,,,,,,0.020312515,0.06121448,0.13929,0.17817665,,,
+region,intrinsic,,,,,,,,South West,pp_voc_r[156],2021-12-18,Posterior prediction,,,,,,,0.02008441,0.05967438,0.1398498,0.1782397,,,
+region,intrinsic,,,,,,,,South West,pp_voc_r[157],2021-12-19,Posterior prediction,,,,,,,0.020602595,0.06045968,0.1401164,0.17586555,,,
+region,intrinsic,,,,,,,,South West,pp_voc_r[158],2021-12-20,Posterior prediction,,,,,,,0.0051149045,0.0464009,0.1259154,0.16417855,,,
+region,intrinsic,,,,,,,,South West,pp_voc_r[159],2021-12-21,Posterior prediction,,,,,,,0.009429764,0.04813226,0.1283052,0.1683188,,,
+region,intrinsic,,,,,,,,South West,pp_voc_r[160],2021-12-22,Posterior prediction,,,,,,,0.0114065,0.0489566,0.1286878,0.1674823,,,
+region,intrinsic,,,,,,,,South West,pp_voc_r[161],2021-12-23,Posterior prediction,,,,,,,-0.06144078,-0.01801556,0.06808404,0.1131559,,,
+region,intrinsic,,,,,,,,West Midlands,pp_voc_r[162],2021-12-01,Posterior prediction,,,,,,,0.25601335,0.346098,0.5318706,0.62855305,,,
+region,intrinsic,,,,,,,,West Midlands,pp_voc_r[163],2021-12-02,Posterior prediction,,,,,,,0.2864643,0.3758262,0.5515508,0.63785995,,,
+region,intrinsic,,,,,,,,West Midlands,pp_voc_r[164],2021-12-03,Posterior prediction,,,,,,,0.29140535,0.3750024,0.5538442,0.6441728,,,
+region,intrinsic,,,,,,,,West Midlands,pp_voc_r[165],2021-12-04,Posterior prediction,,,,,,,0.2945,0.378996,0.5538178,0.63368235,,,
+region,intrinsic,,,,,,,,West Midlands,pp_voc_r[166],2021-12-05,Posterior prediction,,,,,,,0.29556545,0.3817376,0.5659798,0.6529881,,,
+region,intrinsic,,,,,,,,West Midlands,pp_voc_r[167],2021-12-06,Posterior prediction,,,,,,,0.3009581,0.3838108,0.5657484,0.6531981,,,
+region,intrinsic,,,,,,,,West Midlands,pp_voc_r[168],2021-12-07,Posterior prediction,,,,,,,0.29738895,0.379207,0.5643622,0.65199255,,,
+region,intrinsic,,,,,,,,West Midlands,pp_voc_r[169],2021-12-08,Posterior prediction,,,,,,,0.2452677,0.3071406,0.4299934,0.4912828,,,
+region,intrinsic,,,,,,,,West Midlands,pp_voc_r[170],2021-12-09,Posterior prediction,,,,,,,0.24631995,0.3061936,0.4313392,0.4903403,,,
+region,intrinsic,,,,,,,,West Midlands,pp_voc_r[171],2021-12-10,Posterior prediction,,,,,,,0.2499545,0.3052782,0.4312384,0.49190195,,,
+region,intrinsic,,,,,,,,West Midlands,pp_voc_r[172],2021-12-11,Posterior prediction,,,,,,,0.2719721,0.3243552,0.4226778,0.4667855,,,
+region,intrinsic,,,,,,,,West Midlands,pp_voc_r[173],2021-12-12,Posterior prediction,,,,,,,0.27209955,0.322147,0.4202338,0.4700644,,,
+region,intrinsic,,,,,,,,West Midlands,pp_voc_r[174],2021-12-13,Posterior prediction,,,,,,,0.2620673,0.3185412,0.4245214,0.4722411,,,
+region,intrinsic,,,,,,,,West Midlands,pp_voc_r[175],2021-12-14,Posterior prediction,,,,,,,0.081459875,0.120347,0.198967,0.24144275,,,
+region,intrinsic,,,,,,,,West Midlands,pp_voc_r[176],2021-12-15,Posterior prediction,,,,,,,0.080689865,0.1197012,0.2004096,0.24056115,,,
+region,intrinsic,,,,,,,,West Midlands,pp_voc_r[177],2021-12-16,Posterior prediction,,,,,,,0.08292088,0.1206926,0.1988212,0.2381905,,,
+region,intrinsic,,,,,,,,West Midlands,pp_voc_r[178],2021-12-17,Posterior prediction,,,,,,,0.04540798,0.08133272,0.1561522,0.1924906,,,
+region,intrinsic,,,,,,,,West Midlands,pp_voc_r[179],2021-12-18,Posterior prediction,,,,,,,0.04552025,0.0805887,0.154794,0.19206435,,,
+region,intrinsic,,,,,,,,West Midlands,pp_voc_r[180],2021-12-19,Posterior prediction,,,,,,,0.04534313,0.08331258,0.1561728,0.1972656,,,
+region,intrinsic,,,,,,,,West Midlands,pp_voc_r[181],2021-12-20,Posterior prediction,,,,,,,0.05760767,0.09931214,0.1780626,0.213842,,,
+region,intrinsic,,,,,,,,West Midlands,pp_voc_r[182],2021-12-21,Posterior prediction,,,,,,,0.05957536,0.0984758,0.1774256,0.215686,,,
+region,intrinsic,,,,,,,,West Midlands,pp_voc_r[183],2021-12-22,Posterior prediction,,,,,,,0.059655215,0.09917058,0.1775568,0.21608755,,,
+region,intrinsic,,,,,,,,West Midlands,pp_voc_r[184],2021-12-23,Posterior prediction,,,,,,,-0.053992795,-0.01600702,0.06699952,0.1060498,,,
+region,intrinsic,,,,,,,,Yorkshire and Humber,pp_voc_r[185],2021-12-01,Posterior prediction,,,,,,,0.2232608,0.3160958,0.5294392,0.63567335,,,
+region,intrinsic,,,,,,,,Yorkshire and Humber,pp_voc_r[186],2021-12-02,Posterior prediction,,,,,,,0.24749445,0.3446396,0.5460742,0.63281895,,,
+region,intrinsic,,,,,,,,Yorkshire and Humber,pp_voc_r[187],2021-12-03,Posterior prediction,,,,,,,0.2483427,0.3436884,0.5486368,0.64519265,,,
+region,intrinsic,,,,,,,,Yorkshire and Humber,pp_voc_r[188],2021-12-04,Posterior prediction,,,,,,,0.24790005,0.3426592,0.5459838,0.64655705,,,
+region,intrinsic,,,,,,,,Yorkshire and Humber,pp_voc_r[189],2021-12-05,Posterior prediction,,,,,,,0.29520365,0.3782386,0.5611878,0.65131175,,,
+region,intrinsic,,,,,,,,Yorkshire and Humber,pp_voc_r[190],2021-12-06,Posterior prediction,,,,,,,0.2972276,0.3825712,0.558544,0.63956965,,,
+region,intrinsic,,,,,,,,Yorkshire and Humber,pp_voc_r[191],2021-12-07,Posterior prediction,,,,,,,0.2944672,0.3818058,0.5653626,0.64794375,,,
+region,intrinsic,,,,,,,,Yorkshire and Humber,pp_voc_r[192],2021-12-08,Posterior prediction,,,,,,,0.276831,0.3362428,0.466778,0.52893935,,,
+region,intrinsic,,,,,,,,Yorkshire and Humber,pp_voc_r[193],2021-12-09,Posterior prediction,,,,,,,0.27705315,0.3373116,0.467968,0.53365735,,,
+region,intrinsic,,,,,,,,Yorkshire and Humber,pp_voc_r[194],2021-12-10,Posterior prediction,,,,,,,0.27721655,0.3391742,0.4675428,0.52679975,,,
+region,intrinsic,,,,,,,,Yorkshire and Humber,pp_voc_r[195],2021-12-11,Posterior prediction,,,,,,,0.3998701,0.452118,0.5551676,0.6006738,,,
+region,intrinsic,,,,,,,,Yorkshire and Humber,pp_voc_r[196],2021-12-12,Posterior prediction,,,,,,,0.3939571,0.4530854,0.556027,0.60092675,,,
+region,intrinsic,,,,,,,,Yorkshire and Humber,pp_voc_r[197],2021-12-13,Posterior prediction,,,,,,,0.40121785,0.4546842,0.5547828,0.6000532,,,
+region,intrinsic,,,,,,,,Yorkshire and Humber,pp_voc_r[198],2021-12-14,Posterior prediction,,,,,,,0.1156123,0.1511072,0.229106,0.2687637,,,
+region,intrinsic,,,,,,,,Yorkshire and Humber,pp_voc_r[199],2021-12-15,Posterior prediction,,,,,,,0.1163442,0.1508478,0.2294874,0.26850975,,,
+region,intrinsic,,,,,,,,Yorkshire and Humber,pp_voc_r[200],2021-12-16,Posterior prediction,,,,,,,0.11595665,0.1505048,0.226749,0.26493005,,,
+region,intrinsic,,,,,,,,Yorkshire and Humber,pp_voc_r[201],2021-12-17,Posterior prediction,,,,,,,0.089880055,0.1222624,0.1952826,0.23227005,,,
+region,intrinsic,,,,,,,,Yorkshire and Humber,pp_voc_r[202],2021-12-18,Posterior prediction,,,,,,,0.089846795,0.12306,0.1948282,0.2324517,,,
+region,intrinsic,,,,,,,,Yorkshire and Humber,pp_voc_r[203],2021-12-19,Posterior prediction,,,,,,,0.089647,0.1235892,0.192999,0.23106345,,,
+region,intrinsic,,,,,,,,Yorkshire and Humber,pp_voc_r[204],2021-12-20,Posterior prediction,,,,,,,0.087790355,0.1271946,0.2017552,0.2378127,,,
+region,intrinsic,,,,,,,,Yorkshire and Humber,pp_voc_r[205],2021-12-21,Posterior prediction,,,,,,,0.09073399,0.1291566,0.2033452,0.23716825,,,
+region,intrinsic,,,,,,,,Yorkshire and Humber,pp_voc_r[206],2021-12-22,Posterior prediction,,,,,,,0.088678645,0.1261456,0.203246,0.23955905,,,
+region,intrinsic,,,,,,,,Yorkshire and Humber,pp_voc_r[207],2021-12-23,Posterior prediction,,,,,,,-0.03418565,0.003400182,0.0821598,0.12666025,,,
