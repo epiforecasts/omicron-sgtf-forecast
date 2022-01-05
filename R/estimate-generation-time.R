@@ -26,10 +26,10 @@ gt_prior <- function(type = "household", source = "hart2021") {
       # From Hart et al.
       # https://www.medrxiv.org/content/10.1101/2021.10.21.21265216v1
       # Assuming symmetric normal which is incorrect but an approximation
-      mean_mean = 4.6,
-      mean_sd = 0.36,
-      sd_mean = 3.1,
-      sd_sd = 0.18,
+      mean_mean = 3.2,
+      mean_sd = 0.46,
+      sd_mean = 2.4,
+      sd_sd = 0.33,
       source = "hart2021",
       doi = "10.1101/2021.10.21.21265216v1"
     )
