@@ -1,5 +1,7 @@
+# Load required packages
 library(cmdstanr)
 library(data.table)
+library(purrr)
 library(here)
 library(ggplot2)
 
@@ -41,8 +43,10 @@ model <- gt_load_model()
 # Fit each model in turn
 estimates <- purrr::map(
   split(grid, by = "id"),
-  ~ gt_estimate(growth = .$growth[[1]], by = .$by[[1]], gt = .$gt_prior[[1]],
-                model = model, adapt_delta = 0.95)
+  ~ gt_estimate(
+      growth = .$growth[[1]], by = .$by[[1]], gt = .$gt_prior[[1]],
+      model = model, adapt_delta = 0.95
+    )
 )
 estimates <- rbindlist(estimates)
 estimates <- cbind(grid, estimates)

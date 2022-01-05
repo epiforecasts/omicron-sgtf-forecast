@@ -12,6 +12,7 @@ data {
   real gt_mean_sd;
   real gt_sd_mean;
   real gt_sd_sd;
+  int debug;
 }
 
 parameters {
@@ -38,21 +39,21 @@ transformed parameters {
     approx_voc_r = R_to_growth(ta * nvoc_R, voc_gt_mean, voc_gt_sd);
   }
   combined_sigma = sqrt(square(sigma) + voc_sd2);
-  {
-  int j = 0;
-  for (i in 1:t) {
-      j += is_nan(approx_voc_r[i]) ? 1 : 0;
-    }
-    if (j) {
-      print("Issue with iteration");
-      print(approx_voc_r);
-      print(growth_to_R(nvoc_r, gt_mean, gt_sd));
-      print(ta);
-      print(voc_gt_mean);
-      print(voc_gt_sd);
-      print(gt_mean);
-      print(gt_sd);
-    }
+  if (debug) {
+    int j = 0;
+    for (i in 1:t) {
+        j += is_nan(approx_voc_r[i]) ? 1 : 0;
+      }
+      if (j) {
+        print("Issue with iteration");
+        print(approx_voc_r);
+        print(growth_to_R(nvoc_r, gt_mean, gt_sd));
+        print(ta);
+        print(voc_gt_mean);
+        print(voc_gt_sd);
+        print(gt_mean);
+        print(gt_sd);
+      }
   }
 }
 

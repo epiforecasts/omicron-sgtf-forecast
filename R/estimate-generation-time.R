@@ -38,7 +38,8 @@ gt_prior <- function(type = "household", source = "hart2021") {
 }
 
 gt_dt <- function(growth, by = c(),
-                  gt = gt_prior(type = "intrinsic", source = "hart2021")) {
+                  gt = gt_prior(type = "intrinsic", source = "hart2021"), 
+                  debug = FALSE) {
   if (length(by) > 0) {
     form <- as.formula(
       paste0(
@@ -69,7 +70,8 @@ gt_dt <- function(growth, by = c(),
     gt_mean_mean = gt$mean_mean,
     gt_mean_sd = gt$mean_sd,
     gt_sd_mean = gt$sd_mean,
-    gt_sd_sd = gt$sd_sd
+    gt_sd_sd = gt$sd_sd,
+    debug = as.numeric(debug)
   )
   return(stan_dt)
 }
@@ -118,7 +120,7 @@ gt_summarise_growth_pp <- function(fit, growth, by = c()) {
   return(r_pp[])
 }
 
-gt_estimate <- function(growth, model, by = c(), gt, ...) {
+gt_estimate <- function(growth, model, by = c(), gt, debug = FALSE, ...) {
 
   # Data for stan
   stan_dt <- gt_dt(growth, by = by, gt = gt)
@@ -131,8 +133,10 @@ gt_estimate <- function(growth, model, by = c(), gt, ...) {
 
   # summarise variables of interest
   summary <- gt_summarise_posterior(fit)
+
   # summmarise posterior predictions
   r_pp <- gt_summarise_growth_pp(fit, growth, by = by)
+
   out <- data.table::data.table(
     gt_dt = list(stan_dt),
     fit = list(fit),
@@ -141,7 +145,6 @@ gt_estimate <- function(growth, model, by = c(), gt, ...) {
   )
   return(out[])
 }
-
 
 gt_plot_pp <- function(r_pp) {
     ggplot2::ggplot(r_pp) +
