@@ -21,7 +21,8 @@ model <- gt_load_model()
 
 estimates <- gt_estimate(
   growth, model, by = "region",
-  gt = gt_prior(source = "hart2021", type = "household")
+  gt = gt_prior(source = "hart2021", type = "household"),
+  adapt_delta  = 0.95
 )
 
 # plot posterior predictions
