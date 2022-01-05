@@ -36,3 +36,13 @@ load_results <- function(date, type = "sgtf", path = "data/estimates") {
   }
   return(results)
 }
+
+
+load_growth <- function(date, max_date = "2021-12-23", ...) {
+  results <- load_results(date, ...)
+  growth <- summary(results$posterior, type = "growth")
+  growth <- growth[type %in% c("Omicron", "non-Omicron")]
+  growth <- growth[variant_relationship %in% "correlated"]
+  growth <- growth[date <= as.Date(max_date)]
+  return(growth)
+}
