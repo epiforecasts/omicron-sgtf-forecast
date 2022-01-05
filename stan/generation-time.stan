@@ -66,7 +66,7 @@ model {
 
   ta ~ lognormal(0, 1);
 
-  sigma ~ normal(0, 0.1) T[0,];
+  sigma ~ normal(0, 0.01) T[0,];
   voc_r ~ normal(approx_voc_r, combined_sigma);
 }
 

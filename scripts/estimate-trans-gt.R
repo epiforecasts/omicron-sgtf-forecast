@@ -11,20 +11,58 @@ options(cmdstanr_max_rows = 100)
 source(here("R", "load-local-data.R"))
 source(here("R", "estimate-generation-time.R"))
 
-# Load results
-target_date <- get_latest_date()
-growth <- load_growth(target_date, max_date = "2021-12-23")
-growth <- growth[!(region %in% "England")]
+# Load growth estimates
+region_target_date <- get_latest_date()
+region_growth <- load_growth(region_target_date, max_date = "2021-12-23")
+region_growth <- region_growth[!(region %in% "England")]
+
+growth <- data.table(
+  stratification = "region",
+  growth = list(region_growth),
+  by = c(list("region"))
+)
+
+# Set up estimation grid
+grid <- CJ(
+  stratification = c("region", "age", "age and region"),
+  gt_type = c("intrinsic", "household")
+)
+
+grid[, gt_prior := purrr::map(
+  gt_type, ~ gt_prior(source = "hart2021", type = .x))
+]
+
+grid <- merge(grid, growth, by = "stratification")
+grid[, id := 1:.N]
 
 # Compile the stan model
 model <- gt_load_model()
 
-estimates <- gt_estimate(
-  growth, model, by = "region",
-  gt = gt_prior(source = "hart2021", type = "household"),
-  adapt_delta  = 0.95
+# Fit each model in turn
+estimates <- purrr::map(
+  split(grid, by = "id"),
+  ~ gt_estimate(growth = .$growth[[1]], by = .$by[[1]], gt = .$gt_prior[[1]],
+                model = model, adapt_delta = 0.95)
+)
+estimates <- rbindlist(estimates)
+estimates <- cbind(grid, estimates)
+
+# Extract and combine summaries
+posterior_summary <- estimates[,
+ rbindlist(summary), by = c("stratification", "gt_type")
+]
+
+posterior_predictions <- estimates[,
+ rbindlist(pp), by = c("stratification", "gt_type")
+]
+
+# Save results
+fwrite(
+  posterior_summary,
+  here::here("data", "retrospective", "posterior_summary.csv")
 )
 
-# plot posterior predictions
-gt_plot_pp(estimates$pp[[1]]) +
-  facet_wrap(~region)
+fwrite(
+  posterior_predictions,
+  here::here("data", "retrospective", "posterior_predictions.csv")
+)
