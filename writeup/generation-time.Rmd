@@ -1,5 +1,5 @@
 ---
-title: "Estimation of the test to test distribution as a proxy for generation interval distributio for the Omicron variants in England using S-Gene Target Status and Surveillance data"
+title: "Estimation of the test to test distribution as a proxy for generation interval distribution for the Omicron variants in England using S-Gene Target Status and Surveillance data"
 subtitle: "Summary report"
 author: Sam Abbott (1), Katharine Sherratt (1), Sebastian Funk (1)
 bibliography: library.bib
@@ -103,6 +103,15 @@ region_growth <- region_growth[!(region %in% "England")]
 ```
 
 ### Generation time and transmission advantage estimation
+
+\begin{align}
+ g^D_{lt} &\sim \text{Normal} \left(r^D_{lt} , \sigma^D_{lt}\right) \\
+ R^D_{lt} &= \left(1 + g^D_{lt}  k_D \mu_D  \right)^{\frac{1}{k_D}} \\
+ R^O_{lt} &= \alpha R^D_{lt} \\
+ g^O_{lt} &= \frac{(R^O_{lt})^2 - 1}{k_O \mu_O} \\
+ \sigma^D_{lt} &= \sqrt{\sigma^2 + (\sigma^D_{lt})^2} \\
+ r^O_{lt} &\sim \text{Normal}\left(g^O_{lt}, \sigma_c \right) \\
+\end{align}
 
 ```{r load-generation-time-estimates}
 posterior_summary <- fread(
