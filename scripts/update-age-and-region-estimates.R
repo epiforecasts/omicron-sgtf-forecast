@@ -58,7 +58,7 @@ region_omicorn_forecasts <- build_models_by_region_and_age(
   variant_relationships = c("correlated"),
   cores_per_model = 2, chains = 2,
   samples_per_chain = 2000,
-  keep_fit = FALSE
+  keep_fit = FALSE, loo = FALSE
 )
 
 omicron_results <- list(
