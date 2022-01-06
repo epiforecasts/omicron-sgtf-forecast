@@ -38,7 +38,7 @@ jobs:
       - name: Render Omicron delay
         run: |
           rmarkdown::render(
-            "writeup/omicron-delay.Rmd", 
+            "writeup/day-of-week-effect.Rmd", 
             output_format = c("html_document", "pdf_document"),
             output_dir = "writeup"
           )
