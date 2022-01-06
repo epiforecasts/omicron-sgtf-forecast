@@ -69,6 +69,8 @@ We use S-gene status by specimen date sourced from UKHSA as a direct proxy for t
 
 ### Growth rate estimation
 
+We use the same methodology to estimate growth rates as in our earlier report
+on the time-varying transmission advantage of the Omicron variant. This model
 We consider two autoregressive models with different assumptions about the relationship between growth rates for Omicron and non-Omicron cases. Both models estimate expected cases for each variant as a combination of expected cases from the previous day and the exponential of the log growth rate. The growth rate is then itself modelled as a differenced AR(1) process. 
 
 For the first model variants are assumed to have growth rates related by a fixed scaling (described from now on as the scaled model). In this model, variant growth rates then share a single differenced AR(1) process meaning that they vary over time in the same way. This model assumes that variants differ only due to a transmission advantage and that there are no time-varying biases in the reported data.
@@ -77,7 +79,7 @@ In the second model, we relax the assumption that variants co-vary using a vecto
 
 For both models, we fit jointly to reported cases and SGTF data assuming a negative binomial and beta-binomial observation model respectively. Day of the week reporting periodicty for case counts is captured using a random effect fo r the day of the week. We initialise both models by fitting to a week of case only data where the Omicron variant is assumed to not be present (from the 17th of November to the 22nd).
 
-A full description of the models described here can be found in the documentation for the [`forecast.vocs` R package](https://epiforecasts.io/forecast.vocs/) [@forecast.vocs].
+A full description of the model described here can be found in the documentation for the [`forecast.vocs` R package](https://epiforecasts.io/forecast.vocs/) [@forecast.vocs].
 
 ```{r load-regional-growth}
 # get regional estimation date
@@ -116,11 +118,9 @@ posterior_predictions <- fread(
 
 We first visualised our combined data sources (cases by specimen date and SGTF status by specimen date). We then fit both models separately to data for England and to each UKHSA region. Using these model fits we report posterior estimates from the best fitting model for the following summary statistics of epidemiological interest: growth rates by variant and overall, the time-varying transmission advantage for the Omicron variant, case counts overall and by variant for a 14 day forecast window assuming constant future growth, the date at which Omicron will become dominant in England and in each UKHSA region, and the estimated cumulative percentage of the population with a reported Omicron case. 
 
-We explored the potential for bias in S-gene target sampling by comparing cases that have a reported SGTF status to cases with an unknown SGTF status. We fit the correlated model to case counts and S-gene tested status and reported the apparent transmission advantage for those with a S-gene status over time. Any variation in this metric from 100% may be interpreted as indicating biased sampling of those with known S-gene status, which may bias our main results.
-
 ### Implementation
 
-All models were implemented using the [`forecast.vocs` R package](https://epiforecasts.io/forecast.vocs/) [@R; @forecast.vocs] and fit using `stan` [@stan] and `cmdstanr` [@cmdstanr]. Each model was fit using 2 chains with each chain having 1000 warmup steps and 2000 sampling steps. Convergence was assessed using the Rhat diagnostic [@stan]. 
+The growth rate estimation model was implemented using the [`forecast.vocs` R package](https://epiforecasts.io/forecast.vocs/) [@R; @forecast.vocs] and fit using `stan` [@stan] and `cmdstanr` [@cmdstanr]. The model was fit using 2 chains with each chain having 1000 warmup steps and 2000 sampling steps. The generation time estimation model was also implemented using `stan` [@stan] and `cmdstanr` [@cmdstanr] with the default of 4 chains each with 1000 warmup and 1000 sampling steps. For all models convergence was assessed using the Rhat diagnostic [@stan] and fitting was initialised using samples drawn from near the mean of each prior distributions. 
 
 
 ## Limitations
