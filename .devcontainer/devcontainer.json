@@ -1,13 +1,8 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
 // https://github.com/microsoft/vscode-dev-containers/tree/v0.205.2/containers/r
 {
-	"name": "omicron-sgtf-forecast",
-	"build": {
-		"dockerfile": "Dockerfile",
-		"context": ".."
-
-	},
-
+	"name": "omicron-sgtf-forecast"
+  "image": "ghcr.io/epiforecasts/omicron-sgtf-forecast:main"
 	// Set *default* container specific settings.json values on container create.
 	"settings": {
 		"r.rterm.linux": "/usr/local/bin/radian",
