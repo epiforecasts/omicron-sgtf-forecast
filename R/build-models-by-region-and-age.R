@@ -13,7 +13,7 @@ build_models_by_region_and_age <- function(
     dplyr::group_by(region, age_group) %>%
     dplyr::group_split()
 
-  forecasts <- future.apply::future_lapply(obs__split,
+  forecasts <- future.apply::future_lapply(obs_split,
         FUN = build_models,
         parameters = parameters,
         variant_relationships = variant_relationships,
