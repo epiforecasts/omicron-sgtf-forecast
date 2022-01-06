@@ -33,6 +33,7 @@ Imports:
     janitor,
     ggplot2,
     here,
+    kableExtra,
     knitr,
     loo,
     lubridate,
@@ -49,7 +50,8 @@ Suggests:
 VignetteBuilder: 
     knitr
 Remotes:
-    epiforecasts/forecast.vocs
+    epiforecasts/forecast.vocs,
+    haozhu233/kableExtra@9e459cd0c08a3070cc32684fe3ee6f9bafe84949
 Encoding: UTF-8
 Language: en-GB
 LazyData: true

@@ -36,10 +36,13 @@ library(dplyr)
 library(here)
 library(readr)
 library(data.table)
+library(stringr)
+library(kableExtra)
 
 # load functions
 source(here("R", "load-local-data.R"))
 source(here("R", "plot-daily-cases.R"))
+source(here("R", "estimate-generation-time.R"))
 ```
 
 ```{r setup-dates}
@@ -159,7 +162,7 @@ plot_growth(sgtf_posterior) +
 piv_growth <- region_growth %>%
   pivot_wider(id_cols = c("region", "date"),
               names_from = "type", values_from = c("mean", "sd"))
-min_nomicron <- abs(min(piv_growth[["mean_non-Omicron"]]))
+min_nomicron <- mean(piv_growth[["mean_Omicron"]]) - mean(piv_growth[["mean_non-Omicron"]])
     
 ggplot(piv_growth) +
   aes(y = mean_Omicron, x = .data[["mean_non-Omicron"]], size = sd_Omicron,
@@ -182,10 +185,42 @@ ggplot(piv_growth) +
 
 ### Generation time and transmission advantage estimates
 
-#### Overall
+```{r}
+posterior_summary %>%
+  select(-rhat, -ess_bulk, -ess_tail) %>%
+  filter(
+    variable %in% c("gt_mean", "gt_sd", "ta", "voc_gt_mean", "voc_gt_sd")
+  ) %>%
+  mutate(across(where(is.numeric), round, digits = 1)) %>%
+  mutate(variant = case_when(variable %in% c("gt_mean", "gt_sd") ~ "Delta",
+                             TRUE ~ "Omicron")) %>%
+  mutate(stratification = str_to_sentence(stratification),
+         gt_type = str_to_sentence(gt_type)) %>%
+  select(data_stratification = stratification,
+         `Generation time prior` = gt_type, variant,
+         everything()) %>%
+  mutate(variable = case_when(
+    variable %in% "ta" ~ "Transmission advantage",
+    variable %in% c("gt_mean", "voc_gt_mean") ~ "Generation time mean",
+    TRUE ~ "Generation time standard deviation"
+    )
+  ) %>%
+  janitor::clean_names(case = "sentence") %>%
+  mutate(across(where(is.character), as.factor)) %>%
+  rename(SD = Sd, MAD = Mad) %>%
+  kable(caption = "Posterior estimates for generation time and transmission
+   advantage by data stratification and choice of generation time prior.") %>%
+  kable_styling() %>%
+  collapse_rows(columns = 1:3)
+```
 
 ### Posterior predictions
 
+```{r, fig.cap = "Estimates of the time-varying daily growth rate for each UKHSA region for cases with the Omicron variant compared to posterior predictions using Delta growth rates and differing generation times. Delta growth rates are assumed to be piecewise constant with potential changes every 3 days. 90% and 60% credible intervals are shown."}
+posterior_predictions %>%
+  filter(stratification == "region", gt_type == "household") %>%
+  gt_plot_pp() +
+  facet_wrap(~region)
+```
 
-#### Overall
 ## References
