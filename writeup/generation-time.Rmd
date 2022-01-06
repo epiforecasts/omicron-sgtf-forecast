@@ -36,50 +36,16 @@ library(dplyr)
 library(here)
 library(readr)
 library(data.table)
-```
-
-```{r setup-dates}
-# set up dates
-date_data_start <- as.Date("2021-11-23")
-date_forecast_start <- as.Date("2021-12-23")
-```
-
-```{r load-regional-growth}
-# get regional estimation date
-regional_date <- as.Date("2022-01-06")
-
-# load case data
-daily <- load_local_data(regional_date)
-
-# load results
-sgtf <- load_results(regional_date)
-
-sgtf_posterior <- sgtf$posterior[
-  variant_relationship == "correlated"
-]
-
-```
-
-```{r load-generation-time-estimates}
 
 # load functions
 source(here("R", "load-local-data.R"))
 source(here("R", "plot-daily-cases.R"))
+```
 
-# get latest date
-region_target_date <- get_latest_date()
-region_growth <- load_growth(
-  region_target_date, min_date = "2021-12-01", max_date = "2021-12-23"
-)
-region_growth <- region_growth[!(region %in% "England")]
-
-# load results
-posterior_summary <- fread(
-  here::here("data", "retrospective", "posterior_summary.csv")
-)
-posterior_predictions <- fread(
-  here::here("data", "retrospective", "posterior_predictions.csv")
-)
+```{r setup-dates}
+date_data_start <- as.Date("2021-11-23")
+date_gt_start <- as.Date("2021-12-01")
+date_forecast_start <- as.Date("2021-12-23")
 ```
 
 1. Centre for the Mathematical Modelling of Infectious Diseases, London School of Hygiene & Tropical Medicine, London WC1E 7HT, United Kingdom
@@ -108,7 +74,38 @@ For both models, we fit jointly to reported cases and SGTF data assuming a negat
 
 A full description of the models described here can be found in the documentation for the [`forecast.vocs` R package](https://epiforecasts.io/forecast.vocs/) [@forecast.vocs].
 
+```{r load-regional-growth}
+# get regional estimation date
+regional_date <- as.Date("2022-01-06")
+
+# load case data
+daily <- load_local_data(regional_date) %>%
+  filter(date <= date_forecast_start)
+
+# load posterior estimates
+sgtf <- load_results(regional_date)
+
+sgtf_posterior <- sgtf$posterior[
+  variant_relationship == "correlated"
+][date <= date_forecast_start]
+
+# load growth estimates
+region_growth <- load_growth(
+  regional_date, min_date = date_gt_start, max_date = date_forecast_start
+)
+region_growth <- region_growth[!(region %in% "England")]
+```
+
 ### Generation time and transmission advantage estimation
+
+```{r load-generation-time-estimates}
+posterior_summary <- fread(
+  here::here("data", "retrospective", "posterior_summary.csv")
+)
+posterior_predictions <- fread(
+  here::here("data", "retrospective", "posterior_predictions.csv")
+)
+```
 
 ### Statistical Inference
 
@@ -140,14 +137,55 @@ All models were implemented using the [`forecast.vocs` R package](https://epifor
 
 ### Data description
 
-```{r data, fig.cap = "Daily cases in England and by UKHSA region, with S-gene target result (failed, confirmed detected, or unknown), and centred 7-day moving average up to date of data truncation (dotted line). Source: UKHSA and coronavirus.gov.uk; data by specimen date."}
+```{r data, fig.cap = "Daily cases in England and by UKHSA region, with S-gene target result (failed, confirmed detected, or unknown), and centred 7-day moving average starting from the 23rd of November 2021 and including data up to the 23rd of December 2021 (dotted line). Source: UKHSA and coronavirus.gov.uk; data by specimen date."}
 plot_daily_cases(
   daily, truncate_date = date_forecast_start, caption = "",
   start_date = date_data_start, smooth_total = TRUE
 )
 ```
 
-### 
+### Growth rate of reported cases overall, with the Omicron variant, and not with the Omicron variant
+
+#### Over time
+
+```{r growth, fig.cap = "Estimates of the time-varying daily growth rate for England and by UKHSA region (using the log scale approximation) for reported cases overall, cases with the Omicron variant, and non-Omicron cases. Growth rates are assumed to be piecewise constant with potential changes every 3 days. Growth rates are assumed to be constant beyond the forecast horizon (vertical dashed line). 90% and 60% credible intervals are shown."}
+plot_growth(sgtf_posterior) +
+  facet_wrap(~ region)
+```
+
+#### Omicron versus Delta
+
+```{r plot-o-vs-d-growth, fig.cap = "Estimates of the time-varying daily growth rate for each UKHSA region for cases with the Omicron variant, and non-Omicron cases. Point size has been used to represent the uncertainty of each estimate (though it does not correspond to a meaningful credible interval). The dashed grey line indicates the expected relationship between variants if they differ onyl by a transmission advantage. The solid grey line indicates the observed overall relationship between variants, the slope of this line approximates the ratio between generation time means. The region specific lines show how this relationship differs between regions."}
+piv_growth <- region_growth %>%
+  pivot_wider(id_cols = c("region", "date"),
+              names_from = "type", values_from = c("mean", "sd"))
+min_nomicron <- abs(min(piv_growth[["mean_non-Omicron"]]))
+    
+ggplot(piv_growth) +
+  aes(y = mean_Omicron, x = .data[["mean_non-Omicron"]], size = sd_Omicron,
+      col = region
+  ) +
+  scale_color_brewer(palette = "Paired") +
+  geom_abline(slope = 1, intercept = min_nomicron, col = "#777575",
+              linetype = 2, size = 1.5) +
+  geom_smooth(method = "lm", formula = y ~ x,
+              se = FALSE, alpha = 0.2) +
+  geom_smooth(col = "#777575", method = "lm", formula = y ~ x,
+              se = FALSE, size = 1.5, alpha = 0.3, linetype = 1) +
+  geom_point(alpha = 0.3) +
+  scale_size(guide = "none") +
+  theme_bw() +
+  theme(legend.position = "bottom") +
+  labs(x = "Delta daily growth rate", y = "Omicron daily growth rate",
+       col = "UKHSA region")
+```
+
+### Generation time and transmission advantage estimates
+
+#### Overall
+
+### Posterior predictions
 
 
+#### Overall
 ## References
