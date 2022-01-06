@@ -9,12 +9,11 @@ build_models_by_region_and_age <- function(
   model_1 <- forecast.vocs::fv_model(strains = 1)
   model_2 <- forecast.vocs::fv_model(strains = 2)
 
-  obs <- obs %>%
+  obs_split <- obs %>%
     dplyr::group_by(region, age_group) %>%
     dplyr::group_split()
 
-  names(obs) <- regions
-  forecasts <- future.apply::future_lapply(obs,
+  forecasts <- future.apply::future_lapply(obs__split,
         FUN = build_models,
         parameters = parameters,
         variant_relationships = variant_relationships,
