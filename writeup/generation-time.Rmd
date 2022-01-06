@@ -54,11 +54,11 @@ date_forecast_start <- as.Date("2021-12-23")
 
 ## Introduction
 
-Early estimates from South Africa indicated that the Omicron COVID-19 variant may be both more transmissible and have greater immune escape than the previously dominant Delta variant [@pearson-omicron]. The rapid turnover of the latest epidemic wave in South Africa has prompted speculation that the generation time of the Omicron variant may be shorter in comparable settings that the generation time of the Delta variant. Recent work [@si-south-korea] supports this hypothesis though with a large degree of uncertainty. Other recent studies  that have indicated that Omicron may have a shorter incubation period that Delta also provide some support for this theory. 
+Early estimates from South Africa indicated that the Omicron COVID-19 variant may be both more transmissible and have greater immune escape than the previously dominant Delta variant [@pearson-omicron,@golding-omicron]. The rapid turnover of the latest epidemic wave in South Africa has prompted speculation that the generation time of the Omicron variant may be shorter in comparable settings that the generation time of the Delta variant. Recent observations of serial intervals in South Korea [@si-south-korea] supports this hypothesis if with a large degree of uncertainty and based on small samples. Other recent studies that have indicated that Omicron may have a shorter incubation period that Delta also provide some potential support for this theory [@brandal-omicron-incubation] although the relationship between symptom presentation, immunity (and potential earlier developoment of symptoms in the presence thereof), contact behaviour (potentially modulated by self-isolation following symptoms) and generation times is far from trivial.
 
-This work builds on our previous real-time report which estimated growth rates for the Omicron and Delta variants jointly in England by UKSHA region using S-gene target failure (SGTF) as a proxy of variant status combined with reported case counts. A key finding from this report was that the growth advantage of Omicron variant versus the Delta variant appeared to vary over time. There are a range of potential explanations for this finding such as the impact of differential immune escape, sampling bias in the SGTF data, differences in the populations in which the variants are circulating, for example differences in age group mixtures, or differing generation times between variants in comparable settings. In our first report we explored the potential for sampling bias and found little evidence. It may also be possible to discount differential immune escape as we observed a reduction in the transmission advantage of Omicron over time which would require Delta to have greater immune escape than Omicron. There is little evidence to support this conclusion and given the continuing reduction in the growth rate of Delta over time we feel that it can be discounted. This leaves two possible explanations for time-varying advantage with the first being differing generation times and the second being differences in the populations the variants were circulating within.
+This work builds on our previous real-time report which estimated growth rates for the Omicron and Delta variants jointly in England by UKHSA region using S-gene target failure (SGTF) as a proxy of variant status (with SGTF highly correlated with Omicron) combined with reported case counts. A key finding from this report was that the growth advantage of Omicron variant versus the Delta variant appeared to vary over time. There are a range of potential explanations for this finding such as the impact of differential immune escape, sampling bias in the SGTF data, differences in the populations in which the variants are circulating, for example differences in age group mixtures, the impact of behavioural or policy change, or differing generation times between variants in comparable settings. In our first report we explored the potential for sampling bias and found little evidence for it. It may also be possible to discount differential immune escape as we observed a reduction in the transmission advantage of Omicron over time which would require Delta to have greater immune escape than Omicron which seems unlikely given epidemiological evidence [@ferguson-omicron-tranmission]. This leaves three possible explanations for time-varying advantage with the first being the impact of interventions or behaviour change, the second differing generation times and the third being differences in the populations the variants were circulating within.
 
-In this report, we aim to explore these potential explanations by exploiting the approximate relationship between the daily growth rate, gamma distributed generation times, and the effective reproduction number. This relationship means that estimates of the growth rate for the Delta variant can be combined with prior estimates for the generation time in a model that estimates the generation time of Omicron in order to explain the observed variation in transmission advantage between the Omicron and Delta variant. We use growth rate estimates derived using surveillance case counts and SGTF data along with prior estimates for the generation time from Hart et al.
+In this report, we focus on the first two of these hypotheses. We explore these potential explanations by exploiting the approximate relationship between the daily growth rate, gamma distributed generation times, and the effective reproduction number. This relationship means that estimates of the growth rate for the Delta variant can be combined with prior estimates for the generation time in a model that estimates the generation time of Omicron in order to explain the observed variation in transmission advantage between the Omicron and Delta variant. We use growth rate estimates derived using surveillance case counts and SGTF data along with prior estimates for the generation time from Hart et al.
 
 ## Methods
 
@@ -68,15 +68,14 @@ We use S-gene status by specimen date sourced from UKHSA as a direct proxy for t
 
 ### Growth rate estimation
 
-We use the same methodology to estimate growth rates as in our earlier report
-on the time-varying transmission advantage of the Omicron variant. This model
+We use the same methodology to estimate growth rates as in our earlier report on the time-varying transmission advantage of the Omicron variant.
 We consider two autoregressive models with different assumptions about the relationship between growth rates for Omicron and non-Omicron cases. Both models estimate expected cases for each variant as a combination of expected cases from the previous day and the exponential of the log growth rate. The growth rate is then itself modelled as a differenced AR(1) process. 
 
-For the first model variants are assumed to have growth rates related by a fixed scaling (described from now on as the scaled model). In this model, variant growth rates then share a single differenced AR(1) process meaning that they vary over time in the same way. This model assumes that variants differ only due to a transmission advantage and that there are no time-varying biases in the reported data.
+For the first model variants are assumed to have growth rates related by a fixed scaling (described from now on as the scaled model). In this model, variant growth rates then share a single differenced AR(1) process meaning that they vary over time in the same way. This model assumes that variants differ only due to a fixed transmission advantage and that there are no time-varying biases in the reported data.
 
 In the second model, we relax the assumption that variants co-vary using a vector autoregression structure which assume that the 1st differences of the variant growth rates are drawn from a multivariate normal distribution. This model formulation can account for variant differences other than a transmission advantage and can also better handle time-varying biases in data sources. Crucially, in the absence of evidence that variants do not co-vary, it reduces to the co-varying model.
 
-For both models, we fit jointly to reported cases and SGTF data assuming a negative binomial and beta-binomial observation model respectively. Day of the week reporting periodicty for case counts is captured using a random effect fo r the day of the week. We initialise both models by fitting to a week of case only data where the Omicron variant is assumed to not be present (from the 17th of November to the 22nd).
+For both models, we fit jointly to reported cases and SGTF data assuming a negative binomial and beta-binomial observation model respectively. Day of the week reporting periodicty for case counts is captured using a random effect for the day of the week. We initialise both models by fitting to a week of case only data where the Omicron variant is assumed to not be present (from the 17th of November to the 22nd).
 
 A full description of the model described here can be found in the documentation for the [`forecast.vocs` R package](https://epiforecasts.io/forecast.vocs/) [@forecast.vocs].
 
@@ -104,14 +103,17 @@ region_growth <- region_growth[!(region %in% "England")]
 
 ### Generation time and transmission advantage estimation
 
+Our model is described by the following set of equations:
+
 \begin{align}
- g^D_{lt} &\sim \text{Normal} \left(r^D_{lt} , \sigma^D_{lt}\right) \\
- R^D_{lt} &= \left(1 + g^D_{lt}  k_D \mu_D  \right)^{\frac{1}{k_D}} \\
- R^O_{lt} &= \alpha R^D_{lt} \\
- g^O_{lt} &= \frac{(R^O_{lt})^2 - 1}{k_O \mu_O} \\
- \sigma^D_{lt} &= \sqrt{\sigma^2 + (\sigma^D_{lt})^2} \\
- r^O_{lt} &\sim \text{Normal}\left(g^O_{lt}, \sigma_c \right) \\
+ r^\mathrm{d}_{lt} &= \left(1 + g^\mathrm{d}_{lt}  k^\mathrm{d} \r^\mathrm{d}  \right)^{\frac{1}{k^\mathrm{d}}} \\
+ r^\mathrm{o}_{lt} &= \alpha r^\mathrm{d}_{lt} \\
+ g^\mathrm{o}_{lt} &= \frac{(r^\mathrm{o}_{lt})^2 - 1}{k^\mathrm{O} \mu^\mathrm{O}} \\
+ \sigma^\mathrm{d}_{lt} &= \sqrt{\sigma^2 + (\sigma^\mathrm{O}_{lt})^2} \\
+ r^\mathrm{O}_{lt} &\sim \text{Normal}\left(g^\mathrm{O}_{lt}, \sigma_{lt}^\mathrm{O} \right) \\
 \end{align}
+
+Here, $l$ indicates location and $t$ time (day), superscripts D and O denote Delta and Omicron, respectively, $g$ and $k$ are the mean and coefficient of variation of the generation time, $r$ is the observed growth rate and $R$ the reproduction number. Delta generation time parameters are sampled (with uncertainty) from the Hart et al. estimates, growth rates (with uncertainty) estimated from the case data, and all other parameters estimated or calculated according to the given equations.
 
 ```{r load-generation-time-estimates}
 posterior_summary <- fread(
@@ -124,7 +126,7 @@ posterior_predictions <- fread(
 
 ### Statistical Inference
 
-We first visualised our combined data sources (cases by specimen date and SGTF status by specimen date). We then fit both models separately to data for England and to each UKHSA region. Using these model fits we report posterior estimates from the best fitting model for the following summary statistics of epidemiological interest: growth rates by variant and overall, the time-varying transmission advantage for the Omicron variant, case counts overall and by variant for a 14 day forecast window assuming constant future growth, the date at which Omicron will become dominant in England and in each UKHSA region, and the estimated cumulative percentage of the population with a reported Omicron case. 
+We first visualised our combined data sources (cases by specimen date and SGTF status by specimen date). We then fitted both models separately to data for England and to each UKHSA region. Using these model fits we report posterior estimates from the best fitting model for the following summary statistics of epidemiological interest: growth rates by variant and overall, the time-varying transmission advantage for the Omicron variant, case counts overall and by variant for a 14 day forecast window assuming constant future growth, the date at which Omicron will become dominant in England and in each UKHSA region, and the estimated cumulative percentage of the population with a reported Omicron case. 
 
 ### Implementation
 
