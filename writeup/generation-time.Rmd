@@ -106,14 +106,14 @@ region_growth <- region_growth[!(region %in% "England")]
 Our model is described by the following set of equations:
 
 \begin{align}
- r^\mathrm{d}_{lt} &= \left(1 + g^\mathrm{d}_{lt}  k^\mathrm{d} \r^\mathrm{d}  \right)^{\frac{1}{k^\mathrm{d}}} \\
- r^\mathrm{o}_{lt} &= \alpha r^\mathrm{d}_{lt} \\
- g^\mathrm{o}_{lt} &= \frac{(r^\mathrm{o}_{lt})^2 - 1}{k^\mathrm{O} \mu^\mathrm{O}} \\
- \sigma^\mathrm{d}_{lt} &= \sqrt{\sigma^2 + (\sigma^\mathrm{O}_{lt})^2} \\
+ R^\mathrm{D}_{lt} &= \left(1 + g^\mathrm{D}  k^\mathrm{D}_{lt} r^\mathrm{D}_{lt}  \right)^{\frac{1}{k^\mathrm{D}}} \\
+ R^\mathrm{O}_{lt} &= \alpha R^\mathrm{D}_{lt} \\
+ g^\mathrm{O}_{lt} &= \frac{(R^\mathrm{O}_{lt})^2 - 1}{k^\mathrm{O} \mu^\mathrm{O}} \\
+ \sigma^\mathrm{D}_{lt} &= \sqrt{\sigma^2 + (\tau^\mathrm{O}_{lt})^2} \\
  r^\mathrm{O}_{lt} &\sim \text{Normal}\left(g^\mathrm{O}_{lt}, \sigma_{lt}^\mathrm{O} \right) \\
 \end{align}
 
-Here, $l$ indicates location and $t$ time (day), superscripts D and O denote Delta and Omicron, respectively, $g$ and $k$ are the mean and coefficient of variation of the generation time, $r$ is the observed growth rate and $R$ the reproduction number. Delta generation time parameters are sampled (with uncertainty) from the Hart et al. estimates, growth rates (with uncertainty) estimated from the case data, and all other parameters estimated or calculated according to the given equations.
+Here, $l$ indicates location and $t$ time (day), superscripts D and O denote Delta and Omicron, respectively, $g$ and $k$ are the mean and coefficient of variation of the generation time, $r$ is the estimated growth rate, $\tau$ its standard deviation and $R$ the reproduction number. Delta generation time parameters are sampled (with uncertainty) from the Hart et al. estimates, growth rates (with uncertainty) estimated from the case data, and all other parameters estimated or calculated according to the given equations.
 
 ```{r load-generation-time-estimates}
 posterior_summary <- fread(
