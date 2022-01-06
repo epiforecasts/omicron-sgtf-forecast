@@ -37,7 +37,6 @@ library(here)
 library(readr)
 library(data.table)
 library(stringr)
-library(kableExtra)
 
 # load functions
 source(here("R", "load-local-data.R"))
