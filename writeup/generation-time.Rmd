@@ -1,5 +1,5 @@
 ---
-title: "Estimation of the test to test distribution as a proxy for generation interval distribution for the Omicron variants in England using S-Gene Target Status and Surveillance data"
+title: "Estimation of the test to test distribution as a proxy for generation interval distribution for the Omicron variant in England"
 subtitle: "Summary report"
 author: Sam Abbott (1), Katharine Sherratt (1), Moritz Gerstung (2), Sebastian Funk (1)
 bibliography: library.bib
