@@ -107,7 +107,7 @@ We model the relationship between estimated variant growth rates, their generati
 
 $$R = \left(1 + \bar{G}kr  \right)^{\frac{1}{k}}$$
 
-Where $R$ is the effective reproduction number, $\bar{G}$ is the mean of the gamma distributed generation time, $r$ is the daily growth rate, and $k$ is the squared coefficient of variation which can be reparameterised as $\frac{\bar{G}^2_\mathrm{SD}}{\bar{G}^2}$ where $\bar{G}^\mathrm{SD}$ is the standard deviation of the gamma distribution.
+Where $R$ is the effective reproduction number, $\bar{G}$ is the mean of the gamma distributed generation time, $r$ is the daily growth rate, and $k$ is the squared coefficient of variation which can be reparameterised as $\frac{\bar{G}^2_\mathrm{SD}}{\bar{G}^2}$ where $\bar{G}_\mathrm{SD}$ is the standard deviation of the gamma distribution.
 
 Using this approximation we first estimate the effective reproduction number ($R^\mathrm{D}$) of the Delta variant across locations ($l$) and time ($t$, in days) using estimates of the daily growth rates ($r^\mathrm{D}$), and a gamma distributed generation time. Under an assumption of homogeneous mixing we can then relate the effective reproduction number of Delta to the effective reproduction number of Omicron ($R^\mathrm{O}$) by assuming a transmission advantage ($\alpha$) which corresponds to both the intrinic transmission advantage as well as population based advantage (such as advantage gained from immune escape). Finally, we can then reverse the gamma approximation framework to estimate the daily growth rate for Omicron  ($r^\mathrm{O}$) and compare these to those estimated directly in the previous modelling step. 
 
@@ -115,23 +115,23 @@ Our model is described by the following set of equations:
 
 \begin{align}
  r^\mathrm{D}_{lt} &\sim  \text{Normal}\left(\bar{r}^\mathrm{D}_{lt}, \tau_{lt}^\mathrm{D} \right) \\
- R^\mathrm{D}_{lt} &= \left(1 + \bar{G}_\mathrm{D}  k^\mathrm{D} r^\mathrm{D}_{lt}  \right)^{\frac{1}{k^\mathrm{D}}} \\
+ R^\mathrm{D}_{lt} &= \left(1 + \bar{G}^\mathrm{D}  k^\mathrm{D} r^\mathrm{D}_{lt}  \right)^{\frac{1}{k^\mathrm{D}}} \\
  R^\mathrm{O}_{lt} &= \alpha R^\mathrm{D}_{lt} \\
- r^\mathrm{O}_{lt} &= \frac{(R^\mathrm{O}_{lt})^k^\mathrm{O} - 1}{k^\mathrm{O} \bar{G}_\mathrm{O}} \\
+ r^\mathrm{O}_{lt} &= \frac{(R^\mathrm{O}_{lt})^{k^\mathrm{O}} - 1}{k^\mathrm{O} \bar{G}^\mathrm{O}} \\
  \sigma^\mathrm{O}_{lt} &= \sqrt{\sigma^2 + (\tau_{lt}^\mathrm{O})^2} \\
- \bar{r}^\mathrm{O}_{lt} &\sim \text{Normal}\left(r^\mathrm{O}_{lt}, \sigma^\mathrm{O}_{lt} \right) \\
+ \bar{r}^\mathrm{O}_{lt} &\sim \text{Normal}\left(r^\mathrm{O}_{lt},\sigma^\mathrm{O}_{lt} \right) \\
 \end{align}
 
 Here, superscripts D and O denote Delta and Omicron, respectively, $r$ is the estimated growth rate, $\bar{r}$ is the mean estimated growth rate from the previous modelling step, $\tau$ its standard deviation and $R$ the effective number. We assume that generation time posteriors from the previous step are independent normals and include additional observation error ($\sigma$) to account for the approximate nature of the relationship between variant growth rates. The relationship between generation time estimates for Omicron and Delta is then modelled as follows,
 
 \begin{align}
-  \bar{G}_\mathrm{D} &\sim \text{Normal}\left(3.2, 0.46 \right) \\
-  \bar{G}^\mathrm{SD}_\mathrm{D} &\sim \text{Normal}\left(2.4, 0.33 \right) \\
-  \bar{G}_\mathrm{O} &\sim \bar{G}_\mathrm{D} \text{LogNormal}\left(0, 1 \right) \\
-  \bar{G}^\mathrm{SD}_\mathrm{O} &\sim \bar{G}^\mathrm{SD}_\mathrm{O} \text{LogNormal}\left(0, 1 \right) \\
+  \bar{G}^\mathrm{D} &\sim \text{Normal}\left(3.2, 0.46 \right) \\
+  \bar{G}_\mathrm{SD}^\mathrm{D} &\sim \text{Normal}\left(2.4, 0.33 \right) \\
+  \frac{\bar{G}^\mathrm{O}}{\bar{G}^\mathrm{D}} &\sim  \text{LogNormal}\left(0, 1 \right) \\
+  \frac{\bar{G}_\mathrm{SD}^\mathrm{O}}{\bar{G}_\mathrm{SD}^\mathrm{O}} &\sim \text{LogNormal}\left(0, 1 \right) \\
 \end{align}
 
-The generation priors used here are motivated by the household estimates derived in Hart et al [@hart2021] for the UK  using a normal approximation. As a sensitivity analysis we also explore their alternative intrinsic estimates which had a mean of 4.6 days (standard deviation (SD): 0.36 days) and a standard deviation of 3.1 days (SD: 0.18) days again using a normal approximation. Finally we assume that 
+The generation priors used here are motivated by the household estimates derived in Hart et al [@hart2021] for the UK  using a normal approximation. As a sensitivity analysis we also explore their alternative intrinsic estimates which had a mean of 4.6 days (standard deviation (SD): 0.36 days) and a standard deviation of 3.1 days (SD: 0.18) days again using a normal approximation. Finally we assume that the standard deviation of the reporting delay has a normal prior truncated at zero with a mean of zero and a standard deviation of 0.1.
 
 ```{r load-generation-time-estimates}
 posterior_summary <- fread(
@@ -188,11 +188,12 @@ plot_growth(sgtf_posterior) +
 
 #### Omicron versus Delta
 
-```{r plot-o-vs-d-growth, fig.cap = "Estimates of the time-varying daily growth rate for each UKHSA region for cases with the Omicron variant, and non-Omicron cases. Point size has been used to represent the uncertainty of each estimate (though it does not correspond to a meaningful credible interval). The dashed grey line indicates the expected relationship between variants if they differ onyl by a transmission advantage. The solid grey line indicates the observed overall relationship between variants, the slope of this line approximates the ratio between generation time means. The region specific lines show how this relationship differs between regions."}
+```{r plot-o-vs-d-growth, fig.cap = "Estimates of the time-varying daily growth rate for each UKHSA region for cases with the Omicron variant, and non-Omicron cases. Point size has been used to represent the uncertainty of each estimate (though it does not correspond to a meaningful credible interval). The dashed grey line indicates the expected relationship between variants if they differ only by a fixed transmission advantage. The solid grey line indicates the observed overall linear relationship between variants, the slope of this line approximates the ratio between generation time means. The region specific lines show how this relationship differs between regions."}
 piv_growth <- region_growth %>%
   pivot_wider(id_cols = c("region", "date"),
               names_from = "type", values_from = c("mean", "sd"))
-min_nomicron <- mean(piv_growth[["mean_Omicron"]]) - mean(piv_growth[["mean_non-Omicron"]])
+min_nomicron <- mean(piv_growth[["mean_Omicron"]]) - 
+  mean(piv_growth[["mean_non-Omicron"]])
     
 ggplot(piv_growth) +
   aes(y = mean_Omicron, x = .data[["mean_non-Omicron"]], size = sd_Omicron,
@@ -235,11 +236,12 @@ posterior_summary %>%
     TRUE ~ "Generation time standard deviation"
     )
   ) %>%
+  select(-data_stratification) %>%
   janitor::clean_names(case = "sentence") %>%
   mutate(across(where(is.character), as.factor)) %>%
   rename(SD = Sd, MAD = Mad) %>%
   kable(caption = "Posterior estimates for generation time and transmission
-   advantage by data stratification and choice of generation time prior.")
+   advantage by choice of generation time prior.")
 ```
 
 ### Posterior predictions
