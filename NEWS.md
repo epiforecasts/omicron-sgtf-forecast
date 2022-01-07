@@ -1,3 +1,7 @@
+# 2022-01-07
+
+- Add an analysis estimating the generation time for Omicron that would be required to explain the observed time-varying transmission advantage of Omicron compared to Delta.
+
 # 2021-12-31
 
 - Updated the summary text to reflect post-Christmas changes.
