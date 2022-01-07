@@ -151,7 +151,6 @@ The growth rate estimation model was implemented using the [`forecast.vocs` R pa
 
 ## Limitations
 
-
 * SGTF may be an imperfect proxy for Omicron. We make no adjustment for the background rate of SGTF observed for Delta or other factors that might lead to SGTF, or a confirmed detected S-gene observed with Omicron.
 
 * The public case data used here does not include known reinfections. If the proportion of infections that are reinfections varies over time and between variants then this could affect our estimates.
@@ -162,7 +161,9 @@ The growth rate estimation model was implemented using the [`forecast.vocs` R pa
 
 * Our model only estimates an overall transmission advantage. We do not attempt to distinguish between "intrinsic" transmissibility and immune escape, a combination of which is likely to be underlying any sustained differences in growth rate.
 
-* Our estimates are at the national scale stratified by 5 year age group or UKHSA region scale. There may be additional variation within these  grouups that these estimates cannot capture.
+* Our generation time estimates are in fact the distribution from a positive test to resulting positive tests rather than  the true generation time which would be based on infection times. This means that our estimates may be biased if those infected by an infector test postive prior to the original infected case.
+
+* Our estimates are at the national scale stratified by UKHSA region. There may be additional variation within this stratification that these estimates do not account for. One example is that Omicron and Delta may have had differing age profiles and these age distributions may have changed over time. Potentially if age groups have diffferent transmission potential this could lead to the observed variation in transmission advantage between Omicron and Delta without requiring differing generation times.
 
 ## Results 
 
