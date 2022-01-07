@@ -58,7 +58,7 @@ Early estimates from South Africa indicated that the Omicron COVID-19 variant ma
 
 This work builds on our previous real-time report which estimated growth rates for the Omicron and Delta variants jointly in England by UKHSA region using S-gene target failure (SGTF) as a proxy of variant status (with SGTF highly correlated with Omicron) combined with reported case counts. A key finding from this report was that the growth advantage of Omicron variant versus the Delta variant appeared to vary over time. There are a range of potential explanations for this finding such as the impact of differential immune escape, sampling bias in the SGTF data, differences in the populations in which the variants are circulating, for example differences in age group mixtures, the impact of behavioural or policy change, or differing generation times between variants in comparable settings. In our first report we explored the potential for sampling bias and found little evidence for it. It may also be possible to discount differential immune escape as we observed a reduction in the transmission advantage of Omicron over time which would require Delta to have greater immune escape than Omicron which seems unlikely given epidemiological evidence [@ferguson-omicron-transmission]. This leaves three possible explanations for time-varying advantage with the first being the impact of interventions or behaviour change, the second differing generation times and the third being differences in the populations the variants were circulating within.
 
-In this report, we focus on the first two of these hypotheses. We explore these potential explanations by exploiting the approximate relationship between the daily growth rate, gamma distributed generation times, and the effective reproduction number. This relationship means that estimates of the growth rate for the Delta variant can be combined with prior estimates for the generation time in a model that estimates the generation time of Omicron in order to explain the observed variation in transmission advantage between the Omicron and Delta variant. We use growth rate estimates derived using surveillance case counts and SGTF data along with prior estimates for the generation time from Hart et al.
+In this report, we focus on the first two of these hypotheses. We explore these potential explanations by exploiting the approximate relationship between the daily growth rate, gamma distributed generation times, and the effective reproduction number. This relationship means that estimates of the growth rate for the Delta variant can be combined with prior estimates for the generation time in a model that estimates the generation time of Omicron in order to explain the observed variation in transmission advantage between the Omicron and Delta variant. We use growth rate estimates derived using surveillance case counts and SGTF data along with prior estimates for the generation time from Hart et al[@hart2021].
 
 ## Methods
 
@@ -103,17 +103,35 @@ region_growth <- region_growth[!(region %in% "England")]
 
 ### Generation time and transmission advantage estimation
 
+We model the relationship between estimated variant growth rates, their generation times, and the between variant transmission advantage using the gamma approximation framework developed by Park et al. [@park2019; @park2020] to estimate the effective reproduction for each variant assuming that their generation time is gamma distributed. This approximation is as follows and holds when growth is approximately exponential,
+
+$$R = \left(1 + \bar{G}kr  \right)^{\frac{1}{k}}$$
+
+Where $R$ is the effective reproduction number, $\bar{G}$ is the mean of the gamma distributed generation time, $r$ is the daily growth rate, and $k$ is the squared coefficient of variation which can be reparameterised as $\frac{\bar{G}^2_\mathrm{SD}}{\bar{G}^2}$ where $\bar{G}^\mathrm{SD}$ is the standard deviation of the gamma distribution.
+
+Using this approximation we first estimate the effective reproduction number ($R^\mathrm{D}$) of the Delta variant across locations ($l$) and time ($t$, in days) using estimates of the daily growth rates ($r^\mathrm{D}$), and a gamma distributed generation time. Under an assumption of homogeneous mixing we can then relate the effective reproduction number of Delta to the effective reproduction number of Omicron ($R^\mathrm{O}$) by assuming a transmission advantage ($\alpha$) which corresponds to both the intrinic transmission advantage as well as population based advantage (such as advantage gained from immune escape). Finally, we can then reverse the gamma approximation framework to estimate the daily growth rate for Omicron  ($r^\mathrm{O}$) and compare these to those estimated directly in the previous modelling step. 
+
 Our model is described by the following set of equations:
 
 \begin{align}
- R^\mathrm{D}_{lt} &= \left(1 + g^\mathrm{D}  k^\mathrm{D}_{lt} r^\mathrm{D}_{lt}  \right)^{\frac{1}{k^\mathrm{D}}} \\
+ r^\mathrm{D}_{lt} &\sim  \text{Normal}\left(\bar{r}^\mathrm{D}_{lt}, \tau_{lt}^\mathrm{D} \right) \\
+ R^\mathrm{D}_{lt} &= \left(1 + \bar{G}_\mathrm{D}  k^\mathrm{D} r^\mathrm{D}_{lt}  \right)^{\frac{1}{k^\mathrm{D}}} \\
  R^\mathrm{O}_{lt} &= \alpha R^\mathrm{D}_{lt} \\
- g^\mathrm{O}_{lt} &= \frac{(R^\mathrm{O}_{lt})^2 - 1}{k^\mathrm{O} \mu^\mathrm{O}} \\
- \sigma^\mathrm{D}_{lt} &= \sqrt{\sigma^2 + (\tau^\mathrm{O}_{lt})^2} \\
- r^\mathrm{O}_{lt} &\sim \text{Normal}\left(g^\mathrm{O}_{lt}, \sigma_{lt}^\mathrm{O} \right) \\
+ r^\mathrm{O}_{lt} &= \frac{(R^\mathrm{O}_{lt})^k^\mathrm{O} - 1}{k^\mathrm{O} \bar{G}_\mathrm{O}} \\
+ \sigma^\mathrm{O}_{lt} &= \sqrt{\sigma^2 + (\tau_{lt}^\mathrm{O})^2} \\
+ \bar{r}^\mathrm{O}_{lt} &\sim \text{Normal}\left(r^\mathrm{O}_{lt}, \sigma^\mathrm{O}_{lt} \right) \\
 \end{align}
 
-Here, $l$ indicates location and $t$ time (day), superscripts D and O denote Delta and Omicron, respectively, $g$ and $k$ are the mean and coefficient of variation of the generation time, $r$ is the estimated growth rate, $\tau$ its standard deviation and $R$ the reproduction number. Delta generation time parameters are sampled (with uncertainty) from the Hart et al. estimates, growth rates (with uncertainty) estimated from the case data, and all other parameters estimated or calculated according to the given equations.
+Here, superscripts D and O denote Delta and Omicron, respectively, $r$ is the estimated growth rate, $\bar{r}$ is the mean estimated growth rate from the previous modelling step, $\tau$ its standard deviation and $R$ the effective number. We assume that generation time posteriors from the previous step are independent normals and include additional observation error ($\sigma$) to account for the approximate nature of the relationship between variant growth rates. The relationship between generation time estimates for Omicron and Delta is then modelled as follows,
+
+\begin{align}
+  \bar{G}_\mathrm{D} &\sim \text{Normal}\left(3.2, 0.46 \right) \\
+  \bar{G}^\mathrm{SD}_\mathrm{D} &\sim \text{Normal}\left(2.4, 0.33 \right) \\
+  \bar{G}_\mathrm{O} &\sim \bar{G}_\mathrm{D} \text{LogNormal}\left(0, 1 \right) \\
+  \bar{G}^\mathrm{SD}_\mathrm{O} &\sim \bar{G}^\mathrm{SD}_\mathrm{O} \text{LogNormal}\left(0, 1 \right) \\
+\end{align}
+
+The generation priors used here are motivated by the household estimates derived in Hart et al [@hart2021] for the UK  using a normal approximation. As a sensitivity analysis we also explore their alternative intrinsic estimates which had a mean of 4.6 days (standard deviation (SD): 0.36 days) and a standard deviation of 3.1 days (SD: 0.18) days again using a normal approximation. Finally we assume that 
 
 ```{r load-generation-time-estimates}
 posterior_summary <- fread(

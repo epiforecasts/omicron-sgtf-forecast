@@ -52,8 +52,7 @@ sgtf_regional <- daily_regional %>%
   truncate_sequences(start_date = start_sgtf_date) %>%
   truncate_cases(days = 0) %>%
   age_sgtf_data_to_fv() %>%
-  filter(!(is.na(cases) & is.na(seq_voc))) %>%
-  filter(region %in% "England")
+  filter(!(is.na(cases) & is.na(seq_voc)))
 
 # Estimate models for SGTF data
 region_omicorn_forecasts <- build_models_by_region_and_age(
