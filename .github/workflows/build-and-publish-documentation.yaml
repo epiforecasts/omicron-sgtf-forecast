@@ -26,6 +26,16 @@ jobs:
 
       - uses: r-lib/actions/setup-tinytex@v2
 
+      - name: Render README
+        run: |
+          rmarkdown::render(
+            "README.md", 
+            output_file = "index",
+            output_format = c("html_document"),
+            output_dir = "writeup"
+          )
+        shell: Rscript {0}
+
       - name: Render summary
         run: |
           rmarkdown::render(
