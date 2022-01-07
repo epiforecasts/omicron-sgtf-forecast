@@ -12,6 +12,7 @@ library(future)
 library(future.callr)
 library(future.apply)
 library(forecast.vocs)
+library(data.table)
 
 # Load functions
 source(here("R", "build-models-by-region-and-age.R"))
@@ -36,6 +37,7 @@ target_date <- as.Date("2021-12-23")
 daily_regional <- read_csv(
     here("data", "private", "sgtf-by-region-and-age.csv")
   ) %>%
+  summarise_by_15_age_group() %>%
   filter(date >= start_date) %>%
   filter(date <= target_date)
 
@@ -50,7 +52,8 @@ sgtf_regional <- daily_regional %>%
   truncate_sequences(start_date = start_sgtf_date) %>%
   truncate_cases(days = 0) %>%
   age_sgtf_data_to_fv() %>%
-  filter(!(is.na(cases) & is.na(seq_voc)))
+  filter(!(is.na(cases) & is.na(seq_voc))) %>%
+  filter(region %in% "England")
 
 # Estimate models for SGTF data
 region_omicorn_forecasts <- build_models_by_region_and_age(
@@ -65,12 +68,8 @@ omicron_results <- list(
   data = sgtf_regional,
   posterior = summary(
     region_omicorn_forecasts, target = "posterior", type = "all"
-  )[,
-   loo := NULL
-  ],
-  diagnostics = summary(region_omicorn_forecasts, target = "diagnostics")[,
-   loo := NULL
-  ]
+  ),
+  diagnostics = summary(region_omicorn_forecasts, target = "diagnostics")
 )
 
 save_results(omicron_results, "sgtf-by-age", target_date)
