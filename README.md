@@ -30,7 +30,7 @@ Visualising our growth rate estimates provided initial evidence for a difference
 
 We found that a reduction in the generation time of Omicron compared to Delta was able to explain the observed variation over time in the transmission advantage of the Omicron variant. However, this analysis cannot rule out the role of other factors such as differences in the populations the variants were mixing in, differences in immune escape between variants or bias due to using the test to test distribution as a proxy for the generation time distribution.
 
-Paper: [as html](https://epiforecasts.io/omicron-sgtf-forecast/generation-time), [or pdf](https://epiforecasts.io/omicron-sgtf-forecast/generation-time.pdf)**
+**Paper: [as html](https://epiforecasts.io/omicron-sgtf-forecast/generation-time), [or pdf](https://epiforecasts.io/omicron-sgtf-forecast/generation-time.pdf)**
 
 ## Key files and folders
 
