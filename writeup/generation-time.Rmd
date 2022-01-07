@@ -122,7 +122,7 @@ Our model is described by the following set of equations:
  \bar{r}^\mathrm{O}_{lt} &\sim \text{Normal}\left(r^\mathrm{O}_{lt},\sigma^\mathrm{O}_{lt} \right) \\
 \end{align}
 
-Here, superscripts D and O denote Delta and Omicron, respectively, $r$ is the estimated growth rate, $\bar{r}$ is the mean estimated growth rate from the previous modelling step, $\tau$ its standard deviation and $R$ the effective number. We assume that generation time posteriors from the previous step are independent normals and include additional observation error ($\sigma$) to account for the approximate nature of the relationship between variant growth rates. The relationship between generation time estimates for Omicron and Delta is then modelled as follows,
+Here, superscripts D and O denote Delta and Omicron, respectively, $r$ is the growth rate, $\bar{r}$ is the mean estimated growth rate from the previous modelling step, $\tau$ its standard deviation and $R$ the effective number. We assume that generation time posteriors from the previous step are independent normals and include additional observation error ($\sigma$) to account for the approximate nature of the relationship between variant growth rates. The relationship between generation time estimates for Omicron and Delta is then modelled as follows,
 
 \begin{align}
   \bar{G}^\mathrm{D} &\sim \text{Normal}\left(3.2, 0.46 \right) \\
