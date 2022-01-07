@@ -1,7 +1,7 @@
 ---
 title: "Estimation of the test to test distribution as a proxy for generation interval distribution for the Omicron variants in England using S-Gene Target Status and Surveillance data"
 subtitle: "Summary report"
-author: Sam Abbott (1), Katharine Sherratt (1), Sebastian Funk (1)
+author: Sam Abbott (1), Katharine Sherratt (1), Moritz Gerstung (2), Sebastian Funk (1)
 bibliography: library.bib
 csl: https://raw.githubusercontent.com/citation-style-language/styles/master/apa-numeric-superscript-brackets.csl
 date: "`r format(Sys.Date(), format = '%B %d, %Y')`"
@@ -51,6 +51,7 @@ date_forecast_start <- as.Date("2021-12-23")
 ```
 
 1. Centre for the Mathematical Modelling of Infectious Diseases, London School of Hygiene & Tropical Medicine, London WC1E 7HT, United Kingdom
+2. Division for AI in Oncology, German Cancer Research Centre DKFZ, Heidelberg, Germany
 
 ## Introduction
 
