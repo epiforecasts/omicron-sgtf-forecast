@@ -5,7 +5,7 @@ library(dplyr)
 library(lubridate)
 library(tidyr)
 library(ggplot2)
-
+library(forcats)
 
 add_england_totals <- function(regional) {
   england <- regional %>%
@@ -113,4 +113,21 @@ cumulative_percentage <- function(cases, pop) {
            c_q80 = cumsum(q80) / population) %>%
     ungroup()
   return(cases_pop)
+}
+
+summarise_by_15_year_age_group <- function(dt) {
+  dt %>%
+    dplyr::mutate(
+      age_group = forcats::fct_collapse(age_group,
+        `0-14` = c("0-4", "5-9", "10-14"),
+        `15-29` = c("15-19", "20-24", "25-29"),
+        `30-44` = c("30-34", "35-39", "40-44"),
+        `45-59` = c("45-49", "50-54", "55-59"),
+        `60-74` = c("60-64", "65-69", "70-74"),
+        `75+` = c("75-79", "80-84", "85-89", "90+")
+    )
+  ) %>%
+    group_by(age_group, region, date) %>%
+    summarise(across(where(is.numeric), sum, na.rm = TRUE)) %>%
+    ungroup()
 }
