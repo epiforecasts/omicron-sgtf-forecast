@@ -227,7 +227,7 @@ plot_daily_cases(
   facet_wrap(~ age_group, scales = "free")
 ```
 
-```{r data-by-age-regions, fig.cap = "Daily cases in England and by UKHSA region, with S-gene target result (failed, confirmed detected, or unknown), and centred 7-day moving average starting from the 23rd of November 2021 and including data up to the 23rd of December 2021 (dotted line). Source: UKHSA and coronavirus.gov.uk; data by specimen date."}
+```{r data-by-age-regions, fig.cap = "Daily cases in England and by UKHSA region, with S-gene target result (failed, confirmed detected, or unknown), and centred 7-day moving average starting from the 23rd of November 2021 and including data up to the 23rd of December 2021 (dotted line). Source: UKHSA and coronavirus.gov.uk; data by specimen date.", fig.width = 16}
 plot_daily_cases(
   filter(daily_age, !(region %in% "England")),
   truncate_date = date_forecast_start, caption = "",
@@ -350,9 +350,9 @@ posterior_samples %>%
   mutate(
     pmf = purrr::map2(
       mean, sd,
-      ~ tibble(x = 1:30,
-      prob = pgamma(1:30, (.x / .y)^2, .x / .y^2) -
-        pgamma(0:29, (.x / .y)^2, .x / .y^2))
+      ~ tibble(x = 0:30,
+      prob = c(0, pgamma(1:30, (.x / .y)^2, .x / .y^2) -
+        pgamma(0:29, (.x / .y)^2, .x / .y^2)))
     )
   ) %>%
   unnest(pmf) %>%
