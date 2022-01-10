@@ -114,6 +114,34 @@ region_growth <- load_growth(
 region_growth <- region_growth[!(region %in% "England")]
 ```
 
+```{r load-age-region-growth}
+# get regional/age estimation date
+age_date <- as.Date("2021-12-23")
+
+# load case data
+daily_age <- read_csv(
+    here("data", "private", "sgtf-by-region-and-age.csv")
+  ) %>%
+  summarise_by_15_year_age_group() %>%
+  filter(date >= date_data_start) %>%
+  filter(date <= date_forecast_start)
+
+# load posterior estimates
+sgtf_by_age <- load_results(age_date, type = "sgtf-by-age")
+
+sgtf_by_age_posterior <- sgtf_by_age$posterior[
+  variant_relationship == "correlated"
+][date <= date_forecast_start]
+
+# load growth estimates
+region_by_age_growth <- load_growth(
+  age_date, min_date = date_gt_start, max_date = date_forecast_start,
+  type = "sgtf-by-age"
+)
+region_by_age_growth <- region_by_age_growth
+```
+
+
 ### Generation time and transmission advantage estimation
 
 We model the relationship between estimated variant growth rates, their generation times, and the between variant transmission advantage using the gamma approximation framework developed by Park et al. [@park2019; @park2020] to estimate the effective reproduction number for each variant assuming that their generation time is gamma distributed. This approximation is as follows and holds when growth is approximately exponential,
@@ -150,6 +178,9 @@ The generation priors used here are motivated by the household estimates derived
 posterior_summary <- fread(
   here::here("data", "retrospective", "posterior_summary.csv")
 )
+posterior_samples <- fread(
+  here::here("data", "retrospective", "posterior_samples.csv")
+)
 posterior_predictions <- fread(
   here::here("data", "retrospective", "posterior_predictions.csv")
 )
@@ -173,7 +204,24 @@ The growth rate estimation model was implemented using the [`forecast.vocs` R pa
 plot_daily_cases(
   daily, truncate_date = date_forecast_start, caption = "",
   start_date = date_data_start, smooth_total = TRUE
-)
+) +
+  facet_wrap(~ region, scales = "free")
+```
+
+```{r data-by-age, fig.cap = "Daily cases in England and by UKHSA region, with S-gene target result (failed, confirmed detected, or unknown), and centred 7-day moving average starting from the 23rd of November 2021 and including data up to the 23rd of December 2021 (dotted line). Source: UKHSA and coronavirus.gov.uk; data by specimen date."}
+plot_daily_cases(
+  daily_age, truncate_date = date_forecast_start, caption = "",
+  start_date = date_data_start, smooth_total = FALSE, by = "age_group"
+) +
+  facet_wrap(~ age_group, scales = "free")
+```
+
+```{r data-by-age-regions, fig.cap = "Daily cases in England and by UKHSA region, with S-gene target result (failed, confirmed detected, or unknown), and centred 7-day moving average starting from the 23rd of November 2021 and including data up to the 23rd of December 2021 (dotted line). Source: UKHSA and coronavirus.gov.uk; data by specimen date."}
+plot_daily_cases(
+  daily_age[!(region %in% "England")], truncate_date = date_forecast_start, caption = "",
+  start_date = date_data_start, smooth_total = FALSE
+) +
+  facet_grid(age_group ~ region)
 ```
 
 ### Growth rate of reported cases overall, with the Omicron variant, and not with the Omicron variant
@@ -183,6 +231,16 @@ plot_daily_cases(
 ```{r growth, fig.cap = "Estimates of the time-varying daily growth rate for England and by UKHSA region (using the log scale approximation) for reported cases overall, cases with the Omicron variant, and non-Omicron cases. Growth rates are assumed to be piecewise constant with potential changes every 3 days. Growth rates are assumed to be constant beyond the forecast horizon (vertical dashed line). 90% and 60% credible intervals are shown."}
 plot_growth(sgtf_posterior) +
   facet_wrap(~ region)
+```
+
+```{r age-growth, fig.cap = "Estimates of the time-varying daily growth rate for England and by UKHSA region (using the log scale approximation) for reported cases overall, cases with the Omicron variant, and non-Omicron cases. Growth rates are assumed to be piecewise constant with potential changes every 3 days. Growth rates are assumed to be constant beyond the forecast horizon (vertical dashed line). 90% and 60% credible intervals are shown."}
+plot_growth(sgtf_by_age_posterior[region %in% "England"]) +
+  facet_wrap(~ age_group)
+```
+
+```{r age-region-growth, fig.cap = "Estimates of the time-varying daily growth rate for England and by UKHSA region (using the log scale approximation) for reported cases overall, cases with the Omicron variant, and non-Omicron cases. Growth rates are assumed to be piecewise constant with potential changes every 3 days. Growth rates are assumed to be constant beyond the forecast horizon (vertical dashed line). 90% and 60% credible intervals are shown."}
+plot_growth(sgtf_by_age_posterior[!(region %in% "England")]) +
+  facet_grid(age_group ~ region)
 ```
 
 #### Omicron versus Delta

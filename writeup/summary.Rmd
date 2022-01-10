@@ -190,7 +190,8 @@ plot_summary(sgtf_posterior = sgtf_posterior,
 plot_daily_cases(
   daily, truncate_date = date_forecast_start, caption = "",
   start_date = date_data_start, smooth_total = TRUE
-)
+) +
+  facet_wrap(~ region, scales = "free")
 ```
 
 ### Model comparison
