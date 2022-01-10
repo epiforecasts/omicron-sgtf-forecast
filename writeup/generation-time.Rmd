@@ -133,7 +133,6 @@ sgtf_by_age_posterior <- sgtf_by_age$posterior[
   variant_relationship == "correlated"
 ][date <= date_forecast_start]
 
-
 # load growth estimates
 region_by_age_growth <- load_growth(
   age_date, min_date = date_gt_start, max_date = date_forecast_start,
@@ -215,7 +214,7 @@ The growth rate estimation model was implemented using the [`forecast.vocs` R pa
 ```{r data, fig.cap = "Daily cases in England and by UKHSA region, with S-gene target result (failed, confirmed detected, or unknown), and centred 7-day moving average starting from the 23rd of November 2021 and including data up to the 23rd of December 2021 (dotted line). Source: UKHSA and coronavirus.gov.uk; data by specimen date."}
 plot_daily_cases(
   daily, truncate_date = date_forecast_start, caption = "",
-  start_date = date_data_start, smooth_total = TRUE
+  start_date = date_data_start, smooth_total = FALSE
 ) +
   facet_wrap(~ region, scales = "free")
 ```
@@ -234,7 +233,7 @@ plot_daily_cases(
   truncate_date = date_forecast_start, caption = "",
   start_date = date_data_start, smooth_total = FALSE
 ) +
-  facet_grid(age_group ~ region)
+  facet_grid(age_group ~ region, scales = "free_y")
 ```
 
 ### Growth rate of reported cases overall, with the Omicron variant, and not with the Omicron variant
@@ -258,7 +257,7 @@ plot_growth(sgtf_by_age_posterior[!(region %in% "England")]) +
 
 #### Omicron versus Delta
 
-```{r plot-o-vs-d-growth, fig.cap = "Estimates of the time-varying daily growth rate for each UKHSA region for cases with the Omicron variant, and non-Omicron cases. Point size has been used to represent the uncertainty of each estimate (though it does not correspond to a meaningful credible interval). The dashed grey line indicates the expected relationship between variants if they differ only by a fixed transmission advantage. The solid grey line indicates the observed overall linear relationship between variants, and the slope of this line approximates the ratio between generation time means. The region specific lines show how this relationship differs between regions."}
+```{r plot-o-vs-d-growth, fig.cap = "Estimates of the time-varying daily growth rate for each UKHSA region for cases with the Omicron variant, and non-Omicron cases. Point size has been used to represent the uncertainty of each estimate with smaller points being more uncertain. The dashed grey line indicates the expected relationship between variants if they differ only by a fixed transmission advantage. The solid grey line indicates the observed overall linear relationship between variants, and the slope of this line approximates the ratio between generation time means. The region specific lines show how this relationship differs between regions."}
 piv_growth <- region_growth %>%
   pivot_wider(id_cols = c("region", "date"),
               names_from = "type", values_from = c("mean", "sd"))
@@ -266,7 +265,7 @@ min_nomicron <- mean(piv_growth[["mean_Omicron"]]) -
   mean(piv_growth[["mean_non-Omicron"]])
 
 ggplot(piv_growth) +
-  aes(y = mean_Omicron, x = .data[["mean_non-Omicron"]], size = sd_Omicron,
+  aes(y = mean_Omicron, x = .data[["mean_non-Omicron"]], size = 1 / sd_Omicron,
       col = region
   ) +
   scale_color_brewer(palette = "Paired") +
@@ -284,14 +283,67 @@ ggplot(piv_growth) +
        col = "UKHSA region")
 ```
 
+```{r plot-o-vs-d-growth-age, fig.cap = "Estimates of the time-varying daily growth rate for each 15-year age group for cases with the Omicron variant, and non-Omicron cases. Point size has been used to represent the uncertainty of each estimate with smaller points being more uncertain. The dashed grey line indicates the expected relationship between variants if they differ only by a fixed transmission advantage. The solid grey line indicates the observed overall linear relationship between variants, and the slope of this line approximates the ratio between generation time means. The region specific lines show how this relationship differs between regions."}
+piv_growth <- region_by_age_growth %>%
+  filter(region %in% "England") %>%
+  pivot_wider(id_cols = c("age_group", "date"),
+              names_from = "type", values_from = c("mean", "sd"))
+min_nomicron <- mean(piv_growth[["mean_Omicron"]]) -
+  mean(piv_growth[["mean_non-Omicron"]])
+
+ggplot(piv_growth) +
+  aes(y = mean_Omicron, x = .data[["mean_non-Omicron"]], size = 1 / sd_Omicron,
+      col = age_group
+  ) +
+  scale_color_brewer(palette = "Paired") +
+  geom_abline(slope = 1, intercept = min_nomicron, col = "#777575",
+              linetype = 2, size = 1.5) +
+  geom_smooth(method = "lm", formula = y ~ x,
+              se = FALSE, alpha = 0.2) +
+  geom_smooth(col = "#777575", method = "lm", formula = y ~ x,
+              se = FALSE, size = 1.5, alpha = 0.3, linetype = 1) +
+  geom_point(alpha = 0.3) +
+  scale_size(guide = "none") +
+  theme_bw() +
+  theme(legend.position = "bottom") +
+  labs(x = "Delta daily growth rate", y = "Omicron daily growth rate",
+       col = "Age group")
+```
+
+```{r plot-o-vs-d-growt-age-region, fig.cap = "Estimates of the time-varying daily growth rate for each UKHSA region and 15 year age group for cases with the Omicron variant, and non-Omicron cases. Point size has been used to represent the uncertainty of each estimate with smaller points being more uncertain. The dashed grey line indicates the expected relationship between variants if they differ only by a fixed transmission advantage. The solid grey line indicates the observed overall linear relationship between variants, and the slope of this line approximates the ratio between generation time means. The region specific lines show how this relationship differs between regions."}
+piv_growth <- region_by_age_growth %>%
+  filter(!(region %in% "England")) %>%
+  pivot_wider(id_cols = c("region", "age_group", "date"),
+              names_from = "type", values_from = c("mean", "sd"))
+min_nomicron <- mean(piv_growth[["mean_Omicron"]]) -
+  mean(piv_growth[["mean_non-Omicron"]])
+
+ggplot(piv_growth) +
+  aes(y = mean_Omicron, x = .data[["mean_non-Omicron"]], size = 1 / sd_Omicron,
+      col = region, shape = age_group
+  ) +
+  scale_color_brewer(palette = "Paired") +
+  geom_abline(slope = 1, intercept = min_nomicron, col = "#777575",
+              linetype = 2, size = 1.5) +
+  geom_smooth(col = "#777575", method = "lm", formula = y ~ x,
+              se = FALSE, size = 1.5, alpha = 0.3, linetype = 1) +
+  geom_point(alpha = 0.3) +
+  scale_size(guide = "none") +
+  theme_bw() +
+  theme(legend.position = "bottom") +
+  labs(x = "Delta daily growth rate", y = "Omicron daily growth rate",
+       col = "UKHSA region", shape = "Age group")
+```
+
 ### Generation time and transmission advantage estimates
 
 ```{r}
-posterior_summary %>%
+clean_summary <- posterior_summary %>%
   select(-rhat, -ess_bulk, -ess_tail) %>%
   filter(
     variable %in% c("gt_mean", "gt_sd", "ta", "voc_gt_mean", "voc_gt_sd")
   ) %>%
+  mutate(across(where(is.numeric), ~ ifelse(variable %in% "ta", exp(.), .))) %>%
   mutate(across(where(is.numeric), round, digits = 1)) %>%
   mutate(variant = case_when(variable %in% c("gt_mean", "gt_sd") ~ "Delta",
                              TRUE ~ "Omicron")) %>%
@@ -308,7 +360,34 @@ posterior_summary %>%
   ) %>%
   janitor::clean_names(case = "sentence") %>%
   mutate(across(where(is.character), as.factor)) %>%
-  rename(SD = Sd, MAD = Mad) %>%
+  rename(SD = Sd, MAD = Mad)
+```
+
+```{r, fig.width = 6, fig.height = 4}
+clean_summary %>%
+  ggplot() +
+  aes(x = `Data stratification`, y = Median, ymin = Q5, ymax = Q95,
+      col = Variant) +
+  geom_point(size = 2, position = position_dodge(width = 0.4)) +
+  geom_linerange(size = 2, position = position_dodge(width = 0.4),
+                 alpha = 0.8) +
+  coord_flip() +
+  facet_grid(`Generation time prior` ~ Variable, scales = "free_x") +
+  theme_bw() +
+  theme(legend.position = "bottom") +
+  scale_color_brewer(palette = "Paired") +
+  labs(y = "")
+```
+
+```{r}
+posterior_samples %>%
+  select(stratification, gt_type, gt_mean, gt_sd, voc_gt_mean, voc_gt_sd) %>%
+  filter(.draw < (100 / max(.chain)))
+
+```
+
+```{r}
+clean_summary %>%
   kable(caption = "Posterior estimates for generation time and transmission
    advantage by choice of generation time prior")
 ```
