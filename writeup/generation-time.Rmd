@@ -150,20 +150,20 @@ $$R = \left(1 + \bar{G}kr  \right)^{\frac{1}{k}}$$
 
 Where $R$ is the effective reproduction number, $\bar{G}$ is the mean of the gamma distributed generation time, $r$ is the daily growth rate, and $k$ is the squared coefficient of variation which can be reparametrised as $\frac{\bar{G}^2_\mathrm{SD}}{\bar{G}^2}$ where $\bar{G}_\mathrm{SD}$ is the standard deviation of the gamma distribution.
 
-Using this approximation we first estimate the effective reproduction number ($R^\mathrm{D}$) of the Delta variant across locations ($l$) and times ($t$, in days) using estimates of the daily growth rates ($r^\mathrm{D}$), and a gamma distributed generation time. Under an assumption of homogeneous mixing we can then relate the effective reproduction number of Delta to the effective reproduction number of Omicron ($R^\mathrm{O}$) by assuming a transmission advantage ($\alpha$) which corresponds to a combination of any intrinsic transmission advantage as well as population based advantages (such as advantage gained from immune escape). Finally, we can then reverse the gamma approximation framework to estimate the daily growth rates for Omicron ($r^\mathrm{O}$) and compare these to those estimated directly in the previous modelling step.
+Using this approximation we first estimate the effective reproduction number ($R^\mathrm{D}$) of the Delta variant across locations ($l$) and times ($t$, in days) using estimates of the daily growth rates ($r^\mathrm{D}$), and a gamma distributed generation time. Under an assumption of homogeneous mixing we can then relate the effective reproduction number of Delta to the effective reproduction number of Omicron ($R^\mathrm{O}$) by assuming a location specific transmission advantage ($\alpha_l$) which corresponds to a combination of any intrinsic transmission advantage as well as population based advantages (such as advantage gained from immune escape). Finally, we can then reverse the gamma approximation framework to estimate the daily growth rates for Omicron ($r^\mathrm{O}$) and compare these to those estimated directly in the previous modelling step.
 
 Our model is described by the following set of equations:
 
 \begin{align}
  r^\mathrm{D}_{lt} &\sim  \text{Normal}\left(\bar{r}^\mathrm{D}_{lt}, \tau_{lt}^\mathrm{D} \right) \\
  R^\mathrm{D}_{lt} &= \left(1 + \bar{G}^\mathrm{D}  k^\mathrm{D} r^\mathrm{D}_{lt}  \right)^{\frac{1}{k^\mathrm{D}}} \\
- R^\mathrm{O}_{lt} &= \alpha R^\mathrm{D}_{lt} \\
+ R^\mathrm{O}_{lt} &= \alpha_l R^\mathrm{D}_{lt} \\
  r^\mathrm{O}_{lt} &= \frac{(R^\mathrm{O}_{lt})^{k^\mathrm{O}} - 1}{k^\mathrm{O} \bar{G}^\mathrm{O}} \\
  \sigma^\mathrm{O}_{lt} &= \sqrt{\sigma^2 + (\tau_{lt}^\mathrm{O})^2} \\
  \bar{r}^\mathrm{O}_{lt} &\sim \text{Normal}\left(r^\mathrm{O}_{lt},\sigma^\mathrm{O}_{lt} \right) \\
 \end{align}
 
-Here, superscripts D and O denote Delta and Omicron, respectively, $r$ is the growth rate, $\bar{r}$ is the mean estimated growth rate from the previous modelling step, $\tau$ its standard deviation and $R$ the effective reproduction number. We assume that generation time posteriors from the previous step are distributed according to independent normal distribtions and include an additional observation error ($\sigma$) to account for the approximate nature of the relationship between variant growth rates. The relationship between generation time estimates for Omicron and Delta is then modelled as follows,
+Here, superscripts D and O denote Delta and Omicron, respectively, $r$ is the growth rate, $\bar{r}$ is the mean estimated growth rate from the previous modelling step, $\tau$ its standard deviation and $R$ the effective reproduction number. We assume that generation time posteriors from the previous step are distributed according to independent normal distributions and include an additional observation error ($\sigma$) to account for the approximate nature of the relationship between variant growth rates. The relationship between generation time estimates for Omicron and Delta is then modelled as follows,
 
 \begin{align}
   \bar{G}^\mathrm{D} &\sim \text{Normal}\left(3.2, 0.46 \right) \\
@@ -172,7 +172,19 @@ Here, superscripts D and O denote Delta and Omicron, respectively, $r$ is the gr
   \frac{\bar{G}_\mathrm{SD}^\mathrm{O}}{\bar{G}_\mathrm{SD}^\mathrm{D}} &\sim \text{LogNormal}\left(0, 1 \right) \\
 \end{align}
 
-The generation priors used here are motivated by the household estimates derived in Hart et al [@hart2021] for the UK  using a normal approximation. As a sensitivity analysis, we also explore their alternative intrinsic estimates which had a mean of 4.6 days (standard deviation (SD): 0.36 days) and a standard deviation of 3.1 days (SD: 0.18) days, again using a normal approximation. Finally we assume that the standard deviation of the reporting delay has a normal prior truncated at zero with a mean of zero and a standard deviation of 0.1.
+The generation priors used here are motivated by the household estimates derived in Hart et al [@hart2021] for the UK  using a normal approximation. As a sensitivity analysis, we also explore their alternative intrinsic estimates which had a mean of 4.6 days (standard deviation (SD): 0.36 days) and a standard deviation of 3.1 days (SD: 0.18) days, again using a normal approximation. We model the location specific transmission advantage ($\alpha_l$) using a random effect with all locations having a joint mean ($\alpha$) and standard deviation ($alpha_\mathrm{SD}$) as follows,
+
+\begin{align}
+  \alpha_l &\sim \text{LogNormal}\left(\alpha, alpha_\mathrm{SD} \right) \\
+  \alpha &\sim \text{Normal} \left(0, 1 \right) \\
+  alpha_\mathrm{SD} &\sim \text{Normal} \left(0, 0.1 \right) \\
+\end{align}
+
+Finally, we assume that the standard deviation of the reporting delay has a normal prior truncated at zero with a mean of zero and a standard deviation of 0.1.
+
+\begin{align}
+  \sigma &\sim \text{Normal} \left(0, 1 \right) \\
+\end{align}
 
 ```{r load-generation-time-estimates}
 posterior_summary <- fread(
@@ -218,7 +230,7 @@ plot_daily_cases(
 
 ```{r data-by-age-regions, fig.cap = "Daily cases in England and by UKHSA region, with S-gene target result (failed, confirmed detected, or unknown), and centred 7-day moving average starting from the 23rd of November 2021 and including data up to the 23rd of December 2021 (dotted line). Source: UKHSA and coronavirus.gov.uk; data by specimen date."}
 plot_daily_cases(
-  daily_age[!(region %in% "England")],
+  filter(daily_age, !(region %in% "England")),
   truncate_date = date_forecast_start, caption = "",
   start_date = date_data_start, smooth_total = FALSE
 ) +

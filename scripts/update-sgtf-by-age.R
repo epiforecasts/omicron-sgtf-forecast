@@ -11,7 +11,7 @@ library(here)
 
 # Load pillars data
 english_pillars <- readRDS(
-  here("data", "private", "english_pillars.rds")
+  here("data", "public", "english_pillars.rds")
 ) %>%
   as_tibble()
 
@@ -45,6 +45,6 @@ sgtf_by_region_and_age <- sgtf_by_region_and_age %>%
   filter(pillar == 2)
 
 # Save as csv
-write_csv(sgtf_by_region_and_age, 
+write_csv(sgtf_by_region_and_age,
           here("data", "private", "sgtf-by-region-and-age.csv")
 )

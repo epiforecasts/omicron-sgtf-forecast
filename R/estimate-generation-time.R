@@ -37,28 +37,44 @@ gt_prior <- function(type = "household", source = "hart2021") {
   return(gt)
 }
 
-gt_dt <- function(growth, by = c(),
-                  gt = gt_prior(type = "intrinsic", source = "hart2021"), 
-                  debug = FALSE) {
-  if (length(by) > 0) {
-    form <- as.formula(
-      paste0(
-        paste(by, collapse = " + ", sep = " + "),
-        "+ date ~ type"
+gt_process_by_group <- function(growth, var = "mean", by = c()) {
+    if (length(by) > 0) {
+      form <- as.formula(
+        paste0(
+          paste(by, collapse = " + ", sep = " + "),
+          "+ date ~ type"
+        )
       )
+    }else{
+      form <- as.formula("date ~ type")
+    }
+    growth_wide <- data.table::dcast(
+      growth, form, value.var = var
     )
-  }else{
-    form <- as.formula("date ~ type")
-  }
-  growth_sd_wide <- data.table::dcast(
-    growth, form, value.var = "sd"
-  )
-  growth_sd_wide <- growth_sd_wide[!is.na(Omicron)]
+    growth_wide <- growth_wide[!is.na(Omicron)]
+    return(growth_wide)
+}
 
-  growth_mean_wide <- data.table::dcast(
-    growth, form, value.var = "mean"
-  )
-  growth_mean_wide <- growth_mean_wide[!is.na(Omicron)]
+gt_locations <- function(growth, by = c()) {
+  growth <- unique(growth[, c("date", ..by)])
+  if (length(by) == 0 ) {
+    locs <- growth[, loc := 1]
+  } else {
+    ulocs <- unique(growth[, ..by])
+    ulocs[, loc := 1:.N]
+    locs <- merge(growth, ulocs, by = by)
+  }
+  return(locs)
+}
+
+
+gt_dt <- function(growth, by = c(),
+                  gt = gt_prior(type = "intrinsic", source = "hart2021"),
+                  debug = FALSE) {
+  growth_sd_wide <- gt_process_by_group(growth, var = "sd", by = by)
+  growth_mean_wide <- gt_process_by_group(growth, var = "mean", by = by)
+
+  locations <- gt_locations(growth, by = by)
 
   # Data for stan
   stan_dt <- list(
@@ -71,6 +87,8 @@ gt_dt <- function(growth, by = c(),
     gt_mean_sd = gt$mean_sd,
     gt_sd_mean = gt$sd_mean,
     gt_sd_sd = gt$sd_sd,
+    loc = locations$loc,
+    l = length(unique(locations$loc)),
     debug = as.numeric(debug)
   )
   return(stan_dt)
@@ -78,6 +96,7 @@ gt_dt <- function(growth, by = c(),
 
 gt_inits <- function(data) {
   function() {
+    st_dt <- data
     data <- list(
       nvoc_r = purrr::map2(
         data$nvoc_r_mean, data$nvoc_r_sd, ~ rnorm(1, .x, .y * 0.1)
@@ -87,8 +106,10 @@ gt_inits <- function(data) {
       voc_gt_mean_mod = rnorm(1, 1, 0.01),
       voc_gt_sd_mod = rnorm(1, 1, 0.01),
       sigma = rnorm(1, 0.1, 0.01),
-      ta = rnorm(1, 1, 0.1)
+      ta = rnorm(1, 0, 0.01),
+      ta_sd = abs(rnorm(1, 0, 0.01))
     )
+    data$local_ta <- rep(data$ta, st_dt$l)
     data$voc_gt_mean <- data$gt_mean
     data$voc_gt_sd <- data$gt_sd
     return(data)
@@ -99,7 +120,7 @@ gt_draws <- function(fit,
                      vars = c("gt_mean", "gt_sd",
                               "voc_gt_mean_mod", "voc_gt_sd_mod",
                               "voc_gt_mean", "voc_gt_sd", "ta",
-                              "sigma"), ...) {
+                              "ta_sd", "local_ta", "sigma"), ...) {
   draws <- fit$draws(variables = vars, format = "df", ...)
   draws <- data.table::as.data.table(draws)
   return(draws[])
@@ -109,7 +130,8 @@ gt_summarise_posterior <- function(fit,
                                    vars = c("gt_mean", "gt_sd",
                                             "voc_gt_mean_mod", "voc_gt_sd_mod",
                                             "voc_gt_mean", "voc_gt_sd", "ta",
-                                            "sigma"), ...) {
+                                            "ta_sd", "local_ta", "sigma"),
+                                   ...) {
   posterior <- fit$summary(variables = vars, ...)
   posterior <- data.table::as.data.table(posterior)
   return(posterior[])
@@ -135,6 +157,9 @@ gt_estimate <- function(growth, model, by = c(), gt, debug = FALSE, ...) {
   # Data for stan
   stan_dt <- gt_dt(growth, by = by, gt = gt)
 
+  # locations
+  locs <- gt_locations(growth, by = by)
+
   # Set initial conditions based on priors
   # Fit model (initially a little stroppy)
   fit <- model$sample(
@@ -152,6 +177,7 @@ gt_estimate <- function(growth, model, by = c(), gt, debug = FALSE, ...) {
 
   out <- data.table::data.table(
     gt_dt = list(stan_dt),
+    locations = list(locs),
     fit = list(fit),
     samples = list(samples),
     summary = list(summary),

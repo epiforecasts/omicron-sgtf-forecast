@@ -12,6 +12,8 @@ data {
   real gt_mean_sd;
   real gt_sd_mean;
   real gt_sd_sd;
+  int l;
+  int loc[t];
   int debug;
 }
 
@@ -21,7 +23,9 @@ parameters {
   vector[t] nvoc_r;
   real<lower = 0, upper = 5> voc_gt_mean_mod;
   real<lower = 0, upper = 5> voc_gt_sd_mod;
-  real<lower = 0> ta;
+  real ta;
+  real<lower = 0> ta_sd;
+  vector<offset = ta, multiplier = ta_sd>[l] local_ta;
   real<lower = 0> sigma;
 }
 
@@ -35,8 +39,12 @@ transformed parameters {
    voc_gt_sd = gt_sd * voc_gt_sd_mod;
   {
     vector[t] nvoc_R;
+    vector[t] rel_ta;
     nvoc_R = growth_to_R(nvoc_r, gt_mean, gt_sd);
-    approx_voc_r = R_to_growth(ta * nvoc_R, voc_gt_mean, voc_gt_sd);
+    for (i in 1:t) {
+      rel_ta[i] = local_ta[loc[i]];
+    }
+    approx_voc_r = R_to_growth(exp(rel_ta) .* nvoc_R, voc_gt_mean, voc_gt_sd);
   }
   combined_sigma = sqrt(square(sigma) + voc_sd2);
   if (debug) {
@@ -65,7 +73,9 @@ model {
   voc_gt_mean_mod ~ lognormal(0, 1);
   voc_gt_sd_mod ~ lognormal(0, 1);
 
-  ta ~ lognormal(0, 1);
+  ta ~ normal(0, 1);
+  ta_sd ~ normal(0, 0.1) T[0,];
+  local_ta ~ normal(ta, ta_sd);
 
   sigma ~ normal(0, 0.01) T[0,];
   voc_r ~ normal(approx_voc_r, combined_sigma);

@@ -54,30 +54,29 @@ estimates <- purrr::map(
   split(grid, by = "id"),
   ~ gt_estimate(
       growth = .$growth[[1]], by = .$by[[1]], gt = .$gt_prior[[1]],
-      model = model, adapt_delta = 0.95
+      model = model, adapt_delta = 0.95, max_treedepth = 15
     )
 )
 estimates <- rbindlist(estimates)
 estimates <- cbind(grid, estimates)
 
+# extract and add vars
+unnest_estimates <- function(estimates, target = "pp") {
+  estimates[,
+  (target) := pmap(
+    list(get(target), stratification, gt_type),
+    function(x, y, z) {
+        x[, `:=`(stratification = y, gt_type = z)]
+      }
+    )
+  ][, rbindlist(get(target), fill = TRUE)]
+}
 # Extract and combine summaries
-posterior_summary <- estimates[,
- rbindlist(summary), by = c("stratification", "gt_type")
-]
+posterior_summary <- unnest_estimates(estimates, target = "summary")
 
-posterior_samples <- estimates[,
- rbindlist(samples), by = c("stratification", "gt_type")
-]
+posterior_samples <- unnest_estimates(estimates, target = "samples")
 
-posterior_predictions <- estimates[,
- pp := pmap(
-   list(pp, stratification, gt_type),
-   function(x, y, z) {
-      x[, `:=`(stratification = y, gt_type = z)]
-    }
-  )
-][, rbindlist(pp, fill = TRUE)]
-
+posterior_predictions <- unnest_estimates(estimates, target = "pp")
 
 # Save results
 fwrite(
