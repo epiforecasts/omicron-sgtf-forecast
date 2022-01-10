@@ -293,7 +293,6 @@ posterior_summary %>%
     TRUE ~ "Generation time standard deviation"
     )
   ) %>%
-  select(-data_stratification) %>%
   janitor::clean_names(case = "sentence") %>%
   mutate(across(where(is.character), as.factor)) %>%
   rename(SD = Sd, MAD = Mad) %>%
@@ -303,7 +302,21 @@ posterior_summary %>%
 
 ### Posterior predictions
 
-```{r, fig.cap = "Estimates of the time-varying daily growth rate for each UKHSA region for cases with the Omicron variant compared to posterior predictions using Delta growth rates and differing generation times. Delta growth rates are assumed to be piecewise constant with potential changes every 3 days. 90% and 60% credible intervals are shown."}
+```{r pp-region, fig.cap = "Estimates of the time-varying daily growth rate for each UKHSA region for cases with the Omicron variant compared to posterior predictions using Delta growth rates and differing generation times. Delta growth rates are assumed to be piecewise constant with potential changes every 3 days. 90% and 60% credible intervals are shown."}
+posterior_predictions %>%
+  filter(stratification == "region", gt_type == "household") %>%
+  gt_plot_pp() +
+  facet_wrap(~region)
+```
+
+```{r pp-age, fig.cap = "Estimates of the time-varying daily growth rate for each UKHSA region for cases with the Omicron variant compared to posterior predictions using Delta growth rates and differing generation times. Delta growth rates are assumed to be piecewise constant with potential changes every 3 days. 90% and 60% credible intervals are shown."}
+posterior_predictions %>%
+  filter(stratification == "age", gt_type == "household") %>%
+  gt_plot_pp() +
+  facet_wrap(~age_group)
+```
+
+```{r pp-age-region, fig.cap = "Estimates of the time-varying daily growth rate for each UKHSA region for cases with the Omicron variant compared to posterior predictions using Delta growth rates and differing generation times. Delta growth rates are assumed to be piecewise constant with potential changes every 3 days. 90% and 60% credible intervals are shown."}
 posterior_predictions %>%
   filter(stratification == "region", gt_type == "household") %>%
   gt_plot_pp() +

@@ -3,21 +3,22 @@ library(tidyr)
 library(scales)
 
 plot_daily_cases <- function(raw, caption,
-                             truncate_date, start_date, smooth_total = TRUE) {
+                             truncate_date, start_date, smooth_total = TRUE,
+                             by = "region") {
 
   if (smooth_total) {
     smooth <- raw %>%
       filter(date < as.Date(truncate_date)) %>%
       filter(!is.na(total_cases)) %>%
       arrange(date) %>%
-      group_by(region) %>%
+      group_by(.data[[by]]) %>%
       mutate(total_cases_smooth = zoo::rollmean(total_cases, k = 7,
                                          align = "center", fill = NA)) %>%
       ungroup() %>%
-      select(date, region, total_cases_smooth)
+      select(date, {{ by }}, total_cases_smooth)
     raw <- raw %>%
       select(-total_cases) %>%
-      left_join(smooth, by = c("date", "region")) %>%
+      left_join(smooth, by = c("date", by)) %>%
       mutate(total_cases = total_cases_smooth)
   }
 
@@ -38,6 +39,5 @@ plot_daily_cases <- function(raw, caption,
     scale_fill_manual(values = sgtf_fills) +
     scale_y_continuous(labels = scales::comma) +
     theme_bw() +
-    theme(legend.position = "bottom") +
-    facet_wrap(~ region, scales = "free")
+    theme(legend.position = "bottom")
 }
