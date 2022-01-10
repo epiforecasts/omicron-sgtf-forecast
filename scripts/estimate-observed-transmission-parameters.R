@@ -20,16 +20,17 @@ region_growth <- load_growth(
 )
 region_growth <- region_growth[!(region %in% "England")]
 
-age_region_growth <- load_results(
-  as.Date("2021-12-23"), type = "sgtf-by-age")
+age_region_growth <- load_growth(
+  as.Date("2021-12-23"), type = "sgtf-by-age",
   min_date = "2021-12-01", max_date = "2021-12-23"
 )
 
-
 growth <- data.table(
-  stratification = "region",
-  growth = list(region_growth),
-  by = c(list("region"))
+  stratification = c("region", "age", "age and region"),
+  growth = list(
+    region_growth, age_region_growth[region %in% "England"], age_region_growth
+  ),
+  by = c(list("region"), list("age_group"), list(c("age_group", "region")))
 )
 
 # Set up estimation grid
