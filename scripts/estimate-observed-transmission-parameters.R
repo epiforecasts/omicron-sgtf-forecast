@@ -28,7 +28,8 @@ age_region_growth <- load_growth(
 growth <- data.table(
   stratification = c("region", "age", "age and region"),
   growth = list(
-    region_growth, age_region_growth[region %in% "England"], age_region_growth
+    region_growth, age_region_growth[region %in% "England"],
+    age_region_growth[!(region %in% "England")]
   ),
   by = c(list("region"), list("age_group"), list(c("age_group", "region")))
 )
