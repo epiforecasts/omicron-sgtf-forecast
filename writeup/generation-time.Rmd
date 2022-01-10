@@ -174,9 +174,9 @@ Here, superscripts D and O denote Delta and Omicron, respectively, $r$ is the gr
 The generation priors used here are motivated by the household estimates derived in Hart et al [@hart2021] for the UK  using a normal approximation. As a sensitivity analysis, we also explore their alternative intrinsic estimates which had a mean of 4.6 days (standard deviation (SD): 0.36 days) and a standard deviation of 3.1 days (SD: 0.18) days, again using a normal approximation. We model the location specific transmission advantage ($\alpha_l$) using a random effect with all locations having a joint mean ($\alpha$) and standard deviation ($alpha_\mathrm{SD}$) as follows,
 
 \begin{align}
-  \alpha_l &\sim \text{LogNormal}\left(\alpha, alpha_\mathrm{SD} \right) \\
+  \alpha_l &\sim \text{LogNormal}\left(\alpha, \alpha_\mathrm{SD} \right) \\
   \alpha &\sim \text{Normal} \left(0, 1 \right) \\
-  alpha_\mathrm{SD} &\sim \text{Normal} \left(0, 0.1 \right) \\
+  \alpha_\mathrm{SD} &\sim \text{Normal} \left(0, 0.1 \right) \\
 \end{align}
 
 Finally, we assume that the standard deviation of the reporting delay has a normal prior truncated at zero with a mean of zero and a standard deviation of 0.1.
@@ -322,11 +322,12 @@ ggplot(piv_growth) +
   aes(y = mean_Omicron, x = .data[["mean_non-Omicron"]], size = 1 / sd_Omicron,
       col = region, shape = age_group
   ) +
-  scale_color_brewer(palette = "Paired") +
+  scale_color_brewer(palette = "Dark2") +
   geom_abline(slope = 1, intercept = min_nomicron, col = "#777575",
               linetype = 2, size = 1.5) +
   geom_smooth(col = "#777575", method = "lm", formula = y ~ x,
-              se = FALSE, size = 1.5, alpha = 0.3, linetype = 1) +
+              se = FALSE, size = 1.5, alpha = 0.3, linetype = 1,
+              aes(shape = NA)) +
   geom_point(alpha = 0.3) +
   scale_size(guide = "none") +
   theme_bw() +
@@ -337,14 +338,48 @@ ggplot(piv_growth) +
 
 ### Generation time and transmission advantage estimates
 
+```{r, fig.height = 6, fig.width = 12}
+posterior_samples %>%
+  filter(.draw < (100 / max(.chain))) %>%
+  select(stratification, gt_type, gt_mean, gt_sd, voc_gt_mean, voc_gt_sd) %>%
+  group_by(stratification, gt_type) %>%
+  mutate(sample = 1:n()) %>%
+  pivot_longer(gt_mean:voc_gt_sd, names_to = c("variant", ".value"),
+               names_pattern = "(.+)_(.+)") %>%
+  mutate(variant = ifelse(variant %in% "voc_gt", "Omicron", "Delta")) %>%
+  mutate(
+    pmf = purrr::map2(
+      mean, sd,
+      ~ tibble(x = 1:30,
+      prob = pgamma(1:30, (.x / .y)^2, .x / .y^2) -
+        pgamma(0:29, (.x / .y)^2, .x / .y^2))
+    )
+  ) %>%
+  unnest(pmf) %>%
+  filter(x <= 15) %>%
+  mutate(stratification = str_to_sentence(stratification),
+         gt_type = str_to_sentence(gt_type)) %>%
+  ggplot() +
+  aes(x = x, y = prob, col = variant, group = interaction(sample, variant)) +
+  geom_line(alpha = 0.2) +
+  theme_bw() +
+  theme(legend.position = "bottom") +
+  scale_color_brewer(palette = "Dark2") +
+  labs(y = "Probability density", x = "Day") +
+  facet_grid(stratification~gt_type, scales = "free_y")
+```
+
 ```{r}
 clean_summary <- posterior_summary %>%
   select(-rhat, -ess_bulk, -ess_tail) %>%
   filter(
-    variable %in% c("gt_mean", "gt_sd", "ta", "voc_gt_mean", "voc_gt_sd")
+    variable %in% c("gt_mean", "gt_sd", "ta", "ta_sd", "voc_gt_mean",
+                    "voc_gt_sd")
   ) %>%
-  mutate(across(where(is.numeric), ~ ifelse(variable %in% "ta", exp(.), .))) %>%
-  mutate(across(where(is.numeric), round, digits = 1)) %>%
+  mutate(across(where(is.numeric), 
+                ~ ifelse(variable %in% c("ta", "ta_sd"),
+                  exp(.), .))
+  ) %>%
   mutate(variant = case_when(variable %in% c("gt_mean", "gt_sd") ~ "Delta",
                              TRUE ~ "Omicron")) %>%
   mutate(stratification = str_to_sentence(stratification),
@@ -354,6 +389,7 @@ clean_summary <- posterior_summary %>%
          everything()) %>%
   mutate(variable = case_when(
     variable %in% "ta" ~ "Transmission advantage",
+    variable %in% "ta_sd" ~ "Transmission advantage standard deviation",
     variable %in% c("gt_mean", "voc_gt_mean") ~ "Generation time mean",
     TRUE ~ "Generation time standard deviation"
     )
@@ -363,7 +399,7 @@ clean_summary <- posterior_summary %>%
   rename(SD = Sd, MAD = Mad)
 ```
 
-```{r, fig.width = 6, fig.height = 4}
+```{r, fig.width = 9, fig.height = 6}
 clean_summary %>%
   ggplot() +
   aes(x = `Data stratification`, y = Median, ymin = Q5, ymax = Q95,
@@ -380,14 +416,8 @@ clean_summary %>%
 ```
 
 ```{r}
-posterior_samples %>%
-  select(stratification, gt_type, gt_mean, gt_sd, voc_gt_mean, voc_gt_sd) %>%
-  filter(.draw < (100 / max(.chain)))
-
-```
-
-```{r}
 clean_summary %>%
+  mutate(across(where(is.numeric), round, digits = 1)) %>%
   kable(caption = "Posterior estimates for generation time and transmission
    advantage by choice of generation time prior")
 ```
