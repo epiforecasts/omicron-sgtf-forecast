@@ -65,14 +65,29 @@ posterior_summary <- estimates[,
  rbindlist(summary), by = c("stratification", "gt_type")
 ]
 
-posterior_predictions <- estimates[,
- rbindlist(pp), by = c("stratification", "gt_type")
+posterior_samples <- estimates[,
+ rbindlist(samples), by = c("stratification", "gt_type")
 ]
+
+posterior_predictions <- estimates[,
+ pp := pmap(
+   list(pp, stratification, gt_type),
+   function(x, y, z) {
+      x[, `:=`(stratification = y, gt_type = z)]
+    }
+  )
+][, rbindlist(pp, fill = TRUE)]
+
 
 # Save results
 fwrite(
   posterior_summary,
   here::here("data", "retrospective", "posterior_summary.csv")
+)
+
+fwrite(
+  posterior_samples,
+  here::here("data", "retrospective", "posterior_samples.csv")
 )
 
 fwrite(
