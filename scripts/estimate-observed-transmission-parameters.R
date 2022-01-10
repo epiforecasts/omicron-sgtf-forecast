@@ -14,11 +14,17 @@ source(here("R", "load-local-data.R"))
 source(here("R", "estimate-generation-time.R"))
 
 # Load growth estimates
-region_target_date <- get_latest_date()
+region_target_date <- as.Date("2022-01-06")
 region_growth <- load_growth(
   region_target_date, min_date = "2021-12-01", max_date = "2021-12-23"
 )
 region_growth <- region_growth[!(region %in% "England")]
+
+age_region_growth <- load_results(
+  as.Date("2021-12-23"), type = "sgtf-by-age")
+  min_date = "2021-12-01", max_date = "2021-12-23"
+)
+
 
 growth <- data.table(
   stratification = "region",

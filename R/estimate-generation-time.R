@@ -95,6 +95,16 @@ gt_inits <- function(data) {
   }
 }
 
+gt_draws <- function(fit,
+                     vars = c("gt_mean", "gt_sd",
+                              "voc_gt_mean_mod", "voc_gt_sd_mod",
+                              "voc_gt_mean", "voc_gt_sd", "ta",
+                              "sigma"), ...) {
+  draws <- fit$draws(variables = vars, format = "df", ...)
+  draws <- data.table::as.data.table(draws)
+  return(draws[])
+}
+
 gt_summarise_posterior <- function(fit,
                                    vars = c("gt_mean", "gt_sd",
                                             "voc_gt_mean_mod", "voc_gt_sd_mod",
@@ -131,6 +141,9 @@ gt_estimate <- function(growth, model, by = c(), gt, debug = FALSE, ...) {
     data = stan_dt, init = gt_inits(stan_dt), ...
   )
 
+  # samples from the posterior
+  samples <- gt_draws(fit)
+
   # summarise variables of interest
   summary <- gt_summarise_posterior(fit)
 
@@ -140,6 +153,7 @@ gt_estimate <- function(growth, model, by = c(), gt, debug = FALSE, ...) {
   out <- data.table::data.table(
     gt_dt = list(stan_dt),
     fit = list(fit),
+    samples = list(samples),
     summary = list(summary),
     pp = list(r_pp)
   )
