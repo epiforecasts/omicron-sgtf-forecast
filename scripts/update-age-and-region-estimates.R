@@ -44,9 +44,6 @@ daily_regional <- read_csv(
 # Load settings
 sgtf_parameters <- load_sgft_age_parameters()
 
-daily_regional <- daily_regional %>%
-  filter(region %in% "England")
-
 ##############################
 # Estimate Omicron using SGTF by region
 ##############################
