@@ -66,7 +66,7 @@ transformed parameters {
 }
 
 model {
-  gt_mean ~ normal(gt_mean_mean, gt_mean_sd);
+  gt_mean ~ normal(gt_mean_mean, gt_mean_sd) T[0,];
   gt_sd ~ normal(gt_sd_mean, gt_sd_sd) T[0,];
 
   nvoc_r ~ normal(nvoc_r_mean, nvoc_r_sd);

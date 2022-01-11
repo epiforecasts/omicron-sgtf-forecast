@@ -128,7 +128,7 @@ seq_with_cases <- read_csv(
 
 ```{r load-seq-results}
 # load posterior estimates
-seq_results <- load_results(age_date, type = "sgtf-by-age")
+seq_results <- load_results(age_date, type = "seq-by-age")
 
 seq_posterior <- seq_results$posterior[
   variant_relationship == "correlated"
@@ -196,6 +196,9 @@ posterior_samples <- fread(
 posterior_predictions <- fread(
   here::here("data", "retrospective", "posterior_predictions.csv")
 )
+posterior_locations <- fread(
+  here::here("data", "retrospective", "posterior_locations.csv")
+)
 ```
 
 ### Statistical inference
@@ -249,13 +252,13 @@ plot_growth(
 
 ```{r age-growth, fig.cap = "Estimates of the time-varying daily growth rate for England by 15-year age group (using the log scale approximation) for reported cases overall, cases with the Omicron variant, and non-Omicron cases. Growth rates are assumed to be piecewise constant with potential changes every 3 days. Growth rates are assumed to be constant beyond the forecast horizon (vertical dashed line). 90% and 60% credible intervals are shown."}
 plot_growth(
-  seq_posterior[region %in% "England"][!age_group %in% "Overall"]) +
+  seq_posterior[region %in% "England"][!(age_group %in% "Overall")]) +
   facet_wrap(~ age_group)
 ```
 
 ```{r age-region-growth, fig.cap = "Estimates of the time-varying daily growth rate for England by UKHSA region and 15-year age group (using the log scale approximation) for reported cases overall, cases with the Omicron variant, and non-Omicron cases. Growth rates are assumed to be piecewise constant with potential changes every 3 days. Growth rates are assumed to be constant beyond the forecast horizon (vertical dashed line). 90% and 60% credible intervals are shown."}
 plot_growth(
-  seq_posterior[!(region %in% "England")][!age_group %in% "Overall"]
+  seq_posterior[!(region %in% "England")][!(age_group %in% "Overall")]
 ) +
   facet_grid(age_group ~ region)
 ```
@@ -264,7 +267,7 @@ plot_growth(
 
 ```{r plot-o-vs-d-growth, fig.cap = "Estimates of the time-varying daily growth rate in England by UKHSA region for cases with the Omicron variant, and non-Omicron cases. Point size has been used to represent the uncertainty of each estimate with smaller points being more uncertain. The dashed grey line indicates the expected relationship between variants if they differ only by a fixed transmission advantage. The solid grey line indicates the observed overall linear relationship between variants with the slope of this line approximating the ratio between generation time means. The region specific lines show how this relationship differs between regions."}
 piv_growth <- seq_growth %>%
-  filter(age_group %in% "Overall", !region %in% "England") %>%
+  filter(age_group %in% "Overall", !(region %in% "England")) %>%
   pivot_wider(id_cols = c("region", "date"),
               names_from = "type", values_from = c("mean", "sd"))
 min_nomicron <- mean(piv_growth[["mean_Omicron"]]) -
@@ -291,7 +294,7 @@ ggplot(piv_growth) +
 
 ```{r plot-o-vs-d-growth-age, fig.cap = "Estimates of the time-varying daily growth rate in England by 15-year age group for cases with the Omicron variant, and non-Omicron cases. Point size has been used to represent the uncertainty of each estimate with smaller points being more uncertain. The dashed grey line indicates the expected relationship between variants if they differ only by a fixed transmission advantage. The solid grey line indicates the observed overall linear relationship between variants with the slope of this line approximating the ratio between generation time means."}
 piv_growth <- seq_growth %>%
-  filter(!age_group %in% "Overall", region %in% "England") %>%
+  filter(!(age_group %in% "Overall"), region %in% "England") %>%
   pivot_wider(id_cols = c("age_group", "date"),
               names_from = "type", values_from = c("mean", "sd"))
 min_nomicron <- mean(piv_growth[["mean_Omicron"]]) -
@@ -318,7 +321,7 @@ ggplot(piv_growth) +
 
 ```{r plot-o-vs-d-growt-age-region, fig.cap = "Estimates of the time-varying daily growth rate in England by UKHSA region and 15-year age group for cases with the Omicron variant, and non-Omicron cases. Point size has been used to represent the uncertainty of each estimate with smaller points being more uncertain. The dashed grey line indicates the expected relationship between variants if they differ only by a fixed transmission advantage. The solid grey line indicates the observed overall linear relationship between variants with the slope of this line approximating the ratio between generation time means."}
 piv_growth <- seq_growth %>%
-  filter(!age_group %in% "Overall", !region %in% "England") %>%
+  filter(!(age_group %in% "Overall"), !region %in% "England") %>%
   pivot_wider(id_cols = c("region", "age_group", "date"),
               names_from = "type", values_from = c("mean", "sd"))
 min_nomicron <- mean(piv_growth[["mean_Omicron"]]) -
@@ -354,7 +357,7 @@ gt_samples <- posterior_samples %>%
                names_pattern = "(.+)_(.+)") %>%
   mutate(variant = ifelse(variant %in% "voc_gt", "Omicron", "Delta")) %>%
   mutate(stratification = str_to_sentence(stratification),
-         gt_type = str_to_sentence(gt_type)) %>%
+         gt_type = str_to_sentence(gt_type))
 
 gt_samples %>%
   mutate(
@@ -435,7 +438,7 @@ clean_summary %>%
   labs(y = "")
 ```
 
-```{r}
+```{r, eval = FALSE}
 posterior_summary %>%
   filter(
     variable %in% c("ta", "local_ta")

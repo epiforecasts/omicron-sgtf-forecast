@@ -56,6 +56,7 @@ gt_process_by_group <- function(growth, var = "mean", by = c()) {
 }
 
 gt_locations <- function(growth, by = c()) {
+  growth <- gt_process_by_group(growth, var = "mean", by = by)
   growth <- unique(growth[, c("date", ..by)])
   if (length(by) == 0 ) {
     locs <- growth[, loc := 1]

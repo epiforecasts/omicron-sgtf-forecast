@@ -56,7 +56,7 @@ estimates <- purrr::map(
   split(grid, by = "id"),
   ~ gt_estimate(
       growth = .$growth[[1]], by = .$by[[1]], gt = .$gt_prior[[1]],
-      model = model, adapt_delta = 0.95, max_treedepth = 15
+      model = model, adapt_delta = 0.99, max_treedepth = 15
     )
 )
 estimates <- rbindlist(estimates)
@@ -80,6 +80,9 @@ posterior_samples <- unnest_estimates(estimates, target = "samples")
 
 posterior_predictions <- unnest_estimates(estimates, target = "pp")
 
+posterior_locations <- unnest_estimates(estimates, target = "locations")
+posterior_locations <- unique(posterior_locations[, date := NULL])
+
 # Save results
 fwrite(
   posterior_summary,
@@ -94,4 +97,9 @@ fwrite(
 fwrite(
   posterior_predictions,
   here::here("data", "retrospective", "posterior_predictions.csv")
+)
+
+fwrite(
+  posterior_locations,
+  here::here("data", "retrospective", "posterior_locations.csv")
 )
