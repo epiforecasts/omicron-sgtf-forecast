@@ -28,6 +28,16 @@ ep_omi <- ep_raw %>%
   pivot_wider(names_from = "omicron", values_from = "n") %>%
   replace_na(list(confirmed = 0, probable = 0, possible = 0))
 
+
+ ep_omi_clean <- ep_raw %>%
+  filter(!is.na(onsetdate), pillar == "Pillar 2") %>%
+  filter(is.na(case_def) | grepl("confirmed", case_def, ignore.case = TRUE)) %>%
+  mutate(omicron = if_else(is.na(case_def), "non-omicron", "confirmed")) %>%
+  filter((is.na(overall_travel) | !(overall_travel == "Yes"))) %>%
+  count(nhser_name, date_specimen, omicron) %>%
+  pivot_wider(names_from = "omicron", values_from = "n") %>%
+  replace_na(list(confirmed = 0, probable = 0, possible = 0))
+
 # Load pillars data
 english_pillars <- readRDS(
   here("data", "private", "english_pillars.rds")
