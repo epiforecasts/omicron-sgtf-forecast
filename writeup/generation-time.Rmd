@@ -122,7 +122,6 @@ age_date <- as.Date("2021-12-23")
 daily_age <- read_csv(
     here("data", "public", "sgtf-by-region-and-age.csv")
   ) %>%
-  summarise_by_15_year_age_group() %>%
   filter(date >= date_data_start) %>%
   filter(date <= date_forecast_start)
 
