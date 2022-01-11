@@ -15,21 +15,22 @@ source(here("R", "estimate-generation-time.R"))
 
 # Load growth estimates
 region_target_date <- as.Date("2022-01-06")
-region_growth <- load_growth(
-  region_target_date, min_date = "2021-12-01", max_date = "2021-12-23"
-)
-region_growth <- region_growth[!(region %in% "England")]
 
-age_region_growth <- load_growth(
-  as.Date("2021-12-23"), type = "sgtf-by-age",
+seq_growth <- load_growth(
+  as.Date("2021-12-23"), type = "seq-by-age",
   min_date = "2021-12-01", max_date = "2021-12-23"
 )
+region_growth <- seq_growth[age_group %in% "Overall"]
+region_growth <- region_growth[!(region %in% "England")]
+age_region_growth <- seq_growth[!(age_group %in% "Overall")]
+age_region_growth <- age_region_growth[!(region %in% "England")]
+age_growth <- seq_growth[region %in% "England"]
+age_growth <- age_growth[!(age_group %in% "Overall")]
 
 growth <- data.table(
   stratification = c("region", "age", "age and region"),
   growth = list(
-    region_growth, age_region_growth[region %in% "England"],
-    age_region_growth[!(region %in% "England")]
+    region_growth, age_growth, age_region_growth
   ),
   by = c(list("region"), list("age_group"), list(c("age_group", "region")))
 )
