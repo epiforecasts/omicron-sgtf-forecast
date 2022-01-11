@@ -35,7 +35,7 @@ target_date <- as.Date("2021-12-23")
 
 # Load data for the target date
 daily_regional <- read_csv(
-    here("data", "private", "sgtf-by-region-and-age.csv")
+    here("data", "public", "sgtf-by-region-and-age.csv")
   ) %>%
   summarise_by_15_year_age_group() %>%
   filter(date >= start_date) %>%
