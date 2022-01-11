@@ -120,13 +120,13 @@ age_date <- as.Date("2021-12-23")
 
 # load case data
 daily_age <- read_csv(
-    here("data", "public", "sgtf-by-region-and-age.csv")
+    here("data", "public", "seq-by-region-and-age.csv")
   ) %>%
-  filter(date >= date_data_start) %>%
-  filter(date <= date_forecast_start)
+  filter(date_specimen >= date_data_start) %>%
+  filter(date_specimen <= date_forecast_start)
 
 # load posterior estimates
-sgtf_by_age <- load_results(age_date, type = "sgtf-by-age")
+seq_by_age <- load_results(age_date, type = "sgtf-by-age")
 
 sgtf_by_age_posterior <- sgtf_by_age$posterior[
   variant_relationship == "correlated"
