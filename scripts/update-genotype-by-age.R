@@ -14,19 +14,48 @@ library(tidyr)
 
 ep_raw <- readRDS(here::here("data", "private", "english_pillars_raw.rds"))
 
-sgtf_all <- ep_raw %>%
-  count(date_specimen, nhser_name, sgtf_under30ct) %>%
-  mutate(sgtf_under30ct = recode(sgtf_under30ct, `1` = "sgtf", `0` = "non_sgtf")) %>%
-  pivot_wider(names_from = "sgtf_under30ct", values_from = "n") %>%
-  replace_na(list(sgtf = 0, non_sgtf = 0, `NA` = 0)) %>%
-  mutate(prop = sgtf / (non_sgtf + sgtf))
-  
+
 ep_omi <- ep_raw %>%
-  filter(is.na(case_def) | grepl("confirmed", case_def, ignore.case = TRUE)) %>%
-  mutate(omicron = if_else(is.na(case_def), "non-omicron", "confirmed")) %>%
-  count(nhser_name, date_specimen, omicron) %>%
-  pivot_wider(names_from = "omicron", values_from = "n") %>%
-  replace_na(list(confirmed = 0, probable = 0, possible = 0))
+  filter(date_specimen > as.Date("2021-11-16"), pillar %in% "Pillar 2") %>%
+  mutate(
+    variant = case_when(
+      grepl("confirmed", case_def, ignore.case = TRUE) ~ "omicron",
+      variant_alt_name == "Lineage B.1.617.2 (India)" ~ "non_omicron",
+      TRUE ~ "unknown"
+    ),
+    age_group =  cut(
+      age, c(seq(0, 75, by = 15), Inf), include.lowest = TRUE,
+      ordered_result = FALSE,
+      labels = c(paste0(seq(0, 60, by = 15), "-", seq(14, 74, by = 15)), "75+")
+      )
+  ) %>%
+  count(nhser_name, date_specimen, age_group, variant) %>%
+  pivot_wider(names_from = "variant", values_from = "n") %>%
+  mutate(across(where(is.numeric), replace_na, replace = 0)) %>%
+  mutate(total = omicron + non_omicron + unknown,
+         total_seq = omicron + non_omicron,
+         share_omicron = omicron / total_seq
+  )
+    
+all_age <- ep_omi %>%
+  group_by(nhser_name, date_specimen) %>%
+  summarise(across(where(is.numeric), sum), .groups = "drop") %>%
+  mutate(age_group = "Overall" %>% as.factor(),
+         share_omicron = omicron / non_omicron
+        )
+
+ep_combined_age <- bind_rows(ep_omi, all_age)
+
+national <- ep_combined_age %>%
+  group_by(age_group, date_specimen) %>%
+  summarise(across(where(is.numeric), sum), .groups = "drop") %>%
+  mutate(
+    nhser_name = "England",
+    share_omicron = omicron / non_omicron
+  )
+
+  ep_com <- bind_rows(national, ep_combined_age) %>%
+    mutate()
 
 
  ep_omi_clean <- ep_raw %>%
