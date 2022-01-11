@@ -1,13 +1,32 @@
-# This script requires the english_pillars.rds file to be present in
+# This script requires the english_pillars_raw.rds file to be present in
 # data/private
 # It takes this linelist and produces aggregated data by SGTF status, age and
 # region
 
 # Load packages
+library(data.table)
 library(dplyr)
-library(tidyr)
-library(readr)
 library(here)
+library(readr)
+library(lubridate)
+library(janitor)
+library(tidyr)
+
+ep_raw <- readRDS(here::here("data", "private", "english_pillars_raw.rds"))
+
+sgtf_all <- ep_raw %>%
+  count(date_specimen, nhser_name, sgtf_under30ct) %>%
+  mutate(sgtf_under30ct = recode(sgtf_under30ct, `1` = "sgtf", `0` = "non_sgtf")) %>%
+  pivot_wider(names_from = "sgtf_under30ct", values_from = "n") %>%
+  replace_na(list(sgtf = 0, non_sgtf = 0, `NA` = 0)) %>%
+  mutate(prop = sgtf / (non_sgtf + sgtf))
+  
+ep_omi <- ep_raw %>%
+  filter(is.na(case_def) | grepl("confirmed", case_def, ignore.case = TRUE)) %>%
+  mutate(omicron = if_else(is.na(case_def), "non-omicron", "confirmed")) %>%
+  count(nhser_name, date_specimen, omicron) %>%
+  pivot_wider(names_from = "omicron", values_from = "n") %>%
+  replace_na(list(confirmed = 0, probable = 0, possible = 0))
 
 # Load pillars data
 english_pillars <- readRDS(
@@ -46,5 +65,5 @@ sgtf_by_region_and_age <- sgtf_by_region_and_age %>%
 
 # Save as csv
 write_csv(sgtf_by_region_and_age,
-          here("data", "public", "sgtf-by-region-and-age.csv")
+          here("data", "private", "sgtf-by-region-and-age.csv")
 )
