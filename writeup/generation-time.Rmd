@@ -128,9 +128,9 @@ daily_age <- read_csv(
 
 ```{r load-seq-results}
 # load posterior estimates
-seq_results <- load_results(age_date, type = "seq-by-age")
+seq_results <- load_results(age_date, type = "sgtf-by-age")
 
-seq_by_age_posterior <- seq_by_age$posterior[
+seq_by_age_posterior <- seq_results$posterior[
   variant_relationship == "correlated"
 ][date <= date_forecast_start]
 
@@ -241,17 +241,19 @@ daily_age %>%
 #### Over time
 
 ```{r growth, fig.cap = "Estimates of the time-varying daily growth rate for England and by UKHSA region (using the log scale approximation) for reported cases overall, cases with the Omicron variant, and non-Omicron cases. Growth rates are assumed to be piecewise constant with potential changes every 3 days. Growth rates are assumed to be constant beyond the forecast horizon (vertical dashed line). 90% and 60% credible intervals are shown."}
-plot_growth(sgtf_posterior) +
+plot_growth(
+  seq_by_age_posterior[!region %in% "England"][age_group %in% "Overall"]
+) +
   facet_wrap(~ region)
 ```
 
 ```{r age-growth, fig.cap = "Estimates of the time-varying daily growth rate for England and by UKHSA region (using the log scale approximation) for reported cases overall, cases with the Omicron variant, and non-Omicron cases. Growth rates are assumed to be piecewise constant with potential changes every 3 days. Growth rates are assumed to be constant beyond the forecast horizon (vertical dashed line). 90% and 60% credible intervals are shown."}
-plot_growth(sgtf_by_age_posterior[region %in% "England"]) +
+plot_growth(seq_by_age_posterior[region %in% "England"]) +
   facet_wrap(~ age_group)
 ```
 
 ```{r age-region-growth, fig.cap = "Estimates of the time-varying daily growth rate for England and by UKHSA region (using the log scale approximation) for reported cases overall, cases with the Omicron variant, and non-Omicron cases. Growth rates are assumed to be piecewise constant with potential changes every 3 days. Growth rates are assumed to be constant beyond the forecast horizon (vertical dashed line). 90% and 60% credible intervals are shown."}
-plot_growth(sgtf_by_age_posterior[!(region %in% "England")]) +
+plot_growth(seq_by_age_posterior[!(region %in% "England")]) +
   facet_grid(age_group ~ region)
 ```
 

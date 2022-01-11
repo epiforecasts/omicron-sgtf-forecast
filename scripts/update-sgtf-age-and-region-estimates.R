@@ -51,7 +51,7 @@ sgtf_regional <- daily_regional %>%
   truncate_sequences(start_date = start_sgtf_date) %>%
   age_sgtf_data_to_fv() %>%
   group_by(age_group, region) %>%
-  filter_seq_threshold(threshold = 0.01) %>%
+  filter_seq_threshold(frac_thres = 0.01, n_thres = 5) %>%
   ungroup() %>%
   filter(!(is.na(cases) & is.na(seq_voc)))
 

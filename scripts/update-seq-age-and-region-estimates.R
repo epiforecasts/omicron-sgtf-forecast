@@ -50,7 +50,7 @@ seq_parameters <- load_sgft_age_parameters()
 seq_regional <- daily_regional %>%
   age_seq_data_to_fv() %>%
   group_by(age_group, region) %>%
-  filter_seq_threshold(threshold = 0.01) %>%
+  filter_seq_threshold(frac_thres = 0.01, n_thres = 5) %>%
   ungroup() %>%
   filter(!(is.na(cases) & is.na(seq_voc)))
 

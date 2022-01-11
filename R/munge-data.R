@@ -114,15 +114,15 @@ age_seq_data_to_fv <- function(obs) {
               seq_available = date)
 }
 
-filter_seq_threshold <- function(obs, threshold = 0.01) {
+filter_seq_threshold <- function(obs, frac_thres = 0.01, n_thres = 5) {
   obs %>%
+    mutate(great_thres = share_voc >= frac_thres & seq_voc >= n_thres,
+           start_date = ifelse(great_thres, date, NA),
+           start_date = min(start_date, na.rm = TRUE)) %>%
     mutate(across(.cols = c("seq_total", "seq_voc", "share_voc"),
-           ~ ifelse(share_voc < threshold, NA, .))
+           ~ ifelse(date < start_date, NA, .))
     ) %>%
-    filter(!is.na(seq_total)) %>%
-    mutate(start_date = min(date)) %>%
-    filter(date > start_date) %>%
-    select(-start_date)
+    select(-start_date, -great_thres)
 }
 
 cumulative_percentage <- function(cases, pop) {
