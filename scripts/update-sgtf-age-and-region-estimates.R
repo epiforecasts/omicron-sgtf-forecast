@@ -49,8 +49,10 @@ sgtf_parameters <- load_sgft_age_parameters()
 
 sgtf_regional <- daily_regional %>%
   truncate_sequences(start_date = start_sgtf_date) %>%
-  truncate_cases(days = 0) %>%
   age_sgtf_data_to_fv() %>%
+  group_by(age_group, region) %>%
+  filter_seq_threshold(threshold = 0.01) %>%
+  ungroup() %>%
   filter(!(is.na(cases) & is.na(seq_voc)))
 
 # Estimate models for SGTF data
