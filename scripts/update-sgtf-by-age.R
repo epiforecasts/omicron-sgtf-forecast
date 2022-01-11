@@ -11,7 +11,7 @@ library(here)
 
 # Load pillars data
 english_pillars <- readRDS(
-  here("data", "public", "english_pillars.rds")
+  here("data", "private", "english_pillars.rds")
 ) %>%
   as_tibble()
 
