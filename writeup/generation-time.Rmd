@@ -436,6 +436,29 @@ clean_summary %>%
 ```
 
 ```{r}
+posterior_summary %>%
+  filter(
+    variable %in% c("ta", "local_ta")
+  ) %>%
+  mutate(across(where(is.numeric),
+                ~ ifelse(variable %in% c("ta", "local_ta"),
+                  exp(.), .))
+  ) %>%
+  ggplot() +
+  aes(x = `Data stratification`, y = Median, ymin = Q5, ymax = Q95,
+      col = Variant) +
+  geom_point(size = 2, position = position_dodge(width = 0.4)) +
+  geom_linerange(size = 2, position = position_dodge(width = 0.4),
+                 alpha = 0.8) +
+  coord_flip() +
+  facet_grid(`Generation time prior` ~ Variable, scales = "free_x") +
+  theme_bw() +
+  theme(legend.position = "bottom") +
+  scale_color_brewer(palette = "Paired") +
+  labs(y = "")
+```
+
+```{r}
 clean_summary %>%
   mutate(across(where(is.numeric), round, digits = 1)) %>%
   kable(caption = "Summarised posterior estimates for generation time and transmission advantage by data stratification, and choice of generation time prior")
