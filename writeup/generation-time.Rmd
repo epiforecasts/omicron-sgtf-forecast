@@ -21,7 +21,7 @@ output:
 knitr::opts_chunk$set(echo = FALSE, include = TRUE,
                       warning = FALSE, message = FALSE,
                       root.dir = here::here(),
-                      fig.width = 12, fig.height = 9)
+                      fig.width = 12, fig.height = 9, eval = FALSE)
 library(here)
 library(forecast.vocs)
 library(dplyr)
@@ -39,11 +39,11 @@ library(stringr)
 
 # load functions
 source(here("R", "load-local-data.R"))
-source(here("R", "plot-daily-cases.R"))
+source(here("R", "plot-seq-with-cases.R"))
 source(here("R", "estimate-generation-time.R"))
 ```
 
-```{r setup-dates}
+```{r setup-dates, eval = TRUE}
 date_data_start <- as.Date("2021-11-23")
 date_gt_start <- as.Date("2021-12-01")
 date_forecast_start <- as.Date("2021-12-23")
@@ -114,7 +114,7 @@ region_growth <- load_growth(
 region_growth <- region_growth[!(region %in% "England")]
 ```
 
-```{r load-age-region-growth}
+```{r load-seq-data, eval = TRUE}
 # get regional/age estimation date
 age_date <- as.Date("2021-12-23")
 
@@ -124,18 +124,20 @@ daily_age <- read_csv(
   ) %>%
   filter(date_specimen >= date_data_start) %>%
   filter(date_specimen <= date_forecast_start)
+```
 
+```{r load-seq-results}
 # load posterior estimates
-seq_by_age <- load_results(age_date, type = "sgtf-by-age")
+seq_results <- load_results(age_date, type = "seq-by-age")
 
-sgtf_by_age_posterior <- sgtf_by_age$posterior[
+seq_by_age_posterior <- seq_by_age$posterior[
   variant_relationship == "correlated"
 ][date <= date_forecast_start]
 
 # load growth estimates
 region_by_age_growth <- load_growth(
   age_date, min_date = date_gt_start, max_date = date_forecast_start,
-  type = "sgtf-by-age"
+  type = "seq-by-age"
 )
 ```
 
@@ -210,28 +212,27 @@ The growth rate estimation model was implemented using the [`forecast.vocs` R pa
 
 ### Data description
 
-```{r data, fig.cap = "Daily cases in England and by UKHSA region, with S-gene target result (failed, confirmed detected, or unknown), and centred 7-day moving average starting from the 23rd of November 2021 and including data up to the 23rd of December 2021 (dotted line). Source: UKHSA and coronavirus.gov.uk; data by specimen date."}
-plot_daily_cases(
-  daily, truncate_date = date_forecast_start, caption = "",
-  start_date = date_data_start, smooth_total = FALSE
-) +
-  facet_wrap(~ region, scales = "free")
+```{r data, fig.cap = "Daily cases in England and by UKHSA region, with S-gene target result (failed, confirmed detected, or unknown), and centred 7-day moving average starting from the 23rd of November 2021 and including data up to the 23rd of December 2021 (dotted line). Source: UKHSA and coronavirus.gov.uk; data by specimen date.", eval = TRUE}
+daily_age %>%
+  filter(age_group %in% "Overall") %>%
+  group_by(region, date_specimen) %>%
+  summarise(across(where(is.numeric), sum), .groups = "drop") %>%
+  plot_seq_with_cases() +
+    facet_wrap(~ region, scales = "free")
 ```
 
-```{r data-by-age, fig.cap = "Daily cases in England and by UKHSA region, with S-gene target result (failed, confirmed detected, or unknown), and centred 7-day moving average starting from the 23rd of November 2021 and including data up to the 23rd of December 2021 (dotted line). Source: UKHSA and coronavirus.gov.uk; data by specimen date."}
-plot_daily_cases(
-  daily_age, truncate_date = date_forecast_start, caption = "",
-  start_date = date_data_start, smooth_total = FALSE, by = "age_group"
-) +
-  facet_wrap(~ age_group, scales = "free")
+```{r data-by-age, fig.cap = "Daily cases in England and by UKHSA region, with S-gene target result (failed, confirmed detected, or unknown), and centred 7-day moving average starting from the 23rd of November 2021 and including data up to the 23rd of December 2021 (dotted line). Source: UKHSA and coronavirus.gov.uk; data by specimen date.", eval = TRUE}
+daily_age %>%
+  filter(!(age_group %in% "Overall")) %>%
+  filter(region %in% "England") %>%
+  plot_seq_with_cases() +
+    facet_wrap(~ age_group, scales = "free")
 ```
 
-```{r data-by-age-regions, fig.cap = "Daily cases in England and by UKHSA region, with S-gene target result (failed, confirmed detected, or unknown), and centred 7-day moving average starting from the 23rd of November 2021 and including data up to the 23rd of December 2021 (dotted line). Source: UKHSA and coronavirus.gov.uk; data by specimen date.", fig.width = 16}
-plot_daily_cases(
-  filter(daily_age, !(region %in% "England")),
-  truncate_date = date_forecast_start, caption = "",
-  start_date = date_data_start, smooth_total = FALSE
-) +
+```{r data-by-age-regions, fig.cap = "Daily cases in England and by UKHSA region, with S-gene target result (failed, confirmed detected, or unknown), and centred 7-day moving average starting from the 23rd of November 2021 and including data up to the 23rd of December 2021 (dotted line). Source: UKHSA and coronavirus.gov.uk; data by specimen date.", fig.width = 16, fig.height = 16, eval = TRUE}
+daily_age %>%
+  filter(!(region %in% "England")) %>%
+  plot_seq_with_cases() +
   facet_grid(age_group ~ region, scales = "free_y")
 ```
 
