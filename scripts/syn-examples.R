@@ -38,7 +38,15 @@ sims <- map(
 sims <- rbindlist(sims, idcol = "id")
 sims <- merge(scenarios, sims[, id := as.integer(id)], by = "id")
 
+fwrite(
+  sims, here("data", "simulations", "uk-scenario-simulations.csv")
+)
 
+plot_syn_scenarios(sims[gt_type %in% "Household"])
+
+plot_syn_scenarios <- function(sims) {
+  
+}
 sims[gt_type %in% "Household"] |>
   ggplot() +
   aes(x = time, y = r_sim, col = factor(alpha), group = factor(alpha)) +
