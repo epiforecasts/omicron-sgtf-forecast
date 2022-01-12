@@ -47,6 +47,14 @@ r_to_r_diff_gt <- function(r, G, k, G_v, k_v, alpha) {
   return(r_n)
 }
 
+r_to_r_diff_gt_sd_param <- function(r, G, G_sd, G_v, G_sd_v, alpha) {
+  k <- sd_to_k(G_sd, G)
+  k_v <- sd_to_k(G_sd_v, G_v)
+  r_n <- alpha^k_v * (1 + r * k * G) ^ (k_v / k) - 1
+  r_n <- r_n / (k_v * G_v)
+  return(r_n)
+}
+
 sd_to_k <- function(G_sd, G) {
   k <- (G_sd / G)^2
   return(k)

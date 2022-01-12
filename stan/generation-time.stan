@@ -21,7 +21,7 @@ data {
 parameters {
   real<lower = 0> gt_mean;
   real<lower = 0> gt_sd;
-  vector[t] nvoc_r;
+  vector<lower = nvoc_r_mean - 3 *nvoc_r_sd, upper = nvoc_r_mean + 3 * nvoc_r_sd>[t] nvoc_r;
   real<lower = 0, upper = 2> m_gt[gt_diff];
   real<lower = 0, upper = 2> m_gt_sd[gt_diff];
   real ta;

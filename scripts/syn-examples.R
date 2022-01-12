@@ -10,7 +10,7 @@ source(here("R", "simulations.R"))
 # r to r mapping with strength intervention
 r <- c(
   rep(0.3, 5), rep(0.1, 5), 0.1 - cumsum(1:15) * 0.005, rep(0.2, 5),
-  rep(0, 5), rep(0.2, 5)
+  rep(0, 5), rep(-0.1, 5), rep(-0.2), rep(0.2, 5)
 )
 
 # scenarios
