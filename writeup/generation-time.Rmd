@@ -150,7 +150,7 @@ $$R = \left(1 + \bar{G}kr  \right)^{\frac{1}{k}}$$
 
 Where $R$ is the effective reproduction number, $\bar{G}$ is the mean of the gamma distributed generation time, $r$ is the daily growth rate, and $k$ is the squared coefficient of variation which can be reparametrised as $\frac{\bar{G}^2_\mathrm{SD}}{\bar{G}^2}$ where $\bar{G}_\mathrm{SD}$ is the standard deviation of the gamma distribution.
 
-Using this approximation we first estimate the effective reproduction number ($R^\mathrm{D}$) of the Delta variant across stratificaton ($l$) and times ($t$, in days) using estimates of the daily growth rates ($r^\mathrm{D}$), and a gamma distributed generation time. Under an assumption of homogeneous mixing we can then relate the effective reproduction number of Delta to the effective reproduction number of Omicron ($R^\mathrm{O}$) by assuming a location specific transmission advantage ($\alpha_l$) which corresponds to a combination of any intrinsic transmission advantage as well as population based advantages (such as advantage gained from immune escape). Finally, we can then reverse the gamma approximation framework to estimate the daily growth rates for Omicron ($r^\mathrm{O}$) and compare these to those estimated directly in the previous modelling step.
+Using this approximation we first estimate the effective reproduction number ($R^\mathrm{D}$) of the Delta variant across stratificaton ($l$) and times ($t$, in days) using estimates of the daily growth rates ($r^\mathrm{D}$), and a gamma distributed generation time. Under an assumption of homogeneous mixing we can then relate the effective reproduction number of Delta to the effective reproduction number of Omicron ($R^\mathrm{O}$) by assuming a location specific transmission advantage ($\alpha_l$) which corresponds to a combination of any intrinsic transmission advantage as well as population based advantages (such as advantage gained from immune escape). Finally, we can then reverse the gamma approximation framework to estimate the daily growth rates for Omicron ($r^\mathrm{O}$) and compare these to those estimated directly in the previous modelling step. We choose priors for our model that weakly reflect our belief that a change in generation time between variants is unlikely in the sense that large changes of generation time or location-specific transmission advantage are penalised.
 
 Our model is described by the following set of equations:
 
@@ -168,8 +168,8 @@ Here, superscripts D and O denote Delta and Omicron, respectively, $r$ is the gr
 \begin{align}
   \bar{G}^\mathrm{D} &\sim \text{Normal}\left(3.2, 0.46 \right) \\
   \bar{G}_\mathrm{SD}^\mathrm{D} &\sim \text{Normal}\left(2.4, 0.33 \right) \\
-  \frac{\bar{G}^\mathrm{O}}{\bar{G}^\mathrm{D}} &\sim  \text{LogNormal}\left(0, 1 \right) \\
-  \frac{\bar{G}_\mathrm{SD}^\mathrm{O}}{\bar{G}_\mathrm{SD}^\mathrm{D}} &\sim \text{LogNormal}\left(0, 1 \right) \\
+  \frac{\bar{G}^\mathrm{O}}{\bar{G}^\mathrm{D}} &\sim  \text{LogNormal}\left(0, 0.1 \right) \\
+  \frac{\bar{G}_\mathrm{SD}^\mathrm{O}}{\bar{G}_\mathrm{SD}^\mathrm{D}} &\sim \text{LogNormal}\left(0, 0.1 \right) \\
 \end{align}
 
 The generation priors used here are motivated by the household estimates derived in Hart et al [@hart2021] for the UK  using a normal approximation. As a sensitivity analysis, we also explore their alternative intrinsic estimates which had a mean of 4.6 days (standard deviation (SD): 0.36 days) and a standard deviation of 3.1 days (SD: 0.18) days, again using a normal approximation. We model the location specific transmission advantage ($\alpha_l$) using a random effect with all locations having a joint mean ($\alpha$) and standard deviation ($alpha_\mathrm{SD}$) as follows,
@@ -177,7 +177,7 @@ The generation priors used here are motivated by the household estimates derived
 \begin{align}
   \alpha_l &\sim \text{LogNormal}\left(\alpha, \alpha_\mathrm{SD} \right) \\
   \alpha &\sim \text{Normal} \left(0, 1 \right) \\
-  \alpha_\mathrm{SD} &\sim \text{Normal} \left(0, 0.1 \right) \\
+  \alpha_\mathrm{SD} &\sim \text{Normal} \left(0, 0.01 \right) \\
 \end{align}
 
 Finally, we assume that the standard deviation of the normal observation model has a normal prior truncated at zero with a mean of zero and a standard deviation of 0.1.
