@@ -24,6 +24,7 @@ scenarios[, id := 1:.N]
 scenarios[, gt_type := ifelse(G == 4.6, "Intrinsic", "Household")]
 scenarios[, G_sd := ifelse(G == 4.6, 3.1, 2.1)]
 scenarios[, G_sd_v := round(G_sd * G_sd_v, 1)][, G_v := round(G * G_v, 1)]
+
 # simulations
 sims <- map(
   split(scenarios, by = "id"),
@@ -39,8 +40,10 @@ sims <- map(
 sims <- rbindlist(sims, idcol = "id")
 sims <- merge(scenarios, sims[, id := as.integer(id)], by = "id")
 
+# save simulations
 fwrite(
   sims, here("data", "simulations", "uk-scenario-simulations.csv")
 )
 
+# plot simulations for household gt assumption
 plot_syn_scenarios(sims[gt_type %in% "Household"])

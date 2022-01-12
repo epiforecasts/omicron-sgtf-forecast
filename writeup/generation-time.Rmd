@@ -188,13 +188,13 @@ Finally, we assume that the standard deviation of the normal observation model h
 ```{r load-generation-time-estimates}
 posterior_summary <- fread(
   here::here("data", "retrospective", "posterior_summary.csv")
-)
+)[gt_diff == TRUE][source == "sequence"]
 posterior_samples <- fread(
   here::here("data", "retrospective", "posterior_samples.csv")
-)
+)[gt_diff == TRUE][source == "sequence"]
 posterior_predictions <- fread(
   here::here("data", "retrospective", "posterior_predictions.csv")
-)
+)[gt_diff == TRUE][source == "sequence"]
 posterior_locations <- fread(
   here::here("data", "retrospective", "posterior_locations.csv")
 )
