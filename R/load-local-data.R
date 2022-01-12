@@ -16,6 +16,7 @@ get_available_dates <- function(path = "data/public/") {
   csv_obs <- list.files(here::here(path))
   dates <- gsub("-cases-by-sgtf.csv", "", csv_obs)
   dates <- as.Date(dates)
+  dates <- dates[!is.na(dates)]
   return(dates)
 }
 

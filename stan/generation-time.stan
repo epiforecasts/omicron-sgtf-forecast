@@ -70,11 +70,11 @@ model {
   gt_sd ~ normal(gt_sd_mean, gt_sd_sd) T[0,];
 
   nvoc_r ~ normal(nvoc_r_mean, nvoc_r_sd);
-  voc_gt_mean_mod ~ lognormal(0, 1);
-  voc_gt_sd_mod ~ lognormal(0, 1);
+  voc_gt_mean_mod ~ lognormal(0, 0.25);
+  voc_gt_sd_mod ~ lognormal(0, 0.25);
 
   ta ~ normal(0, 1);
-  ta_sd ~ normal(0, 0.1) T[0,];
+  ta_sd ~ normal(0, 0.01) T[0,];
   local_ta ~ normal(ta, ta_sd);
 
   sigma ~ normal(0, 0.01) T[0,];
