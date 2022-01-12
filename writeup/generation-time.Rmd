@@ -211,6 +211,13 @@ The growth rate estimation model was implemented using the [`forecast.vocs` R pa
 
 ## Results
 
+### Scenario simulations
+
+```{r syn-scenario-plot, fig.height = 9, fig.width = 9, fig.cap = "Growth rates scenarios based on an observed growth rate for one variant (black line) and the resulting growth rate for another variant varying the assumed transmission advantage (coloured lines), generation time mean (x facet - as a fraction of baseline assumed value of 3.2 days), and generation time standard deviation (y axis, as a fraction of the baseline assumed value of 2.1 days). The central facet represents a scenario where variants share a generation time."}
+syn_sims <- fwrite(here("data", "simulations", "uk-scenario-simulations.csv"))
+plot_syn_scenarios(syn_sims[gt_type %in% "Household"])
+```
+
 ### Data description
 
 ```{r data, fig.cap = "Daily pillar 2 cases by specimen date in England and by UKHSA region with variant type (Omicron, non-Omicron, and unknown), starting from the 23rd of November 2021 and including data up to the 23rd of December 2021."}
