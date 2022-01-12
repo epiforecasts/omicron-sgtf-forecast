@@ -71,7 +71,7 @@ model {
 
   nvoc_r ~ normal(nvoc_r_mean, nvoc_r_sd);
   voc_gt_mean_mod ~ lognormal(0, 0.25);
-  voc_gt_sd_mod ~ lognormal(0, 0.25);
+  voc_gt_sd_mod ~ lognormal(0, 0.1);
 
   ta ~ normal(0, 1);
   ta_sd ~ normal(0, 0.01) T[0,];
