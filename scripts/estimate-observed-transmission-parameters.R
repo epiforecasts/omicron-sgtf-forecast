@@ -56,7 +56,7 @@ estimates <- purrr::map(
   split(grid, by = "id"),
   ~ gt_estimate(
       growth = .$growth[[1]], by = .$by[[1]], gt = .$gt_prior[[1]],
-      model = model, adapt_delta = 0.99, max_treedepth = 15
+      model = model, adapt_delta = 0.99, max_treedepth = 15, debug = TRUE
     )
 )
 estimates <- rbindlist(estimates)
