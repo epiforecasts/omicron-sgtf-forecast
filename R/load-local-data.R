@@ -49,3 +49,19 @@ load_growth <- function(date, min_date = "2021-12-01", max_date = "2021-12-23",
   growth <- growth[date <= as.Date(max_date)]
   return(growth)
 }
+
+load_sgtf_growth <- function(region_date, age_date, min_date, max_date) {
+  # load growth estimates
+  region_growth <- load_growth(
+    region_date, min_date = min_date, max_date = max_date,
+    type = "sgtf"
+  )
+  region_growth <- region_growth[!(region %in% "England")]
+  region_growth[, age_group := "Overall"]
+
+  age_growth <- load_growth(
+  age_date, min_date = min_date, max_date = max_date,
+  type = "sgtf-by-age"
+  )
+  growth <- rbind(region_growth, age_growth)
+}

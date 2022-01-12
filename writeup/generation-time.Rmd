@@ -90,7 +90,7 @@ We fit jointly to reported cases and sequence data for each timeseries independe
 
 A full description of this model can be found in the documentation for the [`forecast.vocs` R package](https://epiforecasts.io/forecast.vocs/) [@forecast.vocs].
 
-```{r load-regional-growth}
+```{r load-sgtf-growth}
 # get regional estimation date
 regional_date <- as.Date("2022-01-06")
 

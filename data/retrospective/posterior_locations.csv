@@ -109,3 +109,75 @@ age_group,loc,stratification,gt_type,region
 ,5,region,intrinsic,North West
 ,6,region,intrinsic,South East
 ,7,region,intrinsic,South West
+0-14,3,age and region,household,North West
+0-14,4,age and region,household,South East
+0-14,5,age and region,household,South West
+0-14,6,age and region,household,Midlands
+0-14,7,age and region,household,North East and Yorkshire
+15-29,10,age and region,household,North West
+15-29,11,age and region,household,South East
+15-29,12,age and region,household,South West
+15-29,13,age and region,household,Midlands
+15-29,14,age and region,household,North East and Yorkshire
+30-44,17,age and region,household,North West
+30-44,18,age and region,household,South East
+30-44,19,age and region,household,South West
+30-44,20,age and region,household,Midlands
+30-44,21,age and region,household,North East and Yorkshire
+45-59,24,age and region,household,North West
+45-59,25,age and region,household,South East
+45-59,26,age and region,household,South West
+45-59,27,age and region,household,Midlands
+45-59,28,age and region,household,North East and Yorkshire
+60-74,31,age and region,household,North West
+60-74,32,age and region,household,South East
+60-74,33,age and region,household,South West
+60-74,34,age and region,household,Midlands
+60-74,35,age and region,household,North East and Yorkshire
+75+,38,age and region,household,North West
+75+,39,age and region,household,South East
+75+,40,age and region,household,South West
+75+,41,age and region,household,Midlands
+75+,42,age and region,household,North East and Yorkshire
+0-14,3,age and region,intrinsic,North West
+0-14,4,age and region,intrinsic,South East
+0-14,5,age and region,intrinsic,South West
+0-14,6,age and region,intrinsic,Midlands
+0-14,7,age and region,intrinsic,North East and Yorkshire
+15-29,10,age and region,intrinsic,North West
+15-29,11,age and region,intrinsic,South East
+15-29,12,age and region,intrinsic,South West
+15-29,13,age and region,intrinsic,Midlands
+15-29,14,age and region,intrinsic,North East and Yorkshire
+30-44,17,age and region,intrinsic,North West
+30-44,18,age and region,intrinsic,South East
+30-44,19,age and region,intrinsic,South West
+30-44,20,age and region,intrinsic,Midlands
+30-44,21,age and region,intrinsic,North East and Yorkshire
+45-59,24,age and region,intrinsic,North West
+45-59,25,age and region,intrinsic,South East
+45-59,26,age and region,intrinsic,South West
+45-59,27,age and region,intrinsic,Midlands
+45-59,28,age and region,intrinsic,North East and Yorkshire
+60-74,31,age and region,intrinsic,North West
+60-74,32,age and region,intrinsic,South East
+60-74,33,age and region,intrinsic,South West
+60-74,34,age and region,intrinsic,Midlands
+60-74,35,age and region,intrinsic,North East and Yorkshire
+75+,38,age and region,intrinsic,North West
+75+,39,age and region,intrinsic,South East
+75+,40,age and region,intrinsic,South West
+75+,41,age and region,intrinsic,Midlands
+75+,42,age and region,intrinsic,North East and Yorkshire
+,1,region,household,East Midlands
+,2,region,household,East of England
+,3,region,household,London
+,4,region,household,North East
+,8,region,household,West Midlands
+,9,region,household,Yorkshire and Humber
+,1,region,intrinsic,East Midlands
+,2,region,intrinsic,East of England
+,3,region,intrinsic,London
+,4,region,intrinsic,North East
+,8,region,intrinsic,West Midlands
+,9,region,intrinsic,Yorkshire and Humber

@@ -12,40 +12,22 @@ options(cmdstanr_max_rows = 100)
 # Load functions
 source(here("R", "load-local-data.R"))
 source(here("R", "estimate-generation-time.R"))
+source(here("R", "gt-helpers.R"))
 
 # Load growth estimates
-region_target_date <- as.Date("2022-01-06")
-
 seq_growth <- load_growth(
   as.Date("2021-12-23"), type = "seq-by-age",
   min_date = "2021-12-01", max_date = "2021-12-23"
 )
-region_growth <- seq_growth[age_group %in% "Overall"]
-region_growth <- region_growth[!(region %in% "England")]
-age_region_growth <- seq_growth[!(age_group %in% "Overall")]
-age_region_growth <- age_region_growth[!(region %in% "England")]
-age_growth <- seq_growth[region %in% "England"]
-age_growth <- age_growth[!(age_group %in% "Overall")]
 
-growth <- data.table(
-  stratification = c("region", "age", "age and region"),
-  growth = list(
-    region_growth, age_growth, age_region_growth
-  ),
-  by = c(list("region"), list("age_group"), list(c("age_group", "region")))
+sgtf_growth <- load_sgtf_growth(
+  region_date = as.Date("2022-01-06"), age_date = as.Date("2021-12-23"),
+  min_date = "2021-12-01", max_date = "2021-12-23"
 )
 
-# Set up estimation grid
-grid <- CJ(
-  stratification = c("region", "age", "age and region"),
-  gt_type = c("intrinsic", "household")
-)
-
-grid[, gt_prior := purrr::map(
-  gt_type, ~ gt_prior(source = "hart2021", type = .x))
-]
-
-grid <- merge(grid, growth, by = "stratification")
+grid_seq <- growth_grid(seq_growth)[, source := "sequence"]
+grid_sgtf <- growth_grid(sgtf_growth)[, source := "sgtf"]
+grid <- rbind(grid_seq, grid_sgtf)
 grid[, id := 1:.N]
 
 # Compile the stan model
@@ -56,7 +38,8 @@ estimates <- purrr::map(
   split(grid, by = "id"),
   ~ gt_estimate(
       growth = .$growth[[1]], by = .$by[[1]], gt = .$gt_prior[[1]],
-      model = model, adapt_delta = 0.99, max_treedepth = 15, debug = TRUE
+      gt_diff = .$gt_diff[[1]], model = model, adapt_delta = 0.99,
+      max_treedepth = 15, debug = TRUE
     )
 )
 estimates <- rbindlist(estimates)

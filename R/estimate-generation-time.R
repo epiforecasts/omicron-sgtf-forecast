@@ -58,7 +58,7 @@ gt_process_by_group <- function(growth, var = "mean", by = c()) {
 gt_locations <- function(growth, by = c()) {
   growth <- gt_process_by_group(growth, var = "mean", by = by)
   growth <- unique(growth[, c("date", ..by)])
-  if (length(by) == 0 ) {
+  if (length(by) == 0) {
     locs <- growth[, loc := 1]
   } else {
     ulocs <- unique(growth[, ..by])
@@ -71,7 +71,7 @@ gt_locations <- function(growth, by = c()) {
 
 gt_dt <- function(growth, by = c(),
                   gt = gt_prior(type = "intrinsic", source = "hart2021"),
-                  debug = FALSE) {
+                  gt_diff = FALSE, debug = FALSE) {
   growth_sd_wide <- gt_process_by_group(growth, var = "sd", by = by)
   growth_mean_wide <- gt_process_by_group(growth, var = "mean", by = by)
 
@@ -90,6 +90,7 @@ gt_dt <- function(growth, by = c(),
     gt_sd_sd = gt$sd_sd,
     loc = locations$loc,
     l = length(unique(locations$loc)),
+    gt_diff = as.numeric(gt_diff),
     debug = as.numeric(debug)
   )
   return(stan_dt)
@@ -104,34 +105,34 @@ gt_inits <- function(data) {
       ),
       gt_mean = rnorm(1, data$gt_mean_mean, data$gt_mean_sd * 0.1),
       gt_sd = rnorm(1, data$gt_sd_mean, data$gt_sd_sd * 0.1),
-      voc_gt_mean_mod = rnorm(1, 1, 0.01),
-      voc_gt_sd_mod = rnorm(1, 1, 0.01),
       sigma = rnorm(1, 0.1, 0.01),
       ta = rnorm(1, 0, 0.01),
       ta_sd = abs(rnorm(1, 0, 0.01))
     )
+    if (st_dt$gt_diff == 1) {
+      data$m_g <- array(rnorm(1, 1, 0.01))
+      data$m_k <- array(rnorm(1, 1, 0.01))
+    }
     data$local_ta <- rep(data$ta, st_dt$l)
-    data$voc_gt_mean <- data$gt_mean
-    data$voc_gt_sd <- data$gt_sd
     return(data)
   }
 }
 
 gt_draws <- function(fit,
-                     vars = c("gt_mean", "gt_sd",
-                              "voc_gt_mean_mod", "voc_gt_sd_mod",
-                              "voc_gt_mean", "voc_gt_sd", "ta",
-                              "ta_sd", "local_ta", "sigma"), ...) {
+                     vars = c("gt_mean", "gt_sd", "k",
+                              "voc_gt_mean",
+                              "voc_gt_sd", "k_v", "ta", "ta_sd",
+                              "local_ta", "sigma"), ...) {
   draws <- fit$draws(variables = vars, format = "df", ...)
   draws <- data.table::as.data.table(draws)
   return(draws[])
 }
 
 gt_summarise_posterior <- function(fit,
-                                   vars = c("gt_mean", "gt_sd",
-                                            "voc_gt_mean_mod", "voc_gt_sd_mod",
-                                            "voc_gt_mean", "voc_gt_sd", "ta",
-                                            "ta_sd", "local_ta", "sigma"),
+                                   vars = c("gt_mean", "gt_sd", "k",
+                                            "voc_gt_mean",
+                                            "voc_gt_sd", "k_v", "ta", "ta_sd",
+                                            "local_ta", "sigma"),
                                    ...) {
   posterior <- fit$summary(variables = vars, ...)
   posterior <- data.table::as.data.table(posterior)
@@ -153,10 +154,11 @@ gt_summarise_growth_pp <- function(fit, growth, by = c()) {
   return(r_pp[])
 }
 
-gt_estimate <- function(growth, model, by = c(), gt, debug = FALSE, ...) {
+gt_estimate <- function(growth, model, by = c(), gt, gt_diff = FALSE, 
+                        debug = FALSE, ...) {
 
   # Data for stan
-  stan_dt <- gt_dt(growth, by = by, gt = gt)
+  stan_dt <- gt_dt(growth, by = by, gt = gt, gt_diff = gt_diff, debug = debug)
 
   # locations
   locs <- gt_locations(growth, by = by)
