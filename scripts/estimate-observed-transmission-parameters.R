@@ -7,7 +7,9 @@ library(ggplot2)
 
 # Set cmdstanr options
 options(mc.cores = 4)
-options(cmdstanr_max_rows = 100)
+
+# Set up in parallel estimation
+plan("callr", workers = floor(future::availableCores() / 4))
 
 # Load functions
 source(here("R", "load-local-data.R"))
@@ -33,13 +35,14 @@ grid[, id := 1:.N]
 # Compile the stan model
 model <- gt_load_model()
 
+
 # Fit each model in turn
 estimates <- purrr::map(
   split(grid, by = "id"),
   ~ gt_estimate(
       growth = .$growth[[1]], by = .$by[[1]], gt = .$gt_prior[[1]],
       gt_diff = .$gt_diff[[1]], model = model, adapt_delta = 0.99,
-      max_treedepth = 15, debug = TRUE
+      max_treedepth = 15, debug = FALSE
     )
 )
 estimates <- rbindlist(estimates)
