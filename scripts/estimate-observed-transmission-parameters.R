@@ -4,9 +4,9 @@ library(data.table)
 library(purrr)
 library(here)
 library(ggplot2)
-
-# Set cmdstanr options
-options(mc.cores = 4)
+library(future)
+library(future.apply)
+library(future.callr)
 
 # Set up in parallel estimation
 plan("callr", workers = floor(future::availableCores() / 4))
@@ -37,13 +37,17 @@ model <- gt_load_model()
 
 
 # Fit each model in turn
-estimates <- purrr::map(
+estimates <- future.apply::future_lapply(
   split(grid, by = "id"),
-  ~ gt_estimate(
+  function(.) {
+    gt_estimate(
       growth = .$growth[[1]], by = .$by[[1]], gt = .$gt_prior[[1]],
       gt_diff = .$gt_diff[[1]], model = model, adapt_delta = 0.99,
-      max_treedepth = 15, debug = FALSE
+      max_treedepth = 15, debug = FALSE, show_messages = FALSE, refresh = 0,
+      parallel_chains = 4
     )
+  },
+  future.seed = TRUE
 )
 estimates <- rbindlist(estimates)
 estimates <- cbind(grid, estimates)
@@ -52,9 +56,9 @@ estimates <- cbind(grid, estimates)
 unnest_estimates <- function(estimates, target = "pp") {
   estimates[,
   (target) := pmap(
-    list(get(target), stratification, gt_type),
-    function(x, y, z) {
-        x[, `:=`(stratification = y, gt_type = z)]
+    list(get(target), stratification, gt_type, gt_diff, source),
+    function(x, y, z, a, b) {
+        x[, `:=`(stratification = y, gt_type = z, gt_diff = a, source = b)]
       }
     )
   ][, rbindlist(get(target), fill = TRUE)]
