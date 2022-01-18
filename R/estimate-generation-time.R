@@ -139,7 +139,8 @@ gt_summarise_posterior <- function(fit,
   return(posterior[])
 }
 
-gt_summarise_pp <- function(fit, growth, var = "pp_voc_r", by = c()) {
+gt_summarise_pp <- function(fit, growth, var = "pp_voc_r", by = c(),
+                            bind_obs = TRUE) {
   r_pp <- fit$summary(
     variables  = var, posterior::quantile2,
     .args = list(probs = c(0.05, 0.2, 0.8, 0.95))
@@ -147,10 +148,12 @@ gt_summarise_pp <- function(fit, growth, var = "pp_voc_r", by = c()) {
   r_pp <- data.table::as.data.table(r_pp)[, type := "Posterior prediction"]
   cols <- c(by, "date")
   r_pp <- cbind(growth[type %in% "Omicron", ..cols], r_pp)
-  r_pp <- rbind(
-    growth[type %in% "Omicron"][, type := "Estimate"][!is.na(mean)],
-    r_pp, fill = TRUE, use.names = TRUE
-  )
+  if (bind_obs) {
+    r_pp <- rbind(
+      growth[type %in% "Omicron"][, type := "Estimate"][!is.na(mean)],
+      r_pp, fill = TRUE, use.names = TRUE
+    )
+  }
   return(r_pp[])
 }
 
@@ -177,7 +180,8 @@ gt_estimate <- function(growth, model, by = c(), gt, gt_diff = FALSE,
 
   # summmarise posterior predictions
   r_pp <- gt_summarise_pp(fit, growth, by = by)
-  R_pp <- gt_summarise_pp(fit, growth, var = "pp_voc_R", by = by) # nolint
+  R_pp <- gt_summarise_pp(fit, growth, var = "pp_voc_R", by = by, # nolint
+                          bind_obs = FALSE) 
 
   out <- data.table::data.table(
     gt_dt = list(stan_dt),
