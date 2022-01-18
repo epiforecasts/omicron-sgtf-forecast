@@ -1,0 +1,237 @@
+---
+title: "Real-time estimation of the time-varying transmissibility advantage of Omicron in England using S-Gene Target Status as a Proxy"
+author: Katharine Sherratt, Sam Abbott, Sebastian Funk
+output: bookdown::pdf_document2
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = FALSE, include = TRUE,
+                      warning = FALSE, message = FALSE,
+                      root.dir = here::here())
+options(scipen = 1, digits = 2)
+library(here)
+library(forecast.vocs)
+library(dplyr)
+library(tidyr)
+library(ggplot2)
+library(janitor)
+library(knitr)
+library(data.table)
+```
+
+
+```{r load-results}
+# load packags
+library(ggplot2)
+library(scales)
+library(dplyr)
+library(here)
+library(readr)
+
+# load functions
+source(here("R", "load-local-data.R"))
+
+# get latest date
+date <- get_latest_date()
+
+# load data
+daily <- load_local_data(date)
+
+# load results
+sgtf <- load_results(date)
+bias <- load_results(date, type = "bias")
+```
+
+## Abstract {-}
+
+**Background**
+
+**Methods**
+
+**Results**
+
+**Conclusions**
+
+
+## Introduction {-}
+
+**Why**
+
+**Detail**
+
+**Aim and what we did**
+
+We aimed to assess competing explanations of the transmission advantage of a variant of concern (VoC), Omicron, compared to the existing dominant strain, Delta, in England. We explored the likelihood of increased transmissibility compared to immune escape, using S-gene target failure as a proxy for infection with Omicron.
+
+We use a model framework where we vary only the relationship between variants while holding all other parameters constant. We compare leave-one-out validation among the models and explore the estimated transmission advantage.
+
+When processing a positive test result for Covid-19 it is also possible to detect the S-gene target (SGT). A test for SGT can give either a failure or a positive result. The proportion of cases that are tested for SGT and result in SGT-Failure is a useful proxy for the proportion of the Omicron variant in comparison to the Delta variant. 
+
+Only a sample of positive Covid-19 test results are also tested for SGT. The ability to test for SGT depends on type of Covid-19 test (only PCR), and laboratory resources. If these constraints are associated with factors influencing transmission, this would bias estimates of transmission made only from SGT data and confound the relationship between SGT results and all test-positive cases. 
+
+We aim to explore bias in the availability of S-gene target results among cases testing positive for Covid-19. Here we use a branching process model to identify any difference in growth rate between cases which have an SGT result and those which do not.
+
+## Methods {-}
+
+### Data
+
+We used case data from England. This includes all cases tested by PCR test following symptom onset and a positive lateral flow test result. For a varying proportion of these cases, PCR test results included information on S-gene target. We used S-gene target negativity as a proxy for the Omicron variant. We excluded data before `r start_date`, to reduce overfitting to stochastic imports. Data are included up to `r max(obs$date)` and modelled at a `r parameters$timespan` day resolution. All dates are by specimen date.
+
+We used a two-strain branching process model to compare all test-positive cases to test-positive cases with any SGT result. We used data for all England test-positive cases. We used only the most recent three weeks of data between `r min(obs$date)` and `r max(obs$date)`. 
+
+### Models
+
+We model strain dynamics using the single strain model as a starting point but with the addition of strain specific AR(P) case model and a beta binomial (or optionally binomial) observation process for sequence data. The variant of concerns growth rate is modelled either as a fixed scaling of the non-variant of concern growth rate, as an independent AR(1) process, or in a vector autoregression framework as a correlated AR(1) process. This last formulation is described in detail below along with the modifications required to define the other two formulations. Parameters related to the variant of concern (VoC) are given the $\delta$ superscript and parameters related to non-VoC cases are given the $o$ superscript.
+
+Mean reported cases are again defined using a AR(1) process on the log scale for each strain and then combined for overall mean reported cases. 
+
+\begin{align}
+  \lambda_t &\sim \text{LogNormal}\left(\log C_t , 0.025 \times \log C_t \right) ,\ t \leq P\\
+  \lambda^{\delta}_t &\sim \text{LogNormal}\left(\log C^{\delta}_t , 0.025 \times \log C^{\delta}_t \right),\ t \leq P \\
+  \lambda^{o}_t &= \lambda_t - \lambda^{\delta}_t,\ t \leq P \\
+  \lambda^{\delta}_t &= \text{exp}\left(r^{\delta}_t\right) \sum_{p = 1}^{P} \alpha^{\delta}_p  \lambda^{\delta}_{t-p},\ t \gt P \\
+  \lambda^{o}_t &= \text{exp}\left(r^{o}_t\right) \sum_{p = 1}^{P} \alpha^{o}_p  \lambda^{o}_{t-p}, t \gt P   \\
+  \lambda_t &= \lambda^{\delta}_t + \lambda^{o}_t
+\end{align}
+
+Where $C^{\delta}_0$ is derived by calculating the mean proportion of cases that had the VoC for the first time point using the overall number of reported cases, the number of sequenced cases, and the number of sequences that were positive for the VoC. The growth rate for both VoC and non-VoC cases ($r^{o, \delta}_t$) is again modelled as differenced AR(1) processes but now combined with a variant specific modifier ($s^{o, \delta}_0$) to growth when variant sequences are first reported ($t_{seq}$), and a correlation structure for the time and strain varying error terms ($\eta^{o, \delta}$).
+
+
+\begin{align}
+  r^{o}_1 &\sim \text{Normal}\left(0, 0.25 \right),\\
+  r^{\delta}_{t_{seq}} &= r^{o}_{t_{seq}} + s^{\delta} \\
+  r^{o, \delta}_t &= r^{o, \delta}_{t-1} + \epsilon^{o, \delta}_t  \\
+  \epsilon^{o, \delta}_0 &= \eta^{o, \delta}_0 \\
+  \epsilon^{o, \delta}_t &= \beta \epsilon^{o, \delta}_{t-1} + \eta^{o, \delta}_t
+\end{align}
+
+Where, 
+
+\begin{align}
+  s^{\beta} &\sim \text{Normal}(0, 0.5)  \\
+  \eta^{o, \delta}_t &\sim \text{MVN}\left(0, \boldsymbol \Sigma \right) \\
+  \beta &\sim \text{Normal}\left(0, 0.5 \right)
+\end{align}
+
+Where $\boldsymbol \Sigma$ is a $2 \times 2$ covariance matrix which we decompose for computational stability into a diagonal matrix containing variant specific scale parameters ($\boldsymbol \Delta$) and a symmetric correlation matrix ($\boldsymbol \Omega$) as follows [@stan],
+
+\begin{align}
+  \boldsymbol \Sigma &= \boldsymbol \Delta \boldsymbol \Omega \boldsymbol \Delta \\
+  \boldsymbol \Delta &=  \left[ {\begin{array}{cc}
+                            \sigma^o & 0 \\
+                            0& \sigma^{\delta} \\
+                                \end{array} } \right] \\
+  \boldsymbol \Omega &\sim \left[ {\begin{array}{cc}
+                            1 & \omega \\
+                            \omega & 1 \\
+                              \end{array} } \right] \\
+  \sigma^{o, \delta} &\sim \text{Normal}\left(0, 0.2 \right)
+\end{align}
+
+Where $\boldsymbol \Omega$ has a Lewandowski-Kurowicka-Joe (LKJ) prior where
+$\omega$ controls the prior expectation for correlation between variants (with $\omega = 1$ resulting in a uniform prior over all correlations, $\omega \lt 1$ placing more weight on larger correlations and $\omega \gt 1 placing more weight on small amounts of correlations). By default we set $\omega = 0.5$ giving more weight to correlations between variants dynamics. 
+
+On top of this correlated strain dynamic model `forecast.vocs` also offers two other options that represent extremes in the correlated model. The first of these assumes that both strains evolve with independent differenced AR(1) growth rates with only a scaling factor (s^{\delta}) linking them. The second assumes that strains growth rates are completely correlated in time (i.e they are governed by a single AR(1) differenced process) and only differ based on a scaling factor ($s^{\delta}$). See the documentation for `variant_relationship` in `?forecast()` for details. 
+
+We then assume a negative binomial observation model with overdispersion $\phi_c$ for reported cases ($C_t$) as in the single strain model,
+
+\begin{align}
+  C_{t} &\sim \text{NegBinomial}\left(\lambda_t, \phi_c\right) \\
+  \frac{1}{\sqrt{\phi_c}} &\sim \text{Normal}(0, 0.5) 
+\end{align}
+
+Where $\sigma$, and $\frac{1}{\sqrt{phi_c}}$ are truncated to be greater than 0 and $\beta$ is truncated to be between -1 and 1. Again a Poisson observation model may instead be used (see the documentation for `overdispersion` in `?forecast()`).
+
+Finally, the mean proportion of samples that have the VoC ($p_t$) is then estimated using the mean reported cases with the VoC and the overall mean reported cases.
+
+\begin{equation} 
+  p_t = \frac{\lambda^{\delta}_t}{\lambda_t}
+\end{equation}
+
+We assume a beta binomial observation model for the number of sequences ($N_t$) that are positive ($P_t$) for the VoC with overdispersion $\phi_s$.
+
+\begin{align}
+  P_{t} &\sim \mathrm{BetaBinomial}\left(N_t, p_t \phi_s, (1 - p_t) \phi_s\right) \\
+  \frac{1}{\sqrt{\phi_s}} &\sim \text{Normal}(0, 0.5) 
+\end{align}
+
+Where $\sigma^{o, \delta}$, and $\frac{1}{\sqrt{\phi_s}}$ are truncated to be greater than 0. A binomial observation model is also available (see the documentation for `overdispersion` in `?forecast()`).
+
+
+We used the `forecast.vocs` package^[2021, Sam Abbott, forecast.vocs: Forecast case and sequence notifications using variant of concern strain dynamics, DOI:10.5281/zenodo.5559016] to model a two-strain branching process, including strain specific auto-regressive AR(1) variation, and a beta binomial observation process for the S-gene target status data. We used a weakly informative prior for a transmission advantage for the VoC vs non-VoC cases of mean `r parameters$voc_scale[1]` (standard deviation `r parameters$voc_scale[2]`), based on early work from South Africa^[2021-12-03, Carl Pearson and others, "Omicron spread in South Africa", Epidemics8]. 
+
+We defined the relationship between variants as either fixed or independent. The fixed relationship meant the VoC differed only by its transmissibility to the non-VOC strain, with any variation over time shared between strains. The independent relationship allowed the VoC to differ with dependence determined from the data. See Appendix for full model details.
+
+### Transmission summary statistics
+
+As well as posterior predictions and forecasts for both notifications by variant and variant of concern proportion the models also return several summary statistics which may be useful for drawing inferences about underlying transmission dynamics. These include the log scale growth rate ($g^{o, \delta}_t$), the instantaneous effective reproduction number ($R^{o, \delta}_t$), and the transmission advantage of the variant of concern ($A_t$). These are calculated as follows:
+
+\begin{align}
+  g^{o, \delta}_t &= T_s r^{o, \delta}_t \\
+  R^{o, \delta}_t &= \text{exp}\left(T_s r^{o, \delta}_t\right) \\
+  A_t &= \text{exp}\left(T_s \left(r^{\delta}_t - r^{o}_t \right)\right)\\
+\end{align}
+
+$T_s$ is a user set scaling parameter that defines the timespan over which the summary metrics apply dependent on the time step of the data. It can be set using the `scale_r` and defaults to 1 which returns summary statistics scaled to the timestep of the data. Depending on the setup of the model used these summary measures will be more or less related to their epidemiological definitions. In particular, adding a weighting to past expected cases that is more complex than a simple lag may cause interpretation issues.
+
+### Statistical analysis
+
+We tested the difference between the two models by comparing out of sample predictive fit using leave-one-out cross-validation with Pareto smoothed importance sampling, and model scoring.
+
+### Implementation
+
+The models are implemented in `stan` using `cmdstanr` with no defaults altered[@stan; @cmdstanr]. Due to the complexity of the posterior it is likely that increasing the `adapt_delta` may be required to mitigate potential bias in posterior estimates [@betancourt_2017]. `forecast.vocs` incorporates additional functionality written in R[@R] to enable plotting forecasts and posterior predictions, summarising forecasts, and scoring them using `scoringutils`[@scoringutils]. All functionality is modular allowing users to extend and alter the underlying model whilst continuing to use the package framework.
+
+
+### Reproducibility
+
+## Results {-}
+
+### Data description
+
+* Graph of cases by specimen date by region over time.
+* Discuss trend (centred moving average to plot)
+* Discussion sampling issues + potential sources of bias.
+
+
+On average, `r round(mean(obs$share_voc, na.rm=T)*100)`% cases had an SGT result. We found a median advantage for SGT-result cases of `r exp(advantage$median)` (95% credible interval `r exp(advantage$q5)` - `r exp(advantage$q95)`), scaled against cases without an SGT result. The growth rate increased over time at a similar rate between SGT-result and no-SGT-result cases (figure \ref{fig:plot-growth}).
+
+
+### Model comparison
+
+```{r compare-score}
+scores <- janitor::clean_names(
+  select(sgtf$loo, -forecast_date), case = "sentence"
+)
+kable(scores)
+```
+
+### Growth rate of S-gene positive and negative cases
+
+### Proportion of cases with SGTF
+
+### Transmission advantage of the cases with SGTF
+
+### Posterior predictions of cases with an without SGTF as well as overall
+
+### Evidence of sampling bias in S-gene target results among Covid-19 test-positive cases
+
+## Discussion {-}
+
+**Summary**
+
+**Strengths and weaknesses**
+
+**Literature**
+
+**Futher work**
+
+**Conclusions**
+
+**Acknowledgements**
+
+
+## References {-}
+
+
+

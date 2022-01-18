@@ -1,0 +1,157 @@
+---
+title: "Real-time estimation of the difference in the test seeking distribution of Omicron compared to Delta in England using S-Gene Target Status as a Proxy"
+subtitle: "Summary report"
+author: Sam Abbott (1)
+bibliography: library.bib
+csl: https://raw.githubusercontent.com/citation-style-language/styles/master/apa-numeric-superscript-brackets.csl
+date: "`r format(Sys.Date(), format = '%B %d, %Y')`"
+output:
+  html_document:
+    theme: cosmo
+    toc: true
+    toc_float: true
+    toc_depth: 4
+    includes:
+      before_body: header.html
+      after_body:  footer.html
+  pdf_document:
+    extra_dependencies: ["float"]
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, include = TRUE,
+                      warning = FALSE, message = FALSE,
+                      root.dir = here::here(),
+                      fig.width = 12, fig.height = 9)
+options(digits = 1)
+library(here)
+library(forecast.vocs)
+library(dplyr)
+library(loo)
+library(scoringutils)
+library(knitr)
+library(data.table)
+```
+
+```{r load-results}
+# load packages
+library(ggplot2)
+library(scales)
+library(dplyr)
+library(here)
+library(readr)
+library(data.table)
+
+# load functions
+source(here("R", "load-local-data.R"))
+source(here("R", "plot-summary.R"))
+source(here("R", "plot-daily-cases.R"))
+source(here("R", "plot-omicron-95.R"))
+source(here("R", "plot-cumulative-percent.R"))
+```
+
+1. Centre for the Mathematical Modelling of Infectious Diseases, London School of Hygiene & Tropical Medicine, London WC1E 7HT, United Kingdom
+
+
+## Introduction
+
+## Methods
+
+### Data
+
+We use S-gene status by specimen date sourced from UKHSA as a direct proxy for the Omicron variant with a target failure indicating a case has the Omicron variant. Data was available by UKHSA region.
+
+```{r munge-data}
+# get latest date
+date_latest <- get_latest_date()
+
+# load data
+daily <- load_local_data(date_latest)
+
+# start date
+start_date <- as.Date("2021-11-23")
+
+daily <- daily %>%
+  filter(date >= start_date) %>%
+  filter(!is.na(sgtf)) %>%
+  filter(!(region %in% "England"))
+
+# munge fraction, logit scaling, difference, and dow
+daily <- daily %>%
+  mutate(frac_sgtf = sgtf / total_sgt) %>%
+  mutate(logit_frac_sgtf = log(frac_sgtf / (1 - frac_sgtf))) %>%
+  group_by(region) %>%
+  arrange(date) %>%
+  mutate(diff_logit_sgtf = logit_frac_sgtf - lag(logit_frac_sgtf)) %>%
+  ungroup() %>%
+  mutate(weekday = weekdays(date) %>%
+   factor(levels = c("Monday", "Tuesday", "Wednesday", "Thursday",
+                     "Friday", "Saturday", "Sunday"))) %>%
+  mutate(mondays = ifelse(weekday %in% "Monday", date, NA_Date_))
+```
+
+### Models
+
+### Statistical Inference
+
+### Implementation
+
+All models were implemented using the [`forecast.vocs` R package](https://epiforecasts.io/forecast.vocs/) [@R; @forecast.vocs] and fit using `stan` [@stan] and `cmdstanr` [@cmdstanr]. Each model was fit using 2 chains with each chain having 1000 warmup steps and 2000 sampling steps. Convergence was assessed using the Rhat diagnostic [@stan]. Models were compared using approximate leave-one-out (LOO) cross-validation [@loo; @loo-paper] where negative values indicate an improved fit for the correlated model.
+
+
+## Limitations
+
+
+## Results 
+
+### Summary
+
+### Data description
+
+#### Daily
+```{r data, fig.cap = "Daily cases in England and by UKHSA region, with S-gene target result (failed, confirmed detected, or unknown), and centred 7-day moving average up to date of data truncation (dotted line). Source: UKHSA and coronavirus.gov.uk; data by specimen date."}
+daily %>%
+  plot_daily_cases(
+    truncate_date = max(daily$date), caption = "",
+    start_date = start_date, smooth_total = TRUE
+  ) +
+    geom_vline(aes(xintercept = mondays), linetype = 2, alpha = 0.5)
+```
+
+#### Fraction of those tested for the S gene with target failure by UKHSA region
+
+```{r logit-frac-sgtf-by-region, fig.cap = "Daily fraction of those tested for S gene status with SGTF by UKHSA region on the logit scale. The dashed vertical lines indicate Mondays. Note that the data is by specimen date and more recent dates may be from an incomplete sample . Source: UKHSA"}
+daily %>%
+  ggplot() +
+  aes(x = date, y = logit_frac_sgtf, col = region) +
+  geom_vline(aes(xintercept = mondays), linetype = 2, alpha = 0.5) +
+  geom_point(alpha = 0.8) +
+  geom_line(alpha = 0.4) +
+  scale_color_brewer(palette = "Paired") +
+  theme_bw() +
+  theme(legend.position = "bottom") +
+  labs(x = "Specimen date",
+       y = "Fraction of those tested for the S gene with target failure
+        (logit scale)",
+       col = "UKHSA region")
+```
+
+#### Growth in those with SGTF by day on the week for each UKHSA region 
+
+```{r logit-diff-by-day-of-week, fig.cap = "Daily fraction of those tested for S gene status with SGTF by UKHSA region on the logit scale. The dashed vertical lines indicate Mondays. Note that the data is by specimen date and more recent dates may be from an incomplete sample . Source: UKHSA"}
+daily %>%
+  ggplot() +
+  aes(x = weekday, y = diff_logit_sgtf, col = region) +
+  geom_violin(aes(col = NULL), alpha = 0.4, fill = "grey",
+              draw_quantiles = c(0.25, 0.5, 0.75)) +
+  geom_jitter(alpha = 0.6) +
+  scale_color_brewer(palette = "Paired") +
+  theme_bw() +
+  theme(legend.position = "bottom") +
+  guides(fill = NULL) +
+  labs(x = "Day of week",
+       y = "Difference in SGTF fraction from the previous day (logit scale)",
+       col = "UKHSA region")
+```
+
+## References
