@@ -1,183 +1,79 @@
-age_group,loc,stratification,gt_type,region
-0-14,1,age,household,
-15-29,2,age,household,
-30-44,3,age,household,
-45-59,4,age,household,
-60-74,5,age,household,
-75+,6,age,household,
-0-14,1,age,intrinsic,
-15-29,2,age,intrinsic,
-30-44,3,age,intrinsic,
-45-59,4,age,intrinsic,
-60-74,5,age,intrinsic,
-75+,6,age,intrinsic,
-0-14,1,age and region,household,East of England
-0-14,2,age and region,household,London
-0-14,3,age and region,household,Midlands
-0-14,4,age and region,household,North East and Yorkshire
-0-14,5,age and region,household,North West
-0-14,6,age and region,household,South East
-0-14,7,age and region,household,South West
-15-29,8,age and region,household,East of England
-15-29,9,age and region,household,London
-15-29,10,age and region,household,Midlands
-15-29,11,age and region,household,North East and Yorkshire
-15-29,12,age and region,household,North West
-15-29,13,age and region,household,South East
-15-29,14,age and region,household,South West
-30-44,15,age and region,household,East of England
-30-44,16,age and region,household,London
-30-44,17,age and region,household,Midlands
-30-44,18,age and region,household,North East and Yorkshire
-30-44,19,age and region,household,North West
-30-44,20,age and region,household,South East
-30-44,21,age and region,household,South West
-45-59,22,age and region,household,East of England
-45-59,23,age and region,household,London
-45-59,24,age and region,household,Midlands
-45-59,25,age and region,household,North East and Yorkshire
-45-59,26,age and region,household,North West
-45-59,27,age and region,household,South East
-45-59,28,age and region,household,South West
-60-74,29,age and region,household,East of England
-60-74,30,age and region,household,London
-60-74,31,age and region,household,Midlands
-60-74,32,age and region,household,North East and Yorkshire
-60-74,33,age and region,household,North West
-60-74,34,age and region,household,South East
-60-74,35,age and region,household,South West
-75+,36,age and region,household,East of England
-75+,37,age and region,household,London
-75+,38,age and region,household,Midlands
-75+,39,age and region,household,North East and Yorkshire
-75+,40,age and region,household,North West
-75+,41,age and region,household,South East
-75+,42,age and region,household,South West
-0-14,1,age and region,intrinsic,East of England
-0-14,2,age and region,intrinsic,London
-0-14,3,age and region,intrinsic,Midlands
-0-14,4,age and region,intrinsic,North East and Yorkshire
-0-14,5,age and region,intrinsic,North West
-0-14,6,age and region,intrinsic,South East
-0-14,7,age and region,intrinsic,South West
-15-29,8,age and region,intrinsic,East of England
-15-29,9,age and region,intrinsic,London
-15-29,10,age and region,intrinsic,Midlands
-15-29,11,age and region,intrinsic,North East and Yorkshire
-15-29,12,age and region,intrinsic,North West
-15-29,13,age and region,intrinsic,South East
-15-29,14,age and region,intrinsic,South West
-30-44,15,age and region,intrinsic,East of England
-30-44,16,age and region,intrinsic,London
-30-44,17,age and region,intrinsic,Midlands
-30-44,18,age and region,intrinsic,North East and Yorkshire
-30-44,19,age and region,intrinsic,North West
-30-44,20,age and region,intrinsic,South East
-30-44,21,age and region,intrinsic,South West
-45-59,22,age and region,intrinsic,East of England
-45-59,23,age and region,intrinsic,London
-45-59,24,age and region,intrinsic,Midlands
-45-59,25,age and region,intrinsic,North East and Yorkshire
-45-59,26,age and region,intrinsic,North West
-45-59,27,age and region,intrinsic,South East
-45-59,28,age and region,intrinsic,South West
-60-74,29,age and region,intrinsic,East of England
-60-74,30,age and region,intrinsic,London
-60-74,31,age and region,intrinsic,Midlands
-60-74,32,age and region,intrinsic,North East and Yorkshire
-60-74,33,age and region,intrinsic,North West
-60-74,34,age and region,intrinsic,South East
-60-74,35,age and region,intrinsic,South West
-75+,36,age and region,intrinsic,East of England
-75+,37,age and region,intrinsic,London
-75+,38,age and region,intrinsic,Midlands
-75+,39,age and region,intrinsic,North East and Yorkshire
-75+,40,age and region,intrinsic,North West
-75+,41,age and region,intrinsic,South East
-75+,42,age and region,intrinsic,South West
-,1,region,household,East of England
-,2,region,household,London
-,3,region,household,Midlands
-,4,region,household,North East and Yorkshire
-,5,region,household,North West
-,6,region,household,South East
-,7,region,household,South West
-,1,region,intrinsic,East of England
-,2,region,intrinsic,London
-,3,region,intrinsic,Midlands
-,4,region,intrinsic,North East and Yorkshire
-,5,region,intrinsic,North West
-,6,region,intrinsic,South East
-,7,region,intrinsic,South West
-0-14,3,age and region,household,North West
-0-14,4,age and region,household,South East
-0-14,5,age and region,household,South West
-0-14,6,age and region,household,Midlands
-0-14,7,age and region,household,North East and Yorkshire
-15-29,10,age and region,household,North West
-15-29,11,age and region,household,South East
-15-29,12,age and region,household,South West
-15-29,13,age and region,household,Midlands
-15-29,14,age and region,household,North East and Yorkshire
-30-44,17,age and region,household,North West
-30-44,18,age and region,household,South East
-30-44,19,age and region,household,South West
-30-44,20,age and region,household,Midlands
-30-44,21,age and region,household,North East and Yorkshire
-45-59,24,age and region,household,North West
-45-59,25,age and region,household,South East
-45-59,26,age and region,household,South West
-45-59,27,age and region,household,Midlands
-45-59,28,age and region,household,North East and Yorkshire
-60-74,31,age and region,household,North West
-60-74,32,age and region,household,South East
-60-74,33,age and region,household,South West
-60-74,34,age and region,household,Midlands
-60-74,35,age and region,household,North East and Yorkshire
-75+,38,age and region,household,North West
-75+,39,age and region,household,South East
-75+,40,age and region,household,South West
-75+,41,age and region,household,Midlands
-75+,42,age and region,household,North East and Yorkshire
-0-14,3,age and region,intrinsic,North West
-0-14,4,age and region,intrinsic,South East
-0-14,5,age and region,intrinsic,South West
-0-14,6,age and region,intrinsic,Midlands
-0-14,7,age and region,intrinsic,North East and Yorkshire
-15-29,10,age and region,intrinsic,North West
-15-29,11,age and region,intrinsic,South East
-15-29,12,age and region,intrinsic,South West
-15-29,13,age and region,intrinsic,Midlands
-15-29,14,age and region,intrinsic,North East and Yorkshire
-30-44,17,age and region,intrinsic,North West
-30-44,18,age and region,intrinsic,South East
-30-44,19,age and region,intrinsic,South West
-30-44,20,age and region,intrinsic,Midlands
-30-44,21,age and region,intrinsic,North East and Yorkshire
-45-59,24,age and region,intrinsic,North West
-45-59,25,age and region,intrinsic,South East
-45-59,26,age and region,intrinsic,South West
-45-59,27,age and region,intrinsic,Midlands
-45-59,28,age and region,intrinsic,North East and Yorkshire
-60-74,31,age and region,intrinsic,North West
-60-74,32,age and region,intrinsic,South East
-60-74,33,age and region,intrinsic,South West
-60-74,34,age and region,intrinsic,Midlands
-60-74,35,age and region,intrinsic,North East and Yorkshire
-75+,38,age and region,intrinsic,North West
-75+,39,age and region,intrinsic,South East
-75+,40,age and region,intrinsic,South West
-75+,41,age and region,intrinsic,Midlands
-75+,42,age and region,intrinsic,North East and Yorkshire
-,1,region,household,East Midlands
-,2,region,household,East of England
-,3,region,household,London
-,4,region,household,North East
-,8,region,household,West Midlands
-,9,region,household,Yorkshire and Humber
-,1,region,intrinsic,East Midlands
-,2,region,intrinsic,East of England
-,3,region,intrinsic,London
-,4,region,intrinsic,North East
-,8,region,intrinsic,West Midlands
-,9,region,intrinsic,Yorkshire and Humber
+age_group,loc,stratification,gt_type,gt_diff,source,region
+0-14,1,age,household,TRUE,sequence,
+15-29,2,age,household,TRUE,sequence,
+30-44,3,age,household,TRUE,sequence,
+45-59,4,age,household,TRUE,sequence,
+0-14,1,age,intrinsic,TRUE,sequence,
+15-29,2,age,intrinsic,TRUE,sequence,
+30-44,3,age,intrinsic,TRUE,sequence,
+45-59,4,age,intrinsic,TRUE,sequence,
+0-14,1,age and region,household,TRUE,sequence,East of England
+0-14,2,age and region,household,TRUE,sequence,London
+0-14,3,age and region,household,TRUE,sequence,Midlands
+0-14,4,age and region,household,TRUE,sequence,North East and Yorkshire
+0-14,5,age and region,household,TRUE,sequence,North West
+0-14,6,age and region,household,TRUE,sequence,South East
+0-14,7,age and region,household,TRUE,sequence,South West
+15-29,8,age and region,household,TRUE,sequence,East of England
+15-29,9,age and region,household,TRUE,sequence,London
+15-29,10,age and region,household,TRUE,sequence,Midlands
+15-29,11,age and region,household,TRUE,sequence,North East and Yorkshire
+15-29,12,age and region,household,TRUE,sequence,North West
+15-29,13,age and region,household,TRUE,sequence,South East
+15-29,14,age and region,household,TRUE,sequence,South West
+30-44,15,age and region,household,TRUE,sequence,East of England
+30-44,16,age and region,household,TRUE,sequence,London
+30-44,17,age and region,household,TRUE,sequence,Midlands
+30-44,18,age and region,household,TRUE,sequence,North East and Yorkshire
+30-44,19,age and region,household,TRUE,sequence,North West
+30-44,20,age and region,household,TRUE,sequence,South East
+30-44,21,age and region,household,TRUE,sequence,South West
+45-59,22,age and region,household,TRUE,sequence,East of England
+45-59,23,age and region,household,TRUE,sequence,London
+45-59,24,age and region,household,TRUE,sequence,Midlands
+45-59,25,age and region,household,TRUE,sequence,North East and Yorkshire
+45-59,26,age and region,household,TRUE,sequence,North West
+45-59,27,age and region,household,TRUE,sequence,South East
+45-59,28,age and region,household,TRUE,sequence,South West
+0-14,1,age and region,intrinsic,TRUE,sequence,East of England
+0-14,2,age and region,intrinsic,TRUE,sequence,London
+0-14,3,age and region,intrinsic,TRUE,sequence,Midlands
+0-14,4,age and region,intrinsic,TRUE,sequence,North East and Yorkshire
+0-14,5,age and region,intrinsic,TRUE,sequence,North West
+0-14,6,age and region,intrinsic,TRUE,sequence,South East
+0-14,7,age and region,intrinsic,TRUE,sequence,South West
+15-29,8,age and region,intrinsic,TRUE,sequence,East of England
+15-29,9,age and region,intrinsic,TRUE,sequence,London
+15-29,10,age and region,intrinsic,TRUE,sequence,Midlands
+15-29,11,age and region,intrinsic,TRUE,sequence,North East and Yorkshire
+15-29,12,age and region,intrinsic,TRUE,sequence,North West
+15-29,13,age and region,intrinsic,TRUE,sequence,South East
+15-29,14,age and region,intrinsic,TRUE,sequence,South West
+30-44,15,age and region,intrinsic,TRUE,sequence,East of England
+30-44,16,age and region,intrinsic,TRUE,sequence,London
+30-44,17,age and region,intrinsic,TRUE,sequence,Midlands
+30-44,18,age and region,intrinsic,TRUE,sequence,North East and Yorkshire
+30-44,19,age and region,intrinsic,TRUE,sequence,North West
+30-44,20,age and region,intrinsic,TRUE,sequence,South East
+30-44,21,age and region,intrinsic,TRUE,sequence,South West
+45-59,22,age and region,intrinsic,TRUE,sequence,East of England
+45-59,23,age and region,intrinsic,TRUE,sequence,London
+45-59,24,age and region,intrinsic,TRUE,sequence,Midlands
+45-59,25,age and region,intrinsic,TRUE,sequence,North East and Yorkshire
+45-59,26,age and region,intrinsic,TRUE,sequence,North West
+45-59,27,age and region,intrinsic,TRUE,sequence,South East
+45-59,28,age and region,intrinsic,TRUE,sequence,South West
+,1,region,household,TRUE,sequence,East of England
+,2,region,household,TRUE,sequence,London
+,3,region,household,TRUE,sequence,Midlands
+,4,region,household,TRUE,sequence,North East and Yorkshire
+,5,region,household,TRUE,sequence,North West
+,6,region,household,TRUE,sequence,South East
+,7,region,household,TRUE,sequence,South West
+,1,region,intrinsic,TRUE,sequence,East of England
+,2,region,intrinsic,TRUE,sequence,London
+,3,region,intrinsic,TRUE,sequence,Midlands
+,4,region,intrinsic,TRUE,sequence,North East and Yorkshire
+,5,region,intrinsic,TRUE,sequence,North West
+,6,region,intrinsic,TRUE,sequence,South East
+,7,region,intrinsic,TRUE,sequence,South West

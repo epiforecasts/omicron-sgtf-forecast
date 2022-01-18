@@ -168,7 +168,7 @@ Here, superscripts D and O denote Delta and Omicron, respectively, $r$ is the gr
   \bar{G}^\mathrm{D} &\sim \text{Normal}\left(3.2, 0.46 \right) \\
   \bar{G}_\mathrm{SD}^\mathrm{D} &\sim \text{Normal}\left(2.4, 0.33 \right) \\
   \frac{\bar{G}^\mathrm{O}}{\bar{G}^\mathrm{D}} &\sim  \text{LogNormal}\left(0, 0.25 \right) \\
-  \frac{\bar{G}_\mathrm{SD}^\mathrm{O}}{\bar{G}_\mathrm{SD}^\mathrm{D}} &\sim \text{LogNormal}\left(0, 0.1 \right) \\
+  \frac{\bar{G}_\mathrm{SD}^\mathrm{O}}{\bar{G}_\mathrm{SD}^\mathrm{D}} &\sim \text{LogNormal}\left(0, 0.25 \right) \\
 \end{align}
 
 The generation priors used here are motivated by the household estimates derived in Hart et al [@hart2021] for the UK  using a normal approximation. As a sensitivity analysis, we also explore their alternative intrinsic estimates which had a mean of 4.6 days (standard deviation (SD): 0.36 days) and a standard deviation of 3.1 days (SD: 0.18) days, again using a normal approximation. We model the location specific transmission advantage ($\alpha_l$) using a random effect with all locations having a joint mean ($\alpha$) and standard deviation ($alpha_\mathrm{SD}$) as follows,
@@ -194,6 +194,9 @@ posterior_samples <- fread(
 )[gt_diff == TRUE][source == "sequence"]
 posterior_predictions <- fread(
   here::here("data", "retrospective", "posterior_predictions.csv")
+)[gt_diff == TRUE][source == "sequence"]
+reproduction_no_pp <- fread(
+  here::here("data", "retrospective", "reproduction_no_pp.csv")
 )[gt_diff == TRUE][source == "sequence"]
 posterior_locations <- fread(
   here::here("data", "retrospective", "posterior_locations.csv")
@@ -479,6 +482,8 @@ clean_summary %>%
 
 ### Posterior predictions
 
+#### Growth rate
+
 ```{r pp-region, fig.cap = "Estimates of the time-varying daily growth rate for each UKHSA region for cases with the Omicron variant compared to posterior predictions using Delta growth rates and differing generation times. Delta growth rates are assumed to be piecewise constant with potential changes every 3 days. 90% and 60% credible intervals are shown."}
 posterior_predictions %>%
   filter(stratification == "region", gt_type == "household") %>%
@@ -499,6 +504,9 @@ posterior_predictions %>%
   gt_plot_pp() +
   facet_grid(age_group~region)
 ```
+
+#### Omicron reproduction number estimates
+
 
 ## Discussion
 

@@ -19,25 +19,27 @@ source(here("R", "gt-helpers.R"))
 # Load growth estimates
 seq_growth <- load_growth(
   as.Date("2021-12-23"), type = "seq-by-age",
-  min_date = "2021-12-01", max_date = "2021-12-23"
+  min_date = "2021-12-01", max_date = "2021-12-23",
+  dropped_age_groups = c("75+", "60-74")
 )
 
 sgtf_growth <- load_sgtf_growth(
   region_date = as.Date("2022-01-06"), age_date = as.Date("2021-12-23"),
-  min_date = "2021-12-01", max_date = "2021-12-23"
+  min_date = "2021-12-01", max_date = "2021-12-23",
+  dropped_age_groups = c("75+", "60-74")
 )
 
 grid_seq <- growth_grid(seq_growth)[, source := "sequence"]
 grid_sgtf <- growth_grid(sgtf_growth)[, source := "sgtf"]
 grid <- rbind(grid_seq, grid_sgtf)
 grid[, id := 1:.N]
+grid <- grid[source == "sequence"][gt_diff == TRUE]
 
 # Compile the stan model
 model <- gt_load_model()
 
-
 # Fit each model in turn
-estimates <- future.apply::future_lapply(
+estimates <- lapply(
   split(grid, by = "id"),
   function(.) {
     gt_estimate(
@@ -46,8 +48,7 @@ estimates <- future.apply::future_lapply(
       max_treedepth = 15, debug = FALSE,
       parallel_chains = 4
     )
-  },
-  future.seed = TRUE
+  }
 )
 estimates <- rbindlist(estimates)
 estimates <- cbind(grid, estimates)

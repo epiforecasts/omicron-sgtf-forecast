@@ -1,0 +1,1441 @@
+age_group,date,variable,q5,q20,q80,q95,type,stratification,gt_type,gt_diff,source,region
+0-14,2021-12-05,pp_voc_R[1],1.930216,2.125808,2.706186,3.071919,Posterior prediction,age,household,TRUE,sequence,
+0-14,2021-12-06,pp_voc_R[2],1.9043035,2.127322,2.70217,3.0625935,Posterior prediction,age,household,TRUE,sequence,
+0-14,2021-12-07,pp_voc_R[3],1.914112,2.134376,2.706158,3.0702295,Posterior prediction,age,household,TRUE,sequence,
+0-14,2021-12-08,pp_voc_R[4],1.845073,2.047354,2.606602,2.9498975,Posterior prediction,age,household,TRUE,sequence,
+0-14,2021-12-09,pp_voc_R[5],1.8412235,2.047778,2.625292,2.969862,Posterior prediction,age,household,TRUE,sequence,
+0-14,2021-12-10,pp_voc_R[6],1.839721,2.045046,2.608914,2.9731515,Posterior prediction,age,household,TRUE,sequence,
+0-14,2021-12-11,pp_voc_R[7],1.4777815,1.630664,2.037128,2.2977865,Posterior prediction,age,household,TRUE,sequence,
+0-14,2021-12-12,pp_voc_R[8],1.472869,1.62857,2.030642,2.280441,Posterior prediction,age,household,TRUE,sequence,
+0-14,2021-12-13,pp_voc_R[9],1.4742235,1.61649,2.020492,2.270355,Posterior prediction,age,household,TRUE,sequence,
+0-14,2021-12-14,pp_voc_R[10],1.328099,1.441586,1.746492,1.9371145,Posterior prediction,age,household,TRUE,sequence,
+0-14,2021-12-15,pp_voc_R[11],1.3156025,1.437944,1.74408,1.9384585,Posterior prediction,age,household,TRUE,sequence,
+0-14,2021-12-16,pp_voc_R[12],1.3217395,1.438056,1.752666,1.941236,Posterior prediction,age,household,TRUE,sequence,
+0-14,2021-12-17,pp_voc_R[13],1.0199065,1.12512,1.35824,1.503597,Posterior prediction,age,household,TRUE,sequence,
+0-14,2021-12-18,pp_voc_R[14],1.027321,1.121108,1.35806,1.4874985,Posterior prediction,age,household,TRUE,sequence,
+0-14,2021-12-19,pp_voc_R[15],1.023675,1.121866,1.354714,1.4915605,Posterior prediction,age,household,TRUE,sequence,
+0-14,2021-12-20,pp_voc_R[16],1.1329175,1.222602,1.440764,1.5798405,Posterior prediction,age,household,TRUE,sequence,
+0-14,2021-12-21,pp_voc_R[17],1.1335935,1.22225,1.448934,1.573441,Posterior prediction,age,household,TRUE,sequence,
+0-14,2021-12-22,pp_voc_R[18],1.120411,1.214124,1.44733,1.5779265,Posterior prediction,age,household,TRUE,sequence,
+0-14,2021-12-23,pp_voc_R[19],1.126361,1.217376,1.443372,1.575291,Posterior prediction,age,household,TRUE,sequence,
+15-29,2021-12-02,pp_voc_R[20],1.8072625,2.017468,2.58975,2.9696805,Posterior prediction,age,household,TRUE,sequence,
+15-29,2021-12-03,pp_voc_R[21],1.815143,2.017308,2.595008,2.935181,Posterior prediction,age,household,TRUE,sequence,
+15-29,2021-12-04,pp_voc_R[22],1.8015495,2.021228,2.5955,2.9333605,Posterior prediction,age,household,TRUE,sequence,
+15-29,2021-12-05,pp_voc_R[23],1.724872,1.92537,2.483998,2.8478325,Posterior prediction,age,household,TRUE,sequence,
+15-29,2021-12-06,pp_voc_R[24],1.717888,1.922084,2.471774,2.8482,Posterior prediction,age,household,TRUE,sequence,
+15-29,2021-12-07,pp_voc_R[25],1.7237185,1.923882,2.47696,2.8293155,Posterior prediction,age,household,TRUE,sequence,
+15-29,2021-12-08,pp_voc_R[26],1.6146655,1.784354,2.259588,2.571911,Posterior prediction,age,household,TRUE,sequence,
+15-29,2021-12-09,pp_voc_R[27],1.6208055,1.79039,2.258026,2.5764565,Posterior prediction,age,household,TRUE,sequence,
+15-29,2021-12-10,pp_voc_R[28],1.6191985,1.786754,2.263248,2.576569,Posterior prediction,age,household,TRUE,sequence,
+15-29,2021-12-11,pp_voc_R[29],1.758124,1.945416,2.481044,2.7799125,Posterior prediction,age,household,TRUE,sequence,
+15-29,2021-12-12,pp_voc_R[30],1.778402,1.952174,2.466528,2.7925245,Posterior prediction,age,household,TRUE,sequence,
+15-29,2021-12-13,pp_voc_R[31],1.7778365,1.958674,2.464994,2.7808065,Posterior prediction,age,household,TRUE,sequence,
+15-29,2021-12-14,pp_voc_R[32],1.1185315,1.22008,1.465354,1.612689,Posterior prediction,age,household,TRUE,sequence,
+15-29,2021-12-15,pp_voc_R[33],1.112349,1.21495,1.464694,1.613697,Posterior prediction,age,household,TRUE,sequence,
+15-29,2021-12-16,pp_voc_R[34],1.1188375,1.221868,1.455994,1.5962,Posterior prediction,age,household,TRUE,sequence,
+15-29,2021-12-17,pp_voc_R[35],0.97413,1.059192,1.254322,1.368668,Posterior prediction,age,household,TRUE,sequence,
+15-29,2021-12-18,pp_voc_R[36],0.9716568,1.059678,1.256884,1.359135,Posterior prediction,age,household,TRUE,sequence,
+15-29,2021-12-19,pp_voc_R[37],0.97720135,1.06115,1.26147,1.3750255,Posterior prediction,age,household,TRUE,sequence,
+15-29,2021-12-20,pp_voc_R[38],1.071022,1.160634,1.389864,1.5210395,Posterior prediction,age,household,TRUE,sequence,
+15-29,2021-12-21,pp_voc_R[39],1.0681485,1.16192,1.385496,1.5175705,Posterior prediction,age,household,TRUE,sequence,
+15-29,2021-12-22,pp_voc_R[40],1.0670155,1.160798,1.388914,1.51791,Posterior prediction,age,household,TRUE,sequence,
+15-29,2021-12-23,pp_voc_R[41],1.075029,1.165324,1.395808,1.5242815,Posterior prediction,age,household,TRUE,sequence,
+30-44,2021-12-03,pp_voc_R[42],1.941036,2.201048,2.951068,3.411918,Posterior prediction,age,household,TRUE,sequence,
+30-44,2021-12-04,pp_voc_R[43],1.9236845,2.194536,2.954274,3.4194085,Posterior prediction,age,household,TRUE,sequence,
+30-44,2021-12-05,pp_voc_R[44],2.0080135,2.266796,3.012482,3.493948,Posterior prediction,age,household,TRUE,sequence,
+30-44,2021-12-06,pp_voc_R[45],2.011054,2.270628,3.017164,3.5176685,Posterior prediction,age,household,TRUE,sequence,
+30-44,2021-12-07,pp_voc_R[46],1.986478,2.268296,3.022174,3.4950975,Posterior prediction,age,household,TRUE,sequence,
+30-44,2021-12-08,pp_voc_R[47],1.8457535,2.078838,2.722812,3.115946,Posterior prediction,age,household,TRUE,sequence,
+30-44,2021-12-09,pp_voc_R[48],1.8588925,2.074956,2.70575,3.1039955,Posterior prediction,age,household,TRUE,sequence,
+30-44,2021-12-10,pp_voc_R[49],1.8601925,2.082794,2.692012,3.104055,Posterior prediction,age,household,TRUE,sequence,
+30-44,2021-12-11,pp_voc_R[50],1.7777915,1.96288,2.46114,2.767324,Posterior prediction,age,household,TRUE,sequence,
+30-44,2021-12-12,pp_voc_R[51],1.786251,1.963542,2.447622,2.752111,Posterior prediction,age,household,TRUE,sequence,
+30-44,2021-12-13,pp_voc_R[52],1.767329,1.953464,2.446416,2.759162,Posterior prediction,age,household,TRUE,sequence,
+30-44,2021-12-14,pp_voc_R[53],1.102968,1.192598,1.411632,1.543142,Posterior prediction,age,household,TRUE,sequence,
+30-44,2021-12-15,pp_voc_R[54],1.1071135,1.193748,1.417746,1.5529065,Posterior prediction,age,household,TRUE,sequence,
+30-44,2021-12-16,pp_voc_R[55],1.100147,1.191472,1.41612,1.557805,Posterior prediction,age,household,TRUE,sequence,
+30-44,2021-12-17,pp_voc_R[56],1.098344,1.180714,1.368886,1.484483,Posterior prediction,age,household,TRUE,sequence,
+30-44,2021-12-18,pp_voc_R[57],1.093124,1.17616,1.370474,1.4883115,Posterior prediction,age,household,TRUE,sequence,
+30-44,2021-12-19,pp_voc_R[58],1.1018095,1.180702,1.377304,1.4952985,Posterior prediction,age,household,TRUE,sequence,
+30-44,2021-12-20,pp_voc_R[59],1.1149855,1.195656,1.3901,1.4994585,Posterior prediction,age,household,TRUE,sequence,
+30-44,2021-12-21,pp_voc_R[60],1.1232785,1.196848,1.385962,1.496947,Posterior prediction,age,household,TRUE,sequence,
+30-44,2021-12-22,pp_voc_R[61],1.1139865,1.196698,1.387952,1.503423,Posterior prediction,age,household,TRUE,sequence,
+30-44,2021-12-23,pp_voc_R[62],1.114865,1.198562,1.390416,1.5043645,Posterior prediction,age,household,TRUE,sequence,
+45-59,2021-12-03,pp_voc_R[63],1.8327675,2.071148,2.708766,3.105681,Posterior prediction,age,household,TRUE,sequence,
+45-59,2021-12-04,pp_voc_R[64],1.846633,2.062602,2.694394,3.0863265,Posterior prediction,age,household,TRUE,sequence,
+45-59,2021-12-05,pp_voc_R[65],1.922906,2.12481,2.696538,3.0649275,Posterior prediction,age,household,TRUE,sequence,
+45-59,2021-12-06,pp_voc_R[66],1.9066455,2.117044,2.700496,3.055764,Posterior prediction,age,household,TRUE,sequence,
+45-59,2021-12-07,pp_voc_R[67],1.9175795,2.11793,2.695406,3.059603,Posterior prediction,age,household,TRUE,sequence,
+45-59,2021-12-08,pp_voc_R[68],1.7772585,1.961144,2.461714,2.765273,Posterior prediction,age,household,TRUE,sequence,
+45-59,2021-12-09,pp_voc_R[69],1.779655,1.966918,2.457968,2.7716505,Posterior prediction,age,household,TRUE,sequence,
+45-59,2021-12-10,pp_voc_R[70],1.7775665,1.955136,2.460692,2.797507,Posterior prediction,age,household,TRUE,sequence,
+45-59,2021-12-11,pp_voc_R[71],1.6373435,1.786964,2.185378,2.437148,Posterior prediction,age,household,TRUE,sequence,
+45-59,2021-12-12,pp_voc_R[72],1.633903,1.784572,2.17838,2.4426125,Posterior prediction,age,household,TRUE,sequence,
+45-59,2021-12-13,pp_voc_R[73],1.646,1.785132,2.186282,2.433966,Posterior prediction,age,household,TRUE,sequence,
+45-59,2021-12-14,pp_voc_R[74],1.2876085,1.378878,1.631614,1.7805945,Posterior prediction,age,household,TRUE,sequence,
+45-59,2021-12-15,pp_voc_R[75],1.28379,1.374636,1.629462,1.7756825,Posterior prediction,age,household,TRUE,sequence,
+45-59,2021-12-16,pp_voc_R[76],1.2807695,1.378168,1.627498,1.7874875,Posterior prediction,age,household,TRUE,sequence,
+45-59,2021-12-17,pp_voc_R[77],1.117091,1.195628,1.387796,1.505804,Posterior prediction,age,household,TRUE,sequence,
+45-59,2021-12-18,pp_voc_R[78],1.119142,1.196768,1.392884,1.498548,Posterior prediction,age,household,TRUE,sequence,
+45-59,2021-12-19,pp_voc_R[79],1.111689,1.192562,1.38651,1.503421,Posterior prediction,age,household,TRUE,sequence,
+45-59,2021-12-20,pp_voc_R[80],1.1036715,1.18858,1.394726,1.5140815,Posterior prediction,age,household,TRUE,sequence,
+45-59,2021-12-21,pp_voc_R[81],1.1049275,1.189736,1.3967,1.5083445,Posterior prediction,age,household,TRUE,sequence,
+45-59,2021-12-22,pp_voc_R[82],1.10658,1.191412,1.398014,1.5163795,Posterior prediction,age,household,TRUE,sequence,
+45-59,2021-12-23,pp_voc_R[83],1.103319,1.188042,1.397402,1.51788,Posterior prediction,age,household,TRUE,sequence,
+0-14,2021-12-05,pp_voc_R[1],2.7615305,3.140428,4.16126,4.7857545,Posterior prediction,age,intrinsic,TRUE,sequence,
+0-14,2021-12-06,pp_voc_R[2],2.7644515,3.145228,4.124034,4.702868,Posterior prediction,age,intrinsic,TRUE,sequence,
+0-14,2021-12-07,pp_voc_R[3],2.7728275,3.142286,4.123132,4.749711,Posterior prediction,age,intrinsic,TRUE,sequence,
+0-14,2021-12-08,pp_voc_R[4],2.576407,2.955398,3.911636,4.5300415,Posterior prediction,age,intrinsic,TRUE,sequence,
+0-14,2021-12-09,pp_voc_R[5],2.5712125,2.948544,3.916904,4.53577,Posterior prediction,age,intrinsic,TRUE,sequence,
+0-14,2021-12-10,pp_voc_R[6],2.581966,2.959428,3.941868,4.5660175,Posterior prediction,age,intrinsic,TRUE,sequence,
+0-14,2021-12-11,pp_voc_R[7],1.8380145,2.09405,2.782806,3.1949175,Posterior prediction,age,intrinsic,TRUE,sequence,
+0-14,2021-12-12,pp_voc_R[8],1.801555,2.07909,2.794628,3.205699,Posterior prediction,age,intrinsic,TRUE,sequence,
+0-14,2021-12-13,pp_voc_R[9],1.805987,2.080902,2.793426,3.192124,Posterior prediction,age,intrinsic,TRUE,sequence,
+0-14,2021-12-14,pp_voc_R[10],1.5393,1.739366,2.267372,2.5636345,Posterior prediction,age,intrinsic,TRUE,sequence,
+0-14,2021-12-15,pp_voc_R[11],1.5396515,1.742688,2.266484,2.5788905,Posterior prediction,age,intrinsic,TRUE,sequence,
+0-14,2021-12-16,pp_voc_R[12],1.5357535,1.739982,2.265378,2.571679,Posterior prediction,age,intrinsic,TRUE,sequence,
+0-14,2021-12-17,pp_voc_R[13],1.046881,1.196592,1.568946,1.7726505,Posterior prediction,age,intrinsic,TRUE,sequence,
+0-14,2021-12-18,pp_voc_R[14],1.0348985,1.193894,1.563434,1.78272,Posterior prediction,age,intrinsic,TRUE,sequence,
+0-14,2021-12-19,pp_voc_R[15],1.04944,1.206944,1.573102,1.7760065,Posterior prediction,age,intrinsic,TRUE,sequence,
+0-14,2021-12-20,pp_voc_R[16],1.201598,1.354796,1.717668,1.9218875,Posterior prediction,age,intrinsic,TRUE,sequence,
+0-14,2021-12-21,pp_voc_R[17],1.2128925,1.351786,1.711824,1.9261725,Posterior prediction,age,intrinsic,TRUE,sequence,
+0-14,2021-12-22,pp_voc_R[18],1.2100315,1.360158,1.719656,1.931253,Posterior prediction,age,intrinsic,TRUE,sequence,
+0-14,2021-12-23,pp_voc_R[19],1.2098575,1.356692,1.720592,1.9179045,Posterior prediction,age,intrinsic,TRUE,sequence,
+15-29,2021-12-02,pp_voc_R[20],2.5472685,2.919032,3.9619,4.5359105,Posterior prediction,age,intrinsic,TRUE,sequence,
+15-29,2021-12-03,pp_voc_R[21],2.502251,2.913746,3.944584,4.5328215,Posterior prediction,age,intrinsic,TRUE,sequence,
+15-29,2021-12-04,pp_voc_R[22],2.4997755,2.909312,3.95173,4.5882225,Posterior prediction,age,intrinsic,TRUE,sequence,
+15-29,2021-12-05,pp_voc_R[23],2.3123485,2.695092,3.701312,4.314099,Posterior prediction,age,intrinsic,TRUE,sequence,
+15-29,2021-12-06,pp_voc_R[24],2.3093475,2.699234,3.729558,4.322415,Posterior prediction,age,intrinsic,TRUE,sequence,
+15-29,2021-12-07,pp_voc_R[25],2.3225905,2.712486,3.693992,4.3182295,Posterior prediction,age,intrinsic,TRUE,sequence,
+15-29,2021-12-08,pp_voc_R[26],2.090152,2.409774,3.249172,3.7553125,Posterior prediction,age,intrinsic,TRUE,sequence,
+15-29,2021-12-09,pp_voc_R[27],2.0958475,2.407174,3.23778,3.72967,Posterior prediction,age,intrinsic,TRUE,sequence,
+15-29,2021-12-10,pp_voc_R[28],2.0793315,2.407346,3.249852,3.755971,Posterior prediction,age,intrinsic,TRUE,sequence,
+15-29,2021-12-11,pp_voc_R[29],2.4194115,2.749634,3.622882,4.147258,Posterior prediction,age,intrinsic,TRUE,sequence,
+15-29,2021-12-12,pp_voc_R[30],2.4161865,2.767418,3.665682,4.2035505,Posterior prediction,age,intrinsic,TRUE,sequence,
+15-29,2021-12-13,pp_voc_R[31],2.4249455,2.776346,3.623484,4.1807435,Posterior prediction,age,intrinsic,TRUE,sequence,
+15-29,2021-12-14,pp_voc_R[32],1.188135,1.3476,1.752454,1.979563,Posterior prediction,age,intrinsic,TRUE,sequence,
+15-29,2021-12-15,pp_voc_R[33],1.1768615,1.33819,1.744866,1.9828005,Posterior prediction,age,intrinsic,TRUE,sequence,
+15-29,2021-12-16,pp_voc_R[34],1.1757005,1.34249,1.746394,1.9714275,Posterior prediction,age,intrinsic,TRUE,sequence,
+15-29,2021-12-17,pp_voc_R[35],0.94801505,1.08489,1.409232,1.5944305,Posterior prediction,age,intrinsic,TRUE,sequence,
+15-29,2021-12-18,pp_voc_R[36],0.9537121,1.093488,1.413292,1.5832605,Posterior prediction,age,intrinsic,TRUE,sequence,
+15-29,2021-12-19,pp_voc_R[37],0.94773265,1.088268,1.418488,1.6058715,Posterior prediction,age,intrinsic,TRUE,sequence,
+15-29,2021-12-20,pp_voc_R[38],1.091187,1.253266,1.6258,1.8325785,Posterior prediction,age,intrinsic,TRUE,sequence,
+15-29,2021-12-21,pp_voc_R[39],1.1017165,1.259692,1.62414,1.8420155,Posterior prediction,age,intrinsic,TRUE,sequence,
+15-29,2021-12-22,pp_voc_R[40],1.106819,1.257764,1.630314,1.8443275,Posterior prediction,age,intrinsic,TRUE,sequence,
+15-29,2021-12-23,pp_voc_R[41],1.1057915,1.261726,1.625106,1.8170505,Posterior prediction,age,intrinsic,TRUE,sequence,
+30-44,2021-12-03,pp_voc_R[42],2.7366825,3.283306,4.67092,5.6225255,Posterior prediction,age,intrinsic,TRUE,sequence,
+30-44,2021-12-04,pp_voc_R[43],2.7667305,3.291038,4.702716,5.60902,Posterior prediction,age,intrinsic,TRUE,sequence,
+30-44,2021-12-05,pp_voc_R[44],2.9371115,3.452056,4.81002,5.630223,Posterior prediction,age,intrinsic,TRUE,sequence,
+30-44,2021-12-06,pp_voc_R[45],2.9094315,3.453634,4.803562,5.6569625,Posterior prediction,age,intrinsic,TRUE,sequence,
+30-44,2021-12-07,pp_voc_R[46],2.9428105,3.460934,4.783026,5.65959,Posterior prediction,age,intrinsic,TRUE,sequence,
+30-44,2021-12-08,pp_voc_R[47],2.612462,3.00698,4.16832,4.9034515,Posterior prediction,age,intrinsic,TRUE,sequence,
+30-44,2021-12-09,pp_voc_R[48],2.598778,3.031568,4.160608,4.8269055,Posterior prediction,age,intrinsic,TRUE,sequence,
+30-44,2021-12-10,pp_voc_R[49],2.5921535,3.029142,4.159912,4.8778075,Posterior prediction,age,intrinsic,TRUE,sequence,
+30-44,2021-12-11,pp_voc_R[50],2.465802,2.776024,3.62826,4.132686,Posterior prediction,age,intrinsic,TRUE,sequence,
+30-44,2021-12-12,pp_voc_R[51],2.46528,2.776764,3.63034,4.168561,Posterior prediction,age,intrinsic,TRUE,sequence,
+30-44,2021-12-13,pp_voc_R[52],2.4832705,2.786972,3.614008,4.123198,Posterior prediction,age,intrinsic,TRUE,sequence,
+30-44,2021-12-14,pp_voc_R[53],1.162015,1.30933,1.66499,1.863742,Posterior prediction,age,intrinsic,TRUE,sequence,
+30-44,2021-12-15,pp_voc_R[54],1.157996,1.30197,1.666412,1.8657215,Posterior prediction,age,intrinsic,TRUE,sequence,
+30-44,2021-12-16,pp_voc_R[55],1.158576,1.311082,1.667888,1.888239,Posterior prediction,age,intrinsic,TRUE,sequence,
+30-44,2021-12-17,pp_voc_R[56],1.151369,1.27832,1.592762,1.770686,Posterior prediction,age,intrinsic,TRUE,sequence,
+30-44,2021-12-18,pp_voc_R[57],1.154123,1.281902,1.597936,1.776863,Posterior prediction,age,intrinsic,TRUE,sequence,
+30-44,2021-12-19,pp_voc_R[58],1.1564215,1.28219,1.59208,1.7608835,Posterior prediction,age,intrinsic,TRUE,sequence,
+30-44,2021-12-20,pp_voc_R[59],1.180653,1.311848,1.62189,1.783323,Posterior prediction,age,intrinsic,TRUE,sequence,
+30-44,2021-12-21,pp_voc_R[60],1.181747,1.307424,1.616766,1.797027,Posterior prediction,age,intrinsic,TRUE,sequence,
+30-44,2021-12-22,pp_voc_R[61],1.1724325,1.311886,1.619232,1.800836,Posterior prediction,age,intrinsic,TRUE,sequence,
+30-44,2021-12-23,pp_voc_R[62],1.183774,1.315044,1.621054,1.7850045,Posterior prediction,age,intrinsic,TRUE,sequence,
+45-59,2021-12-03,pp_voc_R[63],2.5796395,3.015556,4.16363,4.890683,Posterior prediction,age,intrinsic,TRUE,sequence,
+45-59,2021-12-04,pp_voc_R[64],2.5547325,3.005908,4.173532,4.8583295,Posterior prediction,age,intrinsic,TRUE,sequence,
+45-59,2021-12-05,pp_voc_R[65],2.7480265,3.129336,4.131538,4.7232365,Posterior prediction,age,intrinsic,TRUE,sequence,
+45-59,2021-12-06,pp_voc_R[66],2.7343435,3.116246,4.110162,4.7127975,Posterior prediction,age,intrinsic,TRUE,sequence,
+45-59,2021-12-07,pp_voc_R[67],2.735975,3.129918,4.137932,4.713087,Posterior prediction,age,intrinsic,TRUE,sequence,
+45-59,2021-12-08,pp_voc_R[68],2.4430605,2.782706,3.61759,4.1622255,Posterior prediction,age,intrinsic,TRUE,sequence,
+45-59,2021-12-09,pp_voc_R[69],2.4519655,2.779874,3.645186,4.1517515,Posterior prediction,age,intrinsic,TRUE,sequence,
+45-59,2021-12-10,pp_voc_R[70],2.458423,2.79469,3.621818,4.127684,Posterior prediction,age,intrinsic,TRUE,sequence,
+45-59,2021-12-11,pp_voc_R[71],2.161858,2.404818,3.085544,3.4834945,Posterior prediction,age,intrinsic,TRUE,sequence,
+45-59,2021-12-12,pp_voc_R[72],2.1718375,2.412786,3.078674,3.472187,Posterior prediction,age,intrinsic,TRUE,sequence,
+45-59,2021-12-13,pp_voc_R[73],2.1619805,2.420472,3.073454,3.44687,Posterior prediction,age,intrinsic,TRUE,sequence,
+45-59,2021-12-14,pp_voc_R[74],1.456271,1.622428,2.039926,2.2851775,Posterior prediction,age,intrinsic,TRUE,sequence,
+45-59,2021-12-15,pp_voc_R[75],1.4759485,1.626424,2.034004,2.268582,Posterior prediction,age,intrinsic,TRUE,sequence,
+45-59,2021-12-16,pp_voc_R[76],1.461774,1.628618,2.038882,2.285197,Posterior prediction,age,intrinsic,TRUE,sequence,
+45-59,2021-12-17,pp_voc_R[77],1.184689,1.314966,1.609492,1.781641,Posterior prediction,age,intrinsic,TRUE,sequence,
+45-59,2021-12-18,pp_voc_R[78],1.1810825,1.307554,1.626578,1.82392,Posterior prediction,age,intrinsic,TRUE,sequence,
+45-59,2021-12-19,pp_voc_R[79],1.1741475,1.316224,1.615088,1.7962035,Posterior prediction,age,intrinsic,TRUE,sequence,
+45-59,2021-12-20,pp_voc_R[80],1.1619955,1.302988,1.640156,1.823279,Posterior prediction,age,intrinsic,TRUE,sequence,
+45-59,2021-12-21,pp_voc_R[81],1.16497,1.296212,1.6354,1.826497,Posterior prediction,age,intrinsic,TRUE,sequence,
+45-59,2021-12-22,pp_voc_R[82],1.16192,1.30344,1.629538,1.818872,Posterior prediction,age,intrinsic,TRUE,sequence,
+45-59,2021-12-23,pp_voc_R[83],1.166747,1.30339,1.632466,1.8271605,Posterior prediction,age,intrinsic,TRUE,sequence,
+0-14,2021-12-06,pp_voc_R[1],1.611383,1.973182,2.919046,3.5324675,Posterior prediction,age and region,household,TRUE,sequence,East of England
+0-14,2021-12-07,pp_voc_R[2],1.650803,1.982322,2.927456,3.548347,Posterior prediction,age and region,household,TRUE,sequence,East of England
+0-14,2021-12-08,pp_voc_R[3],1.6664535,1.970944,2.801348,3.3883975,Posterior prediction,age and region,household,TRUE,sequence,East of England
+0-14,2021-12-09,pp_voc_R[4],1.6638695,1.964218,2.81645,3.4060255,Posterior prediction,age and region,household,TRUE,sequence,East of England
+0-14,2021-12-10,pp_voc_R[5],1.659288,1.984068,2.826492,3.3939935,Posterior prediction,age and region,household,TRUE,sequence,East of England
+0-14,2021-12-11,pp_voc_R[6],1.33724,1.62189,2.348914,2.7962775,Posterior prediction,age and region,household,TRUE,sequence,East of England
+0-14,2021-12-12,pp_voc_R[7],1.350736,1.607672,2.335448,2.814567,Posterior prediction,age and region,household,TRUE,sequence,East of England
+0-14,2021-12-13,pp_voc_R[8],1.3457035,1.618698,2.354798,2.7996125,Posterior prediction,age and region,household,TRUE,sequence,East of England
+0-14,2021-12-14,pp_voc_R[9],1.149285,1.40967,2.046368,2.438181,Posterior prediction,age and region,household,TRUE,sequence,East of England
+0-14,2021-12-15,pp_voc_R[10],1.159961,1.418704,2.045006,2.4541835,Posterior prediction,age and region,household,TRUE,sequence,East of England
+0-14,2021-12-16,pp_voc_R[11],1.16737,1.426098,2.042724,2.4367725,Posterior prediction,age and region,household,TRUE,sequence,East of England
+0-14,2021-12-17,pp_voc_R[12],0.91192485,1.142146,1.710678,2.043048,Posterior prediction,age and region,household,TRUE,sequence,East of England
+0-14,2021-12-18,pp_voc_R[13],0.9070963,1.135726,1.702896,2.026492,Posterior prediction,age and region,household,TRUE,sequence,East of England
+0-14,2021-12-19,pp_voc_R[14],0.90999105,1.158754,1.714198,2.0261655,Posterior prediction,age and region,household,TRUE,sequence,East of England
+0-14,2021-12-20,pp_voc_R[15],0.90924945,1.169784,1.752354,2.1088805,Posterior prediction,age and region,household,TRUE,sequence,East of England
+0-14,2021-12-21,pp_voc_R[16],0.91474875,1.16479,1.73738,2.093889,Posterior prediction,age and region,household,TRUE,sequence,East of England
+0-14,2021-12-22,pp_voc_R[17],0.91417645,1.156486,1.72522,2.081985,Posterior prediction,age and region,household,TRUE,sequence,East of England
+0-14,2021-12-23,pp_voc_R[18],0.9033551,1.158718,1.74411,2.115337,Posterior prediction,age and region,household,TRUE,sequence,East of England
+15-29,2021-12-01,pp_voc_R[19],1.985608,2.38987,3.484662,4.2183895,Posterior prediction,age and region,household,TRUE,sequence,East of England
+15-29,2021-12-02,pp_voc_R[20],1.9797945,2.380234,3.47732,4.2186655,Posterior prediction,age and region,household,TRUE,sequence,East of England
+15-29,2021-12-03,pp_voc_R[21],1.977869,2.33846,3.354336,3.9710745,Posterior prediction,age and region,household,TRUE,sequence,East of England
+15-29,2021-12-04,pp_voc_R[22],1.986629,2.337136,3.336882,4.0130285,Posterior prediction,age and region,household,TRUE,sequence,East of England
+15-29,2021-12-05,pp_voc_R[23],1.9844905,2.331334,3.342532,3.9932,Posterior prediction,age and region,household,TRUE,sequence,East of England
+15-29,2021-12-06,pp_voc_R[24],1.803637,2.13129,2.992122,3.5814155,Posterior prediction,age and region,household,TRUE,sequence,East of England
+15-29,2021-12-07,pp_voc_R[25],1.8165815,2.126518,2.994144,3.593392,Posterior prediction,age and region,household,TRUE,sequence,East of England
+15-29,2021-12-08,pp_voc_R[26],1.7893015,2.112176,2.98,3.55571,Posterior prediction,age and region,household,TRUE,sequence,East of England
+15-29,2021-12-09,pp_voc_R[27],1.4881325,1.77065,2.505068,2.967626,Posterior prediction,age and region,household,TRUE,sequence,East of England
+15-29,2021-12-10,pp_voc_R[28],1.500098,1.761632,2.508006,2.968456,Posterior prediction,age and region,household,TRUE,sequence,East of England
+15-29,2021-12-11,pp_voc_R[29],1.515162,1.790916,2.519168,2.9985895,Posterior prediction,age and region,household,TRUE,sequence,East of England
+15-29,2021-12-12,pp_voc_R[30],1.19922,1.436148,2.038668,2.450538,Posterior prediction,age and region,household,TRUE,sequence,East of England
+15-29,2021-12-13,pp_voc_R[31],1.195063,1.434682,2.052692,2.425632,Posterior prediction,age and region,household,TRUE,sequence,East of England
+15-29,2021-12-14,pp_voc_R[32],1.188697,1.435682,2.03903,2.431251,Posterior prediction,age and region,household,TRUE,sequence,East of England
+15-29,2021-12-15,pp_voc_R[33],1.0658,1.297146,1.84533,2.179611,Posterior prediction,age and region,household,TRUE,sequence,East of England
+15-29,2021-12-16,pp_voc_R[34],1.0522625,1.28668,1.850616,2.201155,Posterior prediction,age and region,household,TRUE,sequence,East of England
+15-29,2021-12-17,pp_voc_R[35],1.055009,1.290724,1.842874,2.181585,Posterior prediction,age and region,household,TRUE,sequence,East of England
+15-29,2021-12-18,pp_voc_R[36],1.067218,1.323778,1.942814,2.3155825,Posterior prediction,age and region,household,TRUE,sequence,East of England
+15-29,2021-12-19,pp_voc_R[37],1.088621,1.329754,1.937972,2.330689,Posterior prediction,age and region,household,TRUE,sequence,East of England
+15-29,2021-12-20,pp_voc_R[38],1.0659655,1.327364,1.94926,2.340489,Posterior prediction,age and region,household,TRUE,sequence,East of England
+15-29,2021-12-21,pp_voc_R[39],1.082385,1.324956,1.956288,2.321456,Posterior prediction,age and region,household,TRUE,sequence,East of England
+15-29,2021-12-22,pp_voc_R[40],1.277,1.588168,2.386834,2.88475,Posterior prediction,age and region,household,TRUE,sequence,East of England
+15-29,2021-12-23,pp_voc_R[41],1.2675755,1.558172,2.382554,2.8767485,Posterior prediction,age and region,household,TRUE,sequence,East of England
+30-44,2021-12-03,pp_voc_R[42],1.258594,1.596922,2.431018,2.959006,Posterior prediction,age and region,household,TRUE,sequence,East of England
+30-44,2021-12-04,pp_voc_R[43],1.2860835,1.59778,2.421116,2.9385365,Posterior prediction,age and region,household,TRUE,sequence,East of England
+30-44,2021-12-05,pp_voc_R[44],1.2807995,1.608422,2.43209,2.994226,Posterior prediction,age and region,household,TRUE,sequence,East of England
+30-44,2021-12-06,pp_voc_R[45],1.2094605,1.52592,2.29809,2.7392935,Posterior prediction,age and region,household,TRUE,sequence,East of England
+30-44,2021-12-07,pp_voc_R[46],1.220536,1.535168,2.292808,2.801009,Posterior prediction,age and region,household,TRUE,sequence,East of England
+30-44,2021-12-08,pp_voc_R[47],1.2036925,1.51643,2.296696,2.7834715,Posterior prediction,age and region,household,TRUE,sequence,East of England
+30-44,2021-12-09,pp_voc_R[48],1.0932375,1.424042,2.286386,2.795351,Posterior prediction,age and region,household,TRUE,sequence,East of England
+30-44,2021-12-10,pp_voc_R[49],1.1039015,1.45059,2.278366,2.819694,Posterior prediction,age and region,household,TRUE,sequence,East of England
+30-44,2021-12-11,pp_voc_R[50],1.103001,1.444816,2.279702,2.8297955,Posterior prediction,age and region,household,TRUE,sequence,East of England
+30-44,2021-12-12,pp_voc_R[51],1.121395,1.459662,2.26284,2.829032,Posterior prediction,age and region,household,TRUE,sequence,East of England
+30-44,2021-12-13,pp_voc_R[52],1.498004,1.836314,2.752068,3.3227495,Posterior prediction,age and region,household,TRUE,sequence,East of England
+30-44,2021-12-14,pp_voc_R[53],1.492116,1.82804,2.7454,3.3118445,Posterior prediction,age and region,household,TRUE,sequence,East of England
+30-44,2021-12-15,pp_voc_R[54],1.354762,1.695522,2.545466,3.1117945,Posterior prediction,age and region,household,TRUE,sequence,East of England
+30-44,2021-12-16,pp_voc_R[55],1.3651595,1.692576,2.556484,3.123021,Posterior prediction,age and region,household,TRUE,sequence,East of England
+30-44,2021-12-17,pp_voc_R[56],1.3493515,1.705686,2.566918,3.1267105,Posterior prediction,age and region,household,TRUE,sequence,East of England
+30-44,2021-12-18,pp_voc_R[57],1.1790585,1.462942,2.196832,2.632852,Posterior prediction,age and region,household,TRUE,sequence,East of England
+30-44,2021-12-19,pp_voc_R[58],1.1569895,1.457618,2.187146,2.639325,Posterior prediction,age and region,household,TRUE,sequence,East of England
+30-44,2021-12-20,pp_voc_R[59],1.1844155,1.467434,2.17565,2.639599,Posterior prediction,age and region,household,TRUE,sequence,East of England
+30-44,2021-12-21,pp_voc_R[60],1.014258,1.291884,1.977264,2.406279,Posterior prediction,age and region,household,TRUE,sequence,East of England
+30-44,2021-12-22,pp_voc_R[61],1.010026,1.289082,1.9764,2.39104,Posterior prediction,age and region,household,TRUE,sequence,East of England
+30-44,2021-12-23,pp_voc_R[62],1.0153095,1.27256,1.98182,2.376223,Posterior prediction,age and region,household,TRUE,sequence,East of England
+45-59,2021-12-03,pp_voc_R[63],1.0695625,1.361172,2.095016,2.5219415,Posterior prediction,age and region,household,TRUE,sequence,East of England
+45-59,2021-12-04,pp_voc_R[64],1.060198,1.360484,2.103582,2.5580065,Posterior prediction,age and region,household,TRUE,sequence,East of England
+45-59,2021-12-05,pp_voc_R[65],1.077979,1.37687,2.091426,2.54307,Posterior prediction,age and region,household,TRUE,sequence,East of England
+45-59,2021-12-06,pp_voc_R[66],1.074178,1.358466,2.103948,2.518567,Posterior prediction,age and region,household,TRUE,sequence,East of England
+45-59,2021-12-07,pp_voc_R[67],1.41628,1.72603,2.53518,3.0859995,Posterior prediction,age and region,household,TRUE,sequence,East of England
+45-59,2021-12-08,pp_voc_R[68],1.408885,1.725776,2.55251,3.0563085,Posterior prediction,age and region,household,TRUE,sequence,East of England
+45-59,2021-12-09,pp_voc_R[69],1.4389335,1.736388,2.521994,3.038197,Posterior prediction,age and region,household,TRUE,sequence,East of England
+45-59,2021-12-10,pp_voc_R[70],1.4486365,1.748758,2.529042,3.044348,Posterior prediction,age and region,household,TRUE,sequence,East of England
+45-59,2021-12-11,pp_voc_R[71],1.4431845,1.743004,2.534414,3.0408085,Posterior prediction,age and region,household,TRUE,sequence,East of England
+45-59,2021-12-12,pp_voc_R[72],1.2146155,1.513734,2.323608,2.83211,Posterior prediction,age and region,household,TRUE,sequence,East of England
+45-59,2021-12-13,pp_voc_R[73],1.207425,1.528142,2.33563,2.863477,Posterior prediction,age and region,household,TRUE,sequence,East of England
+45-59,2021-12-14,pp_voc_R[74],1.1947925,1.524684,2.323786,2.836412,Posterior prediction,age and region,household,TRUE,sequence,East of England
+45-59,2021-12-15,pp_voc_R[75],1.070037,1.36787,2.053844,2.459656,Posterior prediction,age and region,household,TRUE,sequence,East of England
+45-59,2021-12-16,pp_voc_R[76],1.0967565,1.375826,2.051284,2.504002,Posterior prediction,age and region,household,TRUE,sequence,East of England
+45-59,2021-12-17,pp_voc_R[77],1.065371,1.361504,2.04433,2.483833,Posterior prediction,age and region,household,TRUE,sequence,East of England
+45-59,2021-12-18,pp_voc_R[78],1.0292115,1.290014,1.968562,2.3641475,Posterior prediction,age and region,household,TRUE,sequence,East of England
+45-59,2021-12-19,pp_voc_R[79],0.98412955,1.269428,1.967226,2.3728285,Posterior prediction,age and region,household,TRUE,sequence,East of England
+45-59,2021-12-20,pp_voc_R[80],1.022107,1.289178,1.949952,2.383527,Posterior prediction,age and region,household,TRUE,sequence,East of England
+45-59,2021-12-21,pp_voc_R[81],1.1217715,1.417116,2.140312,2.6648885,Posterior prediction,age and region,household,TRUE,sequence,East of England
+45-59,2021-12-22,pp_voc_R[82],1.123952,1.411044,2.137394,2.5676645,Posterior prediction,age and region,household,TRUE,sequence,East of England
+45-59,2021-12-23,pp_voc_R[83],1.1457645,1.417374,2.127184,2.5735365,Posterior prediction,age and region,household,TRUE,sequence,East of England
+0-14,2021-12-03,pp_voc_R[84],1.1118455,1.403122,2.13941,2.56916,Posterior prediction,age and region,household,TRUE,sequence,London
+0-14,2021-12-04,pp_voc_R[85],1.9085705,2.280664,3.372036,4.1407285,Posterior prediction,age and region,household,TRUE,sequence,London
+0-14,2021-12-05,pp_voc_R[86],1.9208455,2.323986,3.41178,4.1675555,Posterior prediction,age and region,household,TRUE,sequence,London
+0-14,2021-12-06,pp_voc_R[87],1.9412935,2.3283,3.444902,4.1820035,Posterior prediction,age and region,household,TRUE,sequence,London
+0-14,2021-12-07,pp_voc_R[88],1.917549,2.31427,3.437174,4.1949335,Posterior prediction,age and region,household,TRUE,sequence,London
+0-14,2021-12-08,pp_voc_R[89],1.7774165,2.188642,3.279568,3.970861,Posterior prediction,age and region,household,TRUE,sequence,London
+0-14,2021-12-09,pp_voc_R[90],1.7965835,2.19025,3.270994,3.939888,Posterior prediction,age and region,household,TRUE,sequence,London
+0-14,2021-12-10,pp_voc_R[91],1.790364,2.184906,3.246958,4.005771,Posterior prediction,age and region,household,TRUE,sequence,London
+0-14,2021-12-11,pp_voc_R[92],1.639632,1.984396,2.935116,3.5689455,Posterior prediction,age and region,household,TRUE,sequence,London
+0-14,2021-12-12,pp_voc_R[93],1.633291,1.98811,2.97705,3.5777645,Posterior prediction,age and region,household,TRUE,sequence,London
+0-14,2021-12-13,pp_voc_R[94],1.6345035,1.998522,2.98088,3.648666,Posterior prediction,age and region,household,TRUE,sequence,London
+0-14,2021-12-14,pp_voc_R[95],1.242118,1.56317,2.366522,2.877922,Posterior prediction,age and region,household,TRUE,sequence,London
+0-14,2021-12-15,pp_voc_R[96],1.2007405,1.554586,2.385584,2.9393045,Posterior prediction,age and region,household,TRUE,sequence,London
+0-14,2021-12-16,pp_voc_R[97],1.223536,1.56304,2.36988,2.9207935,Posterior prediction,age and region,household,TRUE,sequence,London
+0-14,2021-12-17,pp_voc_R[98],0.79356915,1.05258,1.680388,2.039428,Posterior prediction,age and region,household,TRUE,sequence,London
+0-14,2021-12-18,pp_voc_R[99],0.77997595,1.058692,1.689034,2.074202,Posterior prediction,age and region,household,TRUE,sequence,London
+0-14,2021-12-19,pp_voc_R[100],0.7975308,1.070214,1.689984,2.045782,Posterior prediction,age and region,household,TRUE,sequence,London
+0-14,2021-12-20,pp_voc_R[101],0.83060205,1.113864,1.732396,2.119939,Posterior prediction,age and region,household,TRUE,sequence,London
+0-14,2021-12-21,pp_voc_R[102],0.82292635,1.099704,1.733594,2.0953785,Posterior prediction,age and region,household,TRUE,sequence,London
+0-14,2021-12-22,pp_voc_R[103],0.84444995,1.095618,1.725064,2.098605,Posterior prediction,age and region,household,TRUE,sequence,London
+0-14,2021-12-23,pp_voc_R[104],0.9932327,1.292822,1.987286,2.448001,Posterior prediction,age and region,household,TRUE,sequence,London
+15-29,2021-12-04,pp_voc_R[105],0.9995115,1.280978,2.013588,2.4450915,Posterior prediction,age and region,household,TRUE,sequence,London
+15-29,2021-12-05,pp_voc_R[106],1.0019535,1.284692,2.018208,2.4543585,Posterior prediction,age and region,household,TRUE,sequence,London
+15-29,2021-12-06,pp_voc_R[107],0.97956895,1.302104,2.020122,2.4558115,Posterior prediction,age and region,household,TRUE,sequence,London
+15-29,2021-12-07,pp_voc_R[108],2.0925875,2.540654,3.808686,4.706139,Posterior prediction,age and region,household,TRUE,sequence,London
+15-29,2021-12-08,pp_voc_R[109],2.052872,2.456926,3.569848,4.3523275,Posterior prediction,age and region,household,TRUE,sequence,London
+15-29,2021-12-09,pp_voc_R[110],2.0574735,2.46235,3.576104,4.3419215,Posterior prediction,age and region,household,TRUE,sequence,London
+15-29,2021-12-10,pp_voc_R[111],2.054541,2.468774,3.548228,4.286794,Posterior prediction,age and region,household,TRUE,sequence,London
+15-29,2021-12-11,pp_voc_R[112],2.023336,2.385934,3.427144,4.1339915,Posterior prediction,age and region,household,TRUE,sequence,London
+15-29,2021-12-12,pp_voc_R[113],2.0081795,2.389504,3.446774,4.1501,Posterior prediction,age and region,household,TRUE,sequence,London
+15-29,2021-12-13,pp_voc_R[114],2.00698,2.400568,3.445712,4.157967,Posterior prediction,age and region,household,TRUE,sequence,London
+15-29,2021-12-14,pp_voc_R[115],1.4289615,1.708326,2.45896,2.941893,Posterior prediction,age and region,household,TRUE,sequence,London
+15-29,2021-12-15,pp_voc_R[116],1.423561,1.710484,2.474726,2.956515,Posterior prediction,age and region,household,TRUE,sequence,London
+15-29,2021-12-16,pp_voc_R[117],1.4242195,1.716934,2.472836,2.966603,Posterior prediction,age and region,household,TRUE,sequence,London
+15-29,2021-12-17,pp_voc_R[118],1.4917155,1.792834,2.561066,3.048906,Posterior prediction,age and region,household,TRUE,sequence,London
+15-29,2021-12-18,pp_voc_R[119],1.5019835,1.797822,2.553862,3.024979,Posterior prediction,age and region,household,TRUE,sequence,London
+15-29,2021-12-19,pp_voc_R[120],1.492771,1.79092,2.564112,3.0447905,Posterior prediction,age and region,household,TRUE,sequence,London
+15-29,2021-12-20,pp_voc_R[121],1.097097,1.333606,1.962582,2.3588945,Posterior prediction,age and region,household,TRUE,sequence,London
+15-29,2021-12-21,pp_voc_R[122],1.068884,1.325278,1.950552,2.363365,Posterior prediction,age and region,household,TRUE,sequence,London
+15-29,2021-12-22,pp_voc_R[123],1.082793,1.328252,1.940448,2.338173,Posterior prediction,age and region,household,TRUE,sequence,London
+15-29,2021-12-23,pp_voc_R[124],0.9595955,1.19248,1.782928,2.128998,Posterior prediction,age and region,household,TRUE,sequence,London
+30-44,2021-12-01,pp_voc_R[125],0.92425525,1.197676,1.791056,2.152695,Posterior prediction,age and region,household,TRUE,sequence,London
+30-44,2021-12-02,pp_voc_R[126],0.9606657,1.192976,1.776416,2.132082,Posterior prediction,age and region,household,TRUE,sequence,London
+30-44,2021-12-03,pp_voc_R[127],0.8506785,1.10953,1.708718,2.0592025,Posterior prediction,age and region,household,TRUE,sequence,London
+30-44,2021-12-04,pp_voc_R[128],0.8375709,1.095562,1.703554,2.0813535,Posterior prediction,age and region,household,TRUE,sequence,London
+30-44,2021-12-05,pp_voc_R[129],0.83440165,1.089774,1.717244,2.093258,Posterior prediction,age and region,household,TRUE,sequence,London
+30-44,2021-12-06,pp_voc_R[130],0.8437803,1.093012,1.71278,2.0578635,Posterior prediction,age and region,household,TRUE,sequence,London
+30-44,2021-12-07,pp_voc_R[131],1.942973,2.37694,3.597406,4.437925,Posterior prediction,age and region,household,TRUE,sequence,London
+30-44,2021-12-08,pp_voc_R[132],2.088217,2.46406,3.44498,4.1210585,Posterior prediction,age and region,household,TRUE,sequence,London
+30-44,2021-12-09,pp_voc_R[133],2.095412,2.439544,3.488304,4.1924955,Posterior prediction,age and region,household,TRUE,sequence,London
+30-44,2021-12-10,pp_voc_R[134],2.060585,2.428258,3.47316,4.1222975,Posterior prediction,age and region,household,TRUE,sequence,London
+30-44,2021-12-11,pp_voc_R[135],1.9652315,2.30582,3.230526,3.836076,Posterior prediction,age and region,household,TRUE,sequence,London
+30-44,2021-12-12,pp_voc_R[136],1.94004,2.276258,3.196356,3.81124,Posterior prediction,age and region,household,TRUE,sequence,London
+30-44,2021-12-13,pp_voc_R[137],1.968472,2.294032,3.215604,3.854915,Posterior prediction,age and region,household,TRUE,sequence,London
+30-44,2021-12-14,pp_voc_R[138],1.5735315,1.853972,2.59484,3.0431215,Posterior prediction,age and region,household,TRUE,sequence,London
+30-44,2021-12-15,pp_voc_R[139],1.604967,1.876824,2.579896,3.0445595,Posterior prediction,age and region,household,TRUE,sequence,London
+30-44,2021-12-16,pp_voc_R[140],1.5747615,1.86758,2.582992,3.1040345,Posterior prediction,age and region,household,TRUE,sequence,London
+30-44,2021-12-17,pp_voc_R[141],1.4702265,1.742452,2.463658,2.8995175,Posterior prediction,age and region,household,TRUE,sequence,London
+30-44,2021-12-18,pp_voc_R[142],1.4705955,1.732914,2.44867,2.8681725,Posterior prediction,age and region,household,TRUE,sequence,London
+30-44,2021-12-19,pp_voc_R[143],1.477527,1.741998,2.420012,2.877557,Posterior prediction,age and region,household,TRUE,sequence,London
+30-44,2021-12-20,pp_voc_R[144],1.1695875,1.41024,1.997998,2.3699335,Posterior prediction,age and region,household,TRUE,sequence,London
+30-44,2021-12-21,pp_voc_R[145],1.1675295,1.403056,1.992394,2.3765475,Posterior prediction,age and region,household,TRUE,sequence,London
+30-44,2021-12-22,pp_voc_R[146],1.160978,1.405726,2.002276,2.357221,Posterior prediction,age and region,household,TRUE,sequence,London
+30-44,2021-12-23,pp_voc_R[147],1.0526735,1.290738,1.87577,2.2326015,Posterior prediction,age and region,household,TRUE,sequence,London
+45-59,2021-12-01,pp_voc_R[148],1.07463,1.29957,1.880806,2.227471,Posterior prediction,age and region,household,TRUE,sequence,London
+45-59,2021-12-02,pp_voc_R[149],1.0693675,1.29979,1.866824,2.2186955,Posterior prediction,age and region,household,TRUE,sequence,London
+45-59,2021-12-03,pp_voc_R[150],1.031549,1.29156,1.902864,2.29235,Posterior prediction,age and region,household,TRUE,sequence,London
+45-59,2021-12-04,pp_voc_R[151],1.046081,1.286058,1.900518,2.2689145,Posterior prediction,age and region,household,TRUE,sequence,London
+45-59,2021-12-05,pp_voc_R[152],1.0634455,1.294584,1.904904,2.2801175,Posterior prediction,age and region,household,TRUE,sequence,London
+45-59,2021-12-06,pp_voc_R[153],1.0512055,1.283554,1.900554,2.29086,Posterior prediction,age and region,household,TRUE,sequence,London
+45-59,2021-12-07,pp_voc_R[154],1.8695515,2.315672,3.537156,4.3413245,Posterior prediction,age and region,household,TRUE,sequence,London
+45-59,2021-12-08,pp_voc_R[155],2.206758,2.590024,3.696986,4.543211,Posterior prediction,age and region,household,TRUE,sequence,London
+45-59,2021-12-09,pp_voc_R[156],2.204473,2.574854,3.671562,4.3891095,Posterior prediction,age and region,household,TRUE,sequence,London
+45-59,2021-12-10,pp_voc_R[157],2.213112,2.599816,3.698454,4.4052475,Posterior prediction,age and region,household,TRUE,sequence,London
+45-59,2021-12-11,pp_voc_R[158],2.125133,2.517132,3.628116,4.3779075,Posterior prediction,age and region,household,TRUE,sequence,London
+45-59,2021-12-12,pp_voc_R[159],2.1325365,2.517854,3.627188,4.389354,Posterior prediction,age and region,household,TRUE,sequence,London
+45-59,2021-12-13,pp_voc_R[160],2.1122675,2.519434,3.631932,4.420776,Posterior prediction,age and region,household,TRUE,sequence,London
+45-59,2021-12-14,pp_voc_R[161],1.3695035,1.671496,2.413778,2.865357,Posterior prediction,age and region,household,TRUE,sequence,London
+45-59,2021-12-15,pp_voc_R[162],1.3799665,1.681514,2.424096,2.901861,Posterior prediction,age and region,household,TRUE,sequence,London
+45-59,2021-12-16,pp_voc_R[163],1.370378,1.657544,2.438362,2.954745,Posterior prediction,age and region,household,TRUE,sequence,London
+45-59,2021-12-17,pp_voc_R[164],0.899627,1.164348,1.765444,2.1114165,Posterior prediction,age and region,household,TRUE,sequence,London
+45-59,2021-12-18,pp_voc_R[165],0.9031324,1.173556,1.765846,2.113314,Posterior prediction,age and region,household,TRUE,sequence,London
+45-59,2021-12-19,pp_voc_R[166],0.9138861,1.163954,1.785356,2.1351465,Posterior prediction,age and region,household,TRUE,sequence,London
+45-59,2021-12-20,pp_voc_R[167],0.6003443,0.8544526,1.425798,1.7625885,Posterior prediction,age and region,household,TRUE,sequence,London
+45-59,2021-12-21,pp_voc_R[168],0.6054295,0.8529514,1.40899,1.7460925,Posterior prediction,age and region,household,TRUE,sequence,London
+45-59,2021-12-22,pp_voc_R[169],0.5895269,0.8466584,1.41782,1.7321155,Posterior prediction,age and region,household,TRUE,sequence,London
+45-59,2021-12-23,pp_voc_R[170],0.5175985,0.7672324,1.337446,1.6768605,Posterior prediction,age and region,household,TRUE,sequence,London
+0-14,2021-12-12,pp_voc_R[171],0.52222975,0.7774874,1.327112,1.6943715,Posterior prediction,age and region,household,TRUE,sequence,Midlands
+0-14,2021-12-13,pp_voc_R[172],0.49954455,0.7519884,1.327714,1.6602095,Posterior prediction,age and region,household,TRUE,sequence,Midlands
+0-14,2021-12-14,pp_voc_R[173],0.5032538,0.7554086,1.328894,1.631286,Posterior prediction,age and region,household,TRUE,sequence,Midlands
+0-14,2021-12-15,pp_voc_R[174],2.2756595,2.736456,4.070538,5.0007175,Posterior prediction,age and region,household,TRUE,sequence,Midlands
+0-14,2021-12-16,pp_voc_R[175],2.157654,2.571074,3.752468,4.5953555,Posterior prediction,age and region,household,TRUE,sequence,Midlands
+0-14,2021-12-17,pp_voc_R[176],2.173021,2.587364,3.734508,4.556374,Posterior prediction,age and region,household,TRUE,sequence,Midlands
+0-14,2021-12-18,pp_voc_R[177],2.1746495,2.590498,3.767946,4.592236,Posterior prediction,age and region,household,TRUE,sequence,Midlands
+0-14,2021-12-19,pp_voc_R[178],2.0794175,2.453948,3.517014,4.307804,Posterior prediction,age and region,household,TRUE,sequence,Midlands
+0-14,2021-12-20,pp_voc_R[179],2.088029,2.45373,3.498676,4.1443525,Posterior prediction,age and region,household,TRUE,sequence,Midlands
+0-14,2021-12-21,pp_voc_R[180],2.1037115,2.456372,3.500996,4.222969,Posterior prediction,age and region,household,TRUE,sequence,Midlands
+0-14,2021-12-22,pp_voc_R[181],1.6477425,1.956504,2.778976,3.2723135,Posterior prediction,age and region,household,TRUE,sequence,Midlands
+0-14,2021-12-23,pp_voc_R[182],1.6668255,1.958024,2.76253,3.274544,Posterior prediction,age and region,household,TRUE,sequence,Midlands
+15-29,2021-12-01,pp_voc_R[183],1.6640675,1.952428,2.758042,3.287781,Posterior prediction,age and region,household,TRUE,sequence,Midlands
+15-29,2021-12-02,pp_voc_R[184],1.515121,1.80982,2.584104,3.0608265,Posterior prediction,age and region,household,TRUE,sequence,Midlands
+15-29,2021-12-03,pp_voc_R[185],1.52767,1.812534,2.594082,3.0815405,Posterior prediction,age and region,household,TRUE,sequence,Midlands
+15-29,2021-12-04,pp_voc_R[186],1.5525855,1.824348,2.59655,3.073652,Posterior prediction,age and region,household,TRUE,sequence,Midlands
+15-29,2021-12-05,pp_voc_R[187],0.8411965,1.076356,1.630118,1.9624585,Posterior prediction,age and region,household,TRUE,sequence,Midlands
+15-29,2021-12-06,pp_voc_R[188],0.83810275,1.094754,1.646886,1.9895645,Posterior prediction,age and region,household,TRUE,sequence,Midlands
+15-29,2021-12-07,pp_voc_R[189],0.85105825,1.090942,1.629926,1.971804,Posterior prediction,age and region,household,TRUE,sequence,Midlands
+15-29,2021-12-08,pp_voc_R[190],0.60206175,0.827644,1.347924,1.650002,Posterior prediction,age and region,household,TRUE,sequence,Midlands
+15-29,2021-12-09,pp_voc_R[191],0.5972693,0.8177068,1.343046,1.664954,Posterior prediction,age and region,household,TRUE,sequence,Midlands
+15-29,2021-12-10,pp_voc_R[192],0.60060065,0.8247678,1.35716,1.650468,Posterior prediction,age and region,household,TRUE,sequence,Midlands
+15-29,2021-12-11,pp_voc_R[193],0.59360255,0.8416958,1.390928,1.699045,Posterior prediction,age and region,household,TRUE,sequence,Midlands
+15-29,2021-12-12,pp_voc_R[194],0.60450705,0.8530226,1.38729,1.695276,Posterior prediction,age and region,household,TRUE,sequence,Midlands
+15-29,2021-12-13,pp_voc_R[195],0.60314975,0.8362702,1.39768,1.722191,Posterior prediction,age and region,household,TRUE,sequence,Midlands
+15-29,2021-12-14,pp_voc_R[196],0.6055667,0.839356,1.39555,1.7161805,Posterior prediction,age and region,household,TRUE,sequence,Midlands
+15-29,2021-12-15,pp_voc_R[197],1.3587595,1.652114,2.405098,2.922669,Posterior prediction,age and region,household,TRUE,sequence,Midlands
+15-29,2021-12-16,pp_voc_R[198],1.3440215,1.653266,2.40051,2.8787945,Posterior prediction,age and region,household,TRUE,sequence,Midlands
+15-29,2021-12-17,pp_voc_R[199],1.366789,1.65207,2.414562,2.918985,Posterior prediction,age and region,household,TRUE,sequence,Midlands
+15-29,2021-12-18,pp_voc_R[200],1.3643065,1.67003,2.481306,2.993452,Posterior prediction,age and region,household,TRUE,sequence,Midlands
+15-29,2021-12-19,pp_voc_R[201],1.3591175,1.67009,2.479972,3.0160295,Posterior prediction,age and region,household,TRUE,sequence,Midlands
+15-29,2021-12-20,pp_voc_R[202],1.335417,1.676422,2.463298,2.9903415,Posterior prediction,age and region,household,TRUE,sequence,Midlands
+15-29,2021-12-21,pp_voc_R[203],1.2965685,1.624486,2.463918,3.0136265,Posterior prediction,age and region,household,TRUE,sequence,Midlands
+15-29,2021-12-22,pp_voc_R[204],1.293923,1.617606,2.473778,2.9938595,Posterior prediction,age and region,household,TRUE,sequence,Midlands
+15-29,2021-12-23,pp_voc_R[205],1.3038345,1.640798,2.49111,3.0671575,Posterior prediction,age and region,household,TRUE,sequence,Midlands
+30-44,2021-12-06,pp_voc_R[206],1.282771,1.618112,2.472538,2.9933605,Posterior prediction,age and region,household,TRUE,sequence,Midlands
+30-44,2021-12-07,pp_voc_R[207],1.3820035,1.670138,2.421314,2.864697,Posterior prediction,age and region,household,TRUE,sequence,Midlands
+30-44,2021-12-08,pp_voc_R[208],1.396038,1.687918,2.398186,2.8597895,Posterior prediction,age and region,household,TRUE,sequence,Midlands
+30-44,2021-12-09,pp_voc_R[209],1.390852,1.677832,2.40894,2.8610665,Posterior prediction,age and region,household,TRUE,sequence,Midlands
+30-44,2021-12-10,pp_voc_R[210],1.3115035,1.613762,2.352902,2.829266,Posterior prediction,age and region,household,TRUE,sequence,Midlands
+30-44,2021-12-11,pp_voc_R[211],1.3107795,1.606926,2.344612,2.800348,Posterior prediction,age and region,household,TRUE,sequence,Midlands
+30-44,2021-12-12,pp_voc_R[212],1.321572,1.602382,2.32368,2.7691545,Posterior prediction,age and region,household,TRUE,sequence,Midlands
+30-44,2021-12-13,pp_voc_R[213],1.2052555,1.506332,2.225442,2.699677,Posterior prediction,age and region,household,TRUE,sequence,Midlands
+30-44,2021-12-14,pp_voc_R[214],1.218054,1.51406,2.25124,2.706666,Posterior prediction,age and region,household,TRUE,sequence,Midlands
+30-44,2021-12-15,pp_voc_R[215],1.231968,1.520686,2.246248,2.736993,Posterior prediction,age and region,household,TRUE,sequence,Midlands
+30-44,2021-12-16,pp_voc_R[216],1.2342615,1.546346,2.319884,2.7992175,Posterior prediction,age and region,household,TRUE,sequence,Midlands
+30-44,2021-12-17,pp_voc_R[217],1.259269,1.561882,2.353096,2.839712,Posterior prediction,age and region,household,TRUE,sequence,Midlands
+30-44,2021-12-18,pp_voc_R[218],1.2415105,1.5745,2.32938,2.8294115,Posterior prediction,age and region,household,TRUE,sequence,Midlands
+30-44,2021-12-19,pp_voc_R[219],1.240447,1.55988,2.326652,2.8312415,Posterior prediction,age and region,household,TRUE,sequence,Midlands
+30-44,2021-12-20,pp_voc_R[220],2.2665635,2.709452,4.023318,4.966699,Posterior prediction,age and region,household,TRUE,sequence,Midlands
+30-44,2021-12-21,pp_voc_R[221],2.2404775,2.70248,4.042642,4.925464,Posterior prediction,age and region,household,TRUE,sequence,Midlands
+30-44,2021-12-22,pp_voc_R[222],2.0866555,2.4846,3.628302,4.397467,Posterior prediction,age and region,household,TRUE,sequence,Midlands
+30-44,2021-12-23,pp_voc_R[223],2.0914505,2.487618,3.608318,4.381477,Posterior prediction,age and region,household,TRUE,sequence,Midlands
+45-59,2021-12-03,pp_voc_R[224],2.0916375,2.48961,3.618692,4.309712,Posterior prediction,age and region,household,TRUE,sequence,Midlands
+45-59,2021-12-04,pp_voc_R[225],1.5251875,1.852842,2.766168,3.2904375,Posterior prediction,age and region,household,TRUE,sequence,Midlands
+45-59,2021-12-05,pp_voc_R[226],1.541886,1.87417,2.776096,3.349808,Posterior prediction,age and region,household,TRUE,sequence,Midlands
+45-59,2021-12-06,pp_voc_R[227],1.494978,1.861124,2.776108,3.332562,Posterior prediction,age and region,household,TRUE,sequence,Midlands
+45-59,2021-12-07,pp_voc_R[228],0.85753565,1.138192,1.781802,2.16011,Posterior prediction,age and region,household,TRUE,sequence,Midlands
+45-59,2021-12-08,pp_voc_R[229],0.84737005,1.145202,1.809824,2.205346,Posterior prediction,age and region,household,TRUE,sequence,Midlands
+45-59,2021-12-09,pp_voc_R[230],0.85524715,1.137124,1.805738,2.1959545,Posterior prediction,age and region,household,TRUE,sequence,Midlands
+45-59,2021-12-10,pp_voc_R[231],0.92200445,1.188432,1.844688,2.281083,Posterior prediction,age and region,household,TRUE,sequence,Midlands
+45-59,2021-12-11,pp_voc_R[232],0.91179415,1.197652,1.869518,2.283008,Posterior prediction,age and region,household,TRUE,sequence,Midlands
+45-59,2021-12-12,pp_voc_R[233],0.88972825,1.182078,1.87608,2.2699915,Posterior prediction,age and region,household,TRUE,sequence,Midlands
+45-59,2021-12-13,pp_voc_R[234],0.9968385,1.283426,1.998044,2.422496,Posterior prediction,age and region,household,TRUE,sequence,Midlands
+45-59,2021-12-14,pp_voc_R[235],0.9713075,1.28586,1.980348,2.435644,Posterior prediction,age and region,household,TRUE,sequence,Midlands
+45-59,2021-12-15,pp_voc_R[236],1.00217525,1.295956,1.979816,2.4010015,Posterior prediction,age and region,household,TRUE,sequence,Midlands
+45-59,2021-12-16,pp_voc_R[237],0.9779494,1.285022,1.982704,2.44632,Posterior prediction,age and region,household,TRUE,sequence,Midlands
+45-59,2021-12-17,pp_voc_R[238],2.075681,2.497778,3.659592,4.4292465,Posterior prediction,age and region,household,TRUE,sequence,Midlands
+45-59,2021-12-18,pp_voc_R[239],2.070223,2.493566,3.673838,4.468373,Posterior prediction,age and region,household,TRUE,sequence,Midlands
+45-59,2021-12-19,pp_voc_R[240],2.0265245,2.417642,3.460132,4.184205,Posterior prediction,age and region,household,TRUE,sequence,Midlands
+45-59,2021-12-20,pp_voc_R[241],2.028132,2.389766,3.477356,4.2049225,Posterior prediction,age and region,household,TRUE,sequence,Midlands
+45-59,2021-12-21,pp_voc_R[242],2.016822,2.394304,3.484268,4.1944175,Posterior prediction,age and region,household,TRUE,sequence,Midlands
+45-59,2021-12-22,pp_voc_R[243],1.798804,2.133148,3.050958,3.661384,Posterior prediction,age and region,household,TRUE,sequence,Midlands
+45-59,2021-12-23,pp_voc_R[244],1.7941495,2.132564,3.044436,3.6573165,Posterior prediction,age and region,household,TRUE,sequence,Midlands
+0-14,2021-12-09,pp_voc_R[245],1.8002965,2.118516,3.020014,3.6568155,Posterior prediction,age and region,household,TRUE,sequence,North East and Yorkshire
+0-14,2021-12-10,pp_voc_R[246],1.4635455,1.748574,2.456826,2.9426125,Posterior prediction,age and region,household,TRUE,sequence,North East and Yorkshire
+0-14,2021-12-11,pp_voc_R[247],1.4802155,1.747754,2.474148,2.9312385,Posterior prediction,age and region,household,TRUE,sequence,North East and Yorkshire
+0-14,2021-12-12,pp_voc_R[248],1.463595,1.74357,2.46113,2.8931285,Posterior prediction,age and region,household,TRUE,sequence,North East and Yorkshire
+0-14,2021-12-13,pp_voc_R[249],1.0641435,1.312088,1.905728,2.273022,Posterior prediction,age and region,household,TRUE,sequence,North East and Yorkshire
+0-14,2021-12-14,pp_voc_R[250],1.079763,1.314962,1.90193,2.25343,Posterior prediction,age and region,household,TRUE,sequence,North East and Yorkshire
+0-14,2021-12-15,pp_voc_R[251],1.078758,1.314932,1.897426,2.2480595,Posterior prediction,age and region,household,TRUE,sequence,North East and Yorkshire
+0-14,2021-12-16,pp_voc_R[252],1.0056815,1.237284,1.803522,2.1419115,Posterior prediction,age and region,household,TRUE,sequence,North East and Yorkshire
+0-14,2021-12-17,pp_voc_R[253],0.9896823,1.23676,1.80618,2.15015,Posterior prediction,age and region,household,TRUE,sequence,North East and Yorkshire
+0-14,2021-12-18,pp_voc_R[254],0.98297295,1.230352,1.812858,2.174703,Posterior prediction,age and region,household,TRUE,sequence,North East and Yorkshire
+0-14,2021-12-19,pp_voc_R[255],0.84582355,1.097772,1.67668,2.036412,Posterior prediction,age and region,household,TRUE,sequence,North East and Yorkshire
+0-14,2021-12-20,pp_voc_R[256],0.8328131,1.093544,1.66984,2.0377635,Posterior prediction,age and region,household,TRUE,sequence,North East and Yorkshire
+0-14,2021-12-21,pp_voc_R[257],0.8267878,1.089668,1.684928,2.026138,Posterior prediction,age and region,household,TRUE,sequence,North East and Yorkshire
+0-14,2021-12-22,pp_voc_R[258],0.82910385,1.085218,1.664176,2.002713,Posterior prediction,age and region,household,TRUE,sequence,North East and Yorkshire
+0-14,2021-12-23,pp_voc_R[259],2.047135,2.459532,3.555048,4.3207575,Posterior prediction,age and region,household,TRUE,sequence,North East and Yorkshire
+15-29,2021-12-14,pp_voc_R[260],2.0665215,2.45643,3.5731,4.3538425,Posterior prediction,age and region,household,TRUE,sequence,North East and Yorkshire
+15-29,2021-12-15,pp_voc_R[261],2.001277,2.352264,3.4212,4.127635,Posterior prediction,age and region,household,TRUE,sequence,North East and Yorkshire
+15-29,2021-12-16,pp_voc_R[262],2.023978,2.379602,3.395426,4.052141,Posterior prediction,age and region,household,TRUE,sequence,North East and Yorkshire
+15-29,2021-12-17,pp_voc_R[263],2.0173645,2.371972,3.42681,4.133834,Posterior prediction,age and region,household,TRUE,sequence,North East and Yorkshire
+15-29,2021-12-18,pp_voc_R[264],1.8002345,2.13795,3.016258,3.609133,Posterior prediction,age and region,household,TRUE,sequence,North East and Yorkshire
+15-29,2021-12-19,pp_voc_R[265],1.7966855,2.137682,3.03758,3.614995,Posterior prediction,age and region,household,TRUE,sequence,North East and Yorkshire
+15-29,2021-12-20,pp_voc_R[266],1.804307,2.130472,3.013688,3.5813225,Posterior prediction,age and region,household,TRUE,sequence,North East and Yorkshire
+15-29,2021-12-21,pp_voc_R[267],1.560192,1.837344,2.621494,3.135372,Posterior prediction,age and region,household,TRUE,sequence,North East and Yorkshire
+15-29,2021-12-22,pp_voc_R[268],1.5349565,1.828064,2.608166,3.109465,Posterior prediction,age and region,household,TRUE,sequence,North East and Yorkshire
+15-29,2021-12-23,pp_voc_R[269],1.5576355,1.848138,2.60665,3.07187,Posterior prediction,age and region,household,TRUE,sequence,North East and Yorkshire
+30-44,2021-12-02,pp_voc_R[270],1.1598065,1.405522,2.009248,2.365696,Posterior prediction,age and region,household,TRUE,sequence,North East and Yorkshire
+30-44,2021-12-03,pp_voc_R[271],1.160659,1.401734,2.007974,2.3783875,Posterior prediction,age and region,household,TRUE,sequence,North East and Yorkshire
+30-44,2021-12-04,pp_voc_R[272],1.165046,1.40771,1.997806,2.388273,Posterior prediction,age and region,household,TRUE,sequence,North East and Yorkshire
+30-44,2021-12-05,pp_voc_R[273],1.0792805,1.319984,1.897086,2.2635095,Posterior prediction,age and region,household,TRUE,sequence,North East and Yorkshire
+30-44,2021-12-06,pp_voc_R[274],1.073891,1.312768,1.89002,2.232749,Posterior prediction,age and region,household,TRUE,sequence,North East and Yorkshire
+30-44,2021-12-07,pp_voc_R[275],1.0877355,1.314652,1.898742,2.247233,Posterior prediction,age and region,household,TRUE,sequence,North East and Yorkshire
+30-44,2021-12-08,pp_voc_R[276],1.0410495,1.285518,1.895044,2.2687795,Posterior prediction,age and region,household,TRUE,sequence,North East and Yorkshire
+30-44,2021-12-09,pp_voc_R[277],1.027713,1.283438,1.899256,2.3002275,Posterior prediction,age and region,household,TRUE,sequence,North East and Yorkshire
+30-44,2021-12-10,pp_voc_R[278],1.0223675,1.281294,1.874826,2.274373,Posterior prediction,age and region,household,TRUE,sequence,North East and Yorkshire
+30-44,2021-12-11,pp_voc_R[279],1.021118,1.284736,1.902314,2.273814,Posterior prediction,age and region,household,TRUE,sequence,North East and Yorkshire
+30-44,2021-12-12,pp_voc_R[280],2.3361705,2.800616,4.142666,5.115138,Posterior prediction,age and region,household,TRUE,sequence,North East and Yorkshire
+30-44,2021-12-13,pp_voc_R[281],2.313668,2.74506,3.995936,4.872378,Posterior prediction,age and region,household,TRUE,sequence,North East and Yorkshire
+30-44,2021-12-14,pp_voc_R[282],2.306786,2.73848,4.03293,4.8967035,Posterior prediction,age and region,household,TRUE,sequence,North East and Yorkshire
+30-44,2021-12-15,pp_voc_R[283],2.3391265,2.763088,4.035424,4.8990465,Posterior prediction,age and region,household,TRUE,sequence,North East and Yorkshire
+30-44,2021-12-16,pp_voc_R[284],2.093797,2.451488,3.483416,4.1566685,Posterior prediction,age and region,household,TRUE,sequence,North East and Yorkshire
+30-44,2021-12-17,pp_voc_R[285],2.1146365,2.456732,3.46758,4.1184275,Posterior prediction,age and region,household,TRUE,sequence,North East and Yorkshire
+30-44,2021-12-18,pp_voc_R[286],2.090938,2.449612,3.469204,4.1153505,Posterior prediction,age and region,household,TRUE,sequence,North East and Yorkshire
+30-44,2021-12-19,pp_voc_R[287],1.426907,1.696552,2.411736,2.88383,Posterior prediction,age and region,household,TRUE,sequence,North East and Yorkshire
+30-44,2021-12-20,pp_voc_R[288],1.4275935,1.695392,2.417154,2.881888,Posterior prediction,age and region,household,TRUE,sequence,North East and Yorkshire
+30-44,2021-12-21,pp_voc_R[289],1.4327395,1.704078,2.445364,2.874523,Posterior prediction,age and region,household,TRUE,sequence,North East and Yorkshire
+30-44,2021-12-22,pp_voc_R[290],1.559271,1.855912,2.664346,3.17312,Posterior prediction,age and region,household,TRUE,sequence,North East and Yorkshire
+30-44,2021-12-23,pp_voc_R[291],1.530994,1.863578,2.655962,3.16435,Posterior prediction,age and region,household,TRUE,sequence,North East and Yorkshire
+45-59,2021-12-06,pp_voc_R[292],1.5607955,1.851344,2.653558,3.11419,Posterior prediction,age and region,household,TRUE,sequence,North East and Yorkshire
+45-59,2021-12-07,pp_voc_R[293],0.8010645,1.045368,1.603296,1.963295,Posterior prediction,age and region,household,TRUE,sequence,North East and Yorkshire
+45-59,2021-12-08,pp_voc_R[294],0.8063779,1.04431,1.626058,1.968525,Posterior prediction,age and region,household,TRUE,sequence,North East and Yorkshire
+45-59,2021-12-09,pp_voc_R[295],0.8032676,1.054024,1.591434,1.939037,Posterior prediction,age and region,household,TRUE,sequence,North East and Yorkshire
+45-59,2021-12-10,pp_voc_R[296],0.46588525,0.7020118,1.232102,1.494633,Posterior prediction,age and region,household,TRUE,sequence,North East and Yorkshire
+45-59,2021-12-11,pp_voc_R[297],0.4898217,0.7169436,1.231052,1.5160815,Posterior prediction,age and region,household,TRUE,sequence,North East and Yorkshire
+45-59,2021-12-12,pp_voc_R[298],0.48671435,0.7098296,1.224972,1.508506,Posterior prediction,age and region,household,TRUE,sequence,North East and Yorkshire
+45-59,2021-12-13,pp_voc_R[299],0.54054405,0.7860724,1.328262,1.6363475,Posterior prediction,age and region,household,TRUE,sequence,North East and Yorkshire
+45-59,2021-12-14,pp_voc_R[300],0.5374189,0.7896784,1.332872,1.641534,Posterior prediction,age and region,household,TRUE,sequence,North East and Yorkshire
+45-59,2021-12-15,pp_voc_R[301],0.53964925,0.7944788,1.339292,1.6456225,Posterior prediction,age and region,household,TRUE,sequence,North East and Yorkshire
+45-59,2021-12-16,pp_voc_R[302],0.55177395,0.7856154,1.323952,1.6289125,Posterior prediction,age and region,household,TRUE,sequence,North East and Yorkshire
+45-59,2021-12-17,pp_voc_R[303],2.001103,2.466226,3.679704,4.5649295,Posterior prediction,age and region,household,TRUE,sequence,North East and Yorkshire
+45-59,2021-12-18,pp_voc_R[304],2.033268,2.468368,3.694232,4.5194525,Posterior prediction,age and region,household,TRUE,sequence,North East and Yorkshire
+45-59,2021-12-19,pp_voc_R[305],1.9627745,2.370314,3.487788,4.243583,Posterior prediction,age and region,household,TRUE,sequence,North East and Yorkshire
+45-59,2021-12-20,pp_voc_R[306],1.99421,2.39303,3.464106,4.224616,Posterior prediction,age and region,household,TRUE,sequence,North East and Yorkshire
+45-59,2021-12-21,pp_voc_R[307],2.0095955,2.373894,3.463308,4.154595,Posterior prediction,age and region,household,TRUE,sequence,North East and Yorkshire
+45-59,2021-12-22,pp_voc_R[308],1.347179,1.690798,2.524796,3.076193,Posterior prediction,age and region,household,TRUE,sequence,North East and Yorkshire
+45-59,2021-12-23,pp_voc_R[309],1.3695365,1.69916,2.482066,3.0108815,Posterior prediction,age and region,household,TRUE,sequence,North East and Yorkshire
+0-14,2021-12-06,pp_voc_R[310],1.3753195,1.702032,2.499198,3.0285085,Posterior prediction,age and region,household,TRUE,sequence,North West
+0-14,2021-12-07,pp_voc_R[311],1.0526635,1.330358,1.958914,2.344724,Posterior prediction,age and region,household,TRUE,sequence,North West
+0-14,2021-12-08,pp_voc_R[312],1.053613,1.318452,1.973442,2.3837945,Posterior prediction,age and region,household,TRUE,sequence,North West
+0-14,2021-12-09,pp_voc_R[313],1.063192,1.33459,1.968346,2.375301,Posterior prediction,age and region,household,TRUE,sequence,North West
+0-14,2021-12-10,pp_voc_R[314],0.81271925,1.055796,1.63863,1.984471,Posterior prediction,age and region,household,TRUE,sequence,North West
+0-14,2021-12-11,pp_voc_R[315],0.7939183,1.05015,1.62757,1.9722685,Posterior prediction,age and region,household,TRUE,sequence,North West
+0-14,2021-12-12,pp_voc_R[316],0.80255555,1.057572,1.635268,1.976475,Posterior prediction,age and region,household,TRUE,sequence,North West
+0-14,2021-12-13,pp_voc_R[317],0.9327203,1.211478,1.86749,2.292409,Posterior prediction,age and region,household,TRUE,sequence,North West
+0-14,2021-12-14,pp_voc_R[318],0.92684595,1.206364,1.860842,2.270679,Posterior prediction,age and region,household,TRUE,sequence,North West
+0-14,2021-12-15,pp_voc_R[319],0.9330553,1.203976,1.87121,2.260456,Posterior prediction,age and region,household,TRUE,sequence,North West
+0-14,2021-12-16,pp_voc_R[320],0.94960935,1.218798,1.89079,2.267101,Posterior prediction,age and region,household,TRUE,sequence,North West
+0-14,2021-12-17,pp_voc_R[321],2.155933,2.542996,3.682866,4.375971,Posterior prediction,age and region,household,TRUE,sequence,North West
+0-14,2021-12-18,pp_voc_R[322],2.130428,2.529524,3.658942,4.4420835,Posterior prediction,age and region,household,TRUE,sequence,North West
+0-14,2021-12-19,pp_voc_R[323],2.132579,2.539906,3.674034,4.4151955,Posterior prediction,age and region,household,TRUE,sequence,North West
+0-14,2021-12-20,pp_voc_R[324],1.886392,2.271788,3.324328,4.0266445,Posterior prediction,age and region,household,TRUE,sequence,North West
+0-14,2021-12-21,pp_voc_R[325],1.9028865,2.281026,3.305504,4.032766,Posterior prediction,age and region,household,TRUE,sequence,North West
+0-14,2021-12-22,pp_voc_R[326],1.8994455,2.274546,3.32129,3.973943,Posterior prediction,age and region,household,TRUE,sequence,North West
+0-14,2021-12-23,pp_voc_R[327],1.7585985,2.119498,3.07537,3.6852005,Posterior prediction,age and region,household,TRUE,sequence,North West
+15-29,2021-12-11,pp_voc_R[328],1.741988,2.11871,3.054286,3.6608235,Posterior prediction,age and region,household,TRUE,sequence,North West
+15-29,2021-12-12,pp_voc_R[329],1.761258,2.10237,3.078942,3.7035465,Posterior prediction,age and region,household,TRUE,sequence,North West
+15-29,2021-12-13,pp_voc_R[330],1.2659245,1.542144,2.25158,2.6980775,Posterior prediction,age and region,household,TRUE,sequence,North West
+15-29,2021-12-14,pp_voc_R[331],1.256715,1.54429,2.26522,2.7000195,Posterior prediction,age and region,household,TRUE,sequence,North West
+15-29,2021-12-15,pp_voc_R[332],1.255852,1.551602,2.26343,2.7217225,Posterior prediction,age and region,household,TRUE,sequence,North West
+15-29,2021-12-16,pp_voc_R[333],0.91155785,1.173242,1.754738,2.116794,Posterior prediction,age and region,household,TRUE,sequence,North West
+15-29,2021-12-17,pp_voc_R[334],0.921633,1.1661,1.76407,2.1171255,Posterior prediction,age and region,household,TRUE,sequence,North West
+15-29,2021-12-18,pp_voc_R[335],0.90487545,1.167216,1.730998,2.082443,Posterior prediction,age and region,household,TRUE,sequence,North West
+15-29,2021-12-19,pp_voc_R[336],0.8613008,1.128126,1.708344,2.0721205,Posterior prediction,age and region,household,TRUE,sequence,North West
+15-29,2021-12-20,pp_voc_R[337],0.87977495,1.127928,1.724612,2.0421755,Posterior prediction,age and region,household,TRUE,sequence,North West
+15-29,2021-12-21,pp_voc_R[338],0.8962293,1.128008,1.71582,2.063214,Posterior prediction,age and region,household,TRUE,sequence,North West
+15-29,2021-12-22,pp_voc_R[339],1.020421,1.30863,1.989356,2.399055,Posterior prediction,age and region,household,TRUE,sequence,North West
+15-29,2021-12-23,pp_voc_R[340],1.0280655,1.320492,1.979138,2.411801,Posterior prediction,age and region,household,TRUE,sequence,North West
+30-44,2021-12-14,pp_voc_R[341],1.042377,1.31676,1.990062,2.395431,Posterior prediction,age and region,household,TRUE,sequence,North West
+30-44,2021-12-15,pp_voc_R[342],1.049179,1.308836,1.984936,2.4007925,Posterior prediction,age and region,household,TRUE,sequence,North West
+30-44,2021-12-16,pp_voc_R[343],1.177661,1.47389,2.223024,2.6928935,Posterior prediction,age and region,household,TRUE,sequence,North West
+30-44,2021-12-17,pp_voc_R[344],1.195021,1.483836,2.226798,2.6992855,Posterior prediction,age and region,household,TRUE,sequence,North West
+30-44,2021-12-18,pp_voc_R[345],1.1781665,1.484076,2.229792,2.688947,Posterior prediction,age and region,household,TRUE,sequence,North West
+30-44,2021-12-19,pp_voc_R[346],1.1261295,1.448774,2.240746,2.6953615,Posterior prediction,age and region,household,TRUE,sequence,North West
+30-44,2021-12-20,pp_voc_R[347],1.162643,1.461778,2.251706,2.734683,Posterior prediction,age and region,household,TRUE,sequence,North West
+30-44,2021-12-21,pp_voc_R[348],1.1528265,1.466698,2.2568,2.7398795,Posterior prediction,age and region,household,TRUE,sequence,North West
+30-44,2021-12-22,pp_voc_R[349],1.1700395,1.518156,2.421706,2.981367,Posterior prediction,age and region,household,TRUE,sequence,North West
+30-44,2021-12-23,pp_voc_R[350],1.166734,1.524478,2.411032,3.0123375,Posterior prediction,age and region,household,TRUE,sequence,North West
+45-59,2021-12-06,pp_voc_R[351],1.1413605,1.519038,2.416974,2.951058,Posterior prediction,age and region,household,TRUE,sequence,North West
+45-59,2021-12-07,pp_voc_R[352],1.175294,1.517964,2.42634,3.0066025,Posterior prediction,age and region,household,TRUE,sequence,North West
+45-59,2021-12-08,pp_voc_R[353],1.3382975,1.602034,2.337038,2.786868,Posterior prediction,age and region,household,TRUE,sequence,North West
+45-59,2021-12-09,pp_voc_R[354],1.3180555,1.598878,2.309912,2.777654,Posterior prediction,age and region,household,TRUE,sequence,North West
+45-59,2021-12-10,pp_voc_R[355],1.317592,1.610158,2.34182,2.7945875,Posterior prediction,age and region,household,TRUE,sequence,North West
+45-59,2021-12-11,pp_voc_R[356],1.2495055,1.567988,2.412636,2.908841,Posterior prediction,age and region,household,TRUE,sequence,North West
+45-59,2021-12-12,pp_voc_R[357],1.2686455,1.57674,2.375834,2.86905,Posterior prediction,age and region,household,TRUE,sequence,North West
+45-59,2021-12-13,pp_voc_R[358],1.253787,1.578998,2.36269,2.847867,Posterior prediction,age and region,household,TRUE,sequence,North West
+45-59,2021-12-14,pp_voc_R[359],1.245969,1.534888,2.248714,2.7282255,Posterior prediction,age and region,household,TRUE,sequence,North West
+45-59,2021-12-15,pp_voc_R[360],1.248904,1.531556,2.260144,2.7106645,Posterior prediction,age and region,household,TRUE,sequence,North West
+45-59,2021-12-16,pp_voc_R[361],1.2399815,1.532946,2.267774,2.6780785,Posterior prediction,age and region,household,TRUE,sequence,North West
+45-59,2021-12-17,pp_voc_R[362],1.2156305,1.488908,2.219714,2.6618385,Posterior prediction,age and region,household,TRUE,sequence,North West
+45-59,2021-12-18,pp_voc_R[363],1.212094,1.496324,2.2236,2.6934845,Posterior prediction,age and region,household,TRUE,sequence,North West
+45-59,2021-12-19,pp_voc_R[364],1.2195335,1.49845,2.239342,2.6797835,Posterior prediction,age and region,household,TRUE,sequence,North West
+45-59,2021-12-20,pp_voc_R[365],1.204309,1.49706,2.263414,2.726363,Posterior prediction,age and region,household,TRUE,sequence,North West
+45-59,2021-12-21,pp_voc_R[366],1.202518,1.494812,2.23825,2.70813,Posterior prediction,age and region,household,TRUE,sequence,North West
+45-59,2021-12-22,pp_voc_R[367],1.206859,1.493,2.254916,2.7054775,Posterior prediction,age and region,household,TRUE,sequence,North West
+45-59,2021-12-23,pp_voc_R[368],1.204256,1.501162,2.236122,2.6737675,Posterior prediction,age and region,household,TRUE,sequence,North West
+0-14,2021-12-01,pp_voc_R[369],2.116329,2.554248,3.76807,4.5905025,Posterior prediction,age and region,household,TRUE,sequence,South East
+0-14,2021-12-02,pp_voc_R[370],2.1275775,2.53898,3.738044,4.5364335,Posterior prediction,age and region,household,TRUE,sequence,South East
+0-14,2021-12-03,pp_voc_R[371],2.1922925,2.59309,3.766432,4.5336175,Posterior prediction,age and region,household,TRUE,sequence,South East
+0-14,2021-12-04,pp_voc_R[372],2.2165825,2.608208,3.757032,4.5022995,Posterior prediction,age and region,household,TRUE,sequence,South East
+0-14,2021-12-05,pp_voc_R[373],2.1870175,2.595374,3.745062,4.534897,Posterior prediction,age and region,household,TRUE,sequence,South East
+0-14,2021-12-06,pp_voc_R[374],1.680792,2.020694,2.941614,3.509507,Posterior prediction,age and region,household,TRUE,sequence,South East
+0-14,2021-12-07,pp_voc_R[375],1.688671,2.023382,2.939512,3.5407075,Posterior prediction,age and region,household,TRUE,sequence,South East
+0-14,2021-12-08,pp_voc_R[376],1.671672,2.019246,2.936508,3.5376815,Posterior prediction,age and region,household,TRUE,sequence,South East
+0-14,2021-12-09,pp_voc_R[377],1.4150535,1.683752,2.43131,2.839244,Posterior prediction,age and region,household,TRUE,sequence,South East
+0-14,2021-12-10,pp_voc_R[378],1.4126295,1.701066,2.40702,2.860722,Posterior prediction,age and region,household,TRUE,sequence,South East
+0-14,2021-12-11,pp_voc_R[379],1.4204235,1.698426,2.395896,2.85136,Posterior prediction,age and region,household,TRUE,sequence,South East
+0-14,2021-12-12,pp_voc_R[380],1.08242,1.324336,1.915184,2.26824,Posterior prediction,age and region,household,TRUE,sequence,South East
+0-14,2021-12-13,pp_voc_R[381],1.0592985,1.311546,1.911396,2.276624,Posterior prediction,age and region,household,TRUE,sequence,South East
+0-14,2021-12-14,pp_voc_R[382],1.0873,1.315816,1.91113,2.3035695,Posterior prediction,age and region,household,TRUE,sequence,South East
+0-14,2021-12-15,pp_voc_R[383],0.91060465,1.155624,1.743144,2.09492,Posterior prediction,age and region,household,TRUE,sequence,South East
+0-14,2021-12-16,pp_voc_R[384],0.90723085,1.152996,1.721188,2.072995,Posterior prediction,age and region,household,TRUE,sequence,South East
+0-14,2021-12-17,pp_voc_R[385],0.9255074,1.1694,1.73657,2.0794535,Posterior prediction,age and region,household,TRUE,sequence,South East
+0-14,2021-12-18,pp_voc_R[386],0.85496475,1.123602,1.691484,2.061269,Posterior prediction,age and region,household,TRUE,sequence,South East
+0-14,2021-12-19,pp_voc_R[387],0.88106535,1.140182,1.71901,2.072846,Posterior prediction,age and region,household,TRUE,sequence,South East
+0-14,2021-12-20,pp_voc_R[388],0.87172265,1.12222,1.704054,2.03515,Posterior prediction,age and region,household,TRUE,sequence,South East
+0-14,2021-12-21,pp_voc_R[389],0.87380995,1.123068,1.714264,2.067661,Posterior prediction,age and region,household,TRUE,sequence,South East
+0-14,2021-12-22,pp_voc_R[390],2.08858,2.473416,3.585534,4.32019,Posterior prediction,age and region,household,TRUE,sequence,South East
+0-14,2021-12-23,pp_voc_R[391],2.07554,2.458386,3.557352,4.3227115,Posterior prediction,age and region,household,TRUE,sequence,South East
+15-29,2021-12-06,pp_voc_R[392],2.0562575,2.387828,3.385324,4.062781,Posterior prediction,age and region,household,TRUE,sequence,South East
+15-29,2021-12-07,pp_voc_R[393],2.0181765,2.405486,3.410482,4.091972,Posterior prediction,age and region,household,TRUE,sequence,South East
+15-29,2021-12-08,pp_voc_R[394],2.070175,2.404222,3.414894,4.1048175,Posterior prediction,age and region,household,TRUE,sequence,South East
+15-29,2021-12-09,pp_voc_R[395],1.832741,2.146078,2.995532,3.576044,Posterior prediction,age and region,household,TRUE,sequence,South East
+15-29,2021-12-10,pp_voc_R[396],1.834097,2.146436,3.031482,3.612966,Posterior prediction,age and region,household,TRUE,sequence,South East
+15-29,2021-12-11,pp_voc_R[397],1.8297605,2.139044,3.023628,3.6034915,Posterior prediction,age and region,household,TRUE,sequence,South East
+15-29,2021-12-12,pp_voc_R[398],1.509616,1.796426,2.516468,2.98011,Posterior prediction,age and region,household,TRUE,sequence,South East
+15-29,2021-12-13,pp_voc_R[399],1.505222,1.788982,2.534636,2.9891855,Posterior prediction,age and region,household,TRUE,sequence,South East
+15-29,2021-12-14,pp_voc_R[400],1.529929,1.79548,2.498434,3.0048925,Posterior prediction,age and region,household,TRUE,sequence,South East
+15-29,2021-12-15,pp_voc_R[401],1.202913,1.433536,2.03812,2.4054315,Posterior prediction,age and region,household,TRUE,sequence,South East
+15-29,2021-12-16,pp_voc_R[402],1.1836115,1.436548,2.039012,2.4110075,Posterior prediction,age and region,household,TRUE,sequence,South East
+15-29,2021-12-17,pp_voc_R[403],1.1678145,1.425338,2.024724,2.4232745,Posterior prediction,age and region,household,TRUE,sequence,South East
+15-29,2021-12-18,pp_voc_R[404],1.0416465,1.273526,1.845728,2.2015235,Posterior prediction,age and region,household,TRUE,sequence,South East
+15-29,2021-12-19,pp_voc_R[405],1.0492305,1.283064,1.84274,2.196141,Posterior prediction,age and region,household,TRUE,sequence,South East
+15-29,2021-12-20,pp_voc_R[406],1.0423325,1.27962,1.848332,2.218784,Posterior prediction,age and region,household,TRUE,sequence,South East
+15-29,2021-12-21,pp_voc_R[407],1.0255865,1.291788,1.898688,2.272813,Posterior prediction,age and region,household,TRUE,sequence,South East
+15-29,2021-12-22,pp_voc_R[408],1.071111,1.290562,1.91297,2.306922,Posterior prediction,age and region,household,TRUE,sequence,South East
+15-29,2021-12-23,pp_voc_R[409],1.0603365,1.3052,1.928176,2.3016505,Posterior prediction,age and region,household,TRUE,sequence,South East
+30-44,2021-12-08,pp_voc_R[410],1.032576,1.291248,1.908172,2.313087,Posterior prediction,age and region,household,TRUE,sequence,South East
+30-44,2021-12-09,pp_voc_R[411],2.331904,2.773352,4.05639,4.9267165,Posterior prediction,age and region,household,TRUE,sequence,South East
+30-44,2021-12-10,pp_voc_R[412],2.1359325,2.567538,3.815002,4.7064215,Posterior prediction,age and region,household,TRUE,sequence,South East
+30-44,2021-12-11,pp_voc_R[413],2.149736,2.582066,3.805224,4.651883,Posterior prediction,age and region,household,TRUE,sequence,South East
+30-44,2021-12-12,pp_voc_R[414],2.12587,2.572934,3.830254,4.673714,Posterior prediction,age and region,household,TRUE,sequence,South East
+30-44,2021-12-13,pp_voc_R[415],2.0857235,2.453624,3.516706,4.275013,Posterior prediction,age and region,household,TRUE,sequence,South East
+30-44,2021-12-14,pp_voc_R[416],2.0772115,2.453458,3.558462,4.2709335,Posterior prediction,age and region,household,TRUE,sequence,South East
+30-44,2021-12-15,pp_voc_R[417],2.0875515,2.443216,3.543524,4.2800705,Posterior prediction,age and region,household,TRUE,sequence,South East
+30-44,2021-12-16,pp_voc_R[418],1.6206035,1.914752,2.75222,3.2674885,Posterior prediction,age and region,household,TRUE,sequence,South East
+30-44,2021-12-17,pp_voc_R[419],1.64702,1.925388,2.74095,3.2998925,Posterior prediction,age and region,household,TRUE,sequence,South East
+30-44,2021-12-18,pp_voc_R[420],1.648405,1.932414,2.73895,3.2530465,Posterior prediction,age and region,household,TRUE,sequence,South East
+30-44,2021-12-19,pp_voc_R[421],1.529281,1.846168,2.63745,3.127459,Posterior prediction,age and region,household,TRUE,sequence,South East
+30-44,2021-12-20,pp_voc_R[422],1.5737945,1.854652,2.634116,3.152341,Posterior prediction,age and region,household,TRUE,sequence,South East
+30-44,2021-12-21,pp_voc_R[423],1.527064,1.840734,2.619466,3.111116,Posterior prediction,age and region,household,TRUE,sequence,South East
+30-44,2021-12-22,pp_voc_R[424],0.80549855,1.040848,1.602876,1.935531,Posterior prediction,age and region,household,TRUE,sequence,South East
+30-44,2021-12-23,pp_voc_R[425],0.78481865,1.030648,1.598134,1.9159355,Posterior prediction,age and region,household,TRUE,sequence,South East
+45-59,2021-12-07,pp_voc_R[426],0.7861718,1.039308,1.619134,1.9413665,Posterior prediction,age and region,household,TRUE,sequence,South East
+45-59,2021-12-08,pp_voc_R[427],0.6155333,0.845766,1.388936,1.677843,Posterior prediction,age and region,household,TRUE,sequence,South East
+45-59,2021-12-09,pp_voc_R[428],0.62533275,0.8549356,1.382764,1.654162,Posterior prediction,age and region,household,TRUE,sequence,South East
+45-59,2021-12-10,pp_voc_R[429],0.6056033,0.8450694,1.370914,1.6855515,Posterior prediction,age and region,household,TRUE,sequence,South East
+45-59,2021-12-11,pp_voc_R[430],0.5567624,0.7984086,1.354276,1.6607955,Posterior prediction,age and region,household,TRUE,sequence,South East
+45-59,2021-12-12,pp_voc_R[431],0.55443155,0.7895192,1.331044,1.670465,Posterior prediction,age and region,household,TRUE,sequence,South East
+45-59,2021-12-13,pp_voc_R[432],0.5303001,0.784023,1.349254,1.662001,Posterior prediction,age and region,household,TRUE,sequence,South East
+45-59,2021-12-14,pp_voc_R[433],0.5391088,0.7894362,1.353472,1.679863,Posterior prediction,age and region,household,TRUE,sequence,South East
+45-59,2021-12-15,pp_voc_R[434],2.3085875,2.774074,4.166504,5.1225275,Posterior prediction,age and region,household,TRUE,sequence,South East
+45-59,2021-12-16,pp_voc_R[435],2.3034275,2.790378,4.162682,5.0678925,Posterior prediction,age and region,household,TRUE,sequence,South East
+45-59,2021-12-17,pp_voc_R[436],1.9483755,2.357548,3.518454,4.3344205,Posterior prediction,age and region,household,TRUE,sequence,South East
+45-59,2021-12-18,pp_voc_R[437],1.9424075,2.37142,3.496268,4.2218425,Posterior prediction,age and region,household,TRUE,sequence,South East
+45-59,2021-12-19,pp_voc_R[438],1.976141,2.376202,3.499884,4.2536035,Posterior prediction,age and region,household,TRUE,sequence,South East
+45-59,2021-12-20,pp_voc_R[439],1.553649,1.917812,2.83694,3.4494265,Posterior prediction,age and region,household,TRUE,sequence,South East
+45-59,2021-12-21,pp_voc_R[440],1.5514345,1.91835,2.818326,3.4347995,Posterior prediction,age and region,household,TRUE,sequence,South East
+45-59,2021-12-22,pp_voc_R[441],1.5620105,1.91106,2.8458,3.470056,Posterior prediction,age and region,household,TRUE,sequence,South East
+45-59,2021-12-23,pp_voc_R[442],1.4382455,1.74964,2.56544,3.117074,Posterior prediction,age and region,household,TRUE,sequence,South East
+0-14,2021-12-01,pp_voc_R[443],1.4490065,1.766586,2.573756,3.08533,Posterior prediction,age and region,household,TRUE,sequence,South West
+0-14,2021-12-02,pp_voc_R[444],1.451316,1.76046,2.567234,3.079532,Posterior prediction,age and region,household,TRUE,sequence,South West
+0-14,2021-12-03,pp_voc_R[445],1.0055375,1.259978,1.907074,2.294285,Posterior prediction,age and region,household,TRUE,sequence,South West
+0-14,2021-12-04,pp_voc_R[446],1.0155595,1.269686,1.923516,2.3083285,Posterior prediction,age and region,household,TRUE,sequence,South West
+0-14,2021-12-05,pp_voc_R[447],0.99742305,1.259416,1.905762,2.3038875,Posterior prediction,age and region,household,TRUE,sequence,South West
+0-14,2021-12-06,pp_voc_R[448],0.8980178,1.14897,1.787398,2.1321335,Posterior prediction,age and region,household,TRUE,sequence,South West
+0-14,2021-12-07,pp_voc_R[449],0.8739949,1.142542,1.782578,2.167813,Posterior prediction,age and region,household,TRUE,sequence,South West
+0-14,2021-12-08,pp_voc_R[450],0.8914413,1.155086,1.783376,2.1582405,Posterior prediction,age and region,household,TRUE,sequence,South West
+0-14,2021-12-09,pp_voc_R[451],0.97040425,1.250146,1.96233,2.406209,Posterior prediction,age and region,household,TRUE,sequence,South West
+0-14,2021-12-10,pp_voc_R[452],0.96411715,1.254476,1.968844,2.4225215,Posterior prediction,age and region,household,TRUE,sequence,South West
+0-14,2021-12-11,pp_voc_R[453],0.9584896,1.250408,1.955396,2.353348,Posterior prediction,age and region,household,TRUE,sequence,South West
+0-14,2021-12-12,pp_voc_R[454],0.969972,1.255504,1.94606,2.380251,Posterior prediction,age and region,household,TRUE,sequence,South West
+0-14,2021-12-13,pp_voc_R[455],1.082427,1.351016,1.976828,2.3748105,Posterior prediction,age and region,household,TRUE,sequence,South West
+0-14,2021-12-14,pp_voc_R[456],1.0910565,1.341626,1.960582,2.331526,Posterior prediction,age and region,household,TRUE,sequence,South West
+0-14,2021-12-15,pp_voc_R[457],1.0673075,1.330404,1.972596,2.353765,Posterior prediction,age and region,household,TRUE,sequence,South West
+0-14,2021-12-16,pp_voc_R[458],1.080238,1.343176,1.995818,2.3781155,Posterior prediction,age and region,household,TRUE,sequence,South West
+0-14,2021-12-17,pp_voc_R[459],1.0874945,1.34682,1.977174,2.325624,Posterior prediction,age and region,household,TRUE,sequence,South West
+0-14,2021-12-18,pp_voc_R[460],0.9914728,1.221398,1.80733,2.161806,Posterior prediction,age and region,household,TRUE,sequence,South West
+0-14,2021-12-19,pp_voc_R[461],0.97104095,1.212666,1.786906,2.1738455,Posterior prediction,age and region,household,TRUE,sequence,South West
+0-14,2021-12-20,pp_voc_R[462],0.9870437,1.223944,1.825304,2.1530735,Posterior prediction,age and region,household,TRUE,sequence,South West
+0-14,2021-12-21,pp_voc_R[463],0.83288335,1.100108,1.67469,2.0094745,Posterior prediction,age and region,household,TRUE,sequence,South West
+0-14,2021-12-22,pp_voc_R[464],0.8300726,1.088544,1.66568,2.017414,Posterior prediction,age and region,household,TRUE,sequence,South West
+0-14,2021-12-23,pp_voc_R[465],0.8391916,1.098198,1.684894,2.0235155,Posterior prediction,age and region,household,TRUE,sequence,South West
+15-29,2021-12-03,pp_voc_R[466],0.7494724,1.017912,1.604622,1.971287,Posterior prediction,age and region,household,TRUE,sequence,South West
+15-29,2021-12-04,pp_voc_R[467],0.746962,1.023774,1.631652,2.001775,Posterior prediction,age and region,household,TRUE,sequence,South West
+15-29,2021-12-05,pp_voc_R[468],0.75083515,1.011602,1.63711,1.9928265,Posterior prediction,age and region,household,TRUE,sequence,South West
+15-29,2021-12-06,pp_voc_R[469],0.79461975,1.073304,1.738634,2.123433,Posterior prediction,age and region,household,TRUE,sequence,South West
+15-29,2021-12-07,pp_voc_R[470],0.80474365,1.079646,1.732,2.1526685,Posterior prediction,age and region,household,TRUE,sequence,South West
+15-29,2021-12-08,pp_voc_R[471],0.78381065,1.067836,1.731094,2.1077375,Posterior prediction,age and region,household,TRUE,sequence,South West
+15-29,2021-12-09,pp_voc_R[472],0.7995723,1.07795,1.724636,2.097792,Posterior prediction,age and region,household,TRUE,sequence,South West
+15-29,2021-12-10,pp_voc_R[473],1.3121375,1.675112,2.559818,3.119196,Posterior prediction,age and region,household,TRUE,sequence,South West
+15-29,2021-12-11,pp_voc_R[474],1.3204795,1.664796,2.54796,3.12727,Posterior prediction,age and region,household,TRUE,sequence,South West
+15-29,2021-12-12,pp_voc_R[475],1.3941225,1.718624,2.508994,3.0188995,Posterior prediction,age and region,household,TRUE,sequence,South West
+15-29,2021-12-13,pp_voc_R[476],1.4013035,1.723502,2.523848,3.0436465,Posterior prediction,age and region,household,TRUE,sequence,South West
+15-29,2021-12-14,pp_voc_R[477],1.404026,1.713538,2.520992,3.0222195,Posterior prediction,age and region,household,TRUE,sequence,South West
+15-29,2021-12-15,pp_voc_R[478],1.173298,1.522334,2.392084,2.963723,Posterior prediction,age and region,household,TRUE,sequence,South West
+15-29,2021-12-16,pp_voc_R[479],1.201137,1.526922,2.42258,2.9763445,Posterior prediction,age and region,household,TRUE,sequence,South West
+15-29,2021-12-17,pp_voc_R[480],1.2113605,1.541228,2.411806,2.9939475,Posterior prediction,age and region,household,TRUE,sequence,South West
+15-29,2021-12-18,pp_voc_R[481],1.0396095,1.304348,2.010516,2.4694405,Posterior prediction,age and region,household,TRUE,sequence,South West
+15-29,2021-12-19,pp_voc_R[482],1.0334855,1.315498,2.002306,2.4588245,Posterior prediction,age and region,household,TRUE,sequence,South West
+15-29,2021-12-20,pp_voc_R[483],1.036446,1.325998,2.022172,2.4530775,Posterior prediction,age and region,household,TRUE,sequence,South West
+15-29,2021-12-21,pp_voc_R[484],0.9629981,1.246626,1.878782,2.2802545,Posterior prediction,age and region,household,TRUE,sequence,South West
+15-29,2021-12-22,pp_voc_R[485],0.9631586,1.239008,1.891716,2.273831,Posterior prediction,age and region,household,TRUE,sequence,South West
+15-29,2021-12-23,pp_voc_R[486],0.9785854,1.232484,1.87682,2.278234,Posterior prediction,age and region,household,TRUE,sequence,South West
+30-44,2021-12-03,pp_voc_R[487],1.137181,1.420966,2.11702,2.586224,Posterior prediction,age and region,household,TRUE,sequence,South West
+30-44,2021-12-04,pp_voc_R[488],1.110793,1.409746,2.136558,2.6020405,Posterior prediction,age and region,household,TRUE,sequence,South West
+30-44,2021-12-05,pp_voc_R[489],1.1151255,1.41962,2.128746,2.597028,Posterior prediction,age and region,household,TRUE,sequence,South West
+30-44,2021-12-06,pp_voc_R[490],1.1381555,1.413502,2.13443,2.5936435,Posterior prediction,age and region,household,TRUE,sequence,South West
+30-44,2021-12-07,pp_voc_R[491],0.99129095,1.313606,2.090484,2.567597,Posterior prediction,age and region,household,TRUE,sequence,South West
+30-44,2021-12-08,pp_voc_R[492],0.9364733,1.272518,2.04143,2.514201,Posterior prediction,age and region,household,TRUE,sequence,South West
+30-44,2021-12-09,pp_voc_R[493],0.9492252,1.275232,2.072084,2.527064,Posterior prediction,age and region,household,TRUE,sequence,South West
+30-44,2021-12-10,pp_voc_R[494],0.94457275,1.276028,2.056852,2.543215,Posterior prediction,age and region,household,TRUE,sequence,South West
+30-44,2021-12-11,pp_voc_R[495],1.0604585,1.367144,2.128864,2.597204,Posterior prediction,age and region,household,TRUE,sequence,South West
+30-44,2021-12-12,pp_voc_R[496],1.054865,1.37399,2.13666,2.5979765,Posterior prediction,age and region,household,TRUE,sequence,South West
+30-44,2021-12-13,pp_voc_R[497],1.0535755,1.367828,2.134746,2.622105,Posterior prediction,age and region,household,TRUE,sequence,South West
+30-44,2021-12-14,pp_voc_R[498],1.0837095,1.39441,2.202004,2.701236,Posterior prediction,age and region,household,TRUE,sequence,South West
+30-44,2021-12-15,pp_voc_R[499],1.0856515,1.4013,2.203392,2.702549,Posterior prediction,age and region,household,TRUE,sequence,South West
+30-44,2021-12-16,pp_voc_R[500],1.090132,1.400458,2.208668,2.7017095,Posterior prediction,age and region,household,TRUE,sequence,South West
+30-44,2021-12-17,pp_voc_R[501],1.10993,1.418764,2.178838,2.6738885,Posterior prediction,age and region,household,TRUE,sequence,South West
+30-44,2021-12-18,pp_voc_R[502],1.0893855,1.408642,2.17796,2.6735085,Posterior prediction,age and region,household,TRUE,sequence,South West
+30-44,2021-12-19,pp_voc_R[503],1.099154,1.41291,2.196764,2.662733,Posterior prediction,age and region,household,TRUE,sequence,South West
+30-44,2021-12-20,pp_voc_R[504],1.050459,1.434364,2.312992,2.8996175,Posterior prediction,age and region,household,TRUE,sequence,South West
+30-44,2021-12-21,pp_voc_R[505],1.0689865,1.428552,2.315704,2.9227685,Posterior prediction,age and region,household,TRUE,sequence,South West
+30-44,2021-12-22,pp_voc_R[506],1.053979,1.428318,2.313432,2.867567,Posterior prediction,age and region,household,TRUE,sequence,South West
+30-44,2021-12-23,pp_voc_R[507],1.050597,1.416304,2.329238,2.914423,Posterior prediction,age and region,household,TRUE,sequence,South West
+45-59,2021-12-07,pp_voc_R[508],1.6654385,2.07637,3.172326,3.936436,Posterior prediction,age and region,household,TRUE,sequence,South West
+45-59,2021-12-08,pp_voc_R[509],1.6587205,1.997574,2.88211,3.502325,Posterior prediction,age and region,household,TRUE,sequence,South West
+45-59,2021-12-09,pp_voc_R[510],1.6492615,1.99579,2.898234,3.4794335,Posterior prediction,age and region,household,TRUE,sequence,South West
+45-59,2021-12-10,pp_voc_R[511],1.6646585,1.99245,2.89618,3.476362,Posterior prediction,age and region,household,TRUE,sequence,South West
+45-59,2021-12-11,pp_voc_R[512],1.4127635,1.711478,2.492746,2.98384,Posterior prediction,age and region,household,TRUE,sequence,South West
+45-59,2021-12-12,pp_voc_R[513],1.392676,1.695724,2.490868,2.992471,Posterior prediction,age and region,household,TRUE,sequence,South West
+45-59,2021-12-13,pp_voc_R[514],1.3926375,1.701598,2.476234,2.953146,Posterior prediction,age and region,household,TRUE,sequence,South West
+45-59,2021-12-14,pp_voc_R[515],1.2483745,1.541288,2.230772,2.6579825,Posterior prediction,age and region,household,TRUE,sequence,South West
+45-59,2021-12-15,pp_voc_R[516],1.244454,1.53737,2.23142,2.7018985,Posterior prediction,age and region,household,TRUE,sequence,South West
+45-59,2021-12-16,pp_voc_R[517],1.2576185,1.536582,2.244174,2.6670705,Posterior prediction,age and region,household,TRUE,sequence,South West
+45-59,2021-12-17,pp_voc_R[518],0.98831305,1.251858,1.879274,2.327238,Posterior prediction,age and region,household,TRUE,sequence,South West
+45-59,2021-12-18,pp_voc_R[519],0.9633074,1.244628,1.891078,2.266422,Posterior prediction,age and region,household,TRUE,sequence,South West
+45-59,2021-12-19,pp_voc_R[520],0.9640353,1.249354,1.883272,2.2819815,Posterior prediction,age and region,household,TRUE,sequence,South West
+45-59,2021-12-20,pp_voc_R[521],0.8699075,1.143658,1.78544,2.1845145,Posterior prediction,age and region,household,TRUE,sequence,South West
+45-59,2021-12-21,pp_voc_R[522],0.87639365,1.138586,1.783844,2.1759285,Posterior prediction,age and region,household,TRUE,sequence,South West
+45-59,2021-12-22,pp_voc_R[523],0.88839565,1.15215,1.79291,2.173472,Posterior prediction,age and region,household,TRUE,sequence,South West
+45-59,2021-12-23,pp_voc_R[524],0.88815845,1.146222,1.794762,2.191102,Posterior prediction,age and region,household,TRUE,sequence,South West
+0-14,2021-12-06,pp_voc_R[1],2.1195595,2.923992,4.894886,6.2892635,Posterior prediction,age and region,intrinsic,TRUE,sequence,East of England
+0-14,2021-12-07,pp_voc_R[2],2.066228,2.93643,4.929688,6.2232515,Posterior prediction,age and region,intrinsic,TRUE,sequence,East of England
+0-14,2021-12-08,pp_voc_R[3],2.1780595,2.910174,4.729844,5.8395675,Posterior prediction,age and region,intrinsic,TRUE,sequence,East of England
+0-14,2021-12-09,pp_voc_R[4],2.2397025,2.937286,4.746706,5.900727,Posterior prediction,age and region,intrinsic,TRUE,sequence,East of England
+0-14,2021-12-10,pp_voc_R[5],2.201098,2.91477,4.719634,5.8256345,Posterior prediction,age and region,intrinsic,TRUE,sequence,East of England
+0-14,2021-12-11,pp_voc_R[6],1.5131905,2.113898,3.575618,4.5167455,Posterior prediction,age and region,intrinsic,TRUE,sequence,East of England
+0-14,2021-12-12,pp_voc_R[7],1.5394585,2.101998,3.633448,4.5862115,Posterior prediction,age and region,intrinsic,TRUE,sequence,East of England
+0-14,2021-12-13,pp_voc_R[8],1.5281565,2.098384,3.595766,4.513283,Posterior prediction,age and region,intrinsic,TRUE,sequence,East of England
+0-14,2021-12-14,pp_voc_R[9],1.2410915,1.710004,2.945288,3.676698,Posterior prediction,age and region,intrinsic,TRUE,sequence,East of England
+0-14,2021-12-15,pp_voc_R[10],1.2434585,1.764752,2.925342,3.724594,Posterior prediction,age and region,intrinsic,TRUE,sequence,East of England
+0-14,2021-12-16,pp_voc_R[11],1.2649925,1.747346,2.97141,3.7320115,Posterior prediction,age and region,intrinsic,TRUE,sequence,East of England
+0-14,2021-12-17,pp_voc_R[12],0.8583649,1.216452,2.270658,2.908091,Posterior prediction,age and region,intrinsic,TRUE,sequence,East of England
+0-14,2021-12-18,pp_voc_R[13],0.8251674,1.219608,2.255914,2.9296425,Posterior prediction,age and region,intrinsic,TRUE,sequence,East of England
+0-14,2021-12-19,pp_voc_R[14],0.8209774,1.246022,2.288038,2.9108945,Posterior prediction,age and region,intrinsic,TRUE,sequence,East of England
+0-14,2021-12-20,pp_voc_R[15],0.8442214,1.249086,2.368204,3.032643,Posterior prediction,age and region,intrinsic,TRUE,sequence,East of England
+0-14,2021-12-21,pp_voc_R[16],0.8177033,1.243834,2.30327,2.9631295,Posterior prediction,age and region,intrinsic,TRUE,sequence,East of England
+0-14,2021-12-22,pp_voc_R[17],0.8309093,1.266464,2.341256,3.028334,Posterior prediction,age and region,intrinsic,TRUE,sequence,East of England
+0-14,2021-12-23,pp_voc_R[18],0.8396975,1.256126,2.322862,3.026429,Posterior prediction,age and region,intrinsic,TRUE,sequence,East of England
+15-29,2021-12-01,pp_voc_R[19],2.9940045,3.935028,6.358034,7.9260565,Posterior prediction,age and region,intrinsic,TRUE,sequence,East of England
+15-29,2021-12-02,pp_voc_R[20],2.982425,3.905746,6.302322,7.7801085,Posterior prediction,age and region,intrinsic,TRUE,sequence,East of England
+15-29,2021-12-03,pp_voc_R[21],2.9546925,3.804934,5.982708,7.2996075,Posterior prediction,age and region,intrinsic,TRUE,sequence,East of England
+15-29,2021-12-04,pp_voc_R[22],2.9320295,3.760184,5.991086,7.3120415,Posterior prediction,age and region,intrinsic,TRUE,sequence,East of England
+15-29,2021-12-05,pp_voc_R[23],2.9348995,3.821886,5.935186,7.275189,Posterior prediction,age and region,intrinsic,TRUE,sequence,East of England
+15-29,2021-12-06,pp_voc_R[24],2.576823,3.276872,5.056434,6.1832255,Posterior prediction,age and region,intrinsic,TRUE,sequence,East of England
+15-29,2021-12-07,pp_voc_R[25],2.5550225,3.253576,5.078162,6.22069149999999,Posterior prediction,age and region,intrinsic,TRUE,sequence,East of England
+15-29,2021-12-08,pp_voc_R[26],2.5273975,3.259792,5.09376,6.2790665,Posterior prediction,age and region,intrinsic,TRUE,sequence,East of England
+15-29,2021-12-09,pp_voc_R[27],1.9063525,2.516722,3.983772,4.915479,Posterior prediction,age and region,intrinsic,TRUE,sequence,East of England
+15-29,2021-12-10,pp_voc_R[28],1.868745,2.485458,3.97486,4.959038,Posterior prediction,age and region,intrinsic,TRUE,sequence,East of England
+15-29,2021-12-11,pp_voc_R[29],1.834002,2.478212,4.020962,4.908109,Posterior prediction,age and region,intrinsic,TRUE,sequence,East of England
+15-29,2021-12-12,pp_voc_R[30],1.287944,1.778694,2.934298,3.6433855,Posterior prediction,age and region,intrinsic,TRUE,sequence,East of England
+15-29,2021-12-13,pp_voc_R[31],1.2964575,1.75738,2.94556,3.7035115,Posterior prediction,age and region,intrinsic,TRUE,sequence,East of England
+15-29,2021-12-14,pp_voc_R[32],1.280232,1.746082,2.936598,3.7361995,Posterior prediction,age and region,intrinsic,TRUE,sequence,East of England
+15-29,2021-12-15,pp_voc_R[33],1.054916,1.477636,2.562864,3.208385,Posterior prediction,age and region,intrinsic,TRUE,sequence,East of England
+15-29,2021-12-16,pp_voc_R[34],1.046137,1.476438,2.529798,3.2215925,Posterior prediction,age and region,intrinsic,TRUE,sequence,East of England
+15-29,2021-12-17,pp_voc_R[35],1.0359125,1.459454,2.515526,3.213929,Posterior prediction,age and region,intrinsic,TRUE,sequence,East of England
+15-29,2021-12-18,pp_voc_R[36],1.122157,1.5881,2.749058,3.4537505,Posterior prediction,age and region,intrinsic,TRUE,sequence,East of England
+15-29,2021-12-19,pp_voc_R[37],1.117047,1.55105,2.724208,3.4353915,Posterior prediction,age and region,intrinsic,TRUE,sequence,East of England
+15-29,2021-12-20,pp_voc_R[38],1.090004,1.54729,2.72417,3.4362025,Posterior prediction,age and region,intrinsic,TRUE,sequence,East of England
+15-29,2021-12-21,pp_voc_R[39],1.10483,1.555314,2.749728,3.436752,Posterior prediction,age and region,intrinsic,TRUE,sequence,East of England
+15-29,2021-12-22,pp_voc_R[40],1.4174855,2.046012,3.708504,4.7263325,Posterior prediction,age and region,intrinsic,TRUE,sequence,East of England
+15-29,2021-12-23,pp_voc_R[41],1.4403255,2.02986,3.657148,4.5817235,Posterior prediction,age and region,intrinsic,TRUE,sequence,East of England
+30-44,2021-12-03,pp_voc_R[42],1.4504695,2.090768,3.79559,4.9044995,Posterior prediction,age and region,intrinsic,TRUE,sequence,East of England
+30-44,2021-12-04,pp_voc_R[43],1.4253555,2.077206,3.768652,4.8360425,Posterior prediction,age and region,intrinsic,TRUE,sequence,East of England
+30-44,2021-12-05,pp_voc_R[44],1.434044,2.080386,3.767286,4.8357865,Posterior prediction,age and region,intrinsic,TRUE,sequence,East of England
+30-44,2021-12-06,pp_voc_R[45],1.2995645,1.91189,3.515594,4.467342,Posterior prediction,age and region,intrinsic,TRUE,sequence,East of England
+30-44,2021-12-07,pp_voc_R[46],1.303351,1.931904,3.474488,4.4441245,Posterior prediction,age and region,intrinsic,TRUE,sequence,East of England
+30-44,2021-12-08,pp_voc_R[47],1.335043,1.916652,3.528268,4.503529,Posterior prediction,age and region,intrinsic,TRUE,sequence,East of England
+30-44,2021-12-09,pp_voc_R[48],1.151191,1.78154,3.500968,4.5928125,Posterior prediction,age and region,intrinsic,TRUE,sequence,East of England
+30-44,2021-12-10,pp_voc_R[49],1.13976,1.755538,3.494926,4.5848225,Posterior prediction,age and region,intrinsic,TRUE,sequence,East of England
+30-44,2021-12-11,pp_voc_R[50],1.14682,1.76499,3.495036,4.5898345,Posterior prediction,age and region,intrinsic,TRUE,sequence,East of England
+30-44,2021-12-12,pp_voc_R[51],1.163555,1.807404,3.506002,4.5374275,Posterior prediction,age and region,intrinsic,TRUE,sequence,East of England
+30-44,2021-12-13,pp_voc_R[52],1.784786,2.536562,4.52284,5.7286645,Posterior prediction,age and region,intrinsic,TRUE,sequence,East of England
+30-44,2021-12-14,pp_voc_R[53],1.8465265,2.552922,4.51465,5.7383305,Posterior prediction,age and region,intrinsic,TRUE,sequence,East of England
+30-44,2021-12-15,pp_voc_R[54],1.5846715,2.279502,4.07806,5.229788,Posterior prediction,age and region,intrinsic,TRUE,sequence,East of England
+30-44,2021-12-16,pp_voc_R[55],1.5951515,2.286432,4.127682,5.31048,Posterior prediction,age and region,intrinsic,TRUE,sequence,East of England
+30-44,2021-12-17,pp_voc_R[56],1.6130105,2.285042,4.130402,5.355988,Posterior prediction,age and region,intrinsic,TRUE,sequence,East of England
+30-44,2021-12-18,pp_voc_R[57],1.189057,1.773438,3.26236,4.2108175,Posterior prediction,age and region,intrinsic,TRUE,sequence,East of England
+30-44,2021-12-19,pp_voc_R[58],1.265204,1.818424,3.271316,4.1634465,Posterior prediction,age and region,intrinsic,TRUE,sequence,East of England
+30-44,2021-12-20,pp_voc_R[59],1.246495,1.802638,3.25067,4.104777,Posterior prediction,age and region,intrinsic,TRUE,sequence,East of England
+30-44,2021-12-21,pp_voc_R[60],0.94574865,1.468228,2.807532,3.7343015,Posterior prediction,age and region,intrinsic,TRUE,sequence,East of England
+30-44,2021-12-22,pp_voc_R[61],0.95484485,1.487534,2.82271,3.66106,Posterior prediction,age and region,intrinsic,TRUE,sequence,East of England
+30-44,2021-12-23,pp_voc_R[62],0.96394985,1.489956,2.797482,3.6683715,Posterior prediction,age and region,intrinsic,TRUE,sequence,East of England
+45-59,2021-12-03,pp_voc_R[63],1.070155,1.615928,3.051412,4.0179425,Posterior prediction,age and region,intrinsic,TRUE,sequence,East of England
+45-59,2021-12-04,pp_voc_R[64],1.048167,1.59835,3.08663,4.0506585,Posterior prediction,age and region,intrinsic,TRUE,sequence,East of England
+45-59,2021-12-05,pp_voc_R[65],1.067509,1.611186,3.05337,3.9772315,Posterior prediction,age and region,intrinsic,TRUE,sequence,East of England
+45-59,2021-12-06,pp_voc_R[66],1.053411,1.600576,3.077226,4.0146125,Posterior prediction,age and region,intrinsic,TRUE,sequence,East of England
+45-59,2021-12-07,pp_voc_R[67],1.6786055,2.313492,4.03477,5.137491,Posterior prediction,age and region,intrinsic,TRUE,sequence,East of England
+45-59,2021-12-08,pp_voc_R[68],1.633417,2.357826,4.041338,5.170689,Posterior prediction,age and region,intrinsic,TRUE,sequence,East of England
+45-59,2021-12-09,pp_voc_R[69],1.748559,2.376988,3.99095,5.055068,Posterior prediction,age and region,intrinsic,TRUE,sequence,East of England
+45-59,2021-12-10,pp_voc_R[70],1.724053,2.380452,4.036916,5.085225,Posterior prediction,age and region,intrinsic,TRUE,sequence,East of England
+45-59,2021-12-11,pp_voc_R[71],1.752457,2.412442,4.04549,5.0765935,Posterior prediction,age and region,intrinsic,TRUE,sequence,East of England
+45-59,2021-12-12,pp_voc_R[72],1.347872,1.946214,3.57729,4.6439465,Posterior prediction,age and region,intrinsic,TRUE,sequence,East of England
+45-59,2021-12-13,pp_voc_R[73],1.3011465,1.926528,3.524618,4.543591,Posterior prediction,age and region,intrinsic,TRUE,sequence,East of England
+45-59,2021-12-14,pp_voc_R[74],1.329751,1.904566,3.562626,4.591921,Posterior prediction,age and region,intrinsic,TRUE,sequence,East of England
+45-59,2021-12-15,pp_voc_R[75],1.096295,1.62907,2.947486,3.7849245,Posterior prediction,age and region,intrinsic,TRUE,sequence,East of England
+45-59,2021-12-16,pp_voc_R[76],1.067802,1.608764,2.899888,3.7994075,Posterior prediction,age and region,intrinsic,TRUE,sequence,East of England
+45-59,2021-12-17,pp_voc_R[77],1.04472,1.596418,2.923072,3.7596735,Posterior prediction,age and region,intrinsic,TRUE,sequence,East of England
+45-59,2021-12-18,pp_voc_R[78],0.9677426,1.467422,2.804142,3.6798445,Posterior prediction,age and region,intrinsic,TRUE,sequence,East of England
+45-59,2021-12-19,pp_voc_R[79],0.9743026,1.49168,2.789506,3.5882795,Posterior prediction,age and region,intrinsic,TRUE,sequence,East of England
+45-59,2021-12-20,pp_voc_R[80],1.017761,1.49008,2.74228,3.576288,Posterior prediction,age and region,intrinsic,TRUE,sequence,East of England
+45-59,2021-12-21,pp_voc_R[81],1.1551995,1.715398,3.136536,4.0212935,Posterior prediction,age and region,intrinsic,TRUE,sequence,East of England
+45-59,2021-12-22,pp_voc_R[82],1.1272525,1.667106,3.185024,4.0534445,Posterior prediction,age and region,intrinsic,TRUE,sequence,East of England
+45-59,2021-12-23,pp_voc_R[83],1.13609,1.727194,3.132836,4.057327,Posterior prediction,age and region,intrinsic,TRUE,sequence,East of England
+0-14,2021-12-03,pp_voc_R[84],1.168522,1.717154,3.142676,4.0230595,Posterior prediction,age and region,intrinsic,TRUE,sequence,London
+0-14,2021-12-04,pp_voc_R[85],2.617511,3.59343,6.105714,7.723606,Posterior prediction,age and region,intrinsic,TRUE,sequence,London
+0-14,2021-12-05,pp_voc_R[86],2.729042,3.703556,6.14795,7.7840625,Posterior prediction,age and region,intrinsic,TRUE,sequence,London
+0-14,2021-12-06,pp_voc_R[87],2.8260975,3.73692,6.141872,7.6604255,Posterior prediction,age and region,intrinsic,TRUE,sequence,London
+0-14,2021-12-07,pp_voc_R[88],2.800823,3.718108,6.105034,7.652967,Posterior prediction,age and region,intrinsic,TRUE,sequence,London
+0-14,2021-12-08,pp_voc_R[89],2.481369,3.370294,5.741038,7.2197305,Posterior prediction,age and region,intrinsic,TRUE,sequence,London
+0-14,2021-12-09,pp_voc_R[90],2.4636935,3.387354,5.734216,7.22674,Posterior prediction,age and region,intrinsic,TRUE,sequence,London
+0-14,2021-12-10,pp_voc_R[91],2.4197325,3.37721,5.731954,7.2684195,Posterior prediction,age and region,intrinsic,TRUE,sequence,London
+0-14,2021-12-11,pp_voc_R[92],2.076792,2.923876,5.054588,6.3733045,Posterior prediction,age and region,intrinsic,TRUE,sequence,London
+0-14,2021-12-12,pp_voc_R[93],2.0652605,2.875824,5.033762,6.412884,Posterior prediction,age and region,intrinsic,TRUE,sequence,London
+0-14,2021-12-13,pp_voc_R[94],2.0833895,2.91765,5.032716,6.3303485,Posterior prediction,age and region,intrinsic,TRUE,sequence,London
+0-14,2021-12-14,pp_voc_R[95],1.3291645,1.995782,3.6424,4.710517,Posterior prediction,age and region,intrinsic,TRUE,sequence,London
+0-14,2021-12-15,pp_voc_R[96],1.334004,1.988454,3.70767,4.7963415,Posterior prediction,age and region,intrinsic,TRUE,sequence,London
+0-14,2021-12-16,pp_voc_R[97],1.339321,2.018696,3.683186,4.7262855,Posterior prediction,age and region,intrinsic,TRUE,sequence,London
+0-14,2021-12-17,pp_voc_R[98],0.62224805,1.074582,2.194622,2.893194,Posterior prediction,age and region,intrinsic,TRUE,sequence,London
+0-14,2021-12-18,pp_voc_R[99],0.64734055,1.083228,2.229814,2.964763,Posterior prediction,age and region,intrinsic,TRUE,sequence,London
+0-14,2021-12-19,pp_voc_R[100],0.64110295,1.063542,2.207996,2.954453,Posterior prediction,age and region,intrinsic,TRUE,sequence,London
+0-14,2021-12-20,pp_voc_R[101],0.72013325,1.158604,2.325148,3.030862,Posterior prediction,age and region,intrinsic,TRUE,sequence,London
+0-14,2021-12-21,pp_voc_R[102],0.74070055,1.150366,2.290274,3.09185,Posterior prediction,age and region,intrinsic,TRUE,sequence,London
+0-14,2021-12-22,pp_voc_R[103],0.71535925,1.15608,2.320912,3.0965375,Posterior prediction,age and region,intrinsic,TRUE,sequence,London
+0-14,2021-12-23,pp_voc_R[104],0.95680805,1.486786,2.90484,3.8050075,Posterior prediction,age and region,intrinsic,TRUE,sequence,London
+15-29,2021-12-04,pp_voc_R[105],0.9624841,1.483552,2.920132,3.7737365,Posterior prediction,age and region,intrinsic,TRUE,sequence,London
+15-29,2021-12-05,pp_voc_R[106],0.94962815,1.498804,2.856666,3.798795,Posterior prediction,age and region,intrinsic,TRUE,sequence,London
+15-29,2021-12-06,pp_voc_R[107],0.93078265,1.473088,2.85315,3.74279,Posterior prediction,age and region,intrinsic,TRUE,sequence,London
+15-29,2021-12-07,pp_voc_R[108],3.163649,4.25136,7.244342,9.0324475,Posterior prediction,age and region,intrinsic,TRUE,sequence,London
+15-29,2021-12-08,pp_voc_R[109],3.1515195,4.054954,6.494666,7.9049775,Posterior prediction,age and region,intrinsic,TRUE,sequence,London
+15-29,2021-12-09,pp_voc_R[110],3.1620155,4.060504,6.500398,8.1241245,Posterior prediction,age and region,intrinsic,TRUE,sequence,London
+15-29,2021-12-10,pp_voc_R[111],3.100277,4.059712,6.518738,7.9943295,Posterior prediction,age and region,intrinsic,TRUE,sequence,London
+15-29,2021-12-11,pp_voc_R[112],3.0124995,3.878462,6.242844,7.6823895,Posterior prediction,age and region,intrinsic,TRUE,sequence,London
+15-29,2021-12-12,pp_voc_R[113],2.979215,3.905214,6.2412,7.7876005,Posterior prediction,age and region,intrinsic,TRUE,sequence,London
+15-29,2021-12-13,pp_voc_R[114],3.000151,3.91533,6.262696,7.762664,Posterior prediction,age and region,intrinsic,TRUE,sequence,London
+15-29,2021-12-14,pp_voc_R[115],1.7053935,2.32842,3.875376,4.8334735,Posterior prediction,age and region,intrinsic,TRUE,sequence,London
+15-29,2021-12-15,pp_voc_R[116],1.7078135,2.306402,3.89406,4.9714765,Posterior prediction,age and region,intrinsic,TRUE,sequence,London
+15-29,2021-12-16,pp_voc_R[117],1.700965,2.313376,3.888812,4.883385,Posterior prediction,age and region,intrinsic,TRUE,sequence,London
+15-29,2021-12-17,pp_voc_R[118],1.8756385,2.524124,4.106644,5.079724,Posterior prediction,age and region,intrinsic,TRUE,sequence,London
+15-29,2021-12-18,pp_voc_R[119],1.8675805,2.485412,4.07311,5.054954,Posterior prediction,age and region,intrinsic,TRUE,sequence,London
+15-29,2021-12-19,pp_voc_R[120],1.8718315,2.497374,4.044494,5.0599785,Posterior prediction,age and region,intrinsic,TRUE,sequence,London
+15-29,2021-12-20,pp_voc_R[121],1.06983,1.532514,2.737738,3.5290815,Posterior prediction,age and region,intrinsic,TRUE,sequence,London
+15-29,2021-12-21,pp_voc_R[122],1.0815315,1.57249,2.784732,3.597221,Posterior prediction,age and region,intrinsic,TRUE,sequence,London
+15-29,2021-12-22,pp_voc_R[123],1.098406,1.552848,2.789612,3.627953,Posterior prediction,age and region,intrinsic,TRUE,sequence,London
+15-29,2021-12-23,pp_voc_R[124],0.8760606,1.295986,2.38974,3.1267025,Posterior prediction,age and region,intrinsic,TRUE,sequence,London
+30-44,2021-12-01,pp_voc_R[125],0.8970708,1.310134,2.43064,3.1249085,Posterior prediction,age and region,intrinsic,TRUE,sequence,London
+30-44,2021-12-02,pp_voc_R[126],0.8918558,1.310458,2.395772,3.1430595,Posterior prediction,age and region,intrinsic,TRUE,sequence,London
+30-44,2021-12-03,pp_voc_R[127],0.6932805,1.1147,2.242246,2.9310315,Posterior prediction,age and region,intrinsic,TRUE,sequence,London
+30-44,2021-12-04,pp_voc_R[128],0.70412255,1.124374,2.240532,2.990528,Posterior prediction,age and region,intrinsic,TRUE,sequence,London
+30-44,2021-12-05,pp_voc_R[129],0.6873587,1.118112,2.259962,2.982617,Posterior prediction,age and region,intrinsic,TRUE,sequence,London
+30-44,2021-12-06,pp_voc_R[130],0.7177565,1.133692,2.247306,2.9433495,Posterior prediction,age and region,intrinsic,TRUE,sequence,London
+30-44,2021-12-07,pp_voc_R[131],2.9034435,3.902442,6.601464,8.3668065,Posterior prediction,age and region,intrinsic,TRUE,sequence,London
+30-44,2021-12-08,pp_voc_R[132],3.1877565,4.065184,6.192852,7.5223855,Posterior prediction,age and region,intrinsic,TRUE,sequence,London
+30-44,2021-12-09,pp_voc_R[133],3.16077,4.042344,6.251386,7.6456525,Posterior prediction,age and region,intrinsic,TRUE,sequence,London
+30-44,2021-12-10,pp_voc_R[134],3.162073,4.04554,6.255456,7.661782,Posterior prediction,age and region,intrinsic,TRUE,sequence,London
+30-44,2021-12-11,pp_voc_R[135],2.9076185,3.653184,5.642676,6.866846,Posterior prediction,age and region,intrinsic,TRUE,sequence,London
+30-44,2021-12-12,pp_voc_R[136],2.953997,3.68592,5.593036,6.781775,Posterior prediction,age and region,intrinsic,TRUE,sequence,London
+30-44,2021-12-13,pp_voc_R[137],2.9416755,3.662344,5.575472,6.8804615,Posterior prediction,age and region,intrinsic,TRUE,sequence,London
+30-44,2021-12-14,pp_voc_R[138],2.108292,2.704828,4.172956,5.13931,Posterior prediction,age and region,intrinsic,TRUE,sequence,London
+30-44,2021-12-15,pp_voc_R[139],2.094938,2.654122,4.162116,5.1624825,Posterior prediction,age and region,intrinsic,TRUE,sequence,London
+30-44,2021-12-16,pp_voc_R[140],2.1006425,2.704088,4.154108,5.0582435,Posterior prediction,age and region,intrinsic,TRUE,sequence,London
+30-44,2021-12-17,pp_voc_R[141],1.793951,2.388862,3.841374,4.685471,Posterior prediction,age and region,intrinsic,TRUE,sequence,London
+30-44,2021-12-18,pp_voc_R[142],1.80141,2.390972,3.865142,4.7206475,Posterior prediction,age and region,intrinsic,TRUE,sequence,London
+30-44,2021-12-19,pp_voc_R[143],1.8363295,2.432684,3.83326,4.72192,Posterior prediction,age and region,intrinsic,TRUE,sequence,London
+30-44,2021-12-20,pp_voc_R[144],1.2407145,1.696438,2.851574,3.624056,Posterior prediction,age and region,intrinsic,TRUE,sequence,London
+30-44,2021-12-21,pp_voc_R[145],1.25447,1.700394,2.85035,3.628646,Posterior prediction,age and region,intrinsic,TRUE,sequence,London
+30-44,2021-12-22,pp_voc_R[146],1.273948,1.7079,2.844492,3.6218925,Posterior prediction,age and region,intrinsic,TRUE,sequence,London
+30-44,2021-12-23,pp_voc_R[147],1.110054,1.504332,2.590624,3.2521215,Posterior prediction,age and region,intrinsic,TRUE,sequence,London
+45-59,2021-12-01,pp_voc_R[148],1.0922335,1.523628,2.605196,3.3525015,Posterior prediction,age and region,intrinsic,TRUE,sequence,London
+45-59,2021-12-02,pp_voc_R[149],1.0888605,1.515002,2.58488,3.3433675,Posterior prediction,age and region,intrinsic,TRUE,sequence,London
+45-59,2021-12-03,pp_voc_R[150],1.046055,1.482236,2.662428,3.447251,Posterior prediction,age and region,intrinsic,TRUE,sequence,London
+45-59,2021-12-04,pp_voc_R[151],1.0560355,1.486408,2.650762,3.439249,Posterior prediction,age and region,intrinsic,TRUE,sequence,London
+45-59,2021-12-05,pp_voc_R[152],1.0491365,1.509984,2.601992,3.34299,Posterior prediction,age and region,intrinsic,TRUE,sequence,London
+45-59,2021-12-06,pp_voc_R[153],1.045475,1.481408,2.651158,3.3812135,Posterior prediction,age and region,intrinsic,TRUE,sequence,London
+45-59,2021-12-07,pp_voc_R[154],2.612642,3.610318,6.378698,8.1692505,Posterior prediction,age and region,intrinsic,TRUE,sequence,London
+45-59,2021-12-08,pp_voc_R[155],3.512001,4.37971,6.798828,8.373443,Posterior prediction,age and region,intrinsic,TRUE,sequence,London
+45-59,2021-12-09,pp_voc_R[156],3.4359715,4.361492,6.815692,8.28921,Posterior prediction,age and region,intrinsic,TRUE,sequence,London
+45-59,2021-12-10,pp_voc_R[157],3.552774,4.412332,6.751982,8.299612,Posterior prediction,age and region,intrinsic,TRUE,sequence,London
+45-59,2021-12-11,pp_voc_R[158],3.2977365,4.23857,6.590114,8.1264635,Posterior prediction,age and region,intrinsic,TRUE,sequence,London
+45-59,2021-12-12,pp_voc_R[159],3.3159395,4.20624,6.669006,8.112291,Posterior prediction,age and region,intrinsic,TRUE,sequence,London
+45-59,2021-12-13,pp_voc_R[160],3.260103,4.238824,6.608268,8.229715,Posterior prediction,age and region,intrinsic,TRUE,sequence,London
+45-59,2021-12-14,pp_voc_R[161],1.5976315,2.201564,3.749518,4.833567,Posterior prediction,age and region,intrinsic,TRUE,sequence,London
+45-59,2021-12-15,pp_voc_R[162],1.6354795,2.222994,3.791166,4.753045,Posterior prediction,age and region,intrinsic,TRUE,sequence,London
+45-59,2021-12-16,pp_voc_R[163],1.6024615,2.235424,3.778386,4.764912,Posterior prediction,age and region,intrinsic,TRUE,sequence,London
+45-59,2021-12-17,pp_voc_R[164],0.81875165,1.240578,2.399992,3.0796175,Posterior prediction,age and region,intrinsic,TRUE,sequence,London
+45-59,2021-12-18,pp_voc_R[165],0.79427665,1.2607,2.391608,3.1038215,Posterior prediction,age and region,intrinsic,TRUE,sequence,London
+45-59,2021-12-19,pp_voc_R[166],0.8165662,1.242286,2.377204,3.102363,Posterior prediction,age and region,intrinsic,TRUE,sequence,London
+45-59,2021-12-20,pp_voc_R[167],0.4317941,0.753182,1.67823,2.2821735,Posterior prediction,age and region,intrinsic,TRUE,sequence,London
+45-59,2021-12-21,pp_voc_R[168],0.4111154,0.7620006,1.680428,2.3063595,Posterior prediction,age and region,intrinsic,TRUE,sequence,London
+45-59,2021-12-22,pp_voc_R[169],0.3984272,0.7421172,1.693216,2.290693,Posterior prediction,age and region,intrinsic,TRUE,sequence,London
+45-59,2021-12-23,pp_voc_R[170],0.3060297,0.621515,1.548624,2.177471,Posterior prediction,age and region,intrinsic,TRUE,sequence,London
+0-14,2021-12-12,pp_voc_R[171],0.30242355,0.6337054,1.562752,2.1083045,Posterior prediction,age and region,intrinsic,TRUE,sequence,Midlands
+0-14,2021-12-13,pp_voc_R[172],0.30357735,0.632975,1.554384,2.171691,Posterior prediction,age and region,intrinsic,TRUE,sequence,Midlands
+0-14,2021-12-14,pp_voc_R[173],0.3170071,0.6444232,1.544266,2.1182885,Posterior prediction,age and region,intrinsic,TRUE,sequence,Midlands
+0-14,2021-12-15,pp_voc_R[174],3.581287,4.801538,7.952274,9.8524565,Posterior prediction,age and region,intrinsic,TRUE,sequence,Midlands
+0-14,2021-12-16,pp_voc_R[175],3.3608215,4.39772,7.069342,8.790608,Posterior prediction,age and region,intrinsic,TRUE,sequence,Midlands
+0-14,2021-12-17,pp_voc_R[176],3.4056875,4.416056,6.986498,8.638129,Posterior prediction,age and region,intrinsic,TRUE,sequence,Midlands
+0-14,2021-12-18,pp_voc_R[177],3.487101,4.444254,7.035648,8.698506,Posterior prediction,age and region,intrinsic,TRUE,sequence,Midlands
+0-14,2021-12-19,pp_voc_R[178],3.2424705,4.092086,6.350256,7.711315,Posterior prediction,age and region,intrinsic,TRUE,sequence,Midlands
+0-14,2021-12-20,pp_voc_R[179],3.2461145,4.094354,6.296646,7.701025,Posterior prediction,age and region,intrinsic,TRUE,sequence,Midlands
+0-14,2021-12-21,pp_voc_R[180],3.272418,4.121124,6.283048,7.7606505,Posterior prediction,age and region,intrinsic,TRUE,sequence,Midlands
+0-14,2021-12-22,pp_voc_R[181],2.1965215,2.860342,4.510444,5.5723065,Posterior prediction,age and region,intrinsic,TRUE,sequence,Midlands
+0-14,2021-12-23,pp_voc_R[182],2.2137505,2.88318,4.547812,5.5458815,Posterior prediction,age and region,intrinsic,TRUE,sequence,Midlands
+15-29,2021-12-01,pp_voc_R[183],2.2346945,2.88368,4.517796,5.613034,Posterior prediction,age and region,intrinsic,TRUE,sequence,Midlands
+15-29,2021-12-02,pp_voc_R[184],1.925313,2.557676,4.162944,5.19662,Posterior prediction,age and region,intrinsic,TRUE,sequence,Midlands
+15-29,2021-12-03,pp_voc_R[185],1.9785245,2.561914,4.156054,5.175614,Posterior prediction,age and region,intrinsic,TRUE,sequence,Midlands
+15-29,2021-12-04,pp_voc_R[186],1.922416,2.540448,4.134848,5.184995,Posterior prediction,age and region,intrinsic,TRUE,sequence,Midlands
+15-29,2021-12-05,pp_voc_R[187],0.751046,1.143142,2.134986,2.78329,Posterior prediction,age and region,intrinsic,TRUE,sequence,Midlands
+15-29,2021-12-06,pp_voc_R[188],0.7579947,1.128886,2.145976,2.7735615,Posterior prediction,age and region,intrinsic,TRUE,sequence,Midlands
+15-29,2021-12-07,pp_voc_R[189],0.7350011,1.103202,2.133088,2.7801325,Posterior prediction,age and region,intrinsic,TRUE,sequence,Midlands
+15-29,2021-12-08,pp_voc_R[190],0.40762515,0.7157472,1.560052,2.09956,Posterior prediction,age and region,intrinsic,TRUE,sequence,Midlands
+15-29,2021-12-09,pp_voc_R[191],0.4104266,0.729623,1.5755,2.1046095,Posterior prediction,age and region,intrinsic,TRUE,sequence,Midlands
+15-29,2021-12-10,pp_voc_R[192],0.39514705,0.732726,1.584022,2.13734,Posterior prediction,age and region,intrinsic,TRUE,sequence,Midlands
+15-29,2021-12-11,pp_voc_R[193],0.4348765,0.7545788,1.637926,2.165052,Posterior prediction,age and region,intrinsic,TRUE,sequence,Midlands
+15-29,2021-12-12,pp_voc_R[194],0.415034,0.7498118,1.66969,2.262415,Posterior prediction,age and region,intrinsic,TRUE,sequence,Midlands
+15-29,2021-12-13,pp_voc_R[195],0.4072932,0.7400618,1.679812,2.221645,Posterior prediction,age and region,intrinsic,TRUE,sequence,Midlands
+15-29,2021-12-14,pp_voc_R[196],0.4159184,0.7471094,1.66057,2.2715395,Posterior prediction,age and region,intrinsic,TRUE,sequence,Midlands
+15-29,2021-12-15,pp_voc_R[197],1.566912,2.216648,3.758866,4.8078975,Posterior prediction,age and region,intrinsic,TRUE,sequence,Midlands
+15-29,2021-12-16,pp_voc_R[198],1.5963505,2.17276,3.765316,4.7280095,Posterior prediction,age and region,intrinsic,TRUE,sequence,Midlands
+15-29,2021-12-17,pp_voc_R[199],1.5992545,2.214194,3.792384,4.7571835,Posterior prediction,age and region,intrinsic,TRUE,sequence,Midlands
+15-29,2021-12-18,pp_voc_R[200],1.5970455,2.239018,3.87757,4.9742285,Posterior prediction,age and region,intrinsic,TRUE,sequence,Midlands
+15-29,2021-12-19,pp_voc_R[201],1.604953,2.256956,3.842478,4.8848455,Posterior prediction,age and region,intrinsic,TRUE,sequence,Midlands
+15-29,2021-12-20,pp_voc_R[202],1.6124995,2.25245,3.840612,4.906806,Posterior prediction,age and region,intrinsic,TRUE,sequence,Midlands
+15-29,2021-12-21,pp_voc_R[203],1.4903165,2.184664,3.920564,5.014471,Posterior prediction,age and region,intrinsic,TRUE,sequence,Midlands
+15-29,2021-12-22,pp_voc_R[204],1.4900725,2.156306,3.911576,5.0301095,Posterior prediction,age and region,intrinsic,TRUE,sequence,Midlands
+15-29,2021-12-23,pp_voc_R[205],1.494073,2.13483,3.929062,5.0867965,Posterior prediction,age and region,intrinsic,TRUE,sequence,Midlands
+30-44,2021-12-06,pp_voc_R[206],1.4919065,2.155166,3.897356,4.957561,Posterior prediction,age and region,intrinsic,TRUE,sequence,Midlands
+30-44,2021-12-07,pp_voc_R[207],1.657839,2.207518,3.711822,4.645554,Posterior prediction,age and region,intrinsic,TRUE,sequence,Midlands
+30-44,2021-12-08,pp_voc_R[208],1.639722,2.24583,3.777926,4.779073,Posterior prediction,age and region,intrinsic,TRUE,sequence,Midlands
+30-44,2021-12-09,pp_voc_R[209],1.6369155,2.206942,3.716454,4.707366,Posterior prediction,age and region,intrinsic,TRUE,sequence,Midlands
+30-44,2021-12-10,pp_voc_R[210],1.4798905,2.082162,3.566544,4.47587,Posterior prediction,age and region,intrinsic,TRUE,sequence,Midlands
+30-44,2021-12-11,pp_voc_R[211],1.512969,2.102574,3.606646,4.5830785,Posterior prediction,age and region,intrinsic,TRUE,sequence,Midlands
+30-44,2021-12-12,pp_voc_R[212],1.5188595,2.103744,3.631476,4.6576505,Posterior prediction,age and region,intrinsic,TRUE,sequence,Midlands
+30-44,2021-12-13,pp_voc_R[213],1.34091,1.897856,3.389374,4.339396,Posterior prediction,age and region,intrinsic,TRUE,sequence,Midlands
+30-44,2021-12-14,pp_voc_R[214],1.293734,1.884086,3.407628,4.324579,Posterior prediction,age and region,intrinsic,TRUE,sequence,Midlands
+30-44,2021-12-15,pp_voc_R[215],1.312852,1.894578,3.427064,4.411759,Posterior prediction,age and region,intrinsic,TRUE,sequence,Midlands
+30-44,2021-12-16,pp_voc_R[216],1.387354,1.999754,3.581932,4.569778,Posterior prediction,age and region,intrinsic,TRUE,sequence,Midlands
+30-44,2021-12-17,pp_voc_R[217],1.3819615,2.01461,3.567784,4.621201,Posterior prediction,age and region,intrinsic,TRUE,sequence,Midlands
+30-44,2021-12-18,pp_voc_R[218],1.410877,2.013052,3.581436,4.5582835,Posterior prediction,age and region,intrinsic,TRUE,sequence,Midlands
+30-44,2021-12-19,pp_voc_R[219],1.3854765,1.987256,3.588564,4.5032615,Posterior prediction,age and region,intrinsic,TRUE,sequence,Midlands
+30-44,2021-12-20,pp_voc_R[220],3.626693,4.76275,7.801926,9.7980355,Posterior prediction,age and region,intrinsic,TRUE,sequence,Midlands
+30-44,2021-12-21,pp_voc_R[221],3.49368,4.711196,7.837372,9.8308555,Posterior prediction,age and region,intrinsic,TRUE,sequence,Midlands
+30-44,2021-12-22,pp_voc_R[222],3.1685365,4.121618,6.689726,8.3491855,Posterior prediction,age and region,intrinsic,TRUE,sequence,Midlands
+30-44,2021-12-23,pp_voc_R[223],3.1225445,4.099408,6.609846,8.261094,Posterior prediction,age and region,intrinsic,TRUE,sequence,Midlands
+45-59,2021-12-03,pp_voc_R[224],3.092346,4.10557,6.696108,8.3522965,Posterior prediction,age and region,intrinsic,TRUE,sequence,Midlands
+45-59,2021-12-04,pp_voc_R[225],1.9252255,2.653258,4.54959,5.902165,Posterior prediction,age and region,intrinsic,TRUE,sequence,Midlands
+45-59,2021-12-05,pp_voc_R[226],1.92405,2.63196,4.53202,5.7919805,Posterior prediction,age and region,intrinsic,TRUE,sequence,Midlands
+45-59,2021-12-06,pp_voc_R[227],1.904439,2.611876,4.515864,5.6899505,Posterior prediction,age and region,intrinsic,TRUE,sequence,Midlands
+45-59,2021-12-07,pp_voc_R[228],0.72595285,1.187202,2.418334,3.2765405,Posterior prediction,age and region,intrinsic,TRUE,sequence,Midlands
+45-59,2021-12-08,pp_voc_R[229],0.72793365,1.214558,2.451954,3.245313,Posterior prediction,age and region,intrinsic,TRUE,sequence,Midlands
+45-59,2021-12-09,pp_voc_R[230],0.74576015,1.218336,2.479014,3.2737185,Posterior prediction,age and region,intrinsic,TRUE,sequence,Midlands
+45-59,2021-12-10,pp_voc_R[231],0.8143415,1.28508,2.55777,3.3336575,Posterior prediction,age and region,intrinsic,TRUE,sequence,Midlands
+45-59,2021-12-11,pp_voc_R[232],0.8360929,1.313354,2.555224,3.3581045,Posterior prediction,age and region,intrinsic,TRUE,sequence,Midlands
+45-59,2021-12-12,pp_voc_R[233],0.81240665,1.316908,2.563266,3.2951115,Posterior prediction,age and region,intrinsic,TRUE,sequence,Midlands
+45-59,2021-12-13,pp_voc_R[234],0.920221,1.462666,2.869526,3.7026425,Posterior prediction,age and region,intrinsic,TRUE,sequence,Midlands
+45-59,2021-12-14,pp_voc_R[235],0.9387354,1.478908,2.832212,3.6974395,Posterior prediction,age and region,intrinsic,TRUE,sequence,Midlands
+45-59,2021-12-15,pp_voc_R[236],0.92810485,1.449794,2.830958,3.6824505,Posterior prediction,age and region,intrinsic,TRUE,sequence,Midlands
+45-59,2021-12-16,pp_voc_R[237],0.926355,1.45038,2.85331,3.712356,Posterior prediction,age and region,intrinsic,TRUE,sequence,Midlands
+45-59,2021-12-17,pp_voc_R[238],3.187004,4.22374,6.762738,8.32670249999999,Posterior prediction,age and region,intrinsic,TRUE,sequence,Midlands
+45-59,2021-12-18,pp_voc_R[239],3.1974765,4.140492,6.798272,8.4280465,Posterior prediction,age and region,intrinsic,TRUE,sequence,Midlands
+45-59,2021-12-19,pp_voc_R[240],3.0913125,3.957334,6.276476,7.7163115,Posterior prediction,age and region,intrinsic,TRUE,sequence,Midlands
+45-59,2021-12-20,pp_voc_R[241],3.109783,3.956938,6.239298,7.8813515,Posterior prediction,age and region,intrinsic,TRUE,sequence,Midlands
+45-59,2021-12-21,pp_voc_R[242],2.9836075,3.931718,6.344684,7.804852,Posterior prediction,age and region,intrinsic,TRUE,sequence,Midlands
+45-59,2021-12-22,pp_voc_R[243],2.557224,3.278086,5.21678,6.5181895,Posterior prediction,age and region,intrinsic,TRUE,sequence,Midlands
+45-59,2021-12-23,pp_voc_R[244],2.5543115,3.299646,5.24947,6.4663735,Posterior prediction,age and region,intrinsic,TRUE,sequence,Midlands
+0-14,2021-12-09,pp_voc_R[245],2.525093,3.276108,5.22132,6.5415335,Posterior prediction,age and region,intrinsic,TRUE,sequence,North East and Yorkshire
+0-14,2021-12-10,pp_voc_R[246],1.805413,2.396098,3.871514,4.71568,Posterior prediction,age and region,intrinsic,TRUE,sequence,North East and Yorkshire
+0-14,2021-12-11,pp_voc_R[247],1.82103,2.403422,3.841042,4.76131,Posterior prediction,age and region,intrinsic,TRUE,sequence,North East and Yorkshire
+0-14,2021-12-12,pp_voc_R[248],1.8324795,2.367426,3.83638,4.790664,Posterior prediction,age and region,intrinsic,TRUE,sequence,North East and Yorkshire
+0-14,2021-12-13,pp_voc_R[249],1.0876735,1.512244,2.647668,3.352126,Posterior prediction,age and region,intrinsic,TRUE,sequence,North East and Yorkshire
+0-14,2021-12-14,pp_voc_R[250],1.0800515,1.514386,2.656598,3.351009,Posterior prediction,age and region,intrinsic,TRUE,sequence,North East and Yorkshire
+0-14,2021-12-15,pp_voc_R[251],1.093389,1.528802,2.641422,3.3314655,Posterior prediction,age and region,intrinsic,TRUE,sequence,North East and Yorkshire
+0-14,2021-12-16,pp_voc_R[252],0.9682134,1.375456,2.431496,3.151455,Posterior prediction,age and region,intrinsic,TRUE,sequence,North East and Yorkshire
+0-14,2021-12-17,pp_voc_R[253],0.9434374,1.394124,2.484054,3.1793255,Posterior prediction,age and region,intrinsic,TRUE,sequence,North East and Yorkshire
+0-14,2021-12-18,pp_voc_R[254],0.9682466,1.389584,2.485954,3.130241,Posterior prediction,age and region,intrinsic,TRUE,sequence,North East and Yorkshire
+0-14,2021-12-19,pp_voc_R[255],0.76893035,1.15224,2.15701,2.80054,Posterior prediction,age and region,intrinsic,TRUE,sequence,North East and Yorkshire
+0-14,2021-12-20,pp_voc_R[256],0.7314636,1.140684,2.170356,2.8417995,Posterior prediction,age and region,intrinsic,TRUE,sequence,North East and Yorkshire
+0-14,2021-12-21,pp_voc_R[257],0.75074675,1.161854,2.202236,2.865304,Posterior prediction,age and region,intrinsic,TRUE,sequence,North East and Yorkshire
+0-14,2021-12-22,pp_voc_R[258],0.6979812,1.120578,2.199096,2.829294,Posterior prediction,age and region,intrinsic,TRUE,sequence,North East and Yorkshire
+0-14,2021-12-23,pp_voc_R[259],3.1297505,4.11017,6.523174,8.2462365,Posterior prediction,age and region,intrinsic,TRUE,sequence,North East and Yorkshire
+15-29,2021-12-14,pp_voc_R[260],3.1009835,4.04356,6.638684,8.1933685,Posterior prediction,age and region,intrinsic,TRUE,sequence,North East and Yorkshire
+15-29,2021-12-15,pp_voc_R[261],3.007584,3.863474,6.173254,7.4333295,Posterior prediction,age and region,intrinsic,TRUE,sequence,North East and Yorkshire
+15-29,2021-12-16,pp_voc_R[262],2.9901115,3.840924,6.100746,7.5821905,Posterior prediction,age and region,intrinsic,TRUE,sequence,North East and Yorkshire
+15-29,2021-12-17,pp_voc_R[263],2.9791765,3.86422,6.12373,7.4792215,Posterior prediction,age and region,intrinsic,TRUE,sequence,North East and Yorkshire
+15-29,2021-12-18,pp_voc_R[264],2.5308085,3.275964,5.096636,6.2869585,Posterior prediction,age and region,intrinsic,TRUE,sequence,North East and Yorkshire
+15-29,2021-12-19,pp_voc_R[265],2.514923,3.22921,5.166864,6.4010825,Posterior prediction,age and region,intrinsic,TRUE,sequence,North East and Yorkshire
+15-29,2021-12-20,pp_voc_R[266],2.4735225,3.235294,5.17791,6.323443,Posterior prediction,age and region,intrinsic,TRUE,sequence,North East and Yorkshire
+15-29,2021-12-21,pp_voc_R[267],1.960834,2.60353,4.23287,5.192286,Posterior prediction,age and region,intrinsic,TRUE,sequence,North East and Yorkshire
+15-29,2021-12-22,pp_voc_R[268],2.0002555,2.665424,4.214808,5.2159815,Posterior prediction,age and region,intrinsic,TRUE,sequence,North East and Yorkshire
+15-29,2021-12-23,pp_voc_R[269],1.978371,2.592238,4.191448,5.18195,Posterior prediction,age and region,intrinsic,TRUE,sequence,North East and Yorkshire
+30-44,2021-12-02,pp_voc_R[270],1.245641,1.703406,2.891304,3.6356045,Posterior prediction,age and region,intrinsic,TRUE,sequence,North East and Yorkshire
+30-44,2021-12-03,pp_voc_R[271],1.221702,1.68629,2.90938,3.687561,Posterior prediction,age and region,intrinsic,TRUE,sequence,North East and Yorkshire
+30-44,2021-12-04,pp_voc_R[272],1.236987,1.702202,2.867766,3.58976,Posterior prediction,age and region,intrinsic,TRUE,sequence,North East and Yorkshire
+30-44,2021-12-05,pp_voc_R[273],1.1042835,1.549774,2.657446,3.335941,Posterior prediction,age and region,intrinsic,TRUE,sequence,North East and Yorkshire
+30-44,2021-12-06,pp_voc_R[274],1.0938185,1.544528,2.64215,3.3306125,Posterior prediction,age and region,intrinsic,TRUE,sequence,North East and Yorkshire
+30-44,2021-12-07,pp_voc_R[275],1.1042855,1.551582,2.638958,3.3469705,Posterior prediction,age and region,intrinsic,TRUE,sequence,North East and Yorkshire
+30-44,2021-12-08,pp_voc_R[276],1.0024145,1.454292,2.6026,3.3447715,Posterior prediction,age and region,intrinsic,TRUE,sequence,North East and Yorkshire
+30-44,2021-12-09,pp_voc_R[277],1.0149975,1.467352,2.624938,3.354825,Posterior prediction,age and region,intrinsic,TRUE,sequence,North East and Yorkshire
+30-44,2021-12-10,pp_voc_R[278],1.00855,1.461038,2.61762,3.329063,Posterior prediction,age and region,intrinsic,TRUE,sequence,North East and Yorkshire
+30-44,2021-12-11,pp_voc_R[279],1.0251785,1.473662,2.622884,3.3295235,Posterior prediction,age and region,intrinsic,TRUE,sequence,North East and Yorkshire
+30-44,2021-12-12,pp_voc_R[280],3.8044615,4.909382,8.113702,10.131875,Posterior prediction,age and region,intrinsic,TRUE,sequence,North East and Yorkshire
+30-44,2021-12-13,pp_voc_R[281],3.8476515,4.906266,7.720026,9.476845,Posterior prediction,age and region,intrinsic,TRUE,sequence,North East and Yorkshire
+30-44,2021-12-14,pp_voc_R[282],3.821386,4.897828,7.775216,9.65491,Posterior prediction,age and region,intrinsic,TRUE,sequence,North East and Yorkshire
+30-44,2021-12-15,pp_voc_R[283],3.8891665,4.842814,7.741048,9.598707,Posterior prediction,age and region,intrinsic,TRUE,sequence,North East and Yorkshire
+30-44,2021-12-16,pp_voc_R[284],3.280392,4.145268,6.362182,7.7182195,Posterior prediction,age and region,intrinsic,TRUE,sequence,North East and Yorkshire
+30-44,2021-12-17,pp_voc_R[285],3.336951,4.145124,6.336698,7.7579885,Posterior prediction,age and region,intrinsic,TRUE,sequence,North East and Yorkshire
+30-44,2021-12-18,pp_voc_R[286],3.2834305,4.114836,6.288966,7.749422,Posterior prediction,age and region,intrinsic,TRUE,sequence,North East and Yorkshire
+30-44,2021-12-19,pp_voc_R[287],1.7216715,2.29772,3.807832,4.6930575,Posterior prediction,age and region,intrinsic,TRUE,sequence,North East and Yorkshire
+30-44,2021-12-20,pp_voc_R[288],1.732958,2.28028,3.779312,4.6931915,Posterior prediction,age and region,intrinsic,TRUE,sequence,North East and Yorkshire
+30-44,2021-12-21,pp_voc_R[289],1.755348,2.359684,3.768772,4.617442,Posterior prediction,age and region,intrinsic,TRUE,sequence,North East and Yorkshire
+30-44,2021-12-22,pp_voc_R[290],2.0691415,2.686134,4.360858,5.3529885,Posterior prediction,age and region,intrinsic,TRUE,sequence,North East and Yorkshire
+30-44,2021-12-23,pp_voc_R[291],1.985742,2.67155,4.331282,5.355455,Posterior prediction,age and region,intrinsic,TRUE,sequence,North East and Yorkshire
+45-59,2021-12-06,pp_voc_R[292],1.9985275,2.730402,4.375134,5.3292035,Posterior prediction,age and region,intrinsic,TRUE,sequence,North East and Yorkshire
+45-59,2021-12-07,pp_voc_R[293],0.6925226,1.064454,2.05798,2.694544,Posterior prediction,age and region,intrinsic,TRUE,sequence,North East and Yorkshire
+45-59,2021-12-08,pp_voc_R[294],0.6793289,1.069336,2.08081,2.7395555,Posterior prediction,age and region,intrinsic,TRUE,sequence,North East and Yorkshire
+45-59,2021-12-09,pp_voc_R[295],0.6600516,1.066268,2.042616,2.7304275,Posterior prediction,age and region,intrinsic,TRUE,sequence,North East and Yorkshire
+45-59,2021-12-10,pp_voc_R[296],0.2699725,0.5616854,1.370304,1.854838,Posterior prediction,age and region,intrinsic,TRUE,sequence,North East and Yorkshire
+45-59,2021-12-11,pp_voc_R[297],0.27982125,0.5539878,1.343552,1.839055,Posterior prediction,age and region,intrinsic,TRUE,sequence,North East and Yorkshire
+45-59,2021-12-12,pp_voc_R[298],0.27688455,0.5511844,1.322822,1.8576945,Posterior prediction,age and region,intrinsic,TRUE,sequence,North East and Yorkshire
+45-59,2021-12-13,pp_voc_R[299],0.32735215,0.6727482,1.550444,2.069478,Posterior prediction,age and region,intrinsic,TRUE,sequence,North East and Yorkshire
+45-59,2021-12-14,pp_voc_R[300],0.3582442,0.6670398,1.54585,2.1245745,Posterior prediction,age and region,intrinsic,TRUE,sequence,North East and Yorkshire
+45-59,2021-12-15,pp_voc_R[301],0.32451395,0.6491844,1.552212,2.100234,Posterior prediction,age and region,intrinsic,TRUE,sequence,North East and Yorkshire
+45-59,2021-12-16,pp_voc_R[302],0.3506899,0.6657312,1.547278,2.112793,Posterior prediction,age and region,intrinsic,TRUE,sequence,North East and Yorkshire
+45-59,2021-12-17,pp_voc_R[303],3.00005,4.049604,6.921038,8.7526525,Posterior prediction,age and region,intrinsic,TRUE,sequence,North East and Yorkshire
+45-59,2021-12-18,pp_voc_R[304],3.00631,4.0881,6.904832,8.675564,Posterior prediction,age and region,intrinsic,TRUE,sequence,North East and Yorkshire
+45-59,2021-12-19,pp_voc_R[305],2.91326,3.835996,6.233302,7.837859,Posterior prediction,age and region,intrinsic,TRUE,sequence,North East and Yorkshire
+45-59,2021-12-20,pp_voc_R[306],2.8877635,3.83946,6.318704,7.9460095,Posterior prediction,age and region,intrinsic,TRUE,sequence,North East and Yorkshire
+45-59,2021-12-21,pp_voc_R[307],2.9378865,3.833776,6.23395,7.813995,Posterior prediction,age and region,intrinsic,TRUE,sequence,North East and Yorkshire
+45-59,2021-12-22,pp_voc_R[308],1.5663795,2.23601,3.956868,5.109254,Posterior prediction,age and region,intrinsic,TRUE,sequence,North East and Yorkshire
+45-59,2021-12-23,pp_voc_R[309],1.6050965,2.272666,3.980302,5.082954,Posterior prediction,age and region,intrinsic,TRUE,sequence,North East and Yorkshire
+0-14,2021-12-06,pp_voc_R[310],1.5896525,2.258952,4.007058,5.104052,Posterior prediction,age and region,intrinsic,TRUE,sequence,North West
+0-14,2021-12-07,pp_voc_R[311],1.0644075,1.53089,2.78293,3.563114,Posterior prediction,age and region,intrinsic,TRUE,sequence,North West
+0-14,2021-12-08,pp_voc_R[312],1.061607,1.567766,2.792134,3.525711,Posterior prediction,age and region,intrinsic,TRUE,sequence,North West
+0-14,2021-12-09,pp_voc_R[313],1.035328,1.544406,2.77882,3.550739,Posterior prediction,age and region,intrinsic,TRUE,sequence,North West
+0-14,2021-12-10,pp_voc_R[314],0.6654862,1.058724,2.09643,2.7604125,Posterior prediction,age and region,intrinsic,TRUE,sequence,North West
+0-14,2021-12-11,pp_voc_R[315],0.66827195,1.06088,2.106322,2.731109,Posterior prediction,age and region,intrinsic,TRUE,sequence,North West
+0-14,2021-12-12,pp_voc_R[316],0.65572055,1.042722,2.099272,2.7678855,Posterior prediction,age and region,intrinsic,TRUE,sequence,North West
+0-14,2021-12-13,pp_voc_R[317],0.84778175,1.33763,2.594408,3.400302,Posterior prediction,age and region,intrinsic,TRUE,sequence,North West
+0-14,2021-12-14,pp_voc_R[318],0.88058935,1.349674,2.599772,3.3647635,Posterior prediction,age and region,intrinsic,TRUE,sequence,North West
+0-14,2021-12-15,pp_voc_R[319],0.85957965,1.330732,2.604448,3.382295,Posterior prediction,age and region,intrinsic,TRUE,sequence,North West
+0-14,2021-12-16,pp_voc_R[320],0.87557555,1.342508,2.590146,3.3959945,Posterior prediction,age and region,intrinsic,TRUE,sequence,North West
+0-14,2021-12-17,pp_voc_R[321],3.306129,4.291956,6.733504,8.3267555,Posterior prediction,age and region,intrinsic,TRUE,sequence,North West
+0-14,2021-12-18,pp_voc_R[322],3.2706435,4.227716,6.6938,8.305857,Posterior prediction,age and region,intrinsic,TRUE,sequence,North West
+0-14,2021-12-19,pp_voc_R[323],3.2936765,4.238586,6.747342,8.308358,Posterior prediction,age and region,intrinsic,TRUE,sequence,North West
+0-14,2021-12-20,pp_voc_R[324],2.699131,3.613716,5.926278,7.228235,Posterior prediction,age and region,intrinsic,TRUE,sequence,North West
+0-14,2021-12-21,pp_voc_R[325],2.7470245,3.594854,5.864088,7.265125,Posterior prediction,age and region,intrinsic,TRUE,sequence,North West
+0-14,2021-12-22,pp_voc_R[326],2.682051,3.551668,5.844692,7.3679445,Posterior prediction,age and region,intrinsic,TRUE,sequence,North West
+0-14,2021-12-23,pp_voc_R[327],2.3922045,3.204556,5.24322,6.5981305,Posterior prediction,age and region,intrinsic,TRUE,sequence,North West
+15-29,2021-12-11,pp_voc_R[328],2.439982,3.211434,5.309846,6.601299,Posterior prediction,age and region,intrinsic,TRUE,sequence,North West
+15-29,2021-12-12,pp_voc_R[329],2.380865,3.19941,5.213068,6.486162,Posterior prediction,age and region,intrinsic,TRUE,sequence,North West
+15-29,2021-12-13,pp_voc_R[330],1.380821,1.961506,3.433932,4.3841565,Posterior prediction,age and region,intrinsic,TRUE,sequence,North West
+15-29,2021-12-14,pp_voc_R[331],1.400476,1.971028,3.405352,4.308534,Posterior prediction,age and region,intrinsic,TRUE,sequence,North West
+15-29,2021-12-15,pp_voc_R[332],1.388448,1.951254,3.39452,4.3157845,Posterior prediction,age and region,intrinsic,TRUE,sequence,North West
+15-29,2021-12-16,pp_voc_R[333],0.81379245,1.250332,2.362938,3.069435,Posterior prediction,age and region,intrinsic,TRUE,sequence,North West
+15-29,2021-12-17,pp_voc_R[334],0.8345983,1.24747,2.32679,2.987965,Posterior prediction,age and region,intrinsic,TRUE,sequence,North West
+15-29,2021-12-18,pp_voc_R[335],0.82003275,1.249858,2.33045,2.989067,Posterior prediction,age and region,intrinsic,TRUE,sequence,North West
+15-29,2021-12-19,pp_voc_R[336],0.76585655,1.167652,2.24796,2.948921,Posterior prediction,age and region,intrinsic,TRUE,sequence,North West
+15-29,2021-12-20,pp_voc_R[337],0.7534747,1.177928,2.275648,2.946461,Posterior prediction,age and region,intrinsic,TRUE,sequence,North West
+15-29,2021-12-21,pp_voc_R[338],0.76171095,1.188022,2.31096,2.9755905,Posterior prediction,age and region,intrinsic,TRUE,sequence,North West
+15-29,2021-12-22,pp_voc_R[339],1.007061,1.529814,2.841912,3.676455,Posterior prediction,age and region,intrinsic,TRUE,sequence,North West
+15-29,2021-12-23,pp_voc_R[340],1.0075365,1.501312,2.843046,3.681909,Posterior prediction,age and region,intrinsic,TRUE,sequence,North West
+30-44,2021-12-14,pp_voc_R[341],1.016591,1.511322,2.816154,3.6265855,Posterior prediction,age and region,intrinsic,TRUE,sequence,North West
+30-44,2021-12-15,pp_voc_R[342],1.039306,1.518056,2.830656,3.7094005,Posterior prediction,age and region,intrinsic,TRUE,sequence,North West
+30-44,2021-12-16,pp_voc_R[343],1.1991945,1.837636,3.355378,4.373208,Posterior prediction,age and region,intrinsic,TRUE,sequence,North West
+30-44,2021-12-17,pp_voc_R[344],1.252547,1.81284,3.37538,4.405237,Posterior prediction,age and region,intrinsic,TRUE,sequence,North West
+30-44,2021-12-18,pp_voc_R[345],1.23057,1.834564,3.34417,4.3063825,Posterior prediction,age and region,intrinsic,TRUE,sequence,North West
+30-44,2021-12-19,pp_voc_R[346],1.198102,1.76224,3.362994,4.3421785,Posterior prediction,age and region,intrinsic,TRUE,sequence,North West
+30-44,2021-12-20,pp_voc_R[347],1.182155,1.792742,3.366712,4.405322,Posterior prediction,age and region,intrinsic,TRUE,sequence,North West
+30-44,2021-12-21,pp_voc_R[348],1.2430605,1.826706,3.420758,4.389336,Posterior prediction,age and region,intrinsic,TRUE,sequence,North West
+30-44,2021-12-22,pp_voc_R[349],1.2315955,1.919362,3.794394,4.9776495,Posterior prediction,age and region,intrinsic,TRUE,sequence,North West
+30-44,2021-12-23,pp_voc_R[350],1.2387885,1.930872,3.7735,5.0812335,Posterior prediction,age and region,intrinsic,TRUE,sequence,North West
+45-59,2021-12-06,pp_voc_R[351],1.2498415,1.88459,3.74151,4.8653485,Posterior prediction,age and region,intrinsic,TRUE,sequence,North West
+45-59,2021-12-07,pp_voc_R[352],1.209035,1.876596,3.762242,5.0427605,Posterior prediction,age and region,intrinsic,TRUE,sequence,North West
+45-59,2021-12-08,pp_voc_R[353],1.5090865,2.091172,3.580058,4.530614,Posterior prediction,age and region,intrinsic,TRUE,sequence,North West
+45-59,2021-12-09,pp_voc_R[354],1.5311815,2.10243,3.565774,4.4773875,Posterior prediction,age and region,intrinsic,TRUE,sequence,North West
+45-59,2021-12-10,pp_voc_R[355],1.5245345,2.089204,3.539624,4.4865305,Posterior prediction,age and region,intrinsic,TRUE,sequence,North West
+45-59,2021-12-11,pp_voc_R[356],1.3985055,2.056288,3.668346,4.6862075,Posterior prediction,age and region,intrinsic,TRUE,sequence,North West
+45-59,2021-12-12,pp_voc_R[357],1.420804,2.058026,3.628322,4.645412,Posterior prediction,age and region,intrinsic,TRUE,sequence,North West
+45-59,2021-12-13,pp_voc_R[358],1.4118025,2.010234,3.623978,4.731782,Posterior prediction,age and region,intrinsic,TRUE,sequence,North West
+45-59,2021-12-14,pp_voc_R[359],1.4222845,1.969522,3.414696,4.3036175,Posterior prediction,age and region,intrinsic,TRUE,sequence,North West
+45-59,2021-12-15,pp_voc_R[360],1.39969,1.971238,3.409002,4.380161,Posterior prediction,age and region,intrinsic,TRUE,sequence,North West
+45-59,2021-12-16,pp_voc_R[361],1.3813525,1.959842,3.399758,4.3030315,Posterior prediction,age and region,intrinsic,TRUE,sequence,North West
+45-59,2021-12-17,pp_voc_R[362],1.333908,1.88414,3.34354,4.2696805,Posterior prediction,age and region,intrinsic,TRUE,sequence,North West
+45-59,2021-12-18,pp_voc_R[363],1.3319995,1.87584,3.34281,4.20147,Posterior prediction,age and region,intrinsic,TRUE,sequence,North West
+45-59,2021-12-19,pp_voc_R[364],1.3137945,1.878226,3.281948,4.2628385,Posterior prediction,age and region,intrinsic,TRUE,sequence,North West
+45-59,2021-12-20,pp_voc_R[365],1.3317355,1.89259,3.37926,4.304811,Posterior prediction,age and region,intrinsic,TRUE,sequence,North West
+45-59,2021-12-21,pp_voc_R[366],1.3057765,1.871838,3.355814,4.3517125,Posterior prediction,age and region,intrinsic,TRUE,sequence,North West
+45-59,2021-12-22,pp_voc_R[367],1.324554,1.885998,3.371662,4.316714,Posterior prediction,age and region,intrinsic,TRUE,sequence,North West
+45-59,2021-12-23,pp_voc_R[368],1.305995,1.876532,3.399222,4.3539795,Posterior prediction,age and region,intrinsic,TRUE,sequence,North West
+0-14,2021-12-01,pp_voc_R[369],3.1964945,4.284914,6.99909,8.647283,Posterior prediction,age and region,intrinsic,TRUE,sequence,South East
+0-14,2021-12-02,pp_voc_R[370],3.310722,4.323158,7.089108,8.9410995,Posterior prediction,age and region,intrinsic,TRUE,sequence,South East
+0-14,2021-12-03,pp_voc_R[371],3.4937345,4.45172,6.967582,8.6319245,Posterior prediction,age and region,intrinsic,TRUE,sequence,South East
+0-14,2021-12-04,pp_voc_R[372],3.494365,4.46748,7.06055,8.7828085,Posterior prediction,age and region,intrinsic,TRUE,sequence,South East
+0-14,2021-12-05,pp_voc_R[373],3.467235,4.451386,7.05371,8.6886755,Posterior prediction,age and region,intrinsic,TRUE,sequence,South East
+0-14,2021-12-06,pp_voc_R[374],2.2507155,3.01801,4.930568,6.1956815,Posterior prediction,age and region,intrinsic,TRUE,sequence,South East
+0-14,2021-12-07,pp_voc_R[375],2.2429865,3.052658,4.951108,6.1607535,Posterior prediction,age and region,intrinsic,TRUE,sequence,South East
+0-14,2021-12-08,pp_voc_R[376],2.2763535,3.063242,4.971664,6.163521,Posterior prediction,age and region,intrinsic,TRUE,sequence,South East
+0-14,2021-12-09,pp_voc_R[377],1.6938995,2.30906,3.735456,4.642464,Posterior prediction,age and region,intrinsic,TRUE,sequence,South East
+0-14,2021-12-10,pp_voc_R[378],1.7149985,2.288042,3.746766,4.672853,Posterior prediction,age and region,intrinsic,TRUE,sequence,South East
+0-14,2021-12-11,pp_voc_R[379],1.718472,2.298802,3.766834,4.6845555,Posterior prediction,age and region,intrinsic,TRUE,sequence,South East
+0-14,2021-12-12,pp_voc_R[380],1.073287,1.496782,2.655096,3.4232425,Posterior prediction,age and region,intrinsic,TRUE,sequence,South East
+0-14,2021-12-13,pp_voc_R[381],1.0422405,1.502538,2.634666,3.3543015,Posterior prediction,age and region,intrinsic,TRUE,sequence,South East
+0-14,2021-12-14,pp_voc_R[382],1.065506,1.526202,2.64086,3.2967345,Posterior prediction,age and region,intrinsic,TRUE,sequence,South East
+0-14,2021-12-15,pp_voc_R[383],0.83645,1.234658,2.281394,2.9836915,Posterior prediction,age and region,intrinsic,TRUE,sequence,South East
+0-14,2021-12-16,pp_voc_R[384],0.84130895,1.241864,2.323944,2.9431155,Posterior prediction,age and region,intrinsic,TRUE,sequence,South East
+0-14,2021-12-17,pp_voc_R[385],0.80577035,1.234222,2.287536,2.9755725,Posterior prediction,age and region,intrinsic,TRUE,sequence,South East
+0-14,2021-12-18,pp_voc_R[386],0.7539538,1.15509,2.24994,2.9706025,Posterior prediction,age and region,intrinsic,TRUE,sequence,South East
+0-14,2021-12-19,pp_voc_R[387],0.7350077,1.165836,2.266298,2.9963145,Posterior prediction,age and region,intrinsic,TRUE,sequence,South East
+0-14,2021-12-20,pp_voc_R[388],0.75526055,1.17766,2.292946,2.9807625,Posterior prediction,age and region,intrinsic,TRUE,sequence,South East
+0-14,2021-12-21,pp_voc_R[389],0.74532005,1.145202,2.27227,3.045504,Posterior prediction,age and region,intrinsic,TRUE,sequence,South East
+0-14,2021-12-22,pp_voc_R[390],3.1591555,4.146284,6.595088,8.312423,Posterior prediction,age and region,intrinsic,TRUE,sequence,South East
+0-14,2021-12-23,pp_voc_R[391],3.211043,4.119312,6.56851,8.204906,Posterior prediction,age and region,intrinsic,TRUE,sequence,South East
+15-29,2021-12-06,pp_voc_R[392],3.0648945,3.968336,6.155526,7.58605,Posterior prediction,age and region,intrinsic,TRUE,sequence,South East
+15-29,2021-12-07,pp_voc_R[393],3.092443,3.931086,6.114796,7.4921415,Posterior prediction,age and region,intrinsic,TRUE,sequence,South East
+15-29,2021-12-08,pp_voc_R[394],3.117378,3.957334,6.12399,7.5309355,Posterior prediction,age and region,intrinsic,TRUE,sequence,South East
+15-29,2021-12-09,pp_voc_R[395],2.597744,3.296544,5.11993,6.2575125,Posterior prediction,age and region,intrinsic,TRUE,sequence,South East
+15-29,2021-12-10,pp_voc_R[396],2.6276325,3.316758,5.152208,6.32785,Posterior prediction,age and region,intrinsic,TRUE,sequence,South East
+15-29,2021-12-11,pp_voc_R[397],2.5682905,3.31574,5.187344,6.41194249999999,Posterior prediction,age and region,intrinsic,TRUE,sequence,South East
+15-29,2021-12-12,pp_voc_R[398],1.907959,2.498562,4.020934,4.9373555,Posterior prediction,age and region,intrinsic,TRUE,sequence,South East
+15-29,2021-12-13,pp_voc_R[399],1.912656,2.520562,4.01229,4.8929245,Posterior prediction,age and region,intrinsic,TRUE,sequence,South East
+15-29,2021-12-14,pp_voc_R[400],1.8641545,2.483598,3.964172,4.897938,Posterior prediction,age and region,intrinsic,TRUE,sequence,South East
+15-29,2021-12-15,pp_voc_R[401],1.301234,1.767492,2.96716,3.6710585,Posterior prediction,age and region,intrinsic,TRUE,sequence,South East
+15-29,2021-12-16,pp_voc_R[402],1.278671,1.763592,2.951496,3.6801155,Posterior prediction,age and region,intrinsic,TRUE,sequence,South East
+15-29,2021-12-17,pp_voc_R[403],1.300176,1.74682,2.937468,3.670896,Posterior prediction,age and region,intrinsic,TRUE,sequence,South East
+15-29,2021-12-18,pp_voc_R[404],1.027751,1.456794,2.560746,3.279028,Posterior prediction,age and region,intrinsic,TRUE,sequence,South East
+15-29,2021-12-19,pp_voc_R[405],1.017811,1.440106,2.546038,3.212774,Posterior prediction,age and region,intrinsic,TRUE,sequence,South East
+15-29,2021-12-20,pp_voc_R[406],1.0071975,1.476514,2.563596,3.244666,Posterior prediction,age and region,intrinsic,TRUE,sequence,South East
+15-29,2021-12-21,pp_voc_R[407],1.034466,1.470946,2.672234,3.419317,Posterior prediction,age and region,intrinsic,TRUE,sequence,South East
+15-29,2021-12-22,pp_voc_R[408],1.014864,1.482068,2.690308,3.3739965,Posterior prediction,age and region,intrinsic,TRUE,sequence,South East
+15-29,2021-12-23,pp_voc_R[409],1.055432,1.477394,2.681344,3.371933,Posterior prediction,age and region,intrinsic,TRUE,sequence,South East
+30-44,2021-12-08,pp_voc_R[410],1.0133815,1.480076,2.657286,3.399993,Posterior prediction,age and region,intrinsic,TRUE,sequence,South East
+30-44,2021-12-09,pp_voc_R[411],3.8004765,4.89823,7.794808,9.807788,Posterior prediction,age and region,intrinsic,TRUE,sequence,South East
+30-44,2021-12-10,pp_voc_R[412],3.3278525,4.32662,7.194678,8.99531249999999,Posterior prediction,age and region,intrinsic,TRUE,sequence,South East
+30-44,2021-12-11,pp_voc_R[413],3.359305,4.364764,7.155548,8.978081,Posterior prediction,age and region,intrinsic,TRUE,sequence,South East
+30-44,2021-12-12,pp_voc_R[414],3.272068,4.3655,7.221626,8.927331,Posterior prediction,age and region,intrinsic,TRUE,sequence,South East
+30-44,2021-12-13,pp_voc_R[415],3.2277185,4.070962,6.494402,8.0247305,Posterior prediction,age and region,intrinsic,TRUE,sequence,South East
+30-44,2021-12-14,pp_voc_R[416],3.1769835,4.10447,6.417132,7.908516,Posterior prediction,age and region,intrinsic,TRUE,sequence,South East
+30-44,2021-12-15,pp_voc_R[417],3.1179895,4.068758,6.404534,7.879304,Posterior prediction,age and region,intrinsic,TRUE,sequence,South East
+30-44,2021-12-16,pp_voc_R[418],2.154417,2.80768,4.50101,5.5503585,Posterior prediction,age and region,intrinsic,TRUE,sequence,South East
+30-44,2021-12-17,pp_voc_R[419],2.106967,2.786,4.532274,5.6854425,Posterior prediction,age and region,intrinsic,TRUE,sequence,South East
+30-44,2021-12-18,pp_voc_R[420],2.145326,2.81289,4.509556,5.548862,Posterior prediction,age and region,intrinsic,TRUE,sequence,South East
+30-44,2021-12-19,pp_voc_R[421],1.9532185,2.637202,4.23961,5.2121735,Posterior prediction,age and region,intrinsic,TRUE,sequence,South East
+30-44,2021-12-20,pp_voc_R[422],1.962443,2.613904,4.279434,5.247047,Posterior prediction,age and region,intrinsic,TRUE,sequence,South East
+30-44,2021-12-21,pp_voc_R[423],1.931193,2.58401,4.242982,5.3641015,Posterior prediction,age and region,intrinsic,TRUE,sequence,South East
+30-44,2021-12-22,pp_voc_R[424],0.672212,1.024066,2.034856,2.6479555,Posterior prediction,age and region,intrinsic,TRUE,sequence,South East
+30-44,2021-12-23,pp_voc_R[425],0.6390954,1.02863,2.03103,2.674026,Posterior prediction,age and region,intrinsic,TRUE,sequence,South East
+45-59,2021-12-07,pp_voc_R[426],0.64530075,1.043438,2.048754,2.661498,Posterior prediction,age and region,intrinsic,TRUE,sequence,South East
+45-59,2021-12-08,pp_voc_R[427],0.39407115,0.7402548,1.64124,2.183103,Posterior prediction,age and region,intrinsic,TRUE,sequence,South East
+45-59,2021-12-09,pp_voc_R[428],0.42448125,0.7402688,1.617314,2.181207,Posterior prediction,age and region,intrinsic,TRUE,sequence,South East
+45-59,2021-12-10,pp_voc_R[429],0.42076825,0.7410196,1.625556,2.1949305,Posterior prediction,age and region,intrinsic,TRUE,sequence,South East
+45-59,2021-12-11,pp_voc_R[430],0.3554748,0.6829088,1.551858,2.1603105,Posterior prediction,age and region,intrinsic,TRUE,sequence,South East
+45-59,2021-12-12,pp_voc_R[431],0.3605461,0.6726464,1.57767,2.1581885,Posterior prediction,age and region,intrinsic,TRUE,sequence,South East
+45-59,2021-12-13,pp_voc_R[432],0.33338445,0.6702032,1.571096,2.165254,Posterior prediction,age and region,intrinsic,TRUE,sequence,South East
+45-59,2021-12-14,pp_voc_R[433],0.35651595,0.6593542,1.558868,2.1629025,Posterior prediction,age and region,intrinsic,TRUE,sequence,South East
+45-59,2021-12-15,pp_voc_R[434],3.7470795,4.92824,8.14831,10.269105,Posterior prediction,age and region,intrinsic,TRUE,sequence,South East
+45-59,2021-12-16,pp_voc_R[435],3.733207,4.915186,8.075384,10.239795,Posterior prediction,age and region,intrinsic,TRUE,sequence,South East
+45-59,2021-12-17,pp_voc_R[436],2.878867,3.851878,6.435586,8.0987635,Posterior prediction,age and region,intrinsic,TRUE,sequence,South East
+45-59,2021-12-18,pp_voc_R[437],2.8146365,3.831766,6.35992,8.1156015,Posterior prediction,age and region,intrinsic,TRUE,sequence,South East
+45-59,2021-12-19,pp_voc_R[438],2.900742,3.875154,6.513982,8.155367,Posterior prediction,age and region,intrinsic,TRUE,sequence,South East
+45-59,2021-12-20,pp_voc_R[439],2.045448,2.778618,4.784554,6.0492815,Posterior prediction,age and region,intrinsic,TRUE,sequence,South East
+45-59,2021-12-21,pp_voc_R[440],2.0572915,2.827908,4.779416,5.9915745,Posterior prediction,age and region,intrinsic,TRUE,sequence,South East
+45-59,2021-12-22,pp_voc_R[441],2.0522995,2.767068,4.730702,5.952021,Posterior prediction,age and region,intrinsic,TRUE,sequence,South East
+45-59,2021-12-23,pp_voc_R[442],1.7409305,2.454984,4.16435,5.1594395,Posterior prediction,age and region,intrinsic,TRUE,sequence,South East
+0-14,2021-12-01,pp_voc_R[443],1.773818,2.44795,4.103548,5.188163,Posterior prediction,age and region,intrinsic,TRUE,sequence,South West
+0-14,2021-12-02,pp_voc_R[444],1.7442425,2.42389,4.158618,5.2233185,Posterior prediction,age and region,intrinsic,TRUE,sequence,South West
+0-14,2021-12-03,pp_voc_R[445],0.93852635,1.41869,2.64624,3.3932035,Posterior prediction,age and region,intrinsic,TRUE,sequence,South West
+0-14,2021-12-04,pp_voc_R[446],0.94710005,1.424374,2.68262,3.4331745,Posterior prediction,age and region,intrinsic,TRUE,sequence,South West
+0-14,2021-12-05,pp_voc_R[447],0.9749302,1.454182,2.678542,3.459142,Posterior prediction,age and region,intrinsic,TRUE,sequence,South West
+0-14,2021-12-06,pp_voc_R[448],0.77634265,1.230462,2.36077,3.0672265,Posterior prediction,age and region,intrinsic,TRUE,sequence,South West
+0-14,2021-12-07,pp_voc_R[449],0.80152905,1.22598,2.37668,3.098262,Posterior prediction,age and region,intrinsic,TRUE,sequence,South West
+0-14,2021-12-08,pp_voc_R[450],0.7619744,1.200658,2.39253,3.2304175,Posterior prediction,age and region,intrinsic,TRUE,sequence,South West
+0-14,2021-12-09,pp_voc_R[451],0.89260905,1.410784,2.745582,3.558467,Posterior prediction,age and region,intrinsic,TRUE,sequence,South West
+0-14,2021-12-10,pp_voc_R[452],0.90116485,1.418518,2.759652,3.6217795,Posterior prediction,age and region,intrinsic,TRUE,sequence,South West
+0-14,2021-12-11,pp_voc_R[453],0.8972939,1.420312,2.751688,3.6186475,Posterior prediction,age and region,intrinsic,TRUE,sequence,South West
+0-14,2021-12-12,pp_voc_R[454],0.92823485,1.415694,2.775506,3.600428,Posterior prediction,age and region,intrinsic,TRUE,sequence,South West
+0-14,2021-12-13,pp_voc_R[455],1.1015795,1.59283,2.841594,3.564281,Posterior prediction,age and region,intrinsic,TRUE,sequence,South West
+0-14,2021-12-14,pp_voc_R[456],1.099035,1.595386,2.818686,3.556602,Posterior prediction,age and region,intrinsic,TRUE,sequence,South West
+0-14,2021-12-15,pp_voc_R[457],1.0958145,1.5746,2.845802,3.5878955,Posterior prediction,age and region,intrinsic,TRUE,sequence,South West
+0-14,2021-12-16,pp_voc_R[458],1.0848405,1.57146,2.782338,3.5502915,Posterior prediction,age and region,intrinsic,TRUE,sequence,South West
+0-14,2021-12-17,pp_voc_R[459],1.1215885,1.565154,2.865432,3.617446,Posterior prediction,age and region,intrinsic,TRUE,sequence,South West
+0-14,2021-12-18,pp_voc_R[460],0.9695459,1.390058,2.491826,3.113339,Posterior prediction,age and region,intrinsic,TRUE,sequence,South West
+0-14,2021-12-19,pp_voc_R[461],0.9625907,1.378988,2.481286,3.150802,Posterior prediction,age and region,intrinsic,TRUE,sequence,South West
+0-14,2021-12-20,pp_voc_R[462],0.96171605,1.392818,2.467582,3.192319,Posterior prediction,age and region,intrinsic,TRUE,sequence,South West
+0-14,2021-12-21,pp_voc_R[463],0.757625,1.172668,2.221088,2.939023,Posterior prediction,age and region,intrinsic,TRUE,sequence,South West
+0-14,2021-12-22,pp_voc_R[464],0.72974795,1.14701,2.240292,2.9128575,Posterior prediction,age and region,intrinsic,TRUE,sequence,South West
+0-14,2021-12-23,pp_voc_R[465],0.73496615,1.159838,2.220996,2.8906565,Posterior prediction,age and region,intrinsic,TRUE,sequence,South West
+15-29,2021-12-03,pp_voc_R[466],0.62993155,1.020934,2.090658,2.7614185,Posterior prediction,age and region,intrinsic,TRUE,sequence,South West
+15-29,2021-12-04,pp_voc_R[467],0.6050463,1.016406,2.102946,2.785447,Posterior prediction,age and region,intrinsic,TRUE,sequence,South West
+15-29,2021-12-05,pp_voc_R[468],0.59890175,1.02391,2.114626,2.8338,Posterior prediction,age and region,intrinsic,TRUE,sequence,South West
+15-29,2021-12-06,pp_voc_R[469],0.6487691,1.100304,2.324678,3.091155,Posterior prediction,age and region,intrinsic,TRUE,sequence,South West
+15-29,2021-12-07,pp_voc_R[470],0.6844118,1.1177,2.299796,3.1166245,Posterior prediction,age and region,intrinsic,TRUE,sequence,South West
+15-29,2021-12-08,pp_voc_R[471],0.67870485,1.111278,2.323876,3.093878,Posterior prediction,age and region,intrinsic,TRUE,sequence,South West
+15-29,2021-12-09,pp_voc_R[472],0.6488785,1.110396,2.29985,3.1090525,Posterior prediction,age and region,intrinsic,TRUE,sequence,South West
+15-29,2021-12-10,pp_voc_R[473],1.5075685,2.214902,4.059506,5.224154,Posterior prediction,age and region,intrinsic,TRUE,sequence,South West
+15-29,2021-12-11,pp_voc_R[474],1.52132,2.210062,4.084246,5.189885,Posterior prediction,age and region,intrinsic,TRUE,sequence,South West
+15-29,2021-12-12,pp_voc_R[475],1.6246165,2.317354,4.005266,4.9853045,Posterior prediction,age and region,intrinsic,TRUE,sequence,South West
+15-29,2021-12-13,pp_voc_R[476],1.6205285,2.31093,3.97238,5.0444055,Posterior prediction,age and region,intrinsic,TRUE,sequence,South West
+15-29,2021-12-14,pp_voc_R[477],1.666018,2.349874,3.99428,5.076238,Posterior prediction,age and region,intrinsic,TRUE,sequence,South West
+15-29,2021-12-15,pp_voc_R[478],1.281748,1.949538,3.786372,4.933487,Posterior prediction,age and region,intrinsic,TRUE,sequence,South West
+15-29,2021-12-16,pp_voc_R[479],1.262972,1.95734,3.788526,5.033773,Posterior prediction,age and region,intrinsic,TRUE,sequence,South West
+15-29,2021-12-17,pp_voc_R[480],1.276132,1.953358,3.792256,4.9441645,Posterior prediction,age and region,intrinsic,TRUE,sequence,South West
+15-29,2021-12-18,pp_voc_R[481],1.0476965,1.542812,2.873754,3.715334,Posterior prediction,age and region,intrinsic,TRUE,sequence,South West
+15-29,2021-12-19,pp_voc_R[482],1.0080775,1.519166,2.855236,3.731941,Posterior prediction,age and region,intrinsic,TRUE,sequence,South West
+15-29,2021-12-20,pp_voc_R[483],1.0596745,1.529676,2.861742,3.750745,Posterior prediction,age and region,intrinsic,TRUE,sequence,South West
+15-29,2021-12-21,pp_voc_R[484],0.9161051,1.40909,2.670306,3.432511,Posterior prediction,age and region,intrinsic,TRUE,sequence,South West
+15-29,2021-12-22,pp_voc_R[485],0.9039538,1.391496,2.623652,3.4268185,Posterior prediction,age and region,intrinsic,TRUE,sequence,South West
+15-29,2021-12-23,pp_voc_R[486],0.90321385,1.378814,2.626264,3.440181,Posterior prediction,age and region,intrinsic,TRUE,sequence,South West
+30-44,2021-12-03,pp_voc_R[487],1.225582,1.72892,3.126394,3.9748205,Posterior prediction,age and region,intrinsic,TRUE,sequence,South West
+30-44,2021-12-04,pp_voc_R[488],1.160421,1.739326,3.180216,4.103815,Posterior prediction,age and region,intrinsic,TRUE,sequence,South West
+30-44,2021-12-05,pp_voc_R[489],1.1658925,1.75437,3.157752,4.041347,Posterior prediction,age and region,intrinsic,TRUE,sequence,South West
+30-44,2021-12-06,pp_voc_R[490],1.166924,1.718646,3.157722,4.04603,Posterior prediction,age and region,intrinsic,TRUE,sequence,South West
+30-44,2021-12-07,pp_voc_R[491],0.9807622,1.552148,3.06046,4.1018225,Posterior prediction,age and region,intrinsic,TRUE,sequence,South West
+30-44,2021-12-08,pp_voc_R[492],0.87328805,1.436098,2.977284,4.0205685,Posterior prediction,age and region,intrinsic,TRUE,sequence,South West
+30-44,2021-12-09,pp_voc_R[493],0.91542395,1.458456,3.00343,3.971256,Posterior prediction,age and region,intrinsic,TRUE,sequence,South West
+30-44,2021-12-10,pp_voc_R[494],0.8856669,1.420696,2.995714,3.985493,Posterior prediction,age and region,intrinsic,TRUE,sequence,South West
+30-44,2021-12-11,pp_voc_R[495],1.064663,1.643692,3.14571,4.089283,Posterior prediction,age and region,intrinsic,TRUE,sequence,South West
+30-44,2021-12-12,pp_voc_R[496],1.0600875,1.633662,3.141624,4.146603,Posterior prediction,age and region,intrinsic,TRUE,sequence,South West
+30-44,2021-12-13,pp_voc_R[497],1.0764745,1.643628,3.151584,4.0542085,Posterior prediction,age and region,intrinsic,TRUE,sequence,South West
+30-44,2021-12-14,pp_voc_R[498],1.119155,1.70988,3.325384,4.3619955,Posterior prediction,age and region,intrinsic,TRUE,sequence,South West
+30-44,2021-12-15,pp_voc_R[499],1.0945715,1.686148,3.292104,4.3365735,Posterior prediction,age and region,intrinsic,TRUE,sequence,South West
+30-44,2021-12-16,pp_voc_R[500],1.148503,1.717644,3.307678,4.2783165,Posterior prediction,age and region,intrinsic,TRUE,sequence,South West
+30-44,2021-12-17,pp_voc_R[501],1.1318245,1.712486,3.32065,4.2960325,Posterior prediction,age and region,intrinsic,TRUE,sequence,South West
+30-44,2021-12-18,pp_voc_R[502],1.124464,1.717504,3.287566,4.336659,Posterior prediction,age and region,intrinsic,TRUE,sequence,South West
+30-44,2021-12-19,pp_voc_R[503],1.1634075,1.742358,3.258242,4.257507,Posterior prediction,age and region,intrinsic,TRUE,sequence,South West
+30-44,2021-12-20,pp_voc_R[504],1.027267,1.711882,3.586538,4.8640245,Posterior prediction,age and region,intrinsic,TRUE,sequence,South West
+30-44,2021-12-21,pp_voc_R[505],1.077509,1.736614,3.624822,4.8440785,Posterior prediction,age and region,intrinsic,TRUE,sequence,South West
+30-44,2021-12-22,pp_voc_R[506],1.010589,1.72972,3.571474,4.722057,Posterior prediction,age and region,intrinsic,TRUE,sequence,South West
+30-44,2021-12-23,pp_voc_R[507],1.0805195,1.719848,3.609046,4.8478905,Posterior prediction,age and region,intrinsic,TRUE,sequence,South West
+45-59,2021-12-07,pp_voc_R[508],2.178786,3.119542,5.582156,7.2258565,Posterior prediction,age and region,intrinsic,TRUE,sequence,South West
+45-59,2021-12-08,pp_voc_R[509],2.1912305,2.926698,4.950596,6.20873,Posterior prediction,age and region,intrinsic,TRUE,sequence,South West
+45-59,2021-12-09,pp_voc_R[510],2.2174355,2.95557,4.882778,6.118952,Posterior prediction,age and region,intrinsic,TRUE,sequence,South West
+45-59,2021-12-10,pp_voc_R[511],2.2236635,2.983194,4.869588,6.176155,Posterior prediction,age and region,intrinsic,TRUE,sequence,South West
+45-59,2021-12-11,pp_voc_R[512],1.679297,2.302892,3.889992,5.0408855,Posterior prediction,age and region,intrinsic,TRUE,sequence,South West
+45-59,2021-12-12,pp_voc_R[513],1.6942355,2.304214,3.944438,4.9659565,Posterior prediction,age and region,intrinsic,TRUE,sequence,South West
+45-59,2021-12-13,pp_voc_R[514],1.6679125,2.320348,3.930272,4.920381,Posterior prediction,age and region,intrinsic,TRUE,sequence,South West
+45-59,2021-12-14,pp_voc_R[515],1.391986,1.954958,3.378348,4.257823,Posterior prediction,age and region,intrinsic,TRUE,sequence,South West
+45-59,2021-12-15,pp_voc_R[516],1.3973525,1.94934,3.341878,4.1889485,Posterior prediction,age and region,intrinsic,TRUE,sequence,South West
+45-59,2021-12-16,pp_voc_R[517],1.389875,1.941346,3.348396,4.142022,Posterior prediction,age and region,intrinsic,TRUE,sequence,South West
+45-59,2021-12-17,pp_voc_R[518],0.93504555,1.38534,2.618666,3.4236,Posterior prediction,age and region,intrinsic,TRUE,sequence,South West
+45-59,2021-12-18,pp_voc_R[519],0.9530119,1.414612,2.600252,3.402344,Posterior prediction,age and region,intrinsic,TRUE,sequence,South West
+45-59,2021-12-19,pp_voc_R[520],0.9281821,1.399954,2.61193,3.3828025,Posterior prediction,age and region,intrinsic,TRUE,sequence,South West
+45-59,2021-12-20,pp_voc_R[521],0.79861935,1.235494,2.396588,3.1923165,Posterior prediction,age and region,intrinsic,TRUE,sequence,South West
+45-59,2021-12-21,pp_voc_R[522],0.77846025,1.223432,2.403646,3.1583135,Posterior prediction,age and region,intrinsic,TRUE,sequence,South West
+45-59,2021-12-22,pp_voc_R[523],0.74657285,1.21467,2.413644,3.1981735,Posterior prediction,age and region,intrinsic,TRUE,sequence,South West
+45-59,2021-12-23,pp_voc_R[524],0.7781981,1.228224,2.424234,3.1402315,Posterior prediction,age and region,intrinsic,TRUE,sequence,South West
+,2021-12-10,pp_voc_R[1],1.3592785,1.500178,1.794288,1.954773,Posterior prediction,region,household,TRUE,sequence,East of England
+,2021-12-11,pp_voc_R[2],1.349086,1.469142,1.712532,1.8481905,Posterior prediction,region,household,TRUE,sequence,East of England
+,2021-12-12,pp_voc_R[3],1.351288,1.464766,1.714526,1.8565895,Posterior prediction,region,household,TRUE,sequence,East of England
+,2021-12-13,pp_voc_R[4],1.351297,1.464854,1.71009,1.8395945,Posterior prediction,region,household,TRUE,sequence,East of England
+,2021-12-14,pp_voc_R[5],1.213829,1.346938,1.589146,1.7236355,Posterior prediction,region,household,TRUE,sequence,East of England
+,2021-12-15,pp_voc_R[6],1.210165,1.33774,1.591264,1.7213825,Posterior prediction,region,household,TRUE,sequence,East of England
+,2021-12-16,pp_voc_R[7],1.2132175,1.342044,1.5895,1.721513,Posterior prediction,region,household,TRUE,sequence,East of England
+,2021-12-17,pp_voc_R[8],1.010319,1.16167,1.41377,1.53947,Posterior prediction,region,household,TRUE,sequence,East of England
+,2021-12-18,pp_voc_R[9],1.014531,1.167254,1.418542,1.5458585,Posterior prediction,region,household,TRUE,sequence,East of England
+,2021-12-19,pp_voc_R[10],1.0107255,1.162618,1.419144,1.5401505,Posterior prediction,region,household,TRUE,sequence,East of England
+,2021-12-20,pp_voc_R[11],1.2244415,1.328162,1.535414,1.654295,Posterior prediction,region,household,TRUE,sequence,East of England
+,2021-12-21,pp_voc_R[12],1.2222485,1.324298,1.535034,1.6430585,Posterior prediction,region,household,TRUE,sequence,East of England
+,2021-12-22,pp_voc_R[13],1.221644,1.324238,1.531164,1.6496,Posterior prediction,region,household,TRUE,sequence,East of England
+,2021-12-23,pp_voc_R[14],1.2249315,1.327772,1.53606,1.650546,Posterior prediction,region,household,TRUE,sequence,East of England
+,2021-12-05,pp_voc_R[15],1.4223895,1.543264,1.807018,1.9696525,Posterior prediction,region,household,TRUE,sequence,London
+,2021-12-06,pp_voc_R[16],1.4318915,1.54613,1.807216,1.9597415,Posterior prediction,region,household,TRUE,sequence,London
+,2021-12-07,pp_voc_R[17],1.428814,1.540976,1.81124,1.9593345,Posterior prediction,region,household,TRUE,sequence,London
+,2021-12-08,pp_voc_R[18],1.3534955,1.47832,1.750526,1.893783,Posterior prediction,region,household,TRUE,sequence,London
+,2021-12-09,pp_voc_R[19],1.362139,1.48439,1.751982,1.9022065,Posterior prediction,region,household,TRUE,sequence,London
+,2021-12-10,pp_voc_R[20],1.3587415,1.480258,1.75197,1.9035395,Posterior prediction,region,household,TRUE,sequence,London
+,2021-12-11,pp_voc_R[21],1.4927675,1.617862,1.900332,2.0601495,Posterior prediction,region,household,TRUE,sequence,London
+,2021-12-12,pp_voc_R[22],1.499843,1.617818,1.908282,2.0588605,Posterior prediction,region,household,TRUE,sequence,London
+,2021-12-13,pp_voc_R[23],1.502177,1.621032,1.901092,2.066604,Posterior prediction,region,household,TRUE,sequence,London
+,2021-12-14,pp_voc_R[24],1.103449,1.192926,1.367594,1.453893,Posterior prediction,region,household,TRUE,sequence,London
+,2021-12-15,pp_voc_R[25],1.09991,1.19281,1.357024,1.457343,Posterior prediction,region,household,TRUE,sequence,London
+,2021-12-16,pp_voc_R[26],1.10143,1.191978,1.357746,1.4468825,Posterior prediction,region,household,TRUE,sequence,London
+,2021-12-17,pp_voc_R[27],1.0309525,1.110126,1.259944,1.3404565,Posterior prediction,region,household,TRUE,sequence,London
+,2021-12-18,pp_voc_R[28],1.0238925,1.107846,1.260206,1.3369315,Posterior prediction,region,household,TRUE,sequence,London
+,2021-12-19,pp_voc_R[29],1.0326215,1.114084,1.258292,1.3405155,Posterior prediction,region,household,TRUE,sequence,London
+,2021-12-20,pp_voc_R[30],1.1272265,1.20302,1.359392,1.443983,Posterior prediction,region,household,TRUE,sequence,London
+,2021-12-21,pp_voc_R[31],1.1276585,1.201114,1.357414,1.4425785,Posterior prediction,region,household,TRUE,sequence,London
+,2021-12-22,pp_voc_R[32],1.124566,1.2054,1.35919,1.444952,Posterior prediction,region,household,TRUE,sequence,London
+,2021-12-23,pp_voc_R[33],1.118618,1.200728,1.356664,1.444688,Posterior prediction,region,household,TRUE,sequence,London
+,2021-12-05,pp_voc_R[34],1.336369,1.45087,1.704464,1.859681,Posterior prediction,region,household,TRUE,sequence,Midlands
+,2021-12-06,pp_voc_R[35],1.3308795,1.45261,1.702726,1.8488285,Posterior prediction,region,household,TRUE,sequence,Midlands
+,2021-12-07,pp_voc_R[36],1.3433655,1.453366,1.70553,1.8451735,Posterior prediction,region,household,TRUE,sequence,Midlands
+,2021-12-08,pp_voc_R[37],1.3429695,1.472334,1.74275,1.891583,Posterior prediction,region,household,TRUE,sequence,Midlands
+,2021-12-09,pp_voc_R[38],1.344696,1.47386,1.74336,1.9040875,Posterior prediction,region,household,TRUE,sequence,Midlands
+,2021-12-10,pp_voc_R[39],1.3398345,1.472426,1.746798,1.8982065,Posterior prediction,region,household,TRUE,sequence,Midlands
+,2021-12-11,pp_voc_R[40],1.389264,1.526924,1.803552,1.956348,Posterior prediction,region,household,TRUE,sequence,Midlands
+,2021-12-12,pp_voc_R[41],1.3837085,1.517892,1.795618,1.960775,Posterior prediction,region,household,TRUE,sequence,Midlands
+,2021-12-13,pp_voc_R[42],1.3854215,1.520132,1.805622,1.953636,Posterior prediction,region,household,TRUE,sequence,Midlands
+,2021-12-14,pp_voc_R[43],1.0372345,1.153062,1.34635,1.4486925,Posterior prediction,region,household,TRUE,sequence,Midlands
+,2021-12-15,pp_voc_R[44],1.042854,1.15385,1.347486,1.4522815,Posterior prediction,region,household,TRUE,sequence,Midlands
+,2021-12-16,pp_voc_R[45],1.056011,1.15781,1.348526,1.452998,Posterior prediction,region,household,TRUE,sequence,Midlands
+,2021-12-17,pp_voc_R[46],1.0855085,1.176758,1.341252,1.4310625,Posterior prediction,region,household,TRUE,sequence,Midlands
+,2021-12-18,pp_voc_R[47],1.082275,1.178292,1.34256,1.4382185,Posterior prediction,region,household,TRUE,sequence,Midlands
+,2021-12-19,pp_voc_R[48],1.086413,1.173848,1.339706,1.4253,Posterior prediction,region,household,TRUE,sequence,Midlands
+,2021-12-20,pp_voc_R[49],1.147366,1.231962,1.401456,1.4955525,Posterior prediction,region,household,TRUE,sequence,Midlands
+,2021-12-21,pp_voc_R[50],1.1476555,1.234234,1.40805,1.4972205,Posterior prediction,region,household,TRUE,sequence,Midlands
+,2021-12-22,pp_voc_R[51],1.1428075,1.231038,1.400574,1.5025115,Posterior prediction,region,household,TRUE,sequence,Midlands
+,2021-12-23,pp_voc_R[52],1.1522665,1.23698,1.405716,1.49287,Posterior prediction,region,household,TRUE,sequence,Midlands
+,2021-12-06,pp_voc_R[53],1.2668695,1.401262,1.673008,1.8181255,Posterior prediction,region,household,TRUE,sequence,North East and Yorkshire
+,2021-12-07,pp_voc_R[54],1.2536375,1.398952,1.668946,1.83645,Posterior prediction,region,household,TRUE,sequence,North East and Yorkshire
+,2021-12-08,pp_voc_R[55],1.3311345,1.442076,1.681122,1.815898,Posterior prediction,region,household,TRUE,sequence,North East and Yorkshire
+,2021-12-09,pp_voc_R[56],1.329445,1.443338,1.68519,1.812118,Posterior prediction,region,household,TRUE,sequence,North East and Yorkshire
+,2021-12-10,pp_voc_R[57],1.3294575,1.43802,1.67825,1.8217975,Posterior prediction,region,household,TRUE,sequence,North East and Yorkshire
+,2021-12-11,pp_voc_R[58],1.3352625,1.463322,1.741334,1.883317,Posterior prediction,region,household,TRUE,sequence,North East and Yorkshire
+,2021-12-12,pp_voc_R[59],1.3366395,1.461776,1.734794,1.8853205,Posterior prediction,region,household,TRUE,sequence,North East and Yorkshire
+,2021-12-13,pp_voc_R[60],1.3302655,1.4592,1.74292,1.8996875,Posterior prediction,region,household,TRUE,sequence,North East and Yorkshire
+,2021-12-14,pp_voc_R[61],1.114132,1.217254,1.412242,1.5178855,Posterior prediction,region,household,TRUE,sequence,North East and Yorkshire
+,2021-12-15,pp_voc_R[62],1.116442,1.220794,1.411646,1.5156395,Posterior prediction,region,household,TRUE,sequence,North East and Yorkshire
+,2021-12-16,pp_voc_R[63],1.123004,1.221912,1.413124,1.512519,Posterior prediction,region,household,TRUE,sequence,North East and Yorkshire
+,2021-12-17,pp_voc_R[64],1.0407615,1.131148,1.28879,1.373781,Posterior prediction,region,household,TRUE,sequence,North East and Yorkshire
+,2021-12-18,pp_voc_R[65],1.044589,1.128774,1.289172,1.3740255,Posterior prediction,region,household,TRUE,sequence,North East and Yorkshire
+,2021-12-19,pp_voc_R[66],1.04142,1.129502,1.291254,1.3798085,Posterior prediction,region,household,TRUE,sequence,North East and Yorkshire
+,2021-12-20,pp_voc_R[67],1.2172425,1.2959,1.45614,1.545854,Posterior prediction,region,household,TRUE,sequence,North East and Yorkshire
+,2021-12-21,pp_voc_R[68],1.213138,1.294098,1.457144,1.5486955,Posterior prediction,region,household,TRUE,sequence,North East and Yorkshire
+,2021-12-22,pp_voc_R[69],1.2155665,1.29435,1.45908,1.54765,Posterior prediction,region,household,TRUE,sequence,North East and Yorkshire
+,2021-12-23,pp_voc_R[70],1.2141045,1.289728,1.457024,1.549961,Posterior prediction,region,household,TRUE,sequence,North East and Yorkshire
+,2021-12-11,pp_voc_R[71],1.375408,1.505488,1.776546,1.935505,Posterior prediction,region,household,TRUE,sequence,North West
+,2021-12-12,pp_voc_R[72],1.3654815,1.497104,1.77703,1.946301,Posterior prediction,region,household,TRUE,sequence,North West
+,2021-12-13,pp_voc_R[73],1.372698,1.500308,1.780154,1.9424955,Posterior prediction,region,household,TRUE,sequence,North West
+,2021-12-14,pp_voc_R[74],1.2747315,1.385446,1.613522,1.7390605,Posterior prediction,region,household,TRUE,sequence,North West
+,2021-12-15,pp_voc_R[75],1.268583,1.383804,1.61691,1.744636,Posterior prediction,region,household,TRUE,sequence,North West
+,2021-12-16,pp_voc_R[76],1.2728185,1.383344,1.61774,1.7470045,Posterior prediction,region,household,TRUE,sequence,North West
+,2021-12-17,pp_voc_R[77],1.089502,1.224484,1.454442,1.5795255,Posterior prediction,region,household,TRUE,sequence,North West
+,2021-12-18,pp_voc_R[78],1.104677,1.228972,1.450534,1.5709015,Posterior prediction,region,household,TRUE,sequence,North West
+,2021-12-19,pp_voc_R[79],1.0831635,1.218552,1.451312,1.5778325,Posterior prediction,region,household,TRUE,sequence,North West
+,2021-12-20,pp_voc_R[80],1.187277,1.287906,1.499598,1.6093545,Posterior prediction,region,household,TRUE,sequence,North West
+,2021-12-21,pp_voc_R[81],1.1832795,1.286994,1.49139,1.6077825,Posterior prediction,region,household,TRUE,sequence,North West
+,2021-12-22,pp_voc_R[82],1.1839265,1.289712,1.500354,1.6106505,Posterior prediction,region,household,TRUE,sequence,North West
+,2021-12-23,pp_voc_R[83],1.182231,1.286712,1.492082,1.6125285,Posterior prediction,region,household,TRUE,sequence,North West
+,2021-12-13,pp_voc_R[84],0.65336265,0.9291822,1.274514,1.418265,Posterior prediction,region,household,TRUE,sequence,South East
+,2021-12-14,pp_voc_R[85],0.7846633,0.9930324,1.271494,1.394451,Posterior prediction,region,household,TRUE,sequence,South East
+,2021-12-15,pp_voc_R[86],0.80715505,0.9978936,1.27473,1.4009455,Posterior prediction,region,household,TRUE,sequence,South East
+,2021-12-16,pp_voc_R[87],0.79413435,0.9940568,1.271648,1.400289,Posterior prediction,region,household,TRUE,sequence,South East
+,2021-12-17,pp_voc_R[88],0.9504048,1.11553,1.356612,1.4827675,Posterior prediction,region,household,TRUE,sequence,South East
+,2021-12-18,pp_voc_R[89],0.9477289,1.11136,1.362278,1.488532,Posterior prediction,region,household,TRUE,sequence,South East
+,2021-12-19,pp_voc_R[90],0.9497212,1.109986,1.360654,1.480758,Posterior prediction,region,household,TRUE,sequence,South East
+,2021-12-20,pp_voc_R[91],0.8626714,1.12188,1.466792,1.6254135,Posterior prediction,region,household,TRUE,sequence,South East
+,2021-12-21,pp_voc_R[92],0.8834232,1.12129,1.464008,1.626602,Posterior prediction,region,household,TRUE,sequence,South East
+,2021-12-22,pp_voc_R[93],0.87900895,1.119154,1.464258,1.623943,Posterior prediction,region,household,TRUE,sequence,South East
+,2021-12-23,pp_voc_R[94],0.88736655,1.121816,1.457384,1.618389,Posterior prediction,region,household,TRUE,sequence,South East
+,2021-12-05,pp_voc_R[95],1.4168785,1.52849,1.78363,1.9295705,Posterior prediction,region,household,TRUE,sequence,South West
+,2021-12-06,pp_voc_R[96],1.402628,1.532948,1.78655,1.936319,Posterior prediction,region,household,TRUE,sequence,South West
+,2021-12-07,pp_voc_R[97],1.410668,1.530852,1.78385,1.94116,Posterior prediction,region,household,TRUE,sequence,South West
+,2021-12-08,pp_voc_R[98],1.397834,1.5206,1.788116,1.9340405,Posterior prediction,region,household,TRUE,sequence,South West
+,2021-12-09,pp_voc_R[99],1.4018975,1.519758,1.784584,1.9282035,Posterior prediction,region,household,TRUE,sequence,South West
+,2021-12-10,pp_voc_R[100],1.400014,1.521078,1.779366,1.938855,Posterior prediction,region,household,TRUE,sequence,South West
+,2021-12-11,pp_voc_R[101],1.450513,1.572104,1.826174,1.9747215,Posterior prediction,region,household,TRUE,sequence,South West
+,2021-12-12,pp_voc_R[102],1.450779,1.568824,1.82774,1.9809785,Posterior prediction,region,household,TRUE,sequence,South West
+,2021-12-13,pp_voc_R[103],1.456884,1.5689,1.836176,1.9795105,Posterior prediction,region,household,TRUE,sequence,South West
+,2021-12-14,pp_voc_R[104],1.1468825,1.226812,1.390978,1.4809855,Posterior prediction,region,household,TRUE,sequence,South West
+,2021-12-15,pp_voc_R[105],1.146215,1.225718,1.389866,1.487963,Posterior prediction,region,household,TRUE,sequence,South West
+,2021-12-16,pp_voc_R[106],1.1467985,1.225166,1.392866,1.479512,Posterior prediction,region,household,TRUE,sequence,South West
+,2021-12-17,pp_voc_R[107],1.0783245,1.145752,1.282194,1.357328,Posterior prediction,region,household,TRUE,sequence,South West
+,2021-12-18,pp_voc_R[108],1.080325,1.147976,1.283556,1.3562525,Posterior prediction,region,household,TRUE,sequence,South West
+,2021-12-19,pp_voc_R[109],1.0660385,1.146742,1.284626,1.3577635,Posterior prediction,region,household,TRUE,sequence,South West
+,2021-12-20,pp_voc_R[110],1.21692,1.286278,1.43801,1.525565,Posterior prediction,region,household,TRUE,sequence,South West
+,2021-12-21,pp_voc_R[111],1.215842,1.287682,1.438448,1.522202,Posterior prediction,region,household,TRUE,sequence,South West
+,2021-12-22,pp_voc_R[112],1.2192065,1.28718,1.43885,1.52227,Posterior prediction,region,household,TRUE,sequence,South West
+,2021-12-23,pp_voc_R[113],1.2187155,1.289898,1.440092,1.5265775,Posterior prediction,region,household,TRUE,sequence,South West
+,2021-12-10,pp_voc_R[1],1.5878105,1.837152,2.3074,2.54602,Posterior prediction,region,intrinsic,TRUE,sequence,East of England
+,2021-12-11,pp_voc_R[2],1.5693105,1.776474,2.141114,2.3569645,Posterior prediction,region,intrinsic,TRUE,sequence,East of England
+,2021-12-12,pp_voc_R[3],1.5803465,1.771184,2.143082,2.338137,Posterior prediction,region,intrinsic,TRUE,sequence,East of England
+,2021-12-13,pp_voc_R[4],1.5863825,1.771966,2.140106,2.348815,Posterior prediction,region,intrinsic,TRUE,sequence,East of England
+,2021-12-14,pp_voc_R[5],1.3300285,1.548844,1.932696,2.1250865,Posterior prediction,region,intrinsic,TRUE,sequence,East of England
+,2021-12-15,pp_voc_R[6],1.317376,1.54416,1.938994,2.144048,Posterior prediction,region,intrinsic,TRUE,sequence,East of England
+,2021-12-16,pp_voc_R[7],1.3384895,1.538744,1.934102,2.1334075,Posterior prediction,region,intrinsic,TRUE,sequence,East of England
+,2021-12-17,pp_voc_R[8],0.98557065,1.227972,1.64737,1.8383235,Posterior prediction,region,intrinsic,TRUE,sequence,East of England
+,2021-12-18,pp_voc_R[9],0.9838149,1.249372,1.648374,1.8433705,Posterior prediction,region,intrinsic,TRUE,sequence,East of England
+,2021-12-19,pp_voc_R[10],0.9973808,1.244084,1.645508,1.8468145,Posterior prediction,region,intrinsic,TRUE,sequence,East of England
+,2021-12-20,pp_voc_R[11],1.3356715,1.519566,1.839842,2.003619,Posterior prediction,region,intrinsic,TRUE,sequence,East of England
+,2021-12-21,pp_voc_R[12],1.3437525,1.522112,1.83998,2.000246,Posterior prediction,region,intrinsic,TRUE,sequence,East of England
+,2021-12-22,pp_voc_R[13],1.351288,1.524732,1.841454,2.0143625,Posterior prediction,region,intrinsic,TRUE,sequence,East of England
+,2021-12-23,pp_voc_R[14],1.3415555,1.521168,1.839138,2.0054155,Posterior prediction,region,intrinsic,TRUE,sequence,East of England
+,2021-12-05,pp_voc_R[15],1.738854,1.92081,2.3105,2.5241895,Posterior prediction,region,intrinsic,TRUE,sequence,London
+,2021-12-06,pp_voc_R[16],1.7302355,1.92586,2.309694,2.518884,Posterior prediction,region,intrinsic,TRUE,sequence,London
+,2021-12-07,pp_voc_R[17],1.7374395,1.92346,2.303952,2.533031,Posterior prediction,region,intrinsic,TRUE,sequence,London
+,2021-12-08,pp_voc_R[18],1.572802,1.795396,2.20544,2.4260865,Posterior prediction,region,intrinsic,TRUE,sequence,London
+,2021-12-09,pp_voc_R[19],1.5819395,1.803832,2.204178,2.421784,Posterior prediction,region,intrinsic,TRUE,sequence,London
+,2021-12-10,pp_voc_R[20],1.5811975,1.796346,2.206292,2.4123485,Posterior prediction,region,intrinsic,TRUE,sequence,London
+,2021-12-11,pp_voc_R[21],1.8703655,2.07272,2.478152,2.699261,Posterior prediction,region,intrinsic,TRUE,sequence,London
+,2021-12-12,pp_voc_R[22],1.8676845,2.06617,2.468038,2.6962465,Posterior prediction,region,intrinsic,TRUE,sequence,London
+,2021-12-13,pp_voc_R[23],1.8587705,2.069206,2.471122,2.696871,Posterior prediction,region,intrinsic,TRUE,sequence,London
+,2021-12-14,pp_voc_R[24],1.16285,1.300286,1.562376,1.6931845,Posterior prediction,region,intrinsic,TRUE,sequence,London
+,2021-12-15,pp_voc_R[25],1.156201,1.296828,1.5604,1.693991,Posterior prediction,region,intrinsic,TRUE,sequence,London
+,2021-12-16,pp_voc_R[26],1.148678,1.292208,1.560438,1.688707,Posterior prediction,region,intrinsic,TRUE,sequence,London
+,2021-12-17,pp_voc_R[27],1.0306575,1.165594,1.398874,1.5168465,Posterior prediction,region,intrinsic,TRUE,sequence,London
+,2021-12-18,pp_voc_R[28],1.031866,1.166216,1.39862,1.5146855,Posterior prediction,region,intrinsic,TRUE,sequence,London
+,2021-12-19,pp_voc_R[29],1.0386115,1.164554,1.401648,1.519146,Posterior prediction,region,intrinsic,TRUE,sequence,London
+,2021-12-20,pp_voc_R[30],1.184398,1.31415,1.5504,1.665683,Posterior prediction,region,intrinsic,TRUE,sequence,London
+,2021-12-21,pp_voc_R[31],1.187337,1.314298,1.55299,1.6655995,Posterior prediction,region,intrinsic,TRUE,sequence,London
+,2021-12-22,pp_voc_R[32],1.1782675,1.31074,1.551008,1.6709765,Posterior prediction,region,intrinsic,TRUE,sequence,London
+,2021-12-23,pp_voc_R[33],1.1888965,1.318096,1.553604,1.678942,Posterior prediction,region,intrinsic,TRUE,sequence,London
+,2021-12-05,pp_voc_R[34],1.5581745,1.75546,2.13982,2.3481095,Posterior prediction,region,intrinsic,TRUE,sequence,Midlands
+,2021-12-06,pp_voc_R[35],1.5578445,1.747418,2.134212,2.3452465,Posterior prediction,region,intrinsic,TRUE,sequence,Midlands
+,2021-12-07,pp_voc_R[36],1.5494445,1.756844,2.131866,2.340898,Posterior prediction,region,intrinsic,TRUE,sequence,Midlands
+,2021-12-08,pp_voc_R[37],1.5607595,1.7822,2.20742,2.4374165,Posterior prediction,region,intrinsic,TRUE,sequence,Midlands
+,2021-12-09,pp_voc_R[38],1.564898,1.783818,2.216178,2.4341925,Posterior prediction,region,intrinsic,TRUE,sequence,Midlands
+,2021-12-10,pp_voc_R[39],1.580215,1.793052,2.199936,2.414557,Posterior prediction,region,intrinsic,TRUE,sequence,Midlands
+,2021-12-11,pp_voc_R[40],1.6449465,1.871042,2.31241,2.534802,Posterior prediction,region,intrinsic,TRUE,sequence,Midlands
+,2021-12-12,pp_voc_R[41],1.6337385,1.87236,2.301746,2.522777,Posterior prediction,region,intrinsic,TRUE,sequence,Midlands
+,2021-12-13,pp_voc_R[42],1.623994,1.868652,2.2986,2.528741,Posterior prediction,region,intrinsic,TRUE,sequence,Midlands
+,2021-12-14,pp_voc_R[43],1.0629875,1.225914,1.535308,1.692121,Posterior prediction,region,intrinsic,TRUE,sequence,Midlands
+,2021-12-15,pp_voc_R[44],1.0352055,1.225624,1.54059,1.688531,Posterior prediction,region,intrinsic,TRUE,sequence,Midlands
+,2021-12-16,pp_voc_R[45],1.053423,1.235146,1.537752,1.691013,Posterior prediction,region,intrinsic,TRUE,sequence,Midlands
+,2021-12-17,pp_voc_R[46],1.123893,1.266962,1.521176,1.645495,Posterior prediction,region,intrinsic,TRUE,sequence,Midlands
+,2021-12-18,pp_voc_R[47],1.1296205,1.273724,1.52509,1.6606225,Posterior prediction,region,intrinsic,TRUE,sequence,Midlands
+,2021-12-19,pp_voc_R[48],1.125076,1.274914,1.526784,1.653555,Posterior prediction,region,intrinsic,TRUE,sequence,Midlands
+,2021-12-20,pp_voc_R[49],1.223245,1.368136,1.62762,1.758918,Posterior prediction,region,intrinsic,TRUE,sequence,Midlands
+,2021-12-21,pp_voc_R[50],1.227786,1.371848,1.628528,1.7556165,Posterior prediction,region,intrinsic,TRUE,sequence,Midlands
+,2021-12-22,pp_voc_R[51],1.228124,1.3727,1.62675,1.753908,Posterior prediction,region,intrinsic,TRUE,sequence,Midlands
+,2021-12-23,pp_voc_R[52],1.2237775,1.362956,1.622682,1.754935,Posterior prediction,region,intrinsic,TRUE,sequence,Midlands
+,2021-12-06,pp_voc_R[53],1.413793,1.64612,2.079422,2.3161745,Posterior prediction,region,intrinsic,TRUE,sequence,North East and Yorkshire
+,2021-12-07,pp_voc_R[54],1.4124835,1.653736,2.087918,2.3219415,Posterior prediction,region,intrinsic,TRUE,sequence,North East and Yorkshire
+,2021-12-08,pp_voc_R[55],1.5365975,1.723136,2.089684,2.281154,Posterior prediction,region,intrinsic,TRUE,sequence,North East and Yorkshire
+,2021-12-09,pp_voc_R[56],1.550688,1.725786,2.087192,2.2722055,Posterior prediction,region,intrinsic,TRUE,sequence,North East and Yorkshire
+,2021-12-10,pp_voc_R[57],1.5335565,1.72399,2.085638,2.29086,Posterior prediction,region,intrinsic,TRUE,sequence,North East and Yorkshire
+,2021-12-11,pp_voc_R[58],1.5298865,1.762866,2.191686,2.4255685,Posterior prediction,region,intrinsic,TRUE,sequence,North East and Yorkshire
+,2021-12-12,pp_voc_R[59],1.5246855,1.76027,2.19336,2.419231,Posterior prediction,region,intrinsic,TRUE,sequence,North East and Yorkshire
+,2021-12-13,pp_voc_R[60],1.540088,1.761156,2.18442,2.399323,Posterior prediction,region,intrinsic,TRUE,sequence,North East and Yorkshire
+,2021-12-14,pp_voc_R[61],1.1733975,1.329654,1.63766,1.782863,Posterior prediction,region,intrinsic,TRUE,sequence,North East and Yorkshire
+,2021-12-15,pp_voc_R[62],1.172193,1.335866,1.63466,1.7866955,Posterior prediction,region,intrinsic,TRUE,sequence,North East and Yorkshire
+,2021-12-16,pp_voc_R[63],1.172665,1.332778,1.637352,1.782285,Posterior prediction,region,intrinsic,TRUE,sequence,North East and Yorkshire
+,2021-12-17,pp_voc_R[64],1.0561685,1.200986,1.450912,1.5722375,Posterior prediction,region,intrinsic,TRUE,sequence,North East and Yorkshire
+,2021-12-18,pp_voc_R[65],1.063575,1.202278,1.446918,1.559921,Posterior prediction,region,intrinsic,TRUE,sequence,North East and Yorkshire
+,2021-12-19,pp_voc_R[66],1.0615755,1.202662,1.447792,1.5626435,Posterior prediction,region,intrinsic,TRUE,sequence,North East and Yorkshire
+,2021-12-20,pp_voc_R[67],1.3445645,1.470766,1.710792,1.843622,Posterior prediction,region,intrinsic,TRUE,sequence,North East and Yorkshire
+,2021-12-21,pp_voc_R[68],1.337331,1.470176,1.71028,1.8376505,Posterior prediction,region,intrinsic,TRUE,sequence,North East and Yorkshire
+,2021-12-22,pp_voc_R[69],1.349896,1.470708,1.713122,1.84416,Posterior prediction,region,intrinsic,TRUE,sequence,North East and Yorkshire
+,2021-12-23,pp_voc_R[70],1.3386795,1.469898,1.710794,1.8333905,Posterior prediction,region,intrinsic,TRUE,sequence,North East and Yorkshire
+,2021-12-11,pp_voc_R[71],1.609989,1.828836,2.259786,2.507752,Posterior prediction,region,intrinsic,TRUE,sequence,North West
+,2021-12-12,pp_voc_R[72],1.618885,1.842298,2.26061,2.488564,Posterior prediction,region,intrinsic,TRUE,sequence,North West
+,2021-12-13,pp_voc_R[73],1.60368,1.826996,2.257802,2.489262,Posterior prediction,region,intrinsic,TRUE,sequence,North West
+,2021-12-14,pp_voc_R[74],1.445996,1.631112,1.977104,2.1536885,Posterior prediction,region,intrinsic,TRUE,sequence,North West
+,2021-12-15,pp_voc_R[75],1.434966,1.625518,1.98701,2.173802,Posterior prediction,region,intrinsic,TRUE,sequence,North West
+,2021-12-16,pp_voc_R[76],1.432207,1.623262,1.981252,2.1690955,Posterior prediction,region,intrinsic,TRUE,sequence,North West
+,2021-12-17,pp_voc_R[77],1.1400265,1.347558,1.7153,1.903208,Posterior prediction,region,intrinsic,TRUE,sequence,North West
+,2021-12-18,pp_voc_R[78],1.141704,1.358434,1.71082,1.888411,Posterior prediction,region,intrinsic,TRUE,sequence,North West
+,2021-12-19,pp_voc_R[79],1.1457775,1.346782,1.71415,1.9030785,Posterior prediction,region,intrinsic,TRUE,sequence,North West
+,2021-12-20,pp_voc_R[80],1.271448,1.450424,1.780426,1.950417,Posterior prediction,region,intrinsic,TRUE,sequence,North West
+,2021-12-21,pp_voc_R[81],1.294108,1.466428,1.777976,1.9305165,Posterior prediction,region,intrinsic,TRUE,sequence,North West
+,2021-12-22,pp_voc_R[82],1.2774435,1.452778,1.776742,1.942129,Posterior prediction,region,intrinsic,TRUE,sequence,North West
+,2021-12-23,pp_voc_R[83],1.281537,1.460606,1.7837,1.9422075,Posterior prediction,region,intrinsic,TRUE,sequence,North West
+,2021-12-13,pp_voc_R[84],0.52679225,0.9001316,1.411488,1.640534,Posterior prediction,region,intrinsic,TRUE,sequence,South East
+,2021-12-14,pp_voc_R[85],0.70715115,0.9860256,1.433826,1.6238075,Posterior prediction,region,intrinsic,TRUE,sequence,South East
+,2021-12-15,pp_voc_R[86],0.69290985,0.9967224,1.426232,1.6125735,Posterior prediction,region,intrinsic,TRUE,sequence,South East
+,2021-12-16,pp_voc_R[87],0.71134975,1.008666,1.433936,1.615516,Posterior prediction,region,intrinsic,TRUE,sequence,South East
+,2021-12-17,pp_voc_R[88],0.9134512,1.15958,1.549306,1.748128,Posterior prediction,region,intrinsic,TRUE,sequence,South East
+,2021-12-18,pp_voc_R[89],0.91856615,1.167266,1.566816,1.7525295,Posterior prediction,region,intrinsic,TRUE,sequence,South East
+,2021-12-19,pp_voc_R[90],0.9296975,1.165084,1.562584,1.74313,Posterior prediction,region,intrinsic,TRUE,sequence,South East
+,2021-12-20,pp_voc_R[91],0.82278265,1.190664,1.739772,2.009637,Posterior prediction,region,intrinsic,TRUE,sequence,South East
+,2021-12-21,pp_voc_R[92],0.80301545,1.18876,1.738102,1.9838575,Posterior prediction,region,intrinsic,TRUE,sequence,South East
+,2021-12-22,pp_voc_R[93],0.80159865,1.175928,1.741274,1.983744,Posterior prediction,region,intrinsic,TRUE,sequence,South East
+,2021-12-23,pp_voc_R[94],0.82922805,1.19705,1.742388,1.982416,Posterior prediction,region,intrinsic,TRUE,sequence,South East
+,2021-12-05,pp_voc_R[95],1.7075665,1.897496,2.275004,2.4777445,Posterior prediction,region,intrinsic,TRUE,sequence,South West
+,2021-12-06,pp_voc_R[96],1.701792,1.898682,2.274436,2.481446,Posterior prediction,region,intrinsic,TRUE,sequence,South West
+,2021-12-07,pp_voc_R[97],1.706493,1.889348,2.271766,2.4751875,Posterior prediction,region,intrinsic,TRUE,sequence,South West
+,2021-12-08,pp_voc_R[98],1.6806825,1.886718,2.284868,2.496393,Posterior prediction,region,intrinsic,TRUE,sequence,South West
+,2021-12-09,pp_voc_R[99],1.679586,1.880926,2.274626,2.488491,Posterior prediction,region,intrinsic,TRUE,sequence,South West
+,2021-12-10,pp_voc_R[100],1.6885165,1.881168,2.26906,2.490482,Posterior prediction,region,intrinsic,TRUE,sequence,South West
+,2021-12-11,pp_voc_R[101],1.7902995,1.972332,2.354192,2.54552,Posterior prediction,region,intrinsic,TRUE,sequence,South West
+,2021-12-12,pp_voc_R[102],1.781386,1.976222,2.35082,2.5597025,Posterior prediction,region,intrinsic,TRUE,sequence,South West
+,2021-12-13,pp_voc_R[103],1.786711,1.97553,2.344472,2.545343,Posterior prediction,region,intrinsic,TRUE,sequence,South West
+,2021-12-14,pp_voc_R[104],1.220652,1.354028,1.60238,1.7270835,Posterior prediction,region,intrinsic,TRUE,sequence,South West
+,2021-12-15,pp_voc_R[105],1.2264795,1.353408,1.599336,1.7361065,Posterior prediction,region,intrinsic,TRUE,sequence,South West
+,2021-12-16,pp_voc_R[106],1.22068,1.354604,1.599768,1.72623,Posterior prediction,region,intrinsic,TRUE,sequence,South West
+,2021-12-17,pp_voc_R[107],1.105848,1.218862,1.435174,1.5431685,Posterior prediction,region,intrinsic,TRUE,sequence,South West
+,2021-12-18,pp_voc_R[108],1.098452,1.221876,1.429096,1.5424745,Posterior prediction,region,intrinsic,TRUE,sequence,South West
+,2021-12-19,pp_voc_R[109],1.1032885,1.220308,1.428246,1.5376075,Posterior prediction,region,intrinsic,TRUE,sequence,South West
+,2021-12-20,pp_voc_R[110],1.342105,1.460204,1.679814,1.7968355,Posterior prediction,region,intrinsic,TRUE,sequence,South West
+,2021-12-21,pp_voc_R[111],1.34589,1.459214,1.67756,1.7900745,Posterior prediction,region,intrinsic,TRUE,sequence,South West
+,2021-12-22,pp_voc_R[112],1.350233,1.457134,1.681422,1.7918885,Posterior prediction,region,intrinsic,TRUE,sequence,South West
+,2021-12-23,pp_voc_R[113],1.3424465,1.45644,1.677812,1.799176,Posterior prediction,region,intrinsic,TRUE,sequence,South West

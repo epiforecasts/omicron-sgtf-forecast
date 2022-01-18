@@ -107,11 +107,11 @@ gt_inits <- function(data) {
       gt_sd = rnorm(1, data$gt_sd_mean, data$gt_sd_sd * 0.1),
       sigma = rnorm(1, 0.1, 0.01),
       ta = rnorm(1, 0, 0.01),
-      ta_sd = abs(rnorm(1, 0, 0.01))
+      ta_sd = abs(rnorm(1, 0, 0.001))
     )
     if (st_dt$gt_diff == 1) {
-      data$m_g <- array(rnorm(1, 1, 0.01))
-      data$m_k <- array(rnorm(1, 1, 0.01))
+      data$m_gt <- array(exp(rnorm(1, 0, 0.01)))
+      data$m_gt_sd <- array(exp(rnorm(1, 0, 0.01)))
     }
     data$local_ta <- rep(data$ta, st_dt$l)
     return(data)
@@ -180,8 +180,9 @@ gt_estimate <- function(growth, model, by = c(), gt, gt_diff = FALSE,
 
   # summmarise posterior predictions
   r_pp <- gt_summarise_pp(fit, growth, by = by)
-  R_pp <- gt_summarise_pp(fit, growth, var = "pp_voc_R", by = by, # nolint
-                          bind_obs = FALSE) 
+  R_pp <- gt_summarise_pp( # nolint
+    fit, growth, var = "pp_voc_R", by = by, bind_obs = FALSE
+  )
 
   out <- data.table::data.table(
     gt_dt = list(stan_dt),
