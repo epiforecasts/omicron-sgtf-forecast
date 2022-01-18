@@ -160,6 +160,10 @@ gt_summarise_pp <- function(fit, growth, var = "pp_voc_r", by = c(),
 gt_estimate <- function(growth, model, by = c(), gt, gt_diff = FALSE, 
                         debug = FALSE, ...) {
 
+  # Set order for growth
+  growth <- data.table::copy(growth)
+  data.table::setkeyv(growth, cols = c("date", by))
+
   # Data for stan
   stan_dt <- gt_dt(growth, by = by, gt = gt, gt_diff = gt_diff, debug = debug)
 

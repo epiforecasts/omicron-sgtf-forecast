@@ -491,7 +491,7 @@ posterior_predictions %>%
   facet_wrap(~region)
 ```
 
-```{r pp-age, fig.cap = "Estimates of the time-varying daily growth rate for each 15 year age group for cases with the Omicron variant compared to posterior predictions using Delta growth rates and differing generation times. Delta growth rates are assumed to be piecewise constant with potential changes every 3 days. 90% and 60% credible intervals are shown."}
+```{r pp-age, fig.cap = "Estimates of the time-varying daily growth rate for each 15 year age group for cases with the Omicron variant compared to posterior predictions using Delta growth rates and differing generation times. Delta growth rates are assumed to be piecewise constant with potential changes every 3 days. 90% and 60% credible intervals are shown.", fig.width = 9, fig.height = 9}
 posterior_predictions %>%
   filter(stratification == "age", gt_type == "household") %>%
   gt_plot_pp() +
@@ -507,7 +507,7 @@ posterior_predictions %>%
 
 #### Reproduction number estimates
 
-```{r rt-pp-region, fig.cap = "Estimates of the time-varying effective reproduction number for each UKHSA region for cases with the Omicron variant compared to posterior predictions using Delta growth rates and differing generation times. Delta growth rates are assumed to be piecewise constant with potential changes every 3 days. 90% and 60% credible intervals are shown."}
+```{r rt-pp-region, fig.cap = "Estimates of the time-varying effective reproduction number for each UKHSA region for cases with the Omicron variant compared to posterior predictions using Delta growth rates and differing generation times. Delta growth rates are assumed to be piecewise constant with potential changes every 3 days. 90% and 60% credible intervals are shown.", fig.width = 9, fig.height = 6}
 reproduction_no_pp %>%
   filter(stratification == "region") %>%
   gt_plot_pp(
@@ -517,7 +517,7 @@ reproduction_no_pp %>%
   facet_wrap(~gt_type)
 ```
 
-```{r rt-pp-age, fig.cap = "Estimates of the time-varying effective reproduction number for each 15 year age group for cases with the Omicron variant compared to posterior predictions using Delta growth rates and differing generation times. Delta growth rates are assumed to be piecewise constant with potential changes every 3 days. 90% and 60% credible intervals are shown."}
+```{r rt-pp-age, fig.cap = "Estimates of the time-varying effective reproduction number for each 15 year age group for cases with the Omicron variant compared to posterior predictions using Delta growth rates and differing generation times. Delta growth rates are assumed to be piecewise constant with potential changes every 3 days. 90% and 60% credible intervals are shown.", fig.width = 9, fig.height = 6}
 reproduction_no_pp %>%
   filter(stratification == "age") %>%
   gt_plot_pp(
