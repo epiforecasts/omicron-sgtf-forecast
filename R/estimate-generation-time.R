@@ -110,8 +110,8 @@ gt_inits <- function(data) {
       ta_sd = abs(rnorm(1, 0, 0.01))
     )
     if (st_dt$gt_diff == 1) {
-      data$m_g <- array(rnorm(1, 0, 0.01))
-      data$m_k <- array(rnorm(1, 0, 0.01))
+      data$m_g <- array(rnorm(1, 1, 0.01))
+      data$m_k <- array(rnorm(1, 1, 0.01))
     }
     data$local_ta <- rep(data$ta, st_dt$l)
     return(data)
