@@ -67,7 +67,8 @@ vector r_to_r(vector r, real G, real k, vector alpha) {
   int t = num_elements(r);
   vector[t] r_n;
   vector[t] palpha = pow(alpha, k);
-  r_n = palpha .* r + (palpha - 1)/(k* G);
+  r_n = exp(log(palpha) + log(r));
+  r_n = exp(log(r_n) + log(palpha - 1) - (log(k) + log(G)));
   return(r_n);
 }
 
@@ -75,18 +76,22 @@ vector r_to_r_diff_gt(vector r, real G, real k, real G_v, real k_v,
                       vector alpha) {
   int t = num_elements(r);
   vector[t] r_n;
-  r_n = pow(alpha, k_v) .* pow(1 + r * k * G, k_v / k) - 1;
-  r_n = r_n / (k_v * G_v);
+  real k_ratio = exp(log(k_v) - log(k));
+  vector[t] int_r = 1 + exp(log(r) + log(k) + log(G));
+  r_n = exp(log(pow(alpha, k_v)) + log(pow(int_r, k_ratio))) - 1;
+  r_n = exp(log(r_n) -  (log(k_v) + log(G_v)));
   return(r_n);
 }
 
 real sd_to_k(real G_sd, real G) {
   real k;
-  k = pow(G_sd / G, 2);
+  k = exp(log(G_sd) - log(G));
+  k = pow(k, 2);
   return(k);
 }
 real k_to_sd(real k, real G) {
   real G_sd;
-  G_sd = sqrt(k) * G;
+  G_sd = sqrt(k);
+  G_sd = exp(log(G_sd) + log(G));
   return(G_sd);
 }

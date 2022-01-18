@@ -22,9 +22,9 @@ parameters {
   real<lower = 0> gt_mean;
   real<lower = 0> gt_sd;
   vector<lower = nvoc_r_mean - 3 *nvoc_r_sd, upper = nvoc_r_mean + 3 * nvoc_r_sd>[t] nvoc_r;
-  real<lower = 0, upper = 2> m_gt[gt_diff];
-  real<lower = 0, upper = 2> m_gt_sd[gt_diff];
-  real ta;
+  real m_gt[gt_diff];
+  real m_gt_sd[gt_diff];
+  real<upper = 5> ta;
   real<lower = 0> ta_sd;
   vector<offset = ta, multiplier = ta_sd>[l] local_ta;
   real<lower = 0> sigma;
@@ -39,8 +39,8 @@ transformed parameters {
    vector[t] combined_sigma;
    k = sd_to_k(gt_sd, gt_mean);
    if (gt_diff) {
-    voc_gt_mean = gt_mean * m_gt[1];
-    voc_gt_sd = gt_sd * m_gt_sd[1];
+    voc_gt_mean = exp(log(gt_mean) + m_gt[1]);
+    voc_gt_sd = exp(log(gt_sd) + m_gt_sd[1]);
    }else{
     voc_gt_mean = gt_mean;
     voc_gt_sd = gt_sd;
@@ -84,8 +84,8 @@ model {
 
   nvoc_r ~ normal(nvoc_r_mean, nvoc_r_sd);
   if (gt_diff) {
-    m_gt[1] ~ lognormal(0, 0.25);
-    m_gt_sd[1] ~ lognormal(0, 0.1);
+    m_gt[1] ~ normal(0, 0.25);
+    m_gt_sd[1] ~ normal(0, 0.1);
   }
 
   ta ~ normal(0, 1);
