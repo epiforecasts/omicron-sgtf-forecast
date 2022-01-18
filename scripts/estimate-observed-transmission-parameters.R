@@ -68,7 +68,8 @@ posterior_summary <- unnest_estimates(estimates, target = "summary")
 
 posterior_samples <- unnest_estimates(estimates, target = "samples")
 
-posterior_predictions <- unnest_estimates(estimates, target = "pp")
+posterior_predictions <- unnest_estimates(estimates, target = "r_pp")
+reproduction_no_pp <- unnest_estimates(estimates, target = "R_pp")
 
 posterior_locations <- unnest_estimates(estimates, target = "locations")
 posterior_locations <- unique(posterior_locations[, date := NULL])
@@ -87,6 +88,11 @@ fwrite(
 fwrite(
   posterior_predictions,
   here::here("data", "retrospective", "posterior_predictions.csv")
+)
+
+fwrite(
+  reproduction_no_pp,
+  here::here("data", "retrospective", "reproduction_no_pp.csv")
 )
 
 fwrite(

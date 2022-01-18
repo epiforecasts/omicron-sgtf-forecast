@@ -98,9 +98,11 @@ model {
 
 generated quantities {
   vector[t] pp_voc_r;
+  vector[t] pp_voc_R;
   vector[t] log_lik;
   for (i in 1:t) {
     pp_voc_r[i] = normal_rng(e_voc_r[i], combined_sigma[i]);
     log_lik[i] = normal_lpdf(voc_r[i] | e_voc_r[i], combined_sigma[i]);
   }
+  pp_voc_R = growth_to_R(pp_voc_r, voc_gt_mean, voc_gt_sd);
 }

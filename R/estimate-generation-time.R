@@ -139,9 +139,9 @@ gt_summarise_posterior <- function(fit,
   return(posterior[])
 }
 
-gt_summarise_growth_pp <- function(fit, growth, by = c()) {
+gt_summarise_pp <- function(fit, growth, var = "pp_voc_r", by = c()) {
   r_pp <- fit$summary(
-    variables  = "pp_voc_r", posterior::quantile2,
+    variables  = var, posterior::quantile2,
     .args = list(probs = c(0.05, 0.2, 0.8, 0.95))
   )
   r_pp <- data.table::as.data.table(r_pp)[, type := "Posterior prediction"]
@@ -176,7 +176,8 @@ gt_estimate <- function(growth, model, by = c(), gt, gt_diff = FALSE,
   summary <- gt_summarise_posterior(fit)
 
   # summmarise posterior predictions
-  r_pp <- gt_summarise_growth_pp(fit, growth, by = by)
+  r_pp <- gt_summarise_pp(fit, growth, by = by)
+  R_pp <- gt_summarise_pp(fit, growth, var = "pp_voc_R", by = by) # nolint
 
   out <- data.table::data.table(
     gt_dt = list(stan_dt),
@@ -184,7 +185,8 @@ gt_estimate <- function(growth, model, by = c(), gt, gt_diff = FALSE,
     fit = list(fit),
     samples = list(samples),
     summary = list(summary),
-    pp = list(r_pp)
+    r_pp = list(r_pp),
+    R_pp = list(R_pp)
   )
   return(out[])
 }
