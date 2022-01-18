@@ -482,7 +482,7 @@ clean_summary %>%
 
 ### Posterior predictions
 
-#### Growth rate
+#### Growth rates
 
 ```{r pp-region, fig.cap = "Estimates of the time-varying daily growth rate for each UKHSA region for cases with the Omicron variant compared to posterior predictions using Delta growth rates and differing generation times. Delta growth rates are assumed to be piecewise constant with potential changes every 3 days. 90% and 60% credible intervals are shown."}
 posterior_predictions %>%
@@ -505,8 +505,37 @@ posterior_predictions %>%
   facet_grid(age_group~region)
 ```
 
-#### Omicron reproduction number estimates
+#### Reproduction number estimates
 
+```{r rt-pp-region, fig.cap = "Estimates of the time-varying effective reproduction number for each UKHSA region for cases with the Omicron variant compared to posterior predictions using Delta growth rates and differing generation times. Delta growth rates are assumed to be piecewise constant with potential changes every 3 days. 90% and 60% credible intervals are shown."}
+reproduction_no_pp %>%
+  filter(stratification == "region") %>%
+  gt_plot_pp(
+    fill = "region", fill_lab = "UKSHA region",
+    y = "Effective reproduction number", yint = 1
+  ) +
+  facet_wrap(~gt_type)
+```
+
+```{r rt-pp-age, fig.cap = "Estimates of the time-varying effective reproduction number for each 15 year age group for cases with the Omicron variant compared to posterior predictions using Delta growth rates and differing generation times. Delta growth rates are assumed to be piecewise constant with potential changes every 3 days. 90% and 60% credible intervals are shown."}
+reproduction_no_pp %>%
+  filter(stratification == "age") %>%
+  gt_plot_pp(
+    fill = "age_group", fill_lab = "Age group",
+    y = "Effective reproduction number", yint = 1
+  ) +
+  facet_wrap(~gt_type)
+```
+
+```{r rt-pp-age-region, fig.cap = "Estimates of the time-varying effective reproduction number for each UKHSA region and 15-year age group for cases with the Omicron variant compared to posterior predictions using Delta growth rates and differing generation times. Delta growth rates are assumed to be piecewise constant with potential changes every 3 days. 90% and 60% credible intervals are shown."}
+reproduction_no_pp %>%
+  filter(stratification == "age and region") %>%
+  gt_plot_pp(
+    fill = "age_group", fill_lab = "Age group",
+    y = "Effective reproduction number", yint = 1
+  ) +
+  facet_grid(gt_type~region)
+```
 
 ## Discussion
 

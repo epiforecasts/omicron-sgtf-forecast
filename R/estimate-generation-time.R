@@ -143,7 +143,7 @@ gt_summarise_pp <- function(fit, growth, var = "pp_voc_r", by = c(),
                             bind_obs = TRUE) {
   r_pp <- fit$summary(
     variables  = var, posterior::quantile2,
-    .args = list(probs = c(0.05, 0.2, 0.8, 0.95))
+    .args = list(probs = c(0.05, 0.2, 0.5, 0.8, 0.95))
   )
   r_pp <- data.table::as.data.table(r_pp)[, type := "Posterior prediction"]
   cols <- c(by, "date")
@@ -196,15 +196,18 @@ gt_estimate <- function(growth, model, by = c(), gt, gt_diff = FALSE,
   return(out[])
 }
 
-gt_plot_pp <- function(r_pp) {
+gt_plot_pp <- function(r_pp, palette = "Dark2",
+                       fill_lab = "Growth rate source",
+                       y = "Growth rate", fill = "type", yint = 0) {
     ggplot2::ggplot(r_pp) +
-    ggplot2::aes(x = date, y = median, fill = type) +
-    ggplot2::geom_ribbon(ggplot2::aes(ymin = q5, ymax = q95), alpha = 0.3) +
-    ggplot2::geom_ribbon(ggplot2::aes(ymin = q20, ymax = q80), alpha = 0.3) +
+    ggplot2::aes(x = date, fill = .data[[fill]]) +
+    ggplot2::geom_hline(yintercept = yint, linetype = 2, alpha = 0.6) +
+    ggplot2::geom_ribbon(ggplot2::aes(ymin = q5, ymax = q95), alpha = 0.1) +
+    ggplot2::geom_ribbon(ggplot2::aes(ymin = q20, ymax = q80), alpha = 0.1) +
     ggplot2::theme_bw() +
     ggplot2::theme(legend.position = "bottom") +
     ggplot2::scale_x_date(date_breaks = "1 week", date_labels = "%b %d") +
     ggplot2::theme(axis.text.x = ggplot2::element_text(angle = 90)) +
-    ggplot2::labs(fill = "Growth rate source", y = "Growth rate") +
-    ggplot2::scale_fill_brewer(palette = "Dark2")
+    ggplot2::labs(fill = fill_lab, y = y, x = "Date") +
+    ggplot2::scale_fill_brewer(palette = palette)
 }
