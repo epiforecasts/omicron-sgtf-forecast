@@ -15,6 +15,7 @@ plan("callr", workers = floor(future::availableCores() / 4))
 source(here("R", "load-local-data.R"))
 source(here("R", "estimate-generation-time.R"))
 source(here("R", "gt-helpers.R"))
+source(here("R", "est-plan-b.R"))
 
 # Load growth estimates
 seq_growth <- load_growth(
@@ -80,6 +81,11 @@ reproduction_no_pp_samples <- unnest_estimates(
 posterior_locations <- unnest_estimates(estimates, target = "locations")
 posterior_locations <- unique(posterior_locations[, date := NULL])
 
+# Get difference around 13th
+plan_b_diff <- est_plan_b(
+  reproduction_no_pp_samples, 
+  by = c("stratification", "gt_type", "gt_diff", "source")
+)
 
 # Save results
 fwrite(
