@@ -108,16 +108,6 @@ fwrite(
 )
 
 fwrite(
-  pp_samples[sample <= 1000],
-  here::here("data", "retrospective", "posterior_predictions_samples.csv")
-)
-
-fwrite(
-  reproduction_no_pp_samples[sample <= 1000],
-  here::here("data", "retrospective", "reproduction_no_pp_samples.csv")
-)
-
-fwrite(
   posterior_locations,
   here::here("data", "retrospective", "posterior_locations.csv")
 )
