@@ -38,7 +38,7 @@ grid <- grid[source == "sequence"][gt_diff == TRUE]
 model <- gt_load_model()
 
 # Fit each model in turn
-estimates <- future.apply::future_lapply(
+estimates <- lapply(
   split(grid, by = "id"),
   function(.) {
     gt_estimate(
@@ -47,8 +47,7 @@ estimates <- future.apply::future_lapply(
       max_treedepth = 15, debug = FALSE,
       parallel_chains = 4
     )
-  },
-  future.seed = TRUE
+  }
 )
 estimates <- rbindlist(estimates)
 estimates <- cbind(grid, estimates)
@@ -118,8 +117,12 @@ fwrite(
   here::here("data", "retrospective", "reproduction_no_pp_samples.csv")
 )
 
-
 fwrite(
   posterior_locations,
   here::here("data", "retrospective", "posterior_locations.csv")
+)
+
+fwrite(
+  plan_b_diff,
+  here::here("data", "retrospective", "plan_b_diff.csv")
 )

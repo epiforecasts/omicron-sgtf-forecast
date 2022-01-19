@@ -218,7 +218,7 @@ gt_estimate <- function(growth, model, by = c(), gt, gt_diff = FALSE,
     r_pp = list(r_pp),
     R_pp = list(R_pp),
     r_pp_samples = list(r_pp_samples),
-    R_pp_samples = list(R_pp_samples),
+    R_pp_samples = list(R_pp_samples)
   )
   return(out[])
 }

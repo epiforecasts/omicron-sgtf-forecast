@@ -175,8 +175,8 @@ The generation priors used here are motivated by the household estimates derived
 
 \begin{align}
   \alpha_l &\sim \text{LogNormal}\left(\alpha, \alpha_\mathrm{SD} \right) \\
-  \alpha &\sim \text{Normal} \left(0, 1 \right) \\
-  \alpha_\mathrm{SD} &\sim \text{Normal} \left(0, 0.05 \right) \\
+  \alpha &\sim \text{Normal} \left(1, 0.5 \right) \\
+  \alpha_\mathrm{SD} &\sim \text{Normal} \left(0, 0.1 \right) \\
 \end{align}
 
 Finally, we assume that the standard deviation of the normal observation model has a normal prior truncated at zero with a mean of zero and a standard deviation of 0.1.
@@ -537,6 +537,27 @@ reproduction_no_pp %>%
   facet_grid(gt_type~region)
 ```
 
+#### Estimated impact on the reproduction number associated with plan B
+
+```{r}
+plan_b_diff <- fread(here("data", "retrospective", "plan_b_diff.csv"))
+plan_b_diff  %>%
+  select(-gt_diff) %>%
+  mutate(stratification = str_to_sentence(stratification),
+         gt_type = str_to_sentence(gt_type)) %>%
+  rename(data_stratification = stratification,
+         `Generation time prior` = gt_type) %>%
+  janitor::clean_names(case = "sentence") %>%
+  kable(caption = "Summarised posterior estimates of the additive and
+   multiplicative impact associated with plan B on the estimated reproduction
+   number of Omicron cases stratified by generation time prior assumption and
+   the stratification of the data used to initially estimate growth rates.
+   These estimates have been derived by comparing reproduction estimates from
+   the 9th of December 2021 with reproduction number estimates from the 17th of
+   December.The multiplicative effect is the result of dividing the
+   reproduction number estimate from the 17th with that from the 9th"
+  ) # nolint
+```
 ## Discussion
 
 Our analysis may be biased by a range of factors and so these findings should be considered in the light of other results.
