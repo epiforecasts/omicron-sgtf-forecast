@@ -82,11 +82,12 @@ vector r_to_r_diff_gt(vector r, real G, real k, real G_v, real k_v,
 
 real sd_to_k(real G_sd, real G) {
   real k;
-  k = pow(G_sd / G, 2);
+  k = exp(log(G_sd) - log(G));
+  k = pow(k, 2);
   return(k);
 }
 real k_to_sd(real k, real G) {
   real G_sd;
-  G_sd = sqrt(k) * G;
+  G_sd = exp(log(sqrt(k)) + log(G));
   return(G_sd);
 }

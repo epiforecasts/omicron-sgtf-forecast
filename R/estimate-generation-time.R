@@ -52,6 +52,7 @@ gt_process_by_group <- function(growth, var = "mean", by = c()) {
       growth, form, value.var = var
     )
     growth_wide <- growth_wide[!is.na(Omicron)]
+    data.table::setkeyv(growth_wide, cols = c("date", by))
     return(growth_wide)
 }
 
@@ -101,12 +102,12 @@ gt_inits <- function(data) {
     st_dt <- data
     data <- list(
       nvoc_r = purrr::map2(
-        data$nvoc_r_mean, data$nvoc_r_sd, ~ rnorm(1, .x, .y * 0.1)
+        data$nvoc_r_mean, data$nvoc_r_sd, ~ rnorm(1, .x, .y * 0.001)
       ),
-      gt_mean = rnorm(1, data$gt_mean_mean, data$gt_mean_sd * 0.1),
-      gt_sd = rnorm(1, data$gt_sd_mean, data$gt_sd_sd * 0.1),
-      sigma = rnorm(1, 0.1, 0.01),
-      ta = rnorm(1, 0, 0.01),
+      gt_mean = rnorm(1, data$gt_mean_mean, data$gt_mean_sd * 0.01),
+      gt_sd = rnorm(1, data$gt_sd_mean, data$gt_sd_sd * 0.01),
+      sigma = abs(rnorm(1, 0, 0.01)),
+      ta = rnorm(1, 1, 0.1),
       ta_sd = abs(rnorm(1, 0, 0.001))
     )
     if (st_dt$gt_diff == 1) {
@@ -147,7 +148,8 @@ gt_summarise_pp <- function(fit, growth, var = "pp_voc_r", by = c(),
   )
   r_pp <- data.table::as.data.table(r_pp)[, type := "Posterior prediction"]
   cols <- c(by, "date")
-  r_pp <- cbind(growth[type %in% "Omicron", ..cols], r_pp)
+  growth_wide <- gt_process_by_group(growth, var = "mean", by = by)
+  r_pp <- cbind(growth_wide[, ..cols], r_pp)
   if (bind_obs) {
     r_pp <- rbind(
       growth[type %in% "Omicron"][, type := "Estimate"][!is.na(mean)],
@@ -155,6 +157,23 @@ gt_summarise_pp <- function(fit, growth, var = "pp_voc_r", by = c(),
     )
   }
   return(r_pp[])
+}
+
+gt_draws_pp <- function(fit, growth, var = "pp_voc_r", by = c()) {
+  draws <- gt_draws(fit, var = var)
+  draws[, sample := 1:.N]
+  draws <- data.table::melt(
+    draws,
+    id.vars = c(".draw", ".chain", ".iteration", "sample")
+  )
+  cols <- c(by, "date")
+  growth_wide <- gt_process_by_group(growth, var = "mean", by = by)
+  growth_wide <- growth_wide[, ..cols]
+  draws <- draws[, .(samples = list(.SD)), by = "sample"]
+  draws[, samples := purrr::map(samples, ~ cbind(growth_wide, .))]
+  draws <- draws[, rbindlist(samples), by = "sample"]
+  draws <- draws[, c("sample", ..cols, "value")]
+  return(draws[])
 }
 
 gt_estimate <- function(growth, model, by = c(), gt, gt_diff = FALSE, 
@@ -187,6 +206,8 @@ gt_estimate <- function(growth, model, by = c(), gt, gt_diff = FALSE,
   R_pp <- gt_summarise_pp( # nolint
     fit, growth, var = "pp_voc_R", by = by, bind_obs = FALSE
   )
+  r_pp_samples <- gt_draws_pp(fit, growth, by = by)
+  R_pp_samples <- gt_draws_pp(fit, growth, var = "pp_voc_R", by = by)
 
   out <- data.table::data.table(
     gt_dt = list(stan_dt),
@@ -195,7 +216,9 @@ gt_estimate <- function(growth, model, by = c(), gt, gt_diff = FALSE,
     samples = list(samples),
     summary = list(summary),
     r_pp = list(r_pp),
-    R_pp = list(R_pp)
+    R_pp = list(R_pp),
+    r_pp_samples = list(r_pp_samples),
+    R_pp_samples = list(R_pp_samples),
   )
   return(out[])
 }

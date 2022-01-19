@@ -19,14 +19,12 @@ source(here("R", "gt-helpers.R"))
 # Load growth estimates
 seq_growth <- load_growth(
   as.Date("2021-12-23"), type = "seq-by-age",
-  min_date = "2021-12-01", max_date = "2021-12-23",
-  dropped_age_groups = c("75+", "60-74")
+  min_date = "2021-12-01", max_date = "2021-12-23"
 )
 
 sgtf_growth <- load_sgtf_growth(
   region_date = as.Date("2022-01-06"), age_date = as.Date("2021-12-23"),
-  min_date = "2021-12-01", max_date = "2021-12-23",
-  dropped_age_groups = c("75+", "60-74")
+  min_date = "2021-12-01", max_date = "2021-12-23"
 )
 
 grid_seq <- growth_grid(seq_growth)[, source := "sequence"]
@@ -39,7 +37,7 @@ grid <- grid[source == "sequence"][gt_diff == TRUE]
 model <- gt_load_model()
 
 # Fit each model in turn
-estimates <- lapply(
+estimates <- future.apply::future_lapply(
   split(grid, by = "id"),
   function(.) {
     gt_estimate(
@@ -48,7 +46,8 @@ estimates <- lapply(
       max_treedepth = 15, debug = FALSE,
       parallel_chains = 4
     )
-  }
+  },
+  future.seed = TRUE
 )
 estimates <- rbindlist(estimates)
 estimates <- cbind(grid, estimates)
@@ -72,8 +71,15 @@ posterior_samples <- unnest_estimates(estimates, target = "samples")
 posterior_predictions <- unnest_estimates(estimates, target = "r_pp")
 reproduction_no_pp <- unnest_estimates(estimates, target = "R_pp")
 
+
+pp_samples <- unnest_estimates(estimates, target = "r_pp_samples")
+reproduction_no_pp_samples <- unnest_estimates(
+  estimates, target = "R_pp_samples"
+)
+
 posterior_locations <- unnest_estimates(estimates, target = "locations")
 posterior_locations <- unique(posterior_locations[, date := NULL])
+
 
 # Save results
 fwrite(
@@ -95,6 +101,17 @@ fwrite(
   reproduction_no_pp,
   here::here("data", "retrospective", "reproduction_no_pp.csv")
 )
+
+fwrite(
+  pp_samples[sample <= 1000],
+  here::here("data", "retrospective", "posterior_predictions_samples.csv")
+)
+
+fwrite(
+  reproduction_no_pp_samples[sample <= 1000],
+  here::here("data", "retrospective", "reproduction_no_pp_samples.csv")
+)
+
 
 fwrite(
   posterior_locations,

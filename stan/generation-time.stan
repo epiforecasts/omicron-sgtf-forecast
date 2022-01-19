@@ -84,12 +84,12 @@ model {
 
   nvoc_r ~ normal(nvoc_r_mean, nvoc_r_sd);
   if (gt_diff) {
-    m_gt[1] ~ lognormal(0, 0.25);
-    m_gt_sd[1] ~ lognormal(0, 0.25);
+    m_gt[1] ~ lognormal(0, 0.2);
+    m_gt_sd[1] ~ lognormal(0, 0.2);
   }
 
   ta ~ normal(0, 1);
-  ta_sd ~ normal(0, 0.1) T[0,];
+  ta_sd ~ normal(0, 0.05) T[0,];
   local_ta ~ normal(ta, ta_sd);
 
   sigma ~ normal(0, 0.01) T[0,];
