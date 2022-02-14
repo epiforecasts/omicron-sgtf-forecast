@@ -7,7 +7,7 @@ gt_load_model <- function(model = here::here("stan/generation-time.stan"),
 
 gt_prior <- function(type = "household", source = "hart2021") {
   type <- match.arg(type, choices = c("household", "intrinsic"))
-  source <- match.arg(source, choices = c("hart2021"))
+  source <- match.arg(source, choices = c("hart2021", "abbott2022"))
 
   if (type %in% "intrinsic" & source %in% "hart2021") {
     gt <- list(
@@ -21,7 +21,7 @@ gt_prior <- function(type = "household", source = "hart2021") {
       source = "hart2021",
       doi = "10.1101/2021.10.21.21265216v1"
     )
-  }else if (type %in% "household" & source %in% "hart2021") {
+  } else if (type %in% "household" & source %in% "hart2021") {
     gt <- list(
       # From Hart et al.
       # https://www.medrxiv.org/content/10.1101/2021.10.21.21265216v1
@@ -33,7 +33,32 @@ gt_prior <- function(type = "household", source = "hart2021") {
       source = "hart2021",
       doi = "10.1101/2021.10.21.21265216v1"
     )
+  } else if (type %in% "intrinsic" & source %in% "abbott2022") {
+    gt <- list(
+      # From Abbott et al.
+      # https://www.medrxiv.org/content/10.1101/2022.01.08.22268920v1
+      # Assuming symmetric normal which is incorrect but an approximation
+      mean_mean = 3.3,
+      mean_sd = 0.7,
+      sd_mean = 3.5,
+      sd_sd = 1.2,
+      source = "abbott2022",
+      doi = "10.1101/2022.01.08.22268920"
+    )
+  } else if (type %in% "household" & source %in% "abbott2022") {
+    gt <- list(
+      # From Abbott et al.
+      # https://www.medrxiv.org/content/10.1101/2022.01.08.22268920v1
+      # Assuming symmetric normal which is incorrect but an approximation
+      mean_mean = 2.2,
+      mean_sd = 0.3,
+      sd_mean = 2.7,
+      sd_sd = 1.1,
+      source = "abbott2022",
+      doi = "10.1101/2022.01.08.22268920"
+    )
   }
+
   return(gt)
 }
 

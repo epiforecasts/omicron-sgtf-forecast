@@ -33,7 +33,7 @@ grid <- CJ(
 )
 
 grid[, gt_prior := purrr::map(
-  gt_type, ~ gt_prior(source = "hart2021", type = .x))
+  gt_type, ~ gt_prior(source = "abbott2022", type = .x))
 ]
 
 grid <- merge(grid, growth, by = "stratification")
