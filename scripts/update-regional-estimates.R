@@ -95,7 +95,7 @@ sgtf_regional <- daily_regional %>%
   filter(!(is.na(cases) & is.na(seq_voc)))
 
 # Estimate models for SGTF data
-region_omicorn_forecasts <- build_models_by_region(
+region_omicron_forecasts <- build_models_by_region(
   sgtf_regional, sgtf_parameters,
   variant_relationships = c("scaled", "correlated"),
   cores_per_model = 2, chains = 2, samples_per_chain = 2000,
@@ -105,14 +105,14 @@ region_omicorn_forecasts <- build_models_by_region(
 omicron_results <- list(
   data = sgtf_regional,
   posterior = summary(
-    region_omicorn_forecasts, target = "posterior", type = "all"
+    region_omicron_forecasts, target = "posterior", type = "all"
   )[,
    loo := NULL
   ],
-  diagnostics = summary(region_omicorn_forecasts, target = "diagnostics")[,
+  diagnostics = summary(region_omicron_forecasts, target = "diagnostics")[,
    loo := NULL
   ],
-  loo = extract_loo(region_omicorn_forecasts)
+  loo = extract_loo(region_omicron_forecasts)
 )
 
 save_results(omicron_results, "sgtf", target_date)
