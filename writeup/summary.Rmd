@@ -64,7 +64,7 @@ sgtf$posterior <- sgtf$posterior[,
    variant_relationship := stringr::str_to_sentence(variant_relationship)
 ]
 sgtf_posterior <- sgtf$posterior[
-  variant_relationship == "correlated"
+  variant_relationship == "Correlated"
 ]
 
 bias_posterior <- bias$posterior[variant_relationship == "correlated"]
