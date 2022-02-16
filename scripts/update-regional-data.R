@@ -6,7 +6,7 @@ source(here::here("R", "plot-daily-cases.R"))
 
 start_date <- as.Date("2021-11-15")
 
-daily <- load_data(open_data = FALSE, data_type = "onset", start_date = start_date, clean = FALSE)
+daily <- load_data(open_data = FALSE, data_type = "specimen", start_date = start_date, clean = TRUE)
 
 date <- max(daily$date)
 download_date <- Sys.Date()
