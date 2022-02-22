@@ -16,6 +16,7 @@ get_available_dates <- function(path = "data/public/") {
   csv_obs <- list.files(here::here(path))
   dates <- gsub("-cases-by-sgtf.csv", "", csv_obs)
   dates <- as.Date(dates)
+  dates <- dates[!is.na(dates)]
   return(dates)
 }
 
@@ -39,12 +40,36 @@ load_results <- function(date, type = "sgtf", path = "data/estimates") {
 
 
 load_growth <- function(date, min_date = "2021-12-01", max_date = "2021-12-23",
-                        ...) {
+                        dropped_age_groups = c(), ...) {
   results <- load_results(date, ...)
   growth <- summary(results$posterior, type = "growth")
   growth <- growth[type %in% c("Omicron", "non-Omicron")]
   growth <- growth[variant_relationship %in% "correlated"]
   growth <- growth[date >= as.Date(min_date)]
   growth <- growth[date <= as.Date(max_date)]
+  if (length(dropped_age_groups) > 0) {
+    growth <- growth[!(age_group %in% dropped_age_groups)]
+  }
   return(growth)
+}
+
+load_sgtf_growth <- function(region_date, age_date, min_date, max_date,
+                             dropped_age_groups = c()) {
+  # load growth estimates
+  region_growth <- load_growth(
+    region_date, min_date = min_date, max_date = max_date,
+    type = "sgtf"
+  )
+  region_growth <- region_growth[!(region %in% "England")]
+  region_growth[, age_group := "Overall"]
+
+  age_growth <- load_growth(
+  age_date, min_date = min_date, max_date = max_date,
+  type = "sgtf-by-age"
+  )
+  growth <- rbind(region_growth, age_growth)
+  if (length(dropped_age_groups) > 0) {
+    growth <- growth[!(age_group %in% dropped_age_groups)]
+  }
+  return(growth[])
 }
