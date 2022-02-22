@@ -9,6 +9,9 @@ library(tidyr)
 library(readr)
 library(here)
 
+# Load functions
+source(here("R", "munge-data.R"))
+
 # Load pillars data
 english_pillars <- readRDS(
   here("data", "private", "english_pillars.rds")
@@ -44,7 +47,11 @@ sgtf_by_region_and_age <- bind_rows(
 sgtf_by_region_and_age <- sgtf_by_region_and_age %>%
   filter(pillar == 2)
 
+# Adjust age groups of data
+sgtf_by_region_and_age <- sgtf_by_region_and_age %>%
+  summarise_by_15_year_age_group()
+
 # Save as csv
-write_csv(sgtf_by_region_and_age, 
-          here("data", "private", "sgtf-by-region-and-age.csv")
+write_csv(sgtf_by_region_and_age,
+          here("data", "public", "sgtf-by-region-and-age.csv")
 )

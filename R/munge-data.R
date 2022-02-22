@@ -101,6 +101,30 @@ bias_data_to_fv <- function(obs) {
     filter(!is.na(seq_total))
 }
 
+age_seq_data_to_fv <- function(obs) {
+  obs %>%
+    transmute(region = region,
+              age_group = age_group,
+              date = date_specimen,
+              cases = total,
+              cases_available = date,
+              seq_total = total_seq,
+              seq_voc = omicron,
+              share_voc = omicron / total_seq,
+              seq_available = date)
+}
+
+filter_seq_threshold <- function(obs, frac_thres = 0.01, n_thres = 5) {
+  obs %>%
+    mutate(great_thres = share_voc >= frac_thres & seq_voc >= n_thres,
+           start_date = ifelse(great_thres, date, NA),
+           start_date = min(start_date, na.rm = TRUE)) %>%
+    mutate(across(.cols = c("seq_total", "seq_voc", "share_voc"),
+           ~ ifelse(date < start_date, NA, .))
+    ) %>%
+    select(-start_date, -great_thres)
+}
+
 cumulative_percentage <- function(cases, pop) {
   cases_pop <- cases %>%
     left_join(pop, by = c("region")) %>%

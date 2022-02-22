@@ -39,14 +39,15 @@ library(stringr)
 
 # load functions
 source(here("R", "load-local-data.R"))
-source(here("R", "plot-daily-cases.R"))
+source(here("R", "plot-seq-with-cases.R"))
 source(here("R", "estimate-generation-time.R"))
+source(here("R", "simulations.R"))
 ```
 
 ```{r setup-dates}
-date_data_start <- as.Date("2022-01-01")
-date_gt_start <- as.Date("2022-01-12")
-date_forecast_start <- as.Date("2022-02-06")
+date_data_start <- as.Date("2021-11-23")
+date_gt_start <- as.Date("2021-12-01")
+date_forecast_start <- as.Date("2021-12-23")
 ```
 
 1. Centre for the Mathematical Modelling of Infectious Diseases, London School of Hygiene & Tropical Medicine, London WC1E 7HT, United Kingdom
@@ -60,15 +61,13 @@ Early estimates from South Africa indicated that the Omicron COVID-19 variant ma
 
 ### Methods
 
-We estimated daily growth rates for the Omicron and Delta variants in each UKHSA region from the 23rd of November to the 23rd of December 2021 using surveillance case counts by date of specimen and S-gene target failure status with an autoregressive model that allowed for time-varying differences in the transmission advantage of the Delta variant where the evidence supported this. By assuming a gamma distributed generation distribution we then estimated the generation time distribution and transmission advantage of the Omicron variant that would be required to explain this time varying advantage. We repeated this estimation process using two different prior estimates for the generation time of the Delta variant first based on household transmission and then based on its intrinsic generation time.
+We estimated daily growth rates for the Omicron and Delta variants in each UKHSA region from the 23rd of November to the 23rd of December 2021 using surveillance case counts by date of specimen augmented with variant type based on sequence, and genotype data with an autoregressive model that allowed for time-varying differences in the transmission advantage of the Delta variant where the evidence supported this. By assuming a gamma distributed generation distribution we then estimated the generation time distribution and transmission advantage of the Omicron variant that would be required to explain this time varying advantage. We repeated this estimation process using two different prior estimates for the generation time of the Delta variant first based on household transmission and then based on its intrinsic generation time. We also repeated this analysis using data aggregated by UKHSA region, by 15-year age group and by both UKHSA region and 15-year age group.
 
 ### Results
 
-Visualising our growth rate estimates provided initial evidence for a difference in generation time distributions. Assuming a generation time distribution for Delta with a mean of 2.5-4 days (90% credible interval) and  a standard deviation of 1.9-3 days we estimated a shorter generation time distribution for Omicron with a mean of 1.5-3.2 days and a standard deviation of 1.3-4.6 days. This implied a transmission advantage for Omicron in this setting of 160%-210% compared to Delta. We found similar relative results using an estimate of the intrinsic generation time for Delta though all estimates increased in magnitude due to the longer assumed generation time.
-
 ### Conclusions
 
-We found that a reduction in the generation time of Omicron compared to Delta was able to explain the observed variation over time in the transmission advantage of the Omicron variant. However, this analysis cannot rule out the role of other factors such as differences in the populations the variants were mixing in, differences in immune escape between variants or bias due to using the test to test distribution as a proxy for the generation time distribution.
+This analysis cannot rule out the role of other factors such as differences in the populations the variants were mixing in, differences in immune escape between variants or bias due to using the test to test distribution as a proxy for the generation time distribution.
 
 ## Introduction
 
@@ -76,25 +75,25 @@ Early estimates from South Africa indicated that the Omicron COVID-19 variant ma
 
 [Previously](https://epiforecasts.io/omicron-sgtf-forecast/summary) [@abbott_Real-time_estimation_of_2021], we estimated growth rates for the Omicron and Delta variants jointly in England by UKHSA region. We used S-gene target failure (SGTF) as a proxy of variant status (with SGTF highly correlated with Omicron) combined with reported case counts. A key finding from this report was that the growth advantage of Omicron variant versus the Delta variant appeared to vary over time. There are a range of potential explanations for this finding, such as: the impact of differential immune escape, sampling bias in the SGTF data, differences in the populations in which the variants are circulating (for example differences in age group mixtures), the impact of behavioural or policy change, or differing generation times between variants in comparable settings.
 
-In this study, we focus on estimating the generation time distribution that would be required to explain the observed variation in growth advantage. We do so by exploiting the approximate relationship between the daily growth rate, gamma distributed generation times, and the effective reproduction number [@park2019; @park2020]. This relationship means that estimates of the growth rate for the Delta variant can be combined with prior estimates for the generation time of the Delta variant in a model in order to estimate the generation time of Omicron based on the observed variation in transmission advantage between the Omicron and Delta variant. We use growth rate estimates by UKHSA region derived using surveillance case counts and SGTF data along with prior estimates for the generation time from Hart et al[@hart2021].
+In this study, we focus on estimating the generation time distribution that would be required to explain the observed variation in growth advantage. We do so by exploiting the approximate relationship between the daily growth rate, gamma distributed generation times, and the effective reproduction number [@park2019; @park2020]. This relationship means that estimates of the growth rate for the Delta variant can be combined with prior estimates for the generation time of the Delta variant in a model in order to estimate the generation time of Omicron based on the observed variation in transmission advantage between the Omicron and Delta variant. We use growth rate estimates by UKHSA region, by 15-year age group, and by both UKHSA region and 15-year age group derived using surveillance case counts and augmented with variant type based on sequence, and genotype data along with prior estimates for the generation time from Hart et al[@hart2021].
 
 ## Methods
 
 ### Data
 
-We use test-positive cases' reported S-gene status as a direct proxy for the Omicron variant, with a target failure indicating a case has the Omicron variant. We augment this data with total reported cases counts. Both sets of data were sourced from UKHSA, available daily by specimen date for England and by region. We use data from the 23rd of November 2021 up to the 23rd of December 2021. This covers the main transition period from the Delta variant being dominant to the Omicron variant being dominant and exludes the majority of the Christmas reporting period in which test seeking behaviour became atypical.
+We use test-positive pillar 2 cases' reported variant based on sequence, and genotype data. We augment this data with total reported pillar 2 cases counts. Both sets of data were sourced from UKHSA, available daily by specimen date for England and by UKHSA region. We use data from the 23rd of November 2021 up to the 23rd of December 2021. This covers the main transition period from the Delta variant being dominant to the Omicron variant being dominant and exludes the majority of the Christmas reporting period in which test seeking behaviour became atypical. We also excluded cases with a known history of recent travel.
 
 ### Growth rate estimation
 
 We use the same methodology to estimate variant specific growth rates as in our earlier [study estimating the time-varying transmission advantage of the Omicron variant](https://epiforecasts.io/omicron-sgtf-forecast/summary) (archived [here](https://github.com/epiforecasts/omicron-sgtf-forecast/releases/tag/reportv1.3.0)) [@abbott_Real-time_estimation_of_2021]. Briefly, we use an autoregressive (AR) approach where expected cases for each variant are modelled as a combination of expected cases from the previous day and the exponential of the log growth rate for that variant and time point. The variant specific growth rate is then itself modelled as a differenced AR(1) process using a vector autoregression structure, which assumes that the first differences of the variant growth rates are drawn from a multivariate normal distribution. This model formulation can account for variant differences other than a transmission advantage in a principled manner. Crucially, in the absence of evidence that variants do not co-vary, it reduces to a model with a fixed transmission advantage.
 
-We fit jointly to reported cases and SGTF data for each timeseries independently assuming a negative binomial and beta-binomial observation model respectively. Day of the week reporting periodicity for case counts is captured using a random effect for the day of the week. We initialise the model by fitting to a week of case-only data where the Omicron variant is assumed to not be present (from the 17th of November to the 22nd).
+We fit jointly to reported cases and sequence data for each timeseries independently assuming a negative binomial and beta-binomial observation model respectively. Day of the week reporting periodicity for case counts is captured using a random effect for the day of the week. Sequence data (or its proxy) was only included in the model starting with the first date that had at least 1% of samples positive for the Omicron variant and at least 5 samples positive with the variant.
 
 A full description of this model can be found in the documentation for the [`forecast.vocs` R package](https://epiforecasts.io/forecast.vocs/) [@forecast.vocs].
 
-```{r load-regional-growth}
+```{r load-sgtf-growth}
 # get regional estimation date
-regional_date <- as.Date("2022-02-12")
+regional_date <- as.Date("2022-01-06")
 
 # load case data
 daily <- load_local_data(regional_date) %>%
@@ -114,6 +113,34 @@ region_growth <- load_growth(
 region_growth <- region_growth[!(region %in% "England")]
 ```
 
+```{r load-seq-data}
+# get regional/age estimation date
+age_date <- as.Date("2021-12-23")
+
+# load case data
+seq_with_cases <- read_csv(
+    here("data", "public", "seq-by-region-and-age.csv")
+  ) %>%
+  filter(date_specimen >= date_data_start) %>%
+  filter(date_specimen <= date_forecast_start)
+```
+
+```{r load-seq-results}
+# load posterior estimates
+seq_results <- load_results(age_date, type = "seq-by-age")
+
+seq_posterior <- seq_results$posterior[
+  variant_relationship == "correlated"
+][date <= date_forecast_start]
+
+# load growth estimates
+seq_growth <- load_growth(
+  age_date, min_date = date_gt_start, max_date = date_forecast_start,
+  type = "seq-by-age"
+)
+```
+
+
 ### Generation time and transmission advantage estimation
 
 We model the relationship between estimated variant growth rates, their generation times, and the between variant transmission advantage using the gamma approximation framework developed by Park et al. [@park2019; @park2020] to estimate the effective reproduction number for each variant assuming that their generation time is gamma distributed. This approximation is as follows and holds when growth is approximately exponential,
@@ -122,44 +149,65 @@ $$R = \left(1 + \bar{G}kr  \right)^{\frac{1}{k}}$$
 
 Where $R$ is the effective reproduction number, $\bar{G}$ is the mean of the gamma distributed generation time, $r$ is the daily growth rate, and $k$ is the squared coefficient of variation which can be reparametrised as $\frac{\bar{G}^2_\mathrm{SD}}{\bar{G}^2}$ where $\bar{G}_\mathrm{SD}$ is the standard deviation of the gamma distribution.
 
-Using this approximation we first estimate the effective reproduction number ($R^\mathrm{D}$) of the Delta variant across locations ($l$) and times ($t$, in days) using estimates of the daily growth rates ($r^\mathrm{D}$), and a gamma distributed generation time. Under an assumption of homogeneous mixing we can then relate the effective reproduction number of Delta to the effective reproduction number of Omicron ($R^\mathrm{O}$) by assuming a transmission advantage ($\alpha$) which corresponds to a combination of any intrinsic transmission advantage as well as population based advantages (such as advantage gained from immune escape). Finally, we can then reverse the gamma approximation framework to estimate the daily growth rates for Omicron ($r^\mathrm{O}$) and compare these to those estimated directly in the previous modelling step.
+Using this approximation we first estimate the effective reproduction number ($R^\mathrm{D}$) of the Delta variant across stratificaton ($l$) and times ($t$, in days) using estimates of the daily growth rates ($r^\mathrm{D}$), and a gamma distributed generation time. Under an assumption of homogeneous mixing we can then relate the effective reproduction number of Delta to the effective reproduction number of Omicron ($R^\mathrm{O}$) by assuming a location specific transmission advantage ($\alpha_l$) which corresponds to a combination of any intrinsic transmission advantage as well as population based advantages (such as advantage gained from immune escape). Finally, we can then reverse the gamma approximation framework to estimate the daily growth rates for Omicron ($r^\mathrm{O}$) and compare these to those estimated directly in the previous modelling step. We choose priors for our model that weakly reflect our belief that a change in generation time between variants is unlikely and if present should be relatively small in the sense that large changes of generation time are penalised.
 
 Our model is described by the following set of equations:
 
 \begin{align}
  r^\mathrm{D}_{lt} &\sim  \text{Normal}\left(\bar{r}^\mathrm{D}_{lt}, \tau_{lt}^\mathrm{D} \right) \\
  R^\mathrm{D}_{lt} &= \left(1 + \bar{G}^\mathrm{D}  k^\mathrm{D} r^\mathrm{D}_{lt}  \right)^{\frac{1}{k^\mathrm{D}}} \\
- R^\mathrm{O}_{lt} &= \alpha R^\mathrm{D}_{lt} \\
+ R^\mathrm{O}_{lt} &= \alpha_l R^\mathrm{D}_{lt} \\
  r^\mathrm{O}_{lt} &= \frac{(R^\mathrm{O}_{lt})^{k^\mathrm{O}} - 1}{k^\mathrm{O} \bar{G}^\mathrm{O}} \\
  \sigma^\mathrm{O}_{lt} &= \sqrt{\sigma^2 + (\tau_{lt}^\mathrm{O})^2} \\
  \bar{r}^\mathrm{O}_{lt} &\sim \text{Normal}\left(r^\mathrm{O}_{lt},\sigma^\mathrm{O}_{lt} \right) \\
 \end{align}
 
-Here, superscripts D and O denote Delta and Omicron, respectively, $r$ is the growth rate, $\bar{r}$ is the mean estimated growth rate from the previous modelling step, $\tau$ its standard deviation and $R$ the effective reproduction number. We assume that generation time posteriors from the previous step are distributed according to independent normal distribtions and include an additional observation error ($\sigma$) to account for the approximate nature of the relationship between variant growth rates. The relationship between generation time estimates for Omicron and Delta is then modelled as follows,
+Here, superscripts D and O denote Delta and Omicron, respectively, $r$ is the growth rate, $\bar{r}$ is the mean estimated growth rate from the previous modelling step, $\tau$ its standard deviation and $R$ the effective reproduction number. We assume that generation time posteriors from the previous step are distributed according to independent normal distributions and include an additional observation error ($\sigma$) to account for the approximate nature of the relationship between variant growth rates. The relationship between generation time estimates for Omicron and Delta is then modelled as follows,
 
 \begin{align}
   \bar{G}^\mathrm{D} &\sim \text{Normal}\left(3.2, 0.46 \right) \\
   \bar{G}_\mathrm{SD}^\mathrm{D} &\sim \text{Normal}\left(2.4, 0.33 \right) \\
-  \frac{\bar{G}^\mathrm{O}}{\bar{G}^\mathrm{D}} &\sim  \text{LogNormal}\left(0, 1 \right) \\
-  \frac{\bar{G}_\mathrm{SD}^\mathrm{O}}{\bar{G}_\mathrm{SD}^\mathrm{D}} &\sim \text{LogNormal}\left(0, 1 \right) \\
+  \frac{\bar{G}^\mathrm{O}}{\bar{G}^\mathrm{D}} &\sim  \text{LogNormal}\left(0, 0.2 \right) \\
+  \frac{\bar{G}_\mathrm{SD}^\mathrm{O}}{\bar{G}_\mathrm{SD}^\mathrm{D}} &\sim \text{LogNormal}\left(0, 0.2 \right) \\
 \end{align}
 
-The generation priors used here are motivated by the household estimates derived in Hart et al [@hart2021] for the UK  using a normal approximation. As a sensitivity analysis, we also explore their alternative intrinsic estimates which had a mean of 4.6 days (standard deviation (SD): 0.36 days) and a standard deviation of 3.1 days (SD: 0.18) days, again using a normal approximation. Finally we assume that the standard deviation of the reporting delay has a normal prior truncated at zero with a mean of zero and a standard deviation of 0.1.
+The generation priors used here are motivated by the household estimates derived in Hart et al [@hart2021] for the UK  using a normal approximation. As a sensitivity analysis, we also explore their alternative intrinsic estimates which had a mean of 4.6 days (standard deviation (SD): 0.36 days) and a standard deviation of 3.1 days (SD: 0.18) days, again using a normal approximation. We model the location specific transmission advantage ($\alpha_l$) using a random effect with all locations having a joint mean ($\alpha$) and standard deviation ($alpha_\mathrm{SD}$) as follows,
+
+\begin{align}
+  \alpha_l &\sim \text{LogNormal}\left(\alpha, \alpha_\mathrm{SD} \right) \\
+  \alpha &\sim \text{Normal} \left(1, 0.5 \right) \\
+  \alpha_\mathrm{SD} &\sim \text{Normal} \left(0, 0.1 \right) \\
+\end{align}
+
+Finally, we assume that the standard deviation of the normal observation model has a normal prior truncated at zero with a mean of zero and a standard deviation of 0.1.
+
+\begin{align}
+  \sigma &\sim \text{Normal} \left(0, 1 \right) \\
+\end{align}
 
 ```{r load-generation-time-estimates}
 posterior_summary <- fread(
   here::here("data", "retrospective", "posterior_summary.csv")
-)
+)[gt_diff == TRUE][source == "sequence"]
+posterior_samples <- fread(
+  here::here("data", "retrospective", "posterior_samples.csv")
+)[gt_diff == TRUE][source == "sequence"]
 posterior_predictions <- fread(
   here::here("data", "retrospective", "posterior_predictions.csv")
+)[gt_diff == TRUE][source == "sequence"]
+reproduction_no_pp <- fread(
+  here::here("data", "retrospective", "reproduction_no_pp.csv")
+)[gt_diff == TRUE][source == "sequence"]
+posterior_locations <- fread(
+  here::here("data", "retrospective", "posterior_locations.csv")
 )
 ```
 
 ### Statistical inference
 
-We first visualised our combined data sources (cases by specimen date and SGTF status by specimen date). We then fit the growth rate estimation model separately to data for each UKHSA region and extracted posterior estimates of the growth rate for both Omicron and Delta, and overall. To motivate subsequent modelling we then visualised these estimates over time and in comparison to each other. We added linear fits to the growth rate comparison plot for each UKHSA region as well as overall in order to visualise the relationship between variants compared to the idealised relationship in which they shared a generation time estimate. This was motivated by the simple effective reproduction number approximation $R = \text{exp} \left(\bar{G}r \right)$ . This means that the gradient of the relationship between variant growth rates can be considered as the approximate ratio between variant generation time means (and so should be 1 when they share the same generation time).
+We first visualised our combined data sources (cases by specimen date and variant status by specimen date). We then fit the growth rate estimation model separately to data for each UKHSA region, 15-year age group, and both UKHSA region and 15-year age group and extracted posterior estimates of the growth rate for both Omicron and Delta, and overall. Sequence data (or its proxy) was only included in the model starting with the first date that had at least 1% of samples positive for the Omicron variant and at least 5 samples positive with the variant. This filtering was aimed at mitigating bias in the early sequence data. To motivate subsequent modelling we then visualised these estimates over time and in comparison to each other. We added linear fits to the growth rate comparison visualisations in order to visualise the relationship between variants compared to the idealised relationship in which they shared a generation time estimate. This was motivated by the simple effective reproduction number approximation $R = \text{exp} \left(\bar{G}r \right)$ . This means that the gradient of the relationship between variant growth rates can be considered as the approximate ratio between variant generation time means (and so should be 1 when they share the same generation time).
 
-We then used the mean and standard deviation of the growth rate estimates from the 1st to the 23rd December 2021, excluding early growth estimates due to the potential for bias from imported cases. These were generated by the first modelling step to jointly estimate the generation time distribution for Omicron as well as its overall transmission advantage compared to Delta. This assumes that the generation time distribution for both variants as well as the transmission advantage is the same over all UKHSA regions and across time. We used both the household and intrinsic Delta generation time estimates from Hart et al. [@hart2021] and presented the resulting posterior estimates from both. To check the performance of our modelling approach, we plot the posterior predictions for Omicron daily growth rates by UKHSA region over time and compared them to the estimates from the growth rate estimation step.
+We then used the mean and standard deviation of the growth rate estimates from the 1st to the 23rd December 2021 (or from the first date with data based on our earlier filtering step), excluding early growth estimates due to the potential for bias from imported cases in the generation time and transmission advantage estimation modelling step. We repeated this estimation process for growth rate estimates by UKHSA region, by 15-year age group, and for both jointly. Each of these models assumed a shared generation time distribution for Omicron across all growth rate estimates but the tranmission advantage was able to vary though this was constrained using a hyperparameter. We used both the household and intrinsic Delta generation time estimates from Hart et al. [@hart2021] and presented the resulting posterior estimates from both. To check the performance of our modelling approach, we plot the realised generation time distributions our posterior estimates implied, plot the scatter plots of the mean and standard deviation of the generation time, plot the stratification specific transmission advantange, and plot the posterior predictions for Omicron daily growth rates over time and compared them to the estimates from the growth rate estimation step.
 
 ### Implementation
 
@@ -167,13 +215,37 @@ The growth rate estimation model was implemented using the [`forecast.vocs` R pa
 
 ## Results
 
+### Scenario simulations
+
+```{r syn-scenario-plot, fig.height = 9, fig.width = 9, fig.cap = "Growth rates scenarios based on an observed growth rate for one variant (black line) and the resulting growth rate for another variant varying the assumed transmission advantage (coloured lines), generation time mean (x facet - 75%, 100% and 125% of the baseline assumed value of 3.2 days), and generation time standard deviation (y axis, 75%, 100% and 125% of the baseline assumed value of 2.1 days). The central facet represents a scenario where variants share a generation time."}
+syn_sims <- fread(here("data", "simulations", "uk-scenario-simulations.csv"))
+plot_syn_scenarios(syn_sims[gt_type %in% "Household"])
+```
+
 ### Data description
 
-```{r data, fig.cap = "Daily cases in England and by UKHSA region, with S-gene target result (failed, confirmed detected, or unknown), and centred 7-day moving average starting from the 23rd of November 2021 and including data up to the 23rd of December 2021 (dotted line). Source: UKHSA and coronavirus.gov.uk; data by specimen date."}
-plot_daily_cases(
-  daily, truncate_date = date_forecast_start, caption = "",
-  start_date = date_data_start, smooth_total = TRUE
-)
+```{r data, fig.cap = "Daily pillar 2 cases by specimen date in England and by UKHSA region with variant type (Omicron, non-Omicron, and unknown), starting from the 23rd of November 2021 and including data up to the 23rd of December 2021."}
+seq_with_cases %>%
+  filter(age_group %in% "Overall") %>%
+  group_by(region, date_specimen) %>%
+  summarise(across(where(is.numeric), sum), .groups = "drop") %>%
+  plot_seq_with_cases() +
+    facet_wrap(~ region, scales = "free")
+```
+
+```{r data-by-age, fig.cap = "Daily pillar 2 cases by specimen date in England by 15-year age group with variant type (Omicron, non-Omicron, and unknown), starting from the 23rd of November 2021 and including data up to the 23rd of December 2021."}
+seq_with_cases %>%
+  filter(!(age_group %in% "Overall")) %>%
+  filter(region %in% "England") %>%
+  plot_seq_with_cases() +
+    facet_wrap(~ age_group, scales = "free")
+```
+
+```{r data-by-age-regions, fig.cap = "Daily pillar 2 cases by specimen date in England by UKHSA region 15-year age group with variant type (Omicron, non-Omicron, and unknown), starting from the 23rd of November 2021 and including data up to the 23rd of December 2021."}
+seq_with_cases %>%
+  filter(!(region %in% "England")) %>%
+  plot_seq_with_cases() +
+  facet_grid(age_group ~ region, scales = "free_y")
 ```
 
 ### Growth rate of reported cases overall, with the Omicron variant, and not with the Omicron variant
@@ -181,21 +253,38 @@ plot_daily_cases(
 #### Over time
 
 ```{r growth, fig.cap = "Estimates of the time-varying daily growth rate for England and by UKHSA region (using the log scale approximation) for reported cases overall, cases with the Omicron variant, and non-Omicron cases. Growth rates are assumed to be piecewise constant with potential changes every 3 days. Growth rates are assumed to be constant beyond the forecast horizon (vertical dashed line). 90% and 60% credible intervals are shown."}
-plot_growth(sgtf_posterior) +
+plot_growth(
+  seq_posterior[age_group %in% "Overall"]
+) +
   facet_wrap(~ region)
+```
+
+```{r age-growth, fig.cap = "Estimates of the time-varying daily growth rate for England by 15-year age group (using the log scale approximation) for reported cases overall, cases with the Omicron variant, and non-Omicron cases. Growth rates are assumed to be piecewise constant with potential changes every 3 days. Growth rates are assumed to be constant beyond the forecast horizon (vertical dashed line). 90% and 60% credible intervals are shown."}
+plot_growth(
+  seq_posterior[region %in% "England"][!(age_group %in% "Overall")]) +
+  facet_wrap(~ age_group)
+```
+
+```{r age-region-growth, fig.cap = "Estimates of the time-varying daily growth rate for England by UKHSA region and 15-year age group (using the log scale approximation) for reported cases overall, cases with the Omicron variant, and non-Omicron cases. Growth rates are assumed to be piecewise constant with potential changes every 3 days. Growth rates are assumed to be constant beyond the forecast horizon (vertical dashed line). 90% and 60% credible intervals are shown."}
+plot_growth(
+  seq_posterior[!(region %in% "England")][!(age_group %in% "Overall")]
+) +
+  facet_grid(age_group ~ region)
 ```
 
 #### Omicron versus Delta
 
-```{r plot-o-vs-d-growth, fig.cap = "Estimates of the time-varying daily growth rate for each UKHSA region for cases with the Omicron variant, and non-Omicron cases. Point size has been used to represent the uncertainty of each estimate (though it does not correspond to a meaningful credible interval). The dashed grey line indicates the expected relationship between variants if they differ only by a fixed transmission advantage. The solid grey line indicates the observed overall linear relationship between variants, and the slope of this line approximates the ratio between generation time means. The region specific lines show how this relationship differs between regions."}
-piv_growth <- region_growth %>%
+```{r plot-o-vs-d-growth, fig.cap = "Estimates of the time-varying daily growth rate in England by UKHSA region for cases with the Omicron variant, and non-Omicron cases. Point size has been used to represent the uncertainty of each estimate with smaller points being more uncertain. The dashed grey line indicates the expected relationship between variants if they differ only by a fixed transmission advantage. The solid grey line indicates the observed overall linear relationship between variants with the slope of this line approximating the ratio between generation time means. The region specific lines show how this relationship differs between regions."}
+piv_growth <- seq_growth %>%
+  filter(age_group %in% "Overall", !(region %in% "England")) %>%
   pivot_wider(id_cols = c("region", "date"),
-              names_from = "type", values_from = c("mean", "sd"))
+              names_from = "type", values_from = c("mean", "sd")) %>%
+  filter(!is.na(mean_Omicron))
 min_nomicron <- mean(piv_growth[["mean_Omicron"]]) -
   mean(piv_growth[["mean_non-Omicron"]])
 
 ggplot(piv_growth) +
-  aes(y = mean_Omicron, x = .data[["mean_non-Omicron"]], size = sd_Omicron,
+  aes(y = mean_Omicron, x = .data[["mean_non-Omicron"]], size = 1 / sd_Omicron,
       col = region
   ) +
   scale_color_brewer(palette = "Paired") +
@@ -213,18 +302,122 @@ ggplot(piv_growth) +
        col = "UKHSA region")
 ```
 
+```{r plot-o-vs-d-growth-age, fig.cap = "Estimates of the time-varying daily growth rate in England by 15-year age group for cases with the Omicron variant, and non-Omicron cases. Point size has been used to represent the uncertainty of each estimate with smaller points being more uncertain. The dashed grey line indicates the expected relationship between variants if they differ only by a fixed transmission advantage. The solid grey line indicates the observed overall linear relationship between variants with the slope of this line approximating the ratio between generation time means."}
+piv_growth <- seq_growth %>%
+  filter(!(age_group %in% "Overall"), region %in% "England") %>%
+  pivot_wider(id_cols = c("age_group", "date"),
+              names_from = "type", values_from = c("mean", "sd"))  %>%
+  filter(!is.na(mean_Omicron))
+min_nomicron <- mean(piv_growth[["mean_Omicron"]]) -
+  mean(piv_growth[["mean_non-Omicron"]])
+
+ggplot(piv_growth) +
+  aes(y = mean_Omicron, x = .data[["mean_non-Omicron"]], size = 1 / sd_Omicron,
+      col = age_group
+  ) +
+  scale_color_brewer(palette = "Paired") +
+  geom_abline(slope = 1, intercept = min_nomicron, col = "#777575",
+              linetype = 2, size = 1.5) +
+  geom_smooth(method = "lm", formula = y ~ x,
+              se = FALSE, alpha = 0.2) +
+  geom_smooth(col = "#777575", method = "lm", formula = y ~ x,
+              se = FALSE, size = 1.5, alpha = 0.3, linetype = 1) +
+  geom_point(alpha = 0.3) +
+  scale_size(guide = "none") +
+  theme_bw() +
+  theme(legend.position = "bottom") +
+  labs(x = "Delta daily growth rate", y = "Omicron daily growth rate",
+       col = "Age group")
+```
+
+```{r plot-o-vs-d-growt-age-region, fig.cap = "Estimates of the time-varying daily growth rate in England by UKHSA region and 15-year age group for cases with the Omicron variant, and non-Omicron cases. Point size has been used to represent the uncertainty of each estimate with smaller points being more uncertain. The dashed grey line indicates the expected relationship between variants if they differ only by a fixed transmission advantage. The solid grey line indicates the observed overall linear relationship between variants with the slope of this line approximating the ratio between generation time means."}
+piv_growth <- seq_growth %>%
+  filter(!(age_group %in% "Overall"), !region %in% "England") %>%
+  pivot_wider(id_cols = c("region", "age_group", "date"),
+              names_from = "type", values_from = c("mean", "sd"))  %>%
+  filter(!is.na(mean_Omicron))
+min_nomicron <- mean(piv_growth[["mean_Omicron"]]) -
+  mean(piv_growth[["mean_non-Omicron"]])
+
+ggplot(piv_growth) +
+  aes(y = mean_Omicron, x = .data[["mean_non-Omicron"]], size = 1 / sd_Omicron,
+      col = region, shape = age_group
+  ) +
+  scale_color_brewer(palette = "Dark2") +
+  geom_abline(slope = 1, intercept = min_nomicron, col = "#777575",
+              linetype = 2, size = 1.5) +
+  geom_smooth(col = "#777575", method = "lm", formula = y ~ x,
+              se = FALSE, size = 1.5, alpha = 0.3, linetype = 1,
+              aes(shape = NA)) +
+  geom_point(alpha = 0.3) +
+  scale_size(guide = "none") +
+  theme_bw() +
+  theme(legend.position = "bottom") +
+  labs(x = "Delta daily growth rate", y = "Omicron daily growth rate",
+       col = "UKHSA region", shape = "Age group")
+```
+
 ### Generation time and transmission advantage estimates
 
+```{r, fig.height = 9, fig.width = 12, fig.cap = "Posterior samples of the generation time distribution for both Omicron and Delta variants, each generation time prior assumption and data stratification. 100 sampled generation time distributions are shown."}
+gt_samples <- posterior_samples %>%
+  filter(.draw < (250 / max(.chain))) %>%
+  select(stratification, gt_type, gt_mean, gt_sd, voc_gt_mean, voc_gt_sd) %>%
+  group_by(stratification, gt_type) %>%
+  mutate(sample = 1:n()) %>%
+  pivot_longer(gt_mean:voc_gt_sd, names_to = c("variant", ".value"),
+               names_pattern = "(.+)_(.+)") %>%
+  mutate(variant = ifelse(variant %in% "voc_gt", "Omicron", "Delta")) %>%
+  mutate(stratification = str_to_sentence(stratification),
+         gt_type = str_to_sentence(gt_type))
+
+gt_samples %>%
+  mutate(
+    pmf = purrr::map2(
+      mean, sd,
+      ~ tibble(x = 0:30,
+      prob = c(0, pgamma(1:30, (.x / .y)^2, .x / .y^2) -
+        pgamma(0:29, (.x / .y)^2, .x / .y^2)))
+    )
+  ) %>%
+  unnest(pmf) %>%
+  filter(sample <= 100) %>%
+  filter(x <= 15) %>%
+  ggplot() +
+  aes(x = x, y = prob, col = variant, group = interaction(sample, variant)) +
+  geom_line(alpha = 0.3) +
+  theme_bw() +
+  theme(legend.position = "bottom") +
+  scale_color_brewer(palette = "Dark2") +
+  labs(y = "Probability density", x = "Day") +
+  facet_grid(stratification~gt_type)
+```
+
+```{r, fig.height = 9, fig.width = 9, fig.cap = "Posterior samples of the generation time distribution mean and standard deviation for both Omicron and Delta variants, each generation time prior assumption and data stratification. 250 samples are shown." }
+gt_samples %>%
+  ggplot() +
+  aes(x = sd, y = mean, col = variant) +
+  geom_point(alpha = 0.2) +
+  theme_bw() +
+  theme(legend.position = "bottom") +
+  scale_color_brewer(palette = "Dark2") +
+  labs(y = "Generation time mean", x = "Generation time standard deviation") +
+  facet_grid(stratification~gt_type)
+```
+
 ```{r}
-posterior_summary %>%
-  as_tibble() %>%
+clean_summary <- posterior_summary %>%
   select(-rhat, -ess_bulk, -ess_tail) %>%
   filter(
-    variable %in% c("gt_mean", "gt_sd", "ta", "voc_gt_mean", "voc_gt_sd")
+    variable %in% c("gt_mean", "gt_sd", "ta", "ta_sd", "voc_gt_mean",
+                    "voc_gt_sd")
   ) %>%
-  mutate(across(where(is.numeric), round, digits = 1)) %>%
-  mutate(variant = case_when(variable %in% c("gt_mean", "gt_sd") ~ "Omicron BA.1",
-                             TRUE ~ "Omicron BA.2")) %>%
+  mutate(across(where(is.numeric),
+                ~ ifelse(variable %in% c("ta"),
+                  exp(.), .))
+  ) %>%
+  mutate(variant = case_when(variable %in% c("gt_mean", "gt_sd") ~ "Delta",
+                             TRUE ~ "Omicron")) %>%
   mutate(stratification = str_to_sentence(stratification),
          gt_type = str_to_sentence(gt_type)) %>%
   select(data_stratification = stratification,
@@ -232,34 +425,125 @@ posterior_summary %>%
          everything()) %>%
   mutate(variable = case_when(
     variable %in% "ta" ~ "Transmission advantage",
+    variable %in% "ta_sd" ~ "Transmission advantage standard deviation (log)",
     variable %in% c("gt_mean", "voc_gt_mean") ~ "Generation time mean",
     TRUE ~ "Generation time standard deviation"
     )
   ) %>%
-  select(-data_stratification) %>%
   janitor::clean_names(case = "sentence") %>%
   mutate(across(where(is.character), as.factor)) %>%
-  rename(SD = Sd, MAD = Mad) %>%
-  kable(caption = "Posterior estimates for generation time and transmission
-   advantage by choice of generation time prior")
+  rename(SD = Sd, MAD = Mad)
+```
+
+```{r, fig.width = 12, fig.height = 6, fig.cap = "Median and 90% credible intervals of the posterior estimates for the generation time distribution mean and standard deviation, the transmission advantage, and the standard deviation of the transmission advantage for both Omicron and Delta variants, each generation time prior assumption and data stratification." }
+clean_summary %>%
+  ggplot() +
+  aes(x = `Data stratification`, y = Median, ymin = Q5, ymax = Q95,
+      col = Variant) +
+  geom_point(size = 2, position = position_dodge(width = 0.4)) +
+  geom_linerange(size = 2, position = position_dodge(width = 0.4),
+                 alpha = 0.8) +
+  coord_flip() +
+  facet_grid(`Generation time prior` ~ Variable, scales = "free_x") +
+  theme_bw() +
+  theme(legend.position = "bottom") +
+  scale_color_brewer(palette = "Paired") +
+  labs(y = "")
+```
+
+```{r, eval = FALSE}
+posterior_summary %>%
+  filter(
+    variable %in% c("ta", "local_ta")
+  ) %>%
+  mutate(across(where(is.numeric),
+                ~ ifelse(variable %in% c("ta", "local_ta"),
+                  exp(.), .))
+  ) %>%
+  ggplot() +
+  aes(x = `Data stratification`, y = Median, ymin = Q5, ymax = Q95,
+      col = Variant) +
+  geom_point(size = 2, position = position_dodge(width = 0.4)) +
+  geom_linerange(size = 2, position = position_dodge(width = 0.4),
+                 alpha = 0.8) +
+  coord_flip() +
+  facet_grid(`Generation time prior` ~ Variable, scales = "free_x") +
+  theme_bw() +
+  theme(legend.position = "bottom") +
+  scale_color_brewer(palette = "Paired") +
+  labs(y = "")
+```
+
+```{r}
+clean_summary %>%
+  mutate(across(where(is.numeric), round, digits = 1)) %>%
+  kable(caption = "Summarised posterior estimates for generation time and transmission advantage by data stratification, and choice of generation time prior")
 ```
 
 ### Posterior predictions
 
-```{r, fig.cap = "Estimates of the time-varying daily growth rate for each UKHSA region for cases with the Omicron variant compared to posterior predictions using Delta growth rates and differing generation times. Delta growth rates are assumed to be piecewise constant with potential changes every 3 days. 90% and 60% credible intervals are shown."}
+#### Growth rates
+
+```{r pp-region, fig.cap = "Estimates of the time-varying daily growth rate for each UKHSA region for cases with the Omicron variant compared to posterior predictions using Delta growth rates and differing generation times. Delta growth rates are assumed to be piecewise constant with potential changes every 3 days. 90% and 60% credible intervals are shown."}
 posterior_predictions %>%
   filter(stratification == "region", gt_type == "household") %>%
   gt_plot_pp() +
   facet_wrap(~region)
 ```
 
+```{r pp-age, fig.cap = "Estimates of the time-varying daily growth rate for each 15 year age group for cases with the Omicron variant compared to posterior predictions using Delta growth rates and differing generation times. Delta growth rates are assumed to be piecewise constant with potential changes every 3 days. 90% and 60% credible intervals are shown.", fig.width = 9, fig.height = 9}
+posterior_predictions %>%
+  filter(stratification == "age", gt_type == "household") %>%
+  gt_plot_pp() +
+  facet_wrap(~age_group)
+```
+
+```{r pp-age-region, fig.cap = "Estimates of the time-varying daily growth rate for each UKHSA region and 15-year age group for cases with the Omicron variant compared to posterior predictions using Delta growth rates and differing generation times. Delta growth rates are assumed to be piecewise constant with potential changes every 3 days. 90% and 60% credible intervals are shown."}
+posterior_predictions %>%
+  filter(stratification == "age and region", gt_type == "household") %>%
+  gt_plot_pp() +
+  facet_grid(age_group~region)
+```
+
+#### Reproduction number estimates
+
+```{r rt-pp-region, fig.cap = "Estimates of the time-varying effective reproduction number for each UKHSA region for cases with the Omicron variant compared to posterior predictions using Delta growth rates and differing generation times. Delta growth rates are assumed to be piecewise constant with potential changes every 3 days. 90% and 60% credible intervals are shown.", fig.width = 9, fig.height = 6}
+reproduction_no_pp %>%
+  filter(stratification == "region") %>%
+  gt_plot_pp(
+    fill = "region", fill_lab = "UKSHA region",
+    y = "Effective reproduction number", yint = 1
+  ) +
+  facet_wrap(~gt_type)
+```
+
+```{r rt-pp-age, fig.cap = "Estimates of the time-varying effective reproduction number for each 15 year age group for cases with the Omicron variant compared to posterior predictions using Delta growth rates and differing generation times. Delta growth rates are assumed to be piecewise constant with potential changes every 3 days. 90% and 60% credible intervals are shown.", fig.width = 9, fig.height = 6}
+reproduction_no_pp %>%
+  filter(stratification == "age") %>%
+  gt_plot_pp(
+    fill = "age_group", fill_lab = "Age group",
+    y = "Effective reproduction number", yint = 1
+  ) +
+  facet_wrap(~gt_type)
+```
+
+```{r rt-pp-age-region, fig.cap = "Estimates of the time-varying effective reproduction number for each UKHSA region and 15-year age group for cases with the Omicron variant compared to posterior predictions using Delta growth rates and differing generation times. Delta growth rates are assumed to be piecewise constant with potential changes every 3 days. 90% and 60% credible intervals are shown."}
+reproduction_no_pp %>%
+  filter(stratification == "age and region") %>%
+  gt_plot_pp(
+    fill = "age_group", fill_lab = "Age group",
+    y = "Effective reproduction number", yint = 1
+  ) +
+  facet_grid(gt_type~region)
+```
+
 ## Discussion
 
-We found that a shorter generation time was consistent with the time-varying transmission advantage observed for the Omicron variant in England from the beginning of December to the 23rd of December 2021. Assuming a generation time distribution for Delta with a mean of 2.5-4 days (90% credible interval) and a standard deviation of 1.9-3 days we estimated a shorter generation time distribution for Omicron, with a mean of 1.5-3.2 days and a standard deviation of 1.3-4.6 days. This implied a transmission advantage for Omicron in this setting of 160%-210% compared to Delta. We found similar relative results using an estimate of the intrinsic generation time for Delta, though all estimates increased in magnitude due to the longer assumed generation time. However, our analysis may be biased by a range of factors and so these findings should be considered in the light of other results.
+Our analysis may be biased by a range of factors and so these findings should be considered in the light of other results.
 
-Our analysis had several key limitations. Firstly, the surveillance data sources we used to estimate daily growth rates had the potential to bias our analysis both because SGTF may be an imperfect proxy for Omicron and because we used public case count data which do not include reinfections. We made no adjustment for the background rate of SGTF observed for Delta or other factors that might lead to SGTF, or a confirmed detected S-gene observed with Omicron. The exclusion of known reinfections could also lead to bias in our estimates if the proportion of infections that are reinfections varies over time and between variants. Changes in testing practice may also impact our results, especially if this occurs differentially in populations where different proportions of each variant are circulating. In our first study[@abbott_Real-time_estimation_of_2021], we explored the potential for sampling bias for cases with known S-gene status and found little evidence that this was present.
+Our analysis had several key limitations. Firstly, the surveillance data sources we used to estimate daily growth rates had the potential to bias our analysis both because sequence data may be unrepresentative due to sampling strategy and because we used public case count data which do not include reinfections. The exclusion of known reinfections could also lead to bias in our estimates if the proportion of infections that are reinfections varies over time and between variants. Changes in testing practice may also impact our results, especially if this occurs differentially in populations where different proportions of each variant are circulating. In our first study[@abbott_Real-time_estimation_of_2021], we used S-gene status as a proxy for variant status and found similar results to those presented here by UKSHA region. We also explored the potential for sampling bias in this study for cases with known S-gene status and found little evidence that this was present.
 
-Our generation time and transmission advantage estimates for Omicron also have limitations. A major limitation is that our estimated generation time distributions are in fact the distributions from a positive test to resulting positive tests rather than  the true generation time distribution which would be based on infection times. This means that our estimates may be biased if those secondary infections test positive prior to the original (primary) infected case, or may be biased by the epidemic phase [@volz2021]. In addition to this, our model only estimates an overall transmission advantage. We do not attempt to distinguish between "intrinsic" transmissibility and immune escape, a combination of which is likely to be underlying any sustained differences in growth rate. It is also possible that both the observed transmission advantage and  generation times vary across UKHSA regions due to differences in population structure, prior immunity and other factors. However, our posterior predictive model checks imply a good match between observed and estimated growth rates for Omicron for the majority of data points indicating that this effect may be minimal. Finally, our estimates are at the national scale stratified by UKHSA region. There may be additional variation within this stratification that these estimates do not account for and this may bias our results.
+Our generation time and transmission advantage estimates for Omicron also have limitations. A major limitation is that our estimated generation time distributions are in fact the distributions from a positive test to resulting positive tests rather than the true generation time distribution which would be based on infection times. This means that our estimates may be biased if those secondary infections test positive prior to the original (primary) infected case, or may be biased by the epidemic phase [@volz2021]. In addition to this, our model only estimates a location-specific overall transmission advantage. We do not attempt to distinguish between "intrinsic" transmissibility and immune escape, a combination of which is likely to be underlying any sustained differences in growth rate and to potentially vary over time due to increases in population immunity. It is also possible that the generation time differs within UKSHA regions and by age group due to differences in population structure, prior immunity and other factors. However, our posterior predictive model checks imply a good match between observed and estimated growth rates for Omicron for the majority of data points indicating that this effect may be minimal. Finally, our estimates are based on aggregate populations with the smallest scale we consided being 15-year age groups by UKHSA region. There may be additional variation within these groups that these estimates do not account for and this may bias our results.
 
 There are several alternative explanations for our findings other than a change in the generation time distribution. One potential explanation is that that Omicron and Delta may have had differing age profiles in the time period studied, these age distributions may have changed over time, and age groups may have differing transmission potentials. This could potentially lead to the observed variation in transmission advantage between Omicron and Delta without requiring differing generation times. Similarly, if age groups change behaviour differently over time or respond differently to policy changes this could lead to similar changes in transmission advantage as observed.
 
@@ -269,6 +553,6 @@ Despite the range of potential sources of bias our results do correspond with ob
 
 Our results may also be the result of differential immune escape between variants. The reduction in the observed transmission advantage of Omicron over time could result from Delta having greater immune escape from previous Omicron infection than Omicron. However, this seems unlikely given epidemiological evidence [@ferguson-omicron-transmission] and the short time lines involved. As observed in Volz et al. social distancing typically reduces the number of people contacted per day, but increases the duration and frequency of household contacts [@volz2021]. This can result in the saturation of available contacts and hence reduce estimates of the transmission advantage for a variant. If social contacts changed markedly during our study period this could be an explanation for the reduction over time in the observed transmission advantage of Omicron. Finally, the variants may have been circulating in populations that differed in more than just the distribution of ages. This would likely have a similar impact in terms of biasing our results. Despite the range of potential sources of bias our results do correspond with observations of reduced serial intervals in South Korea [@si-south-korea] and a potentially reduced incubation period [@brandal-omicron-incubation], although both these studies reported a large degree of uncertainty and the relationship between symptom presentation, immunity, contact behaviour and generation times is far from trivial.
 
-We found that a reduction in the generation time of Omicron compared to Delta was able to explain the observed variation over time in the transmission advantage of the Omicron variant. However, this analysis cannot rule out the role of other factors such as differences in the populations the variants were mixing in, differences in immune escape between variants, or a bias due to using the test-to-test distribution as a proxy for the generation time. More work is needed to explore these factors both using similar methods to those described in this study, potentially extending to a latent infection based model and/or stratifying by age, and also using alternative study designs such as household transmission studies and contact tracing studies.
+This analysis cannot rule out the role of other factors such as differences in the populations the variants were mixing in, differences in immune escape between variants, or a bias due to using the test-to-test distribution as a proxy for the generation time. More work is needed to explore these factors both using similar methods to those described in this study, potentially extending to a latent infection based model, and also using alternative study designs such as household transmission studies and contact tracing studies.
 
 ## References
