@@ -7,25 +7,37 @@ library(zoo)
 library(ggplot2)
 
 
-load_private_date <- function(path = "data/private", data_type = "specimen") {
+load_private_data <- function(path = "data/private", id_type = "sgtf", data_type = "specimen", clean = TRUE, start_date = NULL) {
   data_path <- here(path,
-                    paste0("sgtf_",
-                           ifelse(data_type == "onset", data_type,
-                                  "daily"),
-                           "_england.csv"))
+                    paste0(id_type, "_",
+                           data_type,
+                           "_england",
+			   ifelse(clean, "_clean", ""),
+			   ".csv"))
 
   regional_raw <- readr::read_csv(data_path, show_col_types = FALSE)
 
+  if ("prop" %in% colnames(regional_raw)) {
+    regional_raw <- regional_raw %>%
+    select(-prop)
+  }
+  if (id_type == "omicron") {
+    regional_raw <- regional_raw %>%
+      rename(sgtf = Omicron, non_sgtf = `Omicron BA.2`)
+  }
   regional <- regional_raw %>%
-    select(-prop) %>%
     rename(date = grep("date", names(.), value = TRUE),
            region = nhser_name,
            sgtf_unknown = "NA") %>%
-    rowwise() %>%
-    mutate(total_sgt = sum(non_sgtf, sgtf, na.rm = TRUE),
-           total_cases = sum(non_sgtf, sgtf, sgtf_unknown, na.rm = TRUE)) %>%
-    ungroup() %>%
+    replace_na(list(sgtf_unknown = 0, non_sgtf = 0, sgtf = 0)) %>%
+    mutate(total_sgt = non_sgtf + sgtf,
+           total_cases = non_sgtf+ sgtf + sgtf_unknown) %>%
     mutate(region = tidyr::replace_na(region, "Unknown"),
            source = "private")
+
+  if (!is.null(start_date)) {
+    regional <- regional %>%
+      filter(date >= start_date)
+  }
   return(regional)
 }

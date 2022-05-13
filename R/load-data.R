@@ -11,15 +11,14 @@ source(here::here("R", "load-public-data.R"))
 source(here::here("R", "load-private-data.R"))
 source(here::here("R", "munge-data.R"))
 
-load_data <- function(open_data = TRUE, data_type = "specimen",
-                      start_date = as.Date("2021-11-20")) {
+load_data <- function(open_data = TRUE, data_type = "specimen", ...) {
   if (open_data) {
     if (data_type == "onset") {
       stop("Public data are by specimen date only")
     }
     regional <- load_public_data()
   } else {
-    regional <- load_private_data(data_type = data_type)
+    regional <- load_private_data(data_type = data_type, ...)
   }
   regional <- add_england_totals(regional)
   return(regional)

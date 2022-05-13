@@ -60,7 +60,7 @@ pop <- load_population()
 sgtf <- load_results(date_latest)
 bias <- load_results(date_latest, type = "bias")
 
-sgtfposterior <- sgtf$posterior[,
+sgtf$posterior <- sgtf$posterior[,
    variant_relationship := stringr::str_to_sentence(variant_relationship)
 ]
 sgtf_posterior <- sgtf$posterior[
