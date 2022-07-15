@@ -134,7 +134,7 @@ gt_estimate <- function(growth, model, by = c(), gt, debug = FALSE, ...) {
   # summarise variables of interest
   summary <- gt_summarise_posterior(fit)
 
-  # summmarise posterior predictions
+  # summarise posterior predictions
   r_pp <- gt_summarise_growth_pp(fit, growth, by = by)
 
   out <- data.table::data.table(

@@ -24,7 +24,7 @@ We estimated daily growth rates for the Omicron and Delta variants in each UKHSA
 
 ### Results
 
-Visualising our growth rate estimates provided initial evidence for a difference in generation time distributions. Assuming a generation time distribution for Delta with a mean of 2.5-4 days (90% credible interval) and  a standard deviation of 1.9-3 days we estimated a shorter generation time distribution for Omicron with a mean of 1.5-3.2 days and a standard deviation of 1.3-4.6 days. This implied a transmission advantage for Omicron in this setting of 160%-210% compared to Delta. We found similar relative results using an estimate of the intrinsic generation time for Delta though all estimates incrased increased in magnitude due to the longer assumed generation time.
+Visualising our growth rate estimates provided initial evidence for a difference in generation time distributions. Assuming a generation time distribution for Delta with a mean of 2.5-4 days (90% credible interval) and  a standard deviation of 1.9-3 days we estimated a shorter generation time distribution for Omicron with a mean of 1.5-3.2 days and a standard deviation of 1.3-4.6 days. This implied a transmission advantage for Omicron in this setting of 160%-210% compared to Delta. We found similar relative results using an estimate of the intrinsic generation time for Delta though all estimates increased in magnitude due to the longer assumed generation time.
 
 ### Conclusions
 

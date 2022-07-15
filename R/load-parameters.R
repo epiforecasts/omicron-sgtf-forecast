@@ -29,7 +29,7 @@ load_sgtf_parameters <- function() {
     # forecast
     horizon = 14,
 
-    # should forcast be extrapolated
+    # should forecast be extrapolated
     r_forecast = FALSE,
 
     # holidays to adjust for (as dates)
@@ -50,7 +50,7 @@ load_bias_parameters <- function() {
   return(parameters)
 }
 
-load_sgft_age_parameters <- function() {
+load_sgtf_age_parameters <- function() {
   parameters <- load_sgtf_parameters()
   parameters$horizon <- 1
   return(parameters)
