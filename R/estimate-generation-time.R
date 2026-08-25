@@ -7,7 +7,7 @@ gt_load_model <- function(model = here::here("stan/generation-time.stan"),
 
 gt_prior <- function(type = "household", source = "hart2021") {
   type <- match.arg(type, choices = c("household", "intrinsic"))
-  source <- match.arg(source, choices = c("hart2021"))
+  source <- match.arg(source, choices = c("hart2021", "abbott2022"))
 
   if (type %in% "intrinsic" & source %in% "hart2021") {
     gt <- list(
@@ -21,7 +21,7 @@ gt_prior <- function(type = "household", source = "hart2021") {
       source = "hart2021",
       doi = "10.1101/2021.10.21.21265216v1"
     )
-  }else if (type %in% "household" & source %in% "hart2021") {
+  } else if (type %in% "household" & source %in% "hart2021") {
     gt <- list(
       # From Hart et al.
       # https://www.medrxiv.org/content/10.1101/2021.10.21.21265216v1
@@ -33,32 +33,75 @@ gt_prior <- function(type = "household", source = "hart2021") {
       source = "hart2021",
       doi = "10.1101/2021.10.21.21265216v1"
     )
+  } else if (type %in% "intrinsic" & source %in% "abbott2022") {
+    gt <- list(
+      # From Abbott et al.
+      # https://www.medrxiv.org/content/10.1101/2022.01.08.22268920v1
+      # Assuming symmetric normal which is incorrect but an approximation
+      mean_mean = 3.3,
+      mean_sd = 0.7,
+      sd_mean = 3.5,
+      sd_sd = 1.2,
+      source = "abbott2022",
+      doi = "10.1101/2022.01.08.22268920"
+    )
+  } else if (type %in% "household" & source %in% "abbott2022") {
+    gt <- list(
+      # From Abbott et al.
+      # https://www.medrxiv.org/content/10.1101/2022.01.08.22268920v1
+      # Assuming symmetric normal which is incorrect but an approximation
+      mean_mean = 2.2,
+      mean_sd = 0.3,
+      sd_mean = 2.7,
+      sd_sd = 1.1,
+      source = "abbott2022",
+      doi = "10.1101/2022.01.08.22268920"
+    )
   }
+
   return(gt)
 }
 
-gt_dt <- function(growth, by = c(),
-                  gt = gt_prior(type = "intrinsic", source = "hart2021"), 
-                  debug = FALSE) {
-  if (length(by) > 0) {
-    form <- as.formula(
-      paste0(
-        paste(by, collapse = " + ", sep = " + "),
-        "+ date ~ type"
+gt_process_by_group <- function(growth, var = "mean", by = c()) {
+    if (length(by) > 0) {
+      form <- as.formula(
+        paste0(
+          paste(by, collapse = " + ", sep = " + "),
+          "+ date ~ type"
+        )
       )
+    }else{
+      form <- as.formula("date ~ type")
+    }
+    growth_wide <- data.table::dcast(
+      growth, form, value.var = var
     )
-  }else{
-    form <- as.formula("date ~ type")
-  }
-  growth_sd_wide <- data.table::dcast(
-    growth, form, value.var = "sd"
-  )
-  growth_sd_wide <- growth_sd_wide[!is.na(Omicron)]
+    growth_wide <- growth_wide[!is.na(Omicron)]
+    data.table::setkeyv(growth_wide, cols = c("date", by))
+    return(growth_wide)
+}
 
-  growth_mean_wide <- data.table::dcast(
-    growth, form, value.var = "mean"
-  )
-  growth_mean_wide <- growth_mean_wide[!is.na(Omicron)]
+gt_locations <- function(growth, by = c()) {
+  growth <- gt_process_by_group(growth, var = "mean", by = by)
+  growth <- unique(growth[, c("date", ..by)])
+  if (length(by) == 0) {
+    locs <- growth[, loc := 1]
+  } else {
+    ulocs <- unique(growth[, ..by])
+    ulocs[, loc := 1:.N]
+    locs <- merge(growth, ulocs, by = by)
+  }
+  return(locs)
+}
+
+
+gt_dt <- function(growth, by = c(),
+                  gt = gt_prior(type = "intrinsic", source = "hart2021"),
+                  gt_diff = FALSE, debug = FALSE) {
+  growth_sd_wide <- gt_process_by_group(growth, var = "sd", by = by)
+  growth_mean_wide <- gt_process_by_group(growth, var = "mean", by = by)
+
+  locations <- gt_locations(growth, by = by)
 
   # Data for stan
   stan_dt <- list(
@@ -71,6 +114,9 @@ gt_dt <- function(growth, by = c(),
     gt_mean_sd = gt$mean_sd,
     gt_sd_mean = gt$sd_mean,
     gt_sd_sd = gt$sd_sd,
+    loc = locations$loc,
+    l = length(unique(locations$loc)),
+    gt_diff = as.numeric(gt_diff),
     debug = as.numeric(debug)
   )
   return(stan_dt)
@@ -78,52 +124,95 @@ gt_dt <- function(growth, by = c(),
 
 gt_inits <- function(data) {
   function() {
+    st_dt <- data
     data <- list(
       nvoc_r = purrr::map2(
-        data$nvoc_r_mean, data$nvoc_r_sd, ~ rnorm(1, .x, .y * 0.1)
+        data$nvoc_r_mean, data$nvoc_r_sd, ~ rnorm(1, .x, .y * 0.001)
       ),
-      gt_mean = rnorm(1, data$gt_mean_mean, data$gt_mean_sd * 0.1),
-      gt_sd = rnorm(1, data$gt_sd_mean, data$gt_sd_sd * 0.1),
-      voc_gt_mean_mod = rnorm(1, 1, 0.01),
-      voc_gt_sd_mod = rnorm(1, 1, 0.01),
-      sigma = rnorm(1, 0.1, 0.01),
-      ta = rnorm(1, 1, 0.1)
+      gt_mean = rnorm(1, data$gt_mean_mean, data$gt_mean_sd * 0.01),
+      gt_sd = rnorm(1, data$gt_sd_mean, data$gt_sd_sd * 0.01),
+      sigma = abs(rnorm(1, 0, 0.01)),
+      ta = rnorm(1, 1, 0.1),
+      ta_sd = abs(rnorm(1, 0, 0.001))
     )
-    data$voc_gt_mean <- data$gt_mean
-    data$voc_gt_sd <- data$gt_sd
+    if (st_dt$gt_diff == 1) {
+      data$m_gt <- array(exp(rnorm(1, 0, 0.01)))
+      data$m_gt_sd <- array(exp(rnorm(1, 0, 0.01)))
+    }
+    data$local_ta <- rep(data$ta, st_dt$l)
     return(data)
   }
 }
 
+gt_draws <- function(fit,
+                     vars = c("gt_mean", "gt_sd", "k",
+                              "voc_gt_mean",
+                              "voc_gt_sd", "k_v", "ta", "ta_sd",
+                              "local_ta", "sigma"), ...) {
+  draws <- fit$draws(variables = vars, format = "df", ...)
+  draws <- data.table::as.data.table(draws)
+  return(draws[])
+}
+
 gt_summarise_posterior <- function(fit,
-                                   vars = c("gt_mean", "gt_sd",
-                                            "voc_gt_mean_mod", "voc_gt_sd_mod",
-                                            "voc_gt_mean", "voc_gt_sd", "ta",
-                                            "sigma"), ...) {
+                                   vars = c("gt_mean", "gt_sd", "k",
+                                            "voc_gt_mean",
+                                            "voc_gt_sd", "k_v", "ta", "ta_sd",
+                                            "local_ta", "sigma"),
+                                   ...) {
   posterior <- fit$summary(variables = vars, ...)
   posterior <- data.table::as.data.table(posterior)
   return(posterior[])
 }
 
-gt_summarise_growth_pp <- function(fit, growth, by = c()) {
+gt_summarise_pp <- function(fit, growth, var = "pp_voc_r", by = c(),
+                            bind_obs = TRUE) {
   r_pp <- fit$summary(
-    variables  = "pp_voc_r", posterior::quantile2,
-    .args = list(probs = c(0.05, 0.2, 0.8, 0.95))
+    variables  = var, posterior::quantile2,
+    .args = list(probs = c(0.05, 0.2, 0.5, 0.8, 0.95))
   )
   r_pp <- data.table::as.data.table(r_pp)[, type := "Posterior prediction"]
   cols <- c(by, "date")
-  r_pp <- cbind(growth[type %in% "Omicron", ..cols], r_pp)
-  r_pp <- rbind(
-    growth[type %in% "Omicron"][, type := "Estimate"][!is.na(mean)],
-    r_pp, fill = TRUE, use.names = TRUE
-  )
+  growth_wide <- gt_process_by_group(growth, var = "mean", by = by)
+  r_pp <- cbind(growth_wide[, ..cols], r_pp)
+  if (bind_obs) {
+    r_pp <- rbind(
+      growth[type %in% "Omicron"][, type := "Estimate"][!is.na(mean)],
+      r_pp, fill = TRUE, use.names = TRUE
+    )
+  }
   return(r_pp[])
 }
 
-gt_estimate <- function(growth, model, by = c(), gt, debug = FALSE, ...) {
+gt_draws_pp <- function(fit, growth, var = "pp_voc_r", by = c()) {
+  draws <- gt_draws(fit, var = var)
+  draws[, sample := 1:.N]
+  draws <- data.table::melt(
+    draws,
+    id.vars = c(".draw", ".chain", ".iteration", "sample")
+  )
+  cols <- c(by, "date")
+  growth_wide <- gt_process_by_group(growth, var = "mean", by = by)
+  growth_wide <- growth_wide[, ..cols]
+  draws <- draws[, .(samples = list(.SD)), by = "sample"]
+  draws[, samples := purrr::map(samples, ~ cbind(growth_wide, .))]
+  draws <- draws[, rbindlist(samples), by = "sample"]
+  draws <- draws[, c("sample", ..cols, "value")]
+  return(draws[])
+}
+
+gt_estimate <- function(growth, model, by = c(), gt, gt_diff = FALSE, 
+                        debug = FALSE, ...) {
+
+  # Set order for growth
+  growth <- data.table::copy(growth)
+  data.table::setkeyv(growth, cols = c("date", by))
 
   # Data for stan
-  stan_dt <- gt_dt(growth, by = by, gt = gt)
+  stan_dt <- gt_dt(growth, by = by, gt = gt, gt_diff = gt_diff, debug = debug)
+
+  # locations
+  locs <- gt_locations(growth, by = by)
 
   # Set initial conditions based on priors
   # Fit model (initially a little stroppy)
@@ -131,30 +220,46 @@ gt_estimate <- function(growth, model, by = c(), gt, debug = FALSE, ...) {
     data = stan_dt, init = gt_inits(stan_dt), ...
   )
 
+  # samples from the posterior
+  samples <- gt_draws(fit)
+
   # summarise variables of interest
   summary <- gt_summarise_posterior(fit)
 
   # summmarise posterior predictions
-  r_pp <- gt_summarise_growth_pp(fit, growth, by = by)
+  r_pp <- gt_summarise_pp(fit, growth, by = by)
+  R_pp <- gt_summarise_pp( # nolint
+    fit, growth, var = "pp_voc_R", by = by, bind_obs = FALSE
+  )
+  r_pp_samples <- gt_draws_pp(fit, growth, by = by)
+  R_pp_samples <- gt_draws_pp(fit, growth, var = "pp_voc_R", by = by)
 
   out <- data.table::data.table(
     gt_dt = list(stan_dt),
+    locations = list(locs),
     fit = list(fit),
+    samples = list(samples),
     summary = list(summary),
-    pp = list(r_pp)
+    r_pp = list(r_pp),
+    R_pp = list(R_pp),
+    r_pp_samples = list(r_pp_samples),
+    R_pp_samples = list(R_pp_samples)
   )
   return(out[])
 }
 
-gt_plot_pp <- function(r_pp) {
+gt_plot_pp <- function(r_pp, palette = "Dark2",
+                       fill_lab = "Growth rate source",
+                       y = "Growth rate", fill = "type", yint = 0) {
     ggplot2::ggplot(r_pp) +
-    ggplot2::aes(x = date, y = median, fill = type) +
-    ggplot2::geom_ribbon(ggplot2::aes(ymin = q5, ymax = q95), alpha = 0.3) +
-    ggplot2::geom_ribbon(ggplot2::aes(ymin = q20, ymax = q80), alpha = 0.3) +
+    ggplot2::aes(x = date, fill = .data[[fill]]) +
+    ggplot2::geom_hline(yintercept = yint, linetype = 2, alpha = 0.6) +
+    ggplot2::geom_ribbon(ggplot2::aes(ymin = q5, ymax = q95), alpha = 0.1) +
+    ggplot2::geom_ribbon(ggplot2::aes(ymin = q20, ymax = q80), alpha = 0.1) +
     ggplot2::theme_bw() +
     ggplot2::theme(legend.position = "bottom") +
     ggplot2::scale_x_date(date_breaks = "1 week", date_labels = "%b %d") +
     ggplot2::theme(axis.text.x = ggplot2::element_text(angle = 90)) +
-    ggplot2::labs(fill = "Growth rate source", y = "Growth rate") +
-    ggplot2::scale_fill_brewer(palette = "Dark2")
+    ggplot2::labs(fill = fill_lab, y = y, x = "Date") +
+    ggplot2::scale_fill_brewer(palette = palette)
 }

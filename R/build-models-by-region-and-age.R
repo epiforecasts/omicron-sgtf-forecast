@@ -24,11 +24,14 @@ build_models_by_region_and_age <- function(
         future.seed = TRUE)
 
   forecasts <- dplyr::bind_rows(forecasts)
-  forecasts <- bind_cols(
+  forecasts <- dplyr::bind_cols(
     obs %>%
       select(region, age_group) %>%
       unique(),
     forecasts
   )
+
+  forecasts <- data.table::as.data.table(forecasts)
+  class(forecasts) <- c("fv_forecast", class(forecasts))
   return(forecasts)
 }
