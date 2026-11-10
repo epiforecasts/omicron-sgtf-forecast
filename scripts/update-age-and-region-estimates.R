@@ -42,7 +42,7 @@ daily_regional <- read_csv(
   filter(date <= target_date)
 
 # Load settings
-sgtf_parameters <- load_sgft_age_parameters()
+sgtf_parameters <- load_sgtf_age_parameters()
 
 ##############################
 # Estimate Omicron using SGTF by region
@@ -55,7 +55,7 @@ sgtf_regional <- daily_regional %>%
   filter(!(is.na(cases) & is.na(seq_voc)))
 
 # Estimate models for SGTF data
-region_omicorn_forecasts <- build_models_by_region_and_age(
+region_omicron_forecasts <- build_models_by_region_and_age(
   sgtf_regional, sgtf_parameters,
   variant_relationships = c("correlated"),
   cores_per_model = 2, chains = 2,
@@ -66,9 +66,9 @@ region_omicorn_forecasts <- build_models_by_region_and_age(
 omicron_results <- list(
   data = sgtf_regional,
   posterior = summary(
-    region_omicorn_forecasts, target = "posterior", type = "all"
+    region_omicron_forecasts, target = "posterior", type = "all"
   ),
-  diagnostics = summary(region_omicorn_forecasts, target = "diagnostics")
+  diagnostics = summary(region_omicron_forecasts, target = "diagnostics")
 )
 
 save_results(omicron_results, "sgtf-by-age", target_date)
