@@ -33,12 +33,16 @@ target_date <- get_latest_date()
 results <- load_results(target_date)
 
 # Estimation start date
-start_date <- as.Date("2021-11-16")
-start_sgtf_date <- as.Date("2021-11-23")
+start_date <- as.Date("2022-01-05")
+start_sgtf_date <- as.Date("2022-01-12")
 
 # Load data for the target date
 daily_regional <- load_local_data(target_date) %>%
   filter(date >= start_date)
+
+# for BA.2: swap sgtf and non-sgtf
+daily_regional <- daily_regional %>%
+  rename(sgtf = non_sgtf, non_sgtf = sgtf)
 
 # check is the sgtf data is newer than the sgtf data in the results
 # if results are present

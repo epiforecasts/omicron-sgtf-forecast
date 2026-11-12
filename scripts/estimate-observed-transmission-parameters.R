@@ -16,7 +16,7 @@ source(here("R", "estimate-generation-time.R"))
 # Load growth estimates
 region_target_date <- get_latest_date()
 region_growth <- load_growth(
-  region_target_date, min_date = "2021-12-01", max_date = "2021-12-23"
+  region_target_date, min_date = "2022-01-12", max_date = "2022-02-06"
 )
 region_growth <- region_growth[!(region %in% "England")]
 
@@ -33,7 +33,7 @@ grid <- CJ(
 )
 
 grid[, gt_prior := purrr::map(
-  gt_type, ~ gt_prior(source = "hart2021", type = .x))
+  gt_type, ~ gt_prior(source = "abbott2022", type = .x))
 ]
 
 grid <- merge(grid, growth, by = "stratification")

@@ -44,9 +44,9 @@ source(here("R", "estimate-generation-time.R"))
 ```
 
 ```{r setup-dates}
-date_data_start <- as.Date("2021-11-23")
-date_gt_start <- as.Date("2021-12-01")
-date_forecast_start <- as.Date("2021-12-23")
+date_data_start <- as.Date("2022-01-01")
+date_gt_start <- as.Date("2022-01-12")
+date_forecast_start <- as.Date("2022-02-06")
 ```
 
 1. Centre for the Mathematical Modelling of Infectious Diseases, London School of Hygiene & Tropical Medicine, London WC1E 7HT, United Kingdom
@@ -94,7 +94,7 @@ A full description of this model can be found in the documentation for the [`for
 
 ```{r load-regional-growth}
 # get regional estimation date
-regional_date <- as.Date("2022-01-06")
+regional_date <- as.Date("2022-02-12")
 
 # load case data
 daily <- load_local_data(regional_date) %>%
@@ -217,13 +217,14 @@ ggplot(piv_growth) +
 
 ```{r}
 posterior_summary %>%
+  as_tibble() %>%
   select(-rhat, -ess_bulk, -ess_tail) %>%
   filter(
     variable %in% c("gt_mean", "gt_sd", "ta", "voc_gt_mean", "voc_gt_sd")
   ) %>%
   mutate(across(where(is.numeric), round, digits = 1)) %>%
-  mutate(variant = case_when(variable %in% c("gt_mean", "gt_sd") ~ "Delta",
-                             TRUE ~ "Omicron")) %>%
+  mutate(variant = case_when(variable %in% c("gt_mean", "gt_sd") ~ "Omicron BA.1",
+                             TRUE ~ "Omicron BA.2")) %>%
   mutate(stratification = str_to_sentence(stratification),
          gt_type = str_to_sentence(gt_type)) %>%
   select(data_stratification = stratification,

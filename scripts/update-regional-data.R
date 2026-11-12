@@ -4,7 +4,9 @@ library(ggplot2)
 source(here::here("R", "load-data.R"))
 source(here::here("R", "plot-daily-cases.R"))
 
-daily <- load_data()
+start_date <- as.Date("2021-11-15")
+
+daily <- load_data(open_data = FALSE, data_type = "specimen", start_date = start_date, clean = TRUE)
 
 date <- max(daily$date)
 download_date <- Sys.Date()
