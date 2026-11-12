@@ -1,5 +1,7 @@
 # Real-time estimation of Omicron and Delta transmission dynamics in England
 
+> **Archived.** No longer maintained; last updated November 2026.
+
 ## Analyses
 
 ### Real-time estimation of the time-varying transmission advantage of Omicron in England using S-Gene Target Status as a Proxy
